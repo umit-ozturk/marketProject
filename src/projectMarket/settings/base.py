@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'import_export',
     'rest_framework',
+    'ckeditor',
     'mptt',
     'accounts',
     'products',

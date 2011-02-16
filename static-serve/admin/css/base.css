@@ -247,17 +247,19 @@ table {
 }
 
 td, th {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 16px;
     border-bottom: 1px solid #eee;
     vertical-align: top;
     padding: 8px;
     font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+    text-align: center;
+    vertical-align: middle;
 }
 
 th {
     font-weight: 600;
-    text-align: left;
+    text-align: center;
 }
 
 thead th,
