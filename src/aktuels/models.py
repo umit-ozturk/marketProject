@@ -1,0 +1,62 @@
+from django.conf import settings
+from django.db import models
+from django.template.defaultfilters import slugify
+
+# Create your models here.
+
+
+def upload_location(instance, filename):
+	upload_path = "img/aktuel/" + str(instance) + "\_" + str(filename)
+	return upload_path
+
+class Aktuel(models.Model):
+	title 			= models.CharField(max_length=140)
+	explain			= models.CharField(max_length=140)
+	updated 		= models.DateTimeField(auto_now=True)
+	timestamp		= models.DateTimeField(auto_now_add=True)
+	image_aktuel	= models.ImageField(upload_to=upload_location,
+					 		null=True,
+							width_field="width_field", 
+			 				height_field="height_field")
+	height_field	= models.IntegerField(default=0, blank=True)
+	width_field 	= models.IntegerField(default=0, blank=True)
+	slug 			= models.SlugField(blank=True, unique=True)
+
+	def save(self, *args, **kwargs):
+		self.slug = slugify(self.title)
+		super(Aktuel, self).save(*args, **kwargs)
+
+	def __str__(self):
+		return str(self.pk) + "\t" + str(self.title) 
+
+
+class AktuelProducts(models.Model):
+	aktuel 			= models.ForeignKey(Aktuel, on_delete=models.CASCADE, related_name="aktuel_products")
+	name 			= models.CharField(max_length=140)
+	title 			= models.CharField(max_length=140)
+	price 			= models.DecimalField(max_digits=6, decimal_places=2)
+	exist 			= models.BooleanField(verbose_name='Stockta Var Mı?', default=True)
+	updated 		= models.DateTimeField(auto_now=True)
+	timestamp		= models.DateTimeField(auto_now_add=True)
+	image_prod		= models.ImageField(upload_to=upload_location,
+					 		null=True,
+							width_field="width_field", 
+			 				height_field="height_field")
+	height_field	= models.IntegerField(default=0, blank=True)
+	width_field 	= models.IntegerField(default=0, blank=True)
+
+
+
+	def __str__(self):
+		return str(self.pk) + "\t" + str(self.title) 
+
+
+def pre_save_aktuel_create(sender, m, *args, **kwargs):
+	slug = slugify(m.title)
+	check = Aktuel.objects.filter(slug=slug).exists()
+	if check:
+		slug = "%s-%s" % (slug, m.id)
+	m.slug = slug
+
+#pre_save.connect(pre_save_aktuel_create, sender=Aktuel)
+

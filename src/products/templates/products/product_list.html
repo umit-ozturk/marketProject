@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+
+{% block script %}
+    <script>
+
+        // Aktuel APP Implemented 
+        $(document).ready(function(){
+            loadAktuelUlContainer("aktuel-ul-container")
+        });
+
+        $(document).ready(function(){
+            loadAktuelOlContainer("aktuel-ol-container")
+        });        
+
+        // Categories APP Implemented 
+        $(document).ready(function(){
+            loadCategoryContainer("category-container")
+        });
+
+
+        // Products APP  Implemented 
+        $(document).ready(function(){
+            loadProductContainer("product-container")
+        });
+    </script>
+{% endblock script %}
+
+
+{% block content %}
+        <!--
+        |========================
+        | FEATURE PRODUCT
+        |========================
+        -->
+
+        <section class="xt-feature-product">
+            <div class="container">
+                <div class="row section-separator">
+                    <div class="section-title">
+                        <h2>İLGİNİZİ ÇEKEBİLECEK ÜRÜNLER</h2>
+                        <span class="xt-title-bg"></span>
+                    </div>
+                    <div id="product-container" data-url="/api/product/"> <!-- loadProductContainer() not parameter !!! -->
+                    	<!-- Products Jquery -->
+
+                    </div>
+                    <a id="nextProducts" href=""> İleri </a>
+                    <a id="previousProducts" href=""> Geri </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!--
+        |========================
+        |  BY CATEGORY PRODUCT
+        |========================
+        -->
+        <section class="product-category">
+            <div class="container">
+                <div class="row section-separator">
+                    <div class="section-title">
+                         <h2> KATEGORİLERİNE GÖRE ÜRÜNLER </h2>
+                        <span class="xt-title-bg"></span>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="xt-product-slide">
+                            <div class="xt-carousel">
+                                <div class="xt-item">
+                                    <i class="fa flaticon-supermarket-cart"></i>
+                                    <span>Et</span>
+                                </div>
+                                <div class="xt-item">
+                                    <i class="fa flaticon-supermarket-cart"></i>
+                                    <span>Gıda</span>
+                                </div>
+                                <div class="xt-item">
+                                    <i class="fa flaticon-supermarket-cart"></i>
+                                    <span>Temizlik</span>
+                                </div>
+                                <div class="xt-item">
+                                    <i class="fa flaticon-supermarket-cart"></i>
+                                    <span>Kişisel</span>
+                                </div>
+                                <div class="xt-item">
+                                    <i class="fa flaticon-supermarket-cart"></i>
+                                    <span>İçeçek</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="xt-category-feature col-xs-12">
+
+
+
+
+                    {% for object in object_list %}
+                    <div class="xt-each-feature">
+                        <div class="col-md-3 col-sm-3">
+                            <div class="xt-feature">
+                                <div class="product-img">
+                                    <img src="/media/{{ object.image_prod }}" alt="" class="img-responsive">
+                                    <span class="product-tag xt-uppercase">sale!</span>
+                                </div>
+                                <div class="product-info">
+                                    <div class="product-title">
+                                        <span class="category xt-uppercase">{{object.comp}}</span>
+                                        <span class="name xt-semibold">{{object.title}}</span>
+                                    </div>
+                                    <div class="price-tag pull-right">
+                                        <span class="new-price xt-uppercase">{{object.name}}</span>
+                                        <span class="new-price xt-semibold">{{object.price}} TL</span>
+                                    </div>
+                                    <div class="xt-featured-caption">
+                                        <div class="product-title">
+                                            <span class="category xt-uppercase">{{object.comp}}</span>
+                                            <span class="name xt-semibold">{{object.title}}</span>
+                                        </div>
+                                        <div class="price-tag pull-right">
+                                            <span class="new-price xt-uppercase">{{object.name}}</span>
+                                            <span class="new-price xt-semibold">{{object.price}} TL</span>
+                                        </div>
+                                        <div class="add-cart">
+                                            <a href="" class="btn btn-fill">Sepete Ekle</a>
+                                            <ul class="reaction">
+                                            	<span class="product-offer">{{object.exist}}></span>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock content %}

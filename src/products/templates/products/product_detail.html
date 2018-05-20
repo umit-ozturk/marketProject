@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+{% load static %}
+{% block script %}
+	<script>
+
+    // Categories APP Detail Implemented 
+        $(document).ready(function(){
+            loadCategoryContainer("category-container", {{ object.id }})
+
+        });
+
+    // Products APP Detail Implemented 
+		$(document).ready(function(){
+			loadProductContainer("product-container", {{ object.id }})
+
+		});
+
+
+    // Products Featured Products Implemented
+        $(document).ready(function(){
+            loadProductContainer("product-feature-container")
+        });
+
+
+    // Products Top Featured Products Implemented
+        $(document).ready(function(){
+            loadProductContainer("product-top-feature-container", "top-featured")
+        });        
+
+	</script>
+{% endblock script %}
+
+{% block content %}
+
+
+
+        <!--
+        |========================
+        |   PRODUCT DESCRIPTION
+        |========================
+        -->
+
+        <section class="xt-xt-single-product">
+            <div class="container">
+            	<div class="row">
+                    <div class="col-md-3 visible-xs visible-sm padding-right-o"></div>
+                    <div class="col-md-9 col-md-offset-3 padding-o">
+                        <div class="xt-product-inner" id="product-container" data-url="/api/product/">
+
+
+                        </div>
+                    </div>          
+            	</div>
+            </div>
+        </section>
+        
+        <div class="clearfix"></div>
+        
+        <div class="xt-product-description">    
+            <div class="container">
+                <div class="row section-separator">
+                    <aside class="col-md-3">
+                        <div class="xt-top-product">
+                            <h3>En Sıcak Ürünler</h3>
+                            <div class="each-top-product" id="product-top-feature-container" data-url="/api/product/featured">
+
+                            </div>
+                        </div>
+                        <div class="xt-side-deal">
+                            <div class="xt-off-deal cover-bg white xt-deal xt-color-bg">
+                                <span>Şu Şu ürünlerde</span>
+                                <h2 class="xt-deal-price">66<span style='font-size:20px;'>%<br>İndİRİM</span></h2>
+                                <a href="" class="btn btn-border">Şimdi Göz At</a>
+                            </div>
+                        </div>
+                    </aside>
+                    <div class="col-md-9">
+                        <div class="xt-single-item-info">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs xt-single-item-tab" role="tablist" id="xt-product-dec-nav">
+                                <li role="presentation" class="active">
+                                    <a href="#description" aria-controls="description" role="tab" data-toggle="tab">Tanıtım</a>
+                                </li>
+                                <li role="presentation" class="">
+                                    <a href="#specification" aria-controls="specification" role="tab" data-toggle="tab">Özellikleri</a>
+                                </li>
+                                <li role="presentation" class="">
+                                    <a href="#review" aria-controls="review" role="tab" data-toggle="tab">Diğer Fiyatlar(3)</a>
+                                </li>
+                                <li role="presentation" class="">
+                                    <a href="#seller" aria-controls="seller" role="tab" data-toggle="tab">Satıcı Bilgisi</a>
+                                </li>
+                            </ul>
+                            
+                            <!-- Tab panes -->
+                            <div class="tab-content xt-tab-content">
+                                <div role="tabpanel" class="tab-pane xt-pane xt-description fade in active" id="description">
+                                    <h3>Ürün Tanıtım</h3>
+                                    <b>Tanıtım</b>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <ul>
+                                        <li> Lorem ipsumn </li>
+                                        <li> Lorem ipsum </li>
+                                        <li> Lorem ipsum </li>
+                                    </ul>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                </div>
+                                <div role="tabpanel" class="tab-pane xt-pane fade" id="specification">
+                                    <h3>Ürün Özellikleri</h3>
+                                    
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <ul>
+                                        <li> Lorem ipsum </li>
+                                        <li> Lorem ipsum </li>
+                                        <li> Lorem ipsum </li>
+                                         <li> Lorem ipsum </li>
+                                        <li> Lorem ipsum </li>
+                                        <li> Lorem ipsum </li>
+                                         <li> Lorem ipsum </li>
+                                        <li> Lorem ipsum </li>
+                                        <li> Lorem ipsum </li>
+                                    </ul>
+                                </div>
+                                <div role="tabpanel" class="tab-pane xt-pane xt-review fade" id="review">
+                                    <h3>Diğer Teklifler</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <ul class="item-review">
+                                        <li>
+                                            <img src="assets/images/rating.png" alt="" >
+                                            <h4>Angel Brown</h4>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                        </li> 
+                                        <li>
+                                            <img src="assets/images/rating.png" alt="" >
+                                            <h4>Mark Monster</h4>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                        </li>
+                                        <li>
+                                            <img src="assets/images/rating.png" alt="" >
+                                            <h4>Lol Brown</h4>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div role="tabpanel" class="tab-pane xt-pane fade" id="seller">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!--end singlw item info -->
+                        <div class="xt-feature-product">
+                            <div class="section-separator">
+                                <div class="section-title">
+                                    <h2>İlgİnİzİ Çeken Dİğer Ürünler</h2>
+                                    <span class="xt-title-bg"></span>
+                                </div>
+                                <div class="xt-each-feature">
+                                    <div id="product-feature-container" data-url="/api/product/">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!---->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+{% endblock content %}

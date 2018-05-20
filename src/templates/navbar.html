@@ -1,0 +1,124 @@
+{% load static %}
+        <header id="xt-home" class="xt-header">
+            <div class="header-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="xt-language col-md-6 col-sm-6 col-xs-12">
+                            <div class="each-nav">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="main-navigation">
+                <nav class="navbar navbar-fixed-top nav-scroll">
+                    <div class="container">
+                        <div class="row">
+                            <div class="navbar-header">
+                              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span aria-hidden="true" class="icon"></span>
+                              </button>
+                              <a class="navbar-brand" href="index.html"><img src="{% static 'images/flogo.png' %}" alt="" class="img-responsive"></a>
+                            </div>
+                            
+                            <div class="collapse navbar-collapse" id="js-navbar-menu">
+                                <ul class="nav navbar-nav navbar-right ep-mobile-menu" id="navbar-nav">
+                                    <li><a href="index.html"> Üye Ol </a></li>
+                                    <li><a href="contact-us.html"> Gİrİş Yap </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+             <!--Mobile Menu-->
+            <div class="main-color-bg">
+                <div class="container">
+                    <div class="row">
+                        {% include 'categories/category_list.html' %}
+                        {% include 'products/search_form.html' %}               
+                        <div class="col-md-1 col-sm-2 col-xs-2">
+                            <div class="xt-cart">
+                                <ul>
+                                    <li class="dropdown">
+                                      <a href="" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+                                       <i class="fa flaticon-supermarket-cart"></i>
+                                      </a>
+                                        <ul class="dropdown-menu xt-cart-items">
+                                            <li>
+                                                <a href="">
+                                                    <img src="{% static 'images/4.jpg' %}" alt="">
+                                                    <h3>Ruj</h3>
+                                                    <span class="cart-price"> 200 TL</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="">
+                                                    <img src="{% static 'images/1.jpg' %}" alt="">
+                                                    <h3>T-Shirt</h3>
+                                                    <span class="cart-price"> 500 TL</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="">
+                                                    <img src="{% static 'images/3.jpg' %}" alt="">
+                                                    <h3>T-Shirt</h3>
+                                                    <span class="cart-price"> 300 TL </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="subtotal top-checkout">
+                                                    <h3>Toplam : 1000 TL </h3>
+                                                    <span class="total-price">1000 TL</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="process top-checkout">
+                                                    <h3>Gönder </h3>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <span class="xt-item-count">8</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+
+        <div class="menu-spacing">
+            <div class="container">
+                <div class="row">
+                    <div class="mobile-menu-area visible-xs visible-sm">
+                        <div class="mobile-menu">
+                            <nav id="mobile-menu-active">
+                                <ul class="main">
+                                    <li><a class="main-a" href="">ET</a></li>
+                                    <li><a class="main-a" href="">GIDA</a></li>
+                                    <li class="active"><a class="main-a" href="#">İÇEÇEK</a>
+                                        <ul>
+                                            <li><a href="#">LOREM</a></li>
+                                            <li><a href="#">LOREM</a></li>
+                                            <li><a href="#" class="main-a">LOREM</a>
+                                                <ul>
+                                                    <li><a href="#">LOREM</a></li>
+                                                    <li><a href="#">LOREM</a></li>
+                                                    <li><a href="#">LOREM</a></li>
+                                                    <li><a href="#">LOREM</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul> 
+                                    </li>
+                                    <li><a class="main-a" href="">LOREM</a></li>
+                                    <li><a class="main-a" href="">LOREM</a></li>
+                                </ul>
+                            </nav>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>

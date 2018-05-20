@@ -1,0 +1,836 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="..." />
+    <title>{% block title %} Market Logo - Digital Market Karşılaştırma Uygulaması {% endblock title %}</title>
+    <meta name="description" content="Coming Soon Responsive Template">
+
+        <!-- FAV AND ICONS   -->
+        <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+        <link rel="shortcut icon" href="{% static 'images/apple-icon.png' %}">
+        <link rel="shortcut icon" sizes="72x72" href="{% static 'images/apple-icon-72x72.png' %}">
+        <link rel="shortcut icon" sizes="114x114" href="{% static 'images/apple-icon-114x114.png' %}">
+
+        <!-- GOOGLE FONTS -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700%7cPlayfair+Display:400,400i,700,900" rel="stylesheet">
+
+        <!-- FONT ICONS -->
+        <link rel="stylesheet" href="{% static 'icons/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+        
+        <!-- Custom Icon Font -->
+        <link rel="stylesheet" href="{% static 'fonts/flaticon.css' %}">
+        <!-- Bootstrap-->
+        <link rel="stylesheet" href="{% static 'plugins/css/bootstrap.min.css' %}">
+        <!-- Fancybox-->
+        <link rel="stylesheet" href="{% static 'plugins/css/jquery.fancybox.min.css' %}">
+        <!-- Animation -->
+        <link rel="stylesheet" href="{% static 'plugins/css/animate.css' %}">
+        <!-- owl -->
+        <link rel="stylesheet" href="{% static 'plugins/css/owl.css' %}">
+        <!--flexslider-->
+        <link rel="stylesheet" href="{% static 'plugins/css/flexslider.min.css' %}">
+        <!-- selectize -->
+        <link rel="stylesheet" href="{% static 'plugins/css/selectize.css' %}">
+        <link rel="stylesheet" href="{% static 'plugins/css//selectize.bootstrap3.css' %}">
+        <link rel="stylesheet" href="{% static 'plugins/css/jquery-ui.min.css' %}">
+        <!--dropdown -->
+        <link rel="stylesheet" href="{% static 'plugins/css/bootstrap-dropdownhover.min.css' %}">
+        <!-- mobile nav-->
+        <link rel="stylesheet" href="{% static 'plugins/css/meanmenu.css' %}">
+
+        <!-- COUSTOM CSS link  -->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+        <!--[if lt IE 9]>
+            <script src="js/plagin-js/html5shiv.js"></script>
+            <script src="js/plagin-js/respond.min.js"></script>
+        <![endif]-->
+
+</head>
+<body>
+{% include "navbar.html" %}
+
+{% include "aktuels/aktuel_list.html" %}
+
+
+
+
+        <!--
+        |========================
+        |  FEATURED SECTION
+        |========================
+        -->
+        <section id="deal-xt" class="xt-deal-section">
+            <div class="container">
+                <div class="row section-separator">
+                    <div class="xt-each-deal">
+                        <div class="col-md-8 col-sm-6">
+                            <div class="xt-spring-deal cover-bg white xt-deal" style="background-image: url({% static 'images/f1.jpg' %});">
+                                <div class="xt-overlay"></div>
+                                <span>Lorem Ipsum</span>
+                                <h2>Lorem Ipsum <br> Lorem Ipsum</h2>
+                                <a href="" class="btn btn-fill">Göz At</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="xt-summer-deal cover-bg white xt-deal" style="background-image: url({% static 'images/f2.jpg' %});">>
+                                <div class="xt-overlay"></div>
+                                <span>Lorem Ipsum</span>
+                                <h2>Lorem Ipsum Dolor</h2>
+                                <a href="" class="btn btn-fill">Göz At</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="xt-off-deal cover-bg white xt-deal xt-color-bg">
+                                <span>Lorem Ipsum</span>
+                                <h2 class="xt-deal-price">66<span>%<br> İNDİRİM</span></h2>
+                                <a href="" class="btn btn-border">Göz At</a>
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-sm-6">
+                            <div class="xt-summer-deal cover-bg white xt-deal" style="background-image: url({% static 'images/f3.jpg' %});">
+                                <div class="xt-overlay"></div>
+                                <span>Lorem Ipsum</span>
+                                <h2>Lorem Ipsum <br> Lorem Ipsum Dolor</h2>
+                                <a href="" class="btn btn-fill">Göz At</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {% block content %}
+        {% endblock content %}
+        {% block contentcategory %}
+        {% endblock contentcategory %}
+        
+        <!--
+        |========================
+        |  SUBSCRIBE
+        |========================
+        -->
+        <div class="black-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <form class="form-inline xt-subscribe-form">
+                            <div class="form-group col-xs-10 xt-subscribe">
+                                <label for="subscribe">GÜNDEM</label>
+                                <input type="text" class="form-control" id="subscribe" placeholder="Email Adresin İle İndirimleri Takip Et.">
+                            </div>
+                            <div class="col-md-2 col-xs-2">
+                                <button type="submit" class="btn btn-fill"><i class="fa fa-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="xt-social">
+                            <span>Sosyal Medya</span>
+                            <ul>
+                                <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                                <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                                <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href=""><i class="fa fa-dribbble"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!--
+        |========================
+        |  FOOTER
+        |========================
+        -->
+        <footer class="xt-footer">
+            <div class="container">
+                <div class="section-separator">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3">
+                            <div class="footer-widget footer-contact">
+                                <img src="assets/images/flogo.png" alt="" class="img-responsive">
+                                <ul>
+                                    <li><i class="fa fa-mobile-phone"></i><a href="">+(1234) 456 7896</a></li>
+                                    <li><i class="fa fa-envelope-o"></i><a href="">lorem@loremipsum.com</a></li>
+                                    <li>
+                                        <i class="fa fa-location-arrow"></i>
+                                       <address>Adres: Lorem ipsum dolor sit amet, Turkey. TR</address> 
+                                    </li>
+                                </ul>
+                            </div>
+                    </div>
+                        <div class="col-md-3 col-sm-3">
+                            <div class="footer-widget">
+                                <h4>My account</h4>
+                                <ul>
+                                    <li><a href=""><i class="fa fa-caret-right"></i>Lorem Ipsum</a></li>
+                                    <li><a href=""><i class="fa fa-caret-right"></i>Lorem Ipsum</a></li>
+                                    <li><a href=""><i class="fa fa-caret-right"></i>Lorem Ipsum</a></li>
+                                    <li><a href=""><i class="fa fa-caret-right"></i>Lorem Ipsum</a></li>
+                                </ul>
+                            </div>
+                    </div>
+                        <div class="col-md-3 col-sm-3">
+                            <div class="footer-widget">
+                                <h4>Custom Service</h4>
+                                <ul>
+                                    <li><a href=""><i class="fa fa-caret-right"></i>Lorem Ipsum</a></li>
+                                    <li><a href=""><i class="fa fa-caret-right"></i>Lorem Ipsum</a></li>
+                                    <li><a href=""><i class="fa fa-caret-right"></i>Lorem Ipsum </a></li>
+                                    <li><a href=""><i class="fa fa-caret-right"></i>Lorem Ipsum</a></li>
+                                    <li><a href=""><i class="fa fa-caret-right"></i>Lorem Ipsum</a></li>
+                                </ul>
+                            </div>
+                    </div>
+                        <div class="col-md-3 col-sm-3">
+                            <div class="footer-widget">
+                                <h4>Information</h4>
+                                <ul>
+                                    <li><a href=""><i class="fa fa-caret-right"></i>Lorem Ipsum</a></li>
+                                    <li><a href=""><i class="fa fa-caret-right"></i>Lorem Ipsum</a></li>
+                                    <li><a href=""><i class="fa fa-caret-right"></i>Lorem Ipsum</a></li>
+                                    <li><a href=""><i class="fa fa-caret-right"></i>Lorem Ipsum</a></li>
+                                    <li><a href=""><i class="fa fa-caret-right"></i>Lorem Ipsum</a></li>
+                                </ul>
+                            </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="footer-middle bg-2">
+                <div class="container">
+                    <div class="row section-separator">
+                        <div class="col-md-4 col-sm-4">
+                            <div class="footer-widget-2">
+                                <div class="row">
+                                    <div class="col-md-2 f-icon">
+                                         <i class="fa flaticon-credit-card"></i>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <h4>Lorem Ipsum</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <div class="footer-widget-2">
+                                <div class="row">
+                                    <div class="col-md-2 f-icon">
+                                         <i class="fa flaticon-shipped"></i>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <h4>Lorem Ipsum</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <div class="footer-widget-2">
+                                <div class="row">
+                                    <div class="col-md-2 f-icon">
+                                         <i class="fa flaticon-question"></i>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <h4>Lorem Ipsum</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row section-separator">
+                        <div class="col-md-6 col-sm-6">
+                            <p> Bootstrap eCommerce Template .</p>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                           <img src="assets/images/payment.png" alt="" class="img-responsive">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--
+        |========================
+        |      Script
+        |========================
+        -->     
+        <!-- jquery -->
+        <script src="{% static 'plugins/js/jquery-1.11.3.min.js' %}"></script>
+        <!-- Bootstrap -->     
+        <script src="{% static 'plugins/js/bootstrap.min.js' %}"></script>
+        <!-- mean menu nav-->
+        <script src="{% static 'plugins/js/meanmenu.js' %}"></script>
+        <!-- ajaxchimp -->
+        <script src="{% static 'plugins/js/jquery.ajaxchimp.min.js' %}"></script>
+        <!-- wow -->
+        <script src="{% static 'plugins/js/wow.min.js' %}"></script>
+        <!-- Owl carousel-->
+        <script src="{% static 'plugins/js/owl.carousel.js' %}"></script>
+        <!--flexslider-->
+        <script src="{% static 'plugins/js/jquery.flexslider-min.js' %}"></script>
+        <!--dropdownhover-->
+        <script src="{% static 'plugins/js/bootstrap-dropdownhover.min.js' %}"></script>
+        <!--jquery-ui.min-->
+        <script src="{% static 'plugins/js/jquery-ui.min.js' %}"></script>
+        <!--validator -->
+        <script src="{% static 'plugins/js/validator.min.js' %}"></script>
+        <!--smooth scroll-->
+        <script src="{% static 'plugins/js/smooth-scroll.js' %}"></script>
+        <!-- Fancybox js-->
+        <script src="{% static 'plugins/js/jquery.fancybox.min.js' %}"></script>
+        <!-- SELECTIZE-->
+        <script src="{% static 'plugins/js/standalone/selectize.js' %}"></script>
+        <!-- init -->
+        <script src="{% static 'js/init.js' %}"></script>        
+
+        {% block scriptcategory %}
+        {% endblock scriptcategory %}
+        {% block script %}
+        {% endblock script %}
+
+
+        <script type="text/javascript">
+            function getParameterByName(name, url) {
+                if (!url) url = window.location.href;
+                name = name.replace(/[\[\]]/g, "\\$&");
+                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                    results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, " "));
+            }
+
+            /////////           AKTUELS            /////////
+
+            function loadAktuelUlContainer(aktuelContainerID){
+                var query = getParameterByName('q')
+                var aktuelList = []
+                var aktuelUlContainer;
+                if (aktuelContainerID){
+                    aktuelUlContainer = $("#" + aktuelContainerID);
+                }else{
+                    aktuelUlContainer = $("#aktuel-container");
+                }
+                var initalURL = aktuelUlContainer.attr("data-url") || "/api/aktuel/";        
+
+
+                function formatUlAktuel(aktuelValue){
+
+                    aktuelContent = "<li><img src='" + aktuelValue.image_aktuel + "' style='max-height:655px;' alt='' /><div class='slide_text'><span class='slide-category'>Fashion</span><h2 class='slide_title'>Spring Summer <br> Fashion Collection</h2><p class='slide_byline '> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.</p><a href='/aktuels/" + aktuelValue.slug + "' class='btn btn-fill '>Görüntüle</a></div></li>"                        
+
+
+                    return aktuelContent
+                }
+              
+                function parseAktuels(){                    
+                    $.each(aktuelList, function(key, value){
+                        aktuelValue = value
+                        aktuelUlFormattedHtml = formatUlAktuel(aktuelValue)
+                        console.log(aktuelUlFormattedHtml)
+                        aktuelUlContainer.append(aktuelUlFormattedHtml)
+                    })                                     
+                }
+
+
+                function fetchAktuels(url){
+                    var fetchUrl;
+                    if (!url){
+                        fetchUrl = initalURL
+                    }else{
+                        fetchUrl = url
+                    }
+
+                    $.ajax({
+                        url: "/api/aktuel/",
+                        data: {
+                            "q": query
+                        },
+                        method: "GET",
+                        success: function(data){
+                            aktuelList = data
+                            parseAktuels()
+                        },
+                        error: function(data){
+                            console.log("error")
+                            console.log(data)
+                        },
+                    })            
+                }
+
+                
+                fetchAktuels()                     
+             
+            }
+
+
+
+            function loadAktuelOlContainer(aktuelContainerID){
+                var query = getParameterByName('q')
+                var aktuelList = []
+                var aktuelOlContainer;
+
+                if (aktuelContainerID){
+                    aktuelOlContainer = $("#" + aktuelContainerID);
+                }else{
+                    aktuelOlContainer = $("#aktuel-ol-container");
+                }
+                var initalURL = aktuelOlContainer.attr("data-url") || "/api/aktuel/";        
+
+                function formatOlAktuel(aktuelValue){
+
+                    aktuelContent = "<li><img src='" + aktuelValue.image_aktuel + "' style='height:100px; max-width:100px;' alt='' /></li>"                        
+
+
+                    return aktuelContent
+                }
+
+                function parseAktuels(){
+                    $.each(aktuelList, function(key, value){
+                        aktuelValue = value
+                        aktuelOlFormattedHtml = formatOlAktuel(aktuelValue)
+                        aktuelOlContainer.append(aktuelOlFormattedHtml)
+                    })
+                }
+
+
+                function fetchAktuels(url){                   
+                    var fetchUrl;
+                    if (!url){
+                        fetchUrl = initalURL
+                    }else{
+                        fetchUrl = url
+                    }
+
+                    $.ajax({
+                        url: "/api/aktuel/",
+                        data: {
+                            "q": query
+                        },
+                        method: "GET",
+                        success: function(data){
+                            aktuelList = data
+                            parseAktuels()
+                        },
+                        error: function(data){
+                            console.log("error")
+                            console.log(data)
+                        },
+                    })            
+                }
+                
+                fetchAktuels()          
+             
+            }
+
+
+
+
+
+
+            /////////           CATEGORIES            /////////
+
+
+
+            function loadCategoryContainer(categoryContainerID, fetchCategoryId){
+                var query = getParameterByName('q')
+                var categoryList = []
+                var categoryDetail = []
+                var nextCategoryUrl;
+                var categoryContainer;
+                if (fetchCategoryId){
+                    var categoryDetailContainer;
+                    categoryDetailContainer = $("#category-detail-container");
+                    var initalDetailURL = categoryDetailContainer.attr("data-url") || "/api/category/" + fetchCategoryId + "/product/ ";        
+                }
+
+                if (categoryContainerID){
+                    categoryContainer = $("#" + categoryContainerID);
+                }else{
+                    categoryContainer = $("#category-container");
+                }
+                var initalURL = categoryContainer.attr("data-url") || "/api/category/";        
+
+
+                function formatCategory(categoryValue, secondCategoryFormattedHtml, thirdCategoryFormattedHtml){
+                    // If not exist second Category
+                    if(secondCategoryFormattedHtml){
+                        categoryContent = "<li><a href='/categories/"+ categoryValue.id +"/' ><i class='fa flaticon-" + categoryValue.category_logo + "'></i>" + categoryValue.category_name + "</a><ul class='mega-menu '><li><ul class='xt-single-mega'>" + secondCategoryFormattedHtml + "</ul></li><li><ul class='xt-single-mega'>" + thirdCategoryFormattedHtml + "</ul></li></ul></li>"
+                    }
+                    else{
+                        categoryContent = "<li><a href='/categories/"+ categoryValue.id +"/' ><i class='fa flaticon-" + categoryValue.category_logo + "'></i>" + categoryValue.category_name + "</a></li>"                        
+                    }
+
+
+                    return categoryContent
+                }
+
+                function formatSecondCategory(secondCategoryValue){
+                    secondCategoryContent = "<li id='secondCategoryID' class='secondCategoryClass'><a href='/categories/"+ secondCategoryValue.id +"/' >" + secondCategoryValue.category_name + "</a></li>"
+                    
+
+                    return secondCategoryContent
+                
+                }
+
+                function formatThirdCategory(thirdCategoryValue){
+                    
+                    thirdCategoryContent = "<li><a href='/categories/"+ thirdCategoryValue.id +"/' >" + thirdCategoryValue.category_name + "</a></li>"
+                    
+                    return thirdCategoryContent
+                
+                }
+              
+
+                function parseCategories(){
+                    if(categoryList == 0 && categoryDetail == 0){
+                        categoryContainer.text("Kayıtlı Kategoriniz Yoktur.")
+                    }else{
+                    // product exist, parse & display them
+
+                        // Main Category Listing
+                        if(categoryList.length >= 10){
+                            categoryList.splice(9, categoryList.length)
+                            categoryOthers = "<li><a href='/categories/' ><i class='fa flaticon-responsive'></i>Diğer Kategoriler</a></li>"
+                        
+                        }
+
+                        $.each(categoryList, function(key, value){
+                            var secondCategoryValue;
+                            var thirdCategoryValue;
+                            secondCategoryFormattedHtml = "";
+                            thirdCategoryFormattedHtml = "";
+                            categoryValue = value
+                            secondCategoryList = value.children
+                            $.each(secondCategoryList, function(secondKey, secondValue){
+                                secondCategoryValue = secondValue
+                                thirdCategoryList = secondCategoryValue.children
+                                $.each(thirdCategoryList, function(thirdKey, thirdValue){
+                                    thirdCategoryValue = thirdValue
+                                    thirdCategoryFormattedHtml += formatThirdCategory(thirdCategoryValue)
+                                })
+                                secondCategoryFormattedHtml += formatSecondCategory(secondCategoryValue)
+                            })                           
+                            categoryFormattedHtml = formatCategory(categoryValue, secondCategoryFormattedHtml, thirdCategoryFormattedHtml)
+                            categoryContainer.append(categoryFormattedHtml)
+                        })
+                        categoryContainer.append(categoryOthers)                
+                   }            
+                }
+
+                function formatSingleCategory(categoryValue){
+                    categoryContent = "<div class='col-md-4 col-sm-4'><div class='xt-feature'><div class='product-img'><img src='" + categoryValue.image_prod + "' alt='' class='img-responsive'><span class='product-tag xt-uppercase'>" + categoryValue.category.category_name + "</span></div><div class='product-info'><div class='product-title'><span class='category xt-uppercase'>" + categoryValue.name + "</span><span class='name xt-semibold'>" + categoryValue.title + "</span></div><div class='price-tag pull-right'><span class='old-price'>" + categoryValue.company.company_name + "</span><span class='new-price xt-semibold'>" + categoryValue.price + "</span></div><div class='xt-featured-caption'><div class='product-title'><span class='category xt-uppercase'>" + categoryValue.name + "</span><span class='name xt-semibold'>" + categoryValue.title + "</span></div><div class='price-tag pull-right'><span class='old-price'>" + categoryValue.company.company_name + "</span><span class='new-price xt-semibold'>" + categoryValue.price + "</span></div><div class='add-cart'><a href='' class='btn btn-fill'>Add to cart</a><ul class='reaction'><li><a href=''><i class='fa fa-search'></i></a></li><li><a href=''><i class='fa fa-heart-o'></i></a></li><li><a href=''><i class='fa fa-bar-chart-o'></i></a></li></ul></div></div></div></div></div>"
+                    
+                    
+                    return categoryContent
+                }
+
+
+                function parseSingleCategories(){
+                    $.each(categoryDetail, function(key, value){
+                        categoryValue = value
+                        categoryFormattedHtml = formatSingleCategory(categoryValue)
+                        categoryDetailContainer.append(categoryFormattedHtml)
+                    })
+           
+                }
+
+
+
+
+
+                function fetchCategories(url){
+
+                    console.log('fecthing')
+                    var fetchUrl;
+
+                    if (!url){
+                        fetchUrl = initalURL
+                    }else{
+                        fetchUrl = url
+                    }
+                    $.ajax({
+                        url: "/api/category/",
+                        data: {
+                            "q": query
+                        },
+                        method: "GET",
+                        success: function(data){
+                            categoryList = data
+                            
+                            
+                            parseCategories()
+                        },
+                        error: function(data){
+                            console.log("error")
+                            console.log(data)
+                        },
+                    })            
+                }
+
+                function fetchSingleCategory(fetchCategoryId){
+                    var fetchDetailUrl = '/api/category/' + fetchCategoryId + '/product/'
+                    $.ajax({
+                      url : fetchDetailUrl,
+                        method : "GET",
+                        success: function(data){
+                            categoryDetail = data
+                            if(data.next){
+                                nextProductUrl = data.next
+
+                            }else{
+                                 $("#slider-xt").hide()
+                                 $("#deal-xt").hide()
+                            }
+                            parseSingleCategories()
+                        },
+                        error: function(data){
+                            console.log("error")
+                            console.log(data)
+                        },
+                    })                    
+                }
+
+                if(fetchCategoryId){
+                    fetchSingleCategory(fetchCategoryId)
+                    fetchCategories()
+                }else{
+                    fetchCategories()
+                }                 
+                
+             
+            }
+
+
+            /////////           PRODUCTS            /////////
+
+            function loadProductContainer(productContainerID, fethOneID){
+                var query = getParameterByName('q')
+                var productList = []
+                var nextProductUrl;
+                var previousProductUrl;
+                var productContainer;
+                var productDetailContainer;
+                var productTopFeaturedContainer;
+
+
+                if (productContainerID){
+                    productContainer = $("#" + productContainerID);
+                }else{
+                    productContainer = $("#product-container");
+                }
+                var initalURL = productContainer.attr("data-url") || "/api/product/";
+
+                if (fethOneID){
+                    var productDetailContainer;
+                    productDetailContainer = $("#product-container");
+                    var initalDetailURL = productDetailContainer.attr("data-url") || "/api/product/" + fethOneID;        
+                }
+
+                if(productContainerID = 'product-top-feature-container'){
+                    productTopFeaturedContainer = $("#product-top-feature-container");
+                    var initalDetailURL = productTopFeaturedContainer.attr("data-url") || "/api/product/featured/";   
+                }
+
+                function formatProduct(productValue){
+                    productContent = "<div class='xt-each-feature'><div class='col-md-3 col-sm-3'><div class='xt-feature'><a href='/products/" + productValue.id + "'><div class='product-img'><img src='" + productValue.image_prod + "' alt='' class='img-responsive img-thumbnail' style='display: block;max-width: 100%;width: 100%;max-height: 250px; min-height: 150px;'><span class='product-tag xt-uppercase'>sale!</span></div></a><div class='product-info'><div class='product-title'><span class='category xt-uppercase'>" + productValue.name + "</span><span class='name xt-semibold'>" + productValue.title + "</span></div><div class='price-tag pull-right'><span class='new-price xt-uppercase'>" + productValue.name +"</span><span class='new-price xt-semibold'>" + productValue.price + " TL</span></div><div class='xt-featured-caption'><div class='product-title'><span class='category xt-uppercase'>" + productValue.name + "</span><span class='name xt-semibold'>" + productValue.title + "</span></div><div class='price-tag pull-right'><span class='new-price xt-uppercase'>" + productValue.name + "</span><span class='new-price xt-semibold'>" + productValue.price + " TL</span></div><div class='add-cart'><a href='' class='btn btn-fill'>Sepete Ekle</a><ul class='reaction'><span class='product-offer'>" + productValue.exist + "></span></ul></div></div></div></div></div></div>"
+
+                    return productContent
+                }
+
+
+                function parseProducts(){
+                    if(productList == 0){
+                        productContainer.text("Aramanızla Eşleşen ürün yoktur.")
+                    }else{
+                    // product exist, parse & display them
+                        $.each(productList, function(key, value){
+                            
+                            productKey = key // index numbers
+                            productValue = value
+                            productFormattedHtml = formatProduct(productValue) // product format function
+                            productContainer.append(productFormattedHtml)
+                        })
+                   }
+                }
+
+
+                function formatSingleProduct(productValue){
+                    productSingleContent = "<div class='col-md-5'><div role='tabpanel' class='tab-pane active xt-product-tab'><div class='tab-content xt-pro-small-image'><div role='tabpanel' id='xt-pro-1' class='tab-pane fade'><a class='grouped_elements' data-fancybox='gallery' href='" + productValue.image_prod + "'><img src='" + productValue.image_prod + "' alt='' class='img-responsive'></a></div><div role='tabpanel' id='xt-pro-2' class='tab-pane fade'><a class='grouped_elements' data-fancybox='gallery' href='" + productValue.image_prod + "'><img src='" + productValue.image_prod + "' alt='' class='img-responsive'></a></div><div role='tabpanel' id='xt-pro-3' class='tab-pane fade active in'><a class='grouped_elements' data-fancybox='gallery' href='" + productValue.image_prod + "'><img src='" + productValue.image_prod + "' alt='' class='img-responsive'></a></div><div role='tabpanel' id='xt-pro-4' class='tab-pane fade'><a class='grouped_elements' data-fancybox='gallery' href='" + productValue.image_prod + "'><img src='" + productValue.image_prod + "' alt='' class='img-responsive'></a></div></div><ul id='tablist' class='xt-pro-thumbs-list' role='tablist'><li role='presentation' class=''><a href='#xt-pro-1' role='tab' data-toggle='tab' aria-expanded='false'><img src='" + productValue.image_prod + "' alt='product thumbs'> </a></li><li role='presentation' class=''><a href='#xt-pro-2' role='tab' data-toggle='tab' aria-expanded='false'><img src='" + productValue.image_prod + "' alt='product thumbs'> </a></li><li role='presentation' class='active'><a href='#xt-pro-3' role='tab' data-toggle='tab' aria-expanded='true'><img src='" + productValue.image_prod + "' alt='product thumbs'> </a></li><li role='presentation' class=''><a href='#xt-pro-4' role='tab' data-toggle='tab' aria-expanded='false'><img src='" + productValue.image_prod + "' alt='product thumbs'> </a></li></ul></div></div><div class='col-md-7'><div class='each-product-info'><h3>" + productValue.title + "\t" + productValue.name + "</h3><span class='single-price'><b>En Ucuz Fiyat:</b>" + productValue.price + "</span><p>" + productValue.title + " Buraya Açıklama Gelicek </p><div class='product-add-cart'><a href='' class='btn btn-fill'>Sepete Ekle</a><a href='' class='btn liked '><i class='fa fa-heart-o xt-no-color'></i><i class='fa fa-heart xt-color'></i></a></div><div class='product-additional-info'><ul><li><b>Diğer:</b>3 Fiyat Var</li><li><b>Kategori:</b><a href='../../categories/" + productValue.category.id + "'>" + productValue.category.category_name + "</a></li><li><b>Satıcı:</b> <a href='" + productValue.company.company_site + "'>" + productValue.company.company_name + "</a></li></ul></div></div></div>"
+                    return productSingleContent
+                }
+
+
+                function parseSingleProduct(){
+                    if(productList == 0){
+                        productContainer.text("Ürün Yok.")
+                    }else{
+                    // product exist, parse & display them
+                        $.each(productList, function(key, value){
+                            productKey = key // index numbers
+                            productValue = value
+                            productFormattedHtml = formatSingleProduct(productValue) // product format function
+                            productDetailContainer.append(productFormattedHtml)
+                        })
+                   }                    
+                }
+
+
+                function fetchProducts(url){
+                    var fetchUrl;
+                    if (!url){
+                        fetchUrl = initalURL
+                    }else{
+                        fetchUrl = url
+                    }
+                    
+                    $.ajax({
+                        url: fetchUrl,
+                        data: {
+                            "q": query
+                        },
+                        method: "GET",
+                        success: function(data){
+                            productList = data.results
+                            if(data.next){
+                                nextProductUrl = data.next
+                            }
+                            if(data.previous){
+                                previousProductUrl = data.previous                                
+                            }
+                            else{
+                              $("#loadmore").hide()
+                            }
+
+                            parseProducts()
+                        },
+                        error: function(data){
+                            console.log("error")
+                            console.log(data)
+                        },
+                    })
+                }
+
+                function fetchSingle(fethOneID){
+                    var fetchDetailUrl = '/api/product/' + fethOneID + '/'
+                    $.ajax({
+                      url : fetchDetailUrl,
+                        method : "GET",
+                        success: function(data){
+                            productList = data
+                            if(data.next){
+                                nextProductUrl = data.next
+                            }else{
+                                $("#slider-xt").hide()
+                                parseSingleProduct()
+                            }
+                            
+                        },
+                        error: function(data){
+                            console.log("error")
+                            console.log(data)
+                        },
+                    })
+                }
+
+                // Top Featured Product Detail Page
+
+                function formatTopFeaturedProduct(productValue){
+                    productTopFeaturedContent = "<div class='top-item'><img src='" + productValue.image_prod + "' alt='' class='img-responsive'><div class='top-item-info'><a href=''><h4>" + productValue.name + "</h4></a><span>" + productValue.price + "</span></div></div>"
+                    console.log(productTopFeaturedContent)
+                    return productTopFeaturedContent
+                }
+
+
+
+
+                function parseTopFeaturedProduct(){
+                        $.each(productList, function(key, value){
+                            productKey = key // index numbers
+                            productValue = value
+                            productTopFeaturedFormattedHtml = formatTopFeaturedProduct(productValue) // product format function
+                            productTopFeaturedContainer.append(productTopFeaturedFormattedHtml)
+                        })
+                }
+
+
+
+
+                function fetchTopFeatured(){
+                    var fetchTopUrl = '/api/product/featured/'
+                    $.ajax({
+                      url : fetchTopUrl,
+                        method : "GET",
+                        success: function(data){
+                            productList = data.results     
+                            parseTopFeaturedProduct()
+                        },
+                        error: function(data){
+                            console.log("error")
+                            console.log(data)
+                        },
+                    })
+                }                
+
+
+
+
+
+                $("#nextProducts").click(function(event){
+                    event.preventDefault();
+                    if(nextProductUrl){
+                        fetchProducts(nextProductUrl)
+                        
+                    }
+
+                })
+
+                $("#previousProducts").click(function(event){
+                    event.preventDefault();
+                    if(previousProductUrl){
+                        fetchProducts(previousProductUrl)  
+                        
+                    }
+
+                })
+
+
+
+                if(fethOneID){
+                    fetchSingle(fethOneID)
+                    if(fethOneID == 'top-featured'){
+                        fetchTopFeatured()
+                    }
+                }else{
+                    fetchProducts()
+                }                                
+            }
+
+        </script>   
+
+        <script type="text/javascript">
+    
+            $(window).load(function(){
+                setTimeout(function(){
+                    $('.flexslider').flexslider({
+                          animation: "fade",
+                          manualControls: ".flex-control-nav li",
+                          useCSS: false, /* Chrome fix*/
+                        });
+                }, 1000); });
+        </script>   
+
+</body>
+</html>
