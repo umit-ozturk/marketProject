@@ -6,9 +6,28 @@ from django.views.generic  import (
 			)
 
 
-from .models import Aktuel
+from .models import Aktuel, AktuelProducts
 
 # Create your views here.
+
+
+class AktuelProductListView(ListView):
+	queryset = AktuelProducts.objects.all()
+
+	def get_queryset(self, *args, **kwargs):
+		qs = AktuelProducts.objects.all()
+
+		return qs
+
+class AktuelProductDetailView(DetailView):
+	queryset = AktuelProducts.objects.all()
+
+	def get_queryset(self, *args, **kwargs):
+		
+		qs = AktuelProducts.objects.filter(pk=pk)
+		if qs.exists():
+			return qs
+		return None
 
 class AktuelListView(ListView):
 	queryset = Aktuel.objects.all()
