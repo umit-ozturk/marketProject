@@ -1,17 +1,102 @@
-{% extends "base.html" %}
+{% load static %}
 {% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="{% static 'plugins/css/bootstrap.min.css' %}">
+	<!-- FONT ICONS -->
+	<link rel="stylesheet" href="{% static 'icons/font-awesome-4.7.0/css/font-awesome.min.css' %}">
 
-{% block title %} Register | {{ block.super }} {% endblock title %}
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
-{% block content %}
-	<div class="row">
-		<div class="col-sm-6 col-sm-offset-3">
-			<h1>Register</h1><br>
+	<!-- COUSTOM CSS link  -->
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+	<style type="text/css">
+		.btn-facebook {
+		    background-color: #405D9D;
+		    color: #fff;
+		}
+		.btn-twitter {
+		    background-color: #42AEEC;
+		    color: #fff;
+		}	
+	</style>
+</head>
+<body>
+
+	<div class="container">
+	    <section class="container">
+	    <div class="container-page">        
+	      <div class="col-md-12">  	
+	        <h3 class="dark-grey center"> Üye Ol </h3><hr>
+	        <div class="form-group col-lg-12">
+	        <div class="col-md-6">
+				<p>
+					<a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Facebook İle Giriş Yap</a>
+				</p>             	
+	        </div>       
+	        <div class="col-md-6">
+				<p>
+					<a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Twitter İle Giriş Yap</a>
+				</p>             	
+	        </div>
 				<form class="form {% if form_class %}{{ form_class }}{% endif %} " method="post" action="{% if action_url %} {{ action_url }} {% endif %}">
 					{% csrf_token %}
-				    {{ form|crispy }}
-				    <input class="btn btn-primary" type="submit" value="Register" />
-				</form>
-		</div>
-	</div>
-{% endblock content %}
+	          <label>{{ form.username.label_tag }}</label>
+	          <div class="input-group">
+	            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+	            <input type="text" class="form-control" name="username" placeholder="Kullanıcı Adı">{{ form.username }}
+	          </div>
+	          <span class="help-block"></span>
+	        </div>
+	        <div class="form-group col-lg-6">
+	          <label> {{ form.password.label_tag }}</label>
+	          <div class="input-group">
+	            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+	            <input  type="password" class="form-control" name="password" placeholder="Parola">
+	          </div>
+	            <span class="help-block"></span>
+	        </div>
+	        <div class="form-group col-lg-6">
+	          <label>Tekrar {{ form.password.label_tag }}</label>
+	          <div class="input-group">
+	            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+	            <input  type="password" class="form-control" name="password" placeholder="Parola">
+	          </div>
+	            <span class="help-block"></span>
+	        </div>       
+	        <div class="form-group col-lg-6">
+	          <label>{{ form.email.label_tag }}</label>
+	        <div class="input-group">
+	            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+	            <input  type="password" class="form-control" name="password" placeholder="E-Mail">
+	          </div>
+	            <span class="help-block"></span>
+	        </div>  
+	        <div class="form-group col-lg-6">
+	          <label>Tekrar {{ form.email.label_tag }}</label>
+	                    <div class="input-group">
+	            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+	            <input  type="password" class="form-control" name="password" placeholder="E-Mail">
+	          </div>
+	                <span class="help-block"></span>
+	        </div>      
+	        <div class="col-sm-6">
+	          <input type="checkbox" class=""> <span>  Bilgilendirmelerden beni haberdar et. </span></input>
+	        </div>
+	        <div class="col-sm-6">
+	          <input class="btn btn-primary btn-block btn-lg btn-fill" type="submit" value="Üye Ol" />
+	        </div>
+	        </form>	      
+	      </div>
+	    </div>
+	  </section>
+	</div> <br><br>	
+</body>
+<!-- Jquery -->     
+<script src="{% static 'plugins/js/jquery-1.11.3.min.js' %}"></script>
+<!-- Bootstrap -->     
+<script src="{% static 'plugins/js/bootstrap.min.js' %}"></script>
+</html>

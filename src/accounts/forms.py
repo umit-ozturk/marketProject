@@ -1,14 +1,16 @@
 from django import forms
 from django.contrib.auth import get_user_model
 
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit
 
 User = get_user_model()
 
 class UserRegisterForm(forms.Form):
-	username = forms.CharField()
-	email = forms.EmailField()
-	password = forms.CharField(widget=forms.PasswordInput)
-	password2 = forms.CharField(label='Confrim Password', widget=forms.PasswordInput)
+	username = forms.CharField(label="Kullanıcı Adı", required = True)
+	email = forms.EmailField(label='Mail Adresi', required = True)
+	password = forms.CharField(label='Parola',widget=forms.PasswordInput,required = True)
+	password2 = forms.CharField(label='Tekrar Parola', widget=forms.PasswordInput, required = True)
 
 
 	def clean_password2(self):
@@ -16,17 +18,17 @@ class UserRegisterForm(forms.Form):
 		password2 = self.cleaned_data.get("password2")
 
 		if password != password2:
-			raise form.ValidationError("Password Must Match")
+			raise form.ValidationError("Paralolar eşleşmiyor.")
 		return password2
 
 	def clean_username(self):
 		username = self.cleaned_data.get("username")
 		if User.objects.filter(username__icontains=username).exists():
-			raise form.ValidationError("This Username is Taken")
+			raise form.ValidationError("Bu kullanıcı adı zaten alınmış.")
 		return username
 
 	def clean_email(self):
 		email = self.cleaned_data.get("email")
 		if User.objects.filter(email__icontains=email).exists():
-			raise form.ValidationError("This E-Mail is Taken")
+			raise form.ValidationError("Bu mail adresi zaten kayıtlı.")
 		return email
