@@ -1,18 +1,18 @@
-{% load static %}
+{% extends "base.html" %}
 {% load crispy_forms_tags %}
-<!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" href="{% static 'plugins/css/bootstrap.min.css' %}">
-	<!-- FONT ICONS -->
-	<link rel="stylesheet" href="{% static 'icons/font-awesome-4.7.0/css/font-awesome.min.css' %}">
 
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
-	<!-- COUSTOM CSS link  -->
-	<link rel="stylesheet" href="{% static 'css/style.css' %}">
-	<link rel="stylesheet" href="{% static 'css/responsive.css' %}">
 
+{% block script %}
+<script>
+
+
+
+</script>
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 	<style type="text/css">
 		.btn-facebook {
 		    background-color: #405D9D;
@@ -23,8 +23,7 @@
 		    color: #fff;
 		}	
 	</style>
-</head>
-<body>
+
 
 	<div class="container">
 	    <section class="container">
@@ -44,10 +43,12 @@
 	        </div>
 				<form class="form {% if form_class %}{{ form_class }}{% endif %} " method="post" action="{% if action_url %} {{ action_url }} {% endif %}">
 					{% csrf_token %}
+			<div class="form-group col-lg-10">
 	          <label>{{ form.username.label_tag }}</label>
+
 	          <div class="input-group">
 	            <span class="input-group-addon"><i class="fa fa-user"></i></span>
-	            <input type="text" class="form-control" name="username" placeholder="Kullanıcı Adı">{{ form.username }}
+	            <input type="text" class="form-control" name="username" placeholder="Kullanıcı Adı">
 	          </div>
 	          <span class="help-block"></span>
 	        </div>
@@ -94,9 +95,7 @@
 	    </div>
 	  </section>
 	</div> <br><br>	
-</body>
-<!-- Jquery -->     
-<script src="{% static 'plugins/js/jquery-1.11.3.min.js' %}"></script>
-<!-- Bootstrap -->     
-<script src="{% static 'plugins/js/bootstrap.min.js' %}"></script>
-</html>
+
+
+{% endblock content %}
+

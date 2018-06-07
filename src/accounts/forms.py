@@ -1,8 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model
 
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit
 
 User = get_user_model()
 
@@ -11,6 +9,7 @@ class UserRegisterForm(forms.Form):
 	email = forms.EmailField(label='Mail Adresi', required = True)
 	password = forms.CharField(label='Parola',widget=forms.PasswordInput,required = True)
 	password2 = forms.CharField(label='Tekrar Parola', widget=forms.PasswordInput, required = True)
+
 
 
 	def clean_password2(self):
