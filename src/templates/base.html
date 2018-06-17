@@ -394,7 +394,47 @@
             }
 
 
+            function loadAktuelDetailContainer(aktuelContainerID){
+                var query = getParameterByName('q')
+                var aktuelProductDetailList = []
+                var aktuelDetailContainer;
+                if (aktuelContainerID){
+                    aktuelDetailContainer = $("#" + aktuelContainerID);
+                }else{
+                    aktuelDetailContainer = $("#aktuel-detail-container");
+                }
 
+                var initalURL = aktuelOlContainer.attr("data-url") || "/api/aktuel/";
+
+
+
+                function fetchAktuels(url){                   
+                    var fetchUrl;
+                    if (!url){
+                        fetchUrl = initalURL
+                    }else{
+                        fetchUrl = url
+                    }
+
+                    $.ajax({
+                        url: "/api/aktuel/",
+                        data: {
+                            "q": query
+                        },
+                        method: "GET",
+                        success: function(data){
+                            aktuelProductDetailList = data
+                            parseDetailAktuel()
+                        },
+                        error: function(data){
+                            console.log("error")
+                            console.log(data)
+                        },
+                    })            
+                }
+
+                fetchDetailAktuel()
+            }
 
 
 

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from aktuels.models import Aktuel, AktuelProducts
+from aktuels.models import AktuelProducts, Aktuel
 
 # CompanyDisplaySerializers
 
@@ -28,13 +28,10 @@ class AktuelModelDetailSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = AktuelProducts
 		fields = [
-			'id',
 			'aktuel',
-			'title',
+			'name',
 			'price',
+			'title',
 			'exist',
 			'updated',
-			'timestamp',
-			'image_prod'
-
 		]

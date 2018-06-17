@@ -10,7 +10,7 @@
 
     // Products APP Detail Implemented 
 		$(document).ready(function(){
-			loadProductContainer("aktuel-product-container", {{ object.id }})
+			loadProductContainer("aktuel-detail-container", {{ object.id }})
 
 		});
 
@@ -76,11 +76,11 @@
                 <!-- SIDEBAR -->
                 <aside class="col-md-3 product-sidebar">
                     <div class="price-range">
-                        <h3>Price</h3>
+                        <h3>Fiyat</h3>
                         <div class="each-price-range">
                             <div id="xt-price-range"></div>
                             <input type="text" id="amount"  class="price-range-amount">
-                            <a href="" class="btn btn-fill">Filter</a>
+                            <a href="" class="btn btn-fill">Filtrele</a>
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -107,9 +107,9 @@
                     </div>
                     <div class="clearfix"></div>
                     <div class="xt-top-product">
-                        <h3>Top Rated Products</h3>
-                        <div class="each-top-product">
-                            <div class="top-item">
+                        <h3>En Çok Tıklanan Ürünler</h3>
+                        <div class="each-top-product ">
+                            <div class="top-item ">
                                 <img src="assets/images/1.jpg" alt="" class="img-responsive">
                                 <div class="top-item-info">
                                     <a href=""><h4>T-SHIRT</h4></a>
@@ -149,29 +149,8 @@
                         <div class="section-separator">
                             <div class="xt-filter-nav">
                                 <div class="form-group col-md-4 col-sm-4 col-xs-12">
-                                    <div class="xt-select xt-search-opt">
-                                        <select class="xt-category-search select-beast">
-                                            <option>Shirt</option>
-                                            <option>Pant</option>
-                                            <option>Jeans</option>
-                                            <option>Jackets</option>
-                                        </select>
-                                    </div>
-                                    <div class="xt-search-opt xt-search-btn">
-                                        <button type="button" class="btn-search"><i class="fa fa-long-arrow-down"></i></button>
-                                    </div>
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-8 xt-show-item">
-                                    <label>Show: </label>
-                                    <div class="xt-select xt-search-opt xt-item-view-count">
-                                        <select class="xt-category-search select-beast">
-                                            <option>4</option>
-                                            <option>8</option>
-                                            <option>12</option>
-                                            <option>20</option>
-                                            <option>40</option>
-                                        </select>
-                                    </div>
                                 </div>
                                 <div class="col-md-5 col-sm-5 col-xs-12">
                                     <div class="xt-page-pagination">
@@ -221,17 +200,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group xt-shop-category col-md-4 col-sm-4 col-xs-12">
-                                    <div class="xt-select xt-search-opt">
-                                        <select class="xt-category-search select-beast">
-                                            <option>Shirt</option>
-                                            <option>Pant</option>
-                                            <option>Jeans</option>
-                                            <option>Jackets</option>
-                                        </select>
-                                    </div>
-                                    <div class="xt-search-opt xt-search-btn">
-                                        <button type="button" class="btn-search"><i class="fa fa-long-arrow-down"></i></button>
-                                    </div>
+
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-12">
                                     <div class="xt-page-pagination">
