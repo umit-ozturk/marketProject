@@ -34,4 +34,5 @@ class AktuelModelDetailSerializer(serializers.ModelSerializer):
 			'title',
 			'exist',
 			'updated',
+			'image_prod'
 		]

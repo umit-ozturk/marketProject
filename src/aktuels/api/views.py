@@ -21,9 +21,14 @@ class AktuelListAPIView(generics.ListAPIView):
 		return qs
 
 class AktuelDetailAPIView(generics.ListAPIView):
-	queryset = AktuelProducts.objects.all()
 	serializer_class = AktuelModelDetailSerializer
 
 	def get_queryset(self, *args, **kwargs):
-		qs = AktuelProducts.objects.all()
+		aktuel_id = self.kwargs.get("pk")
+		qs = AktuelProducts.objects.filter(aktuel=aktuel_id)
+		query = self.request.GET.get("q")
+		if query:
+			qs = qs.filter(
+				Q(price__range=query)
+				).distinct()
 		return qs

@@ -2,29 +2,19 @@
 {% block script %}
 	<script>
 
+    // Products APP Detail Implemented 
+        $(document).ready(function(){
+            loadAktuelDetailContainer("aktuel-detail-container", {{ object.id }})
+
+        });
+
     // Categories APP Detail Implemented 
         $(document).ready(function(){
             loadCategoryContainer("category-container", {{ object.id }})
 
         });
 
-    // Products APP Detail Implemented 
-		$(document).ready(function(){
-			loadProductContainer("aktuel-detail-container", {{ object.id }})
 
-		});
-
-
-    // Products Featured Products Implemented
-        $(document).ready(function(){
-            loadProductContainer("product-feature-container")
-        });
-
-
-    // Products Top Featured Products Implemented
-        $(document).ready(function(){
-            loadProductContainer("product-top-feature-container", "top-featured")
-        });        
 
 	</script>
 {% endblock script %}
@@ -172,7 +162,7 @@
                             </div>
                             <div class="clearfix"></div>
                             <div class="xt-each-feature">
-                                <div id="aktuel-product-container" data-url="/api/category/">
+                                <div id="aktuel-detail-container" data-url="/api/aktuel/">
                                     
                                 </div>                                                                                                 
                             </div>

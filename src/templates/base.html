@@ -394,7 +394,7 @@
             }
 
 
-            function loadAktuelDetailContainer(aktuelContainerID){
+            function loadAktuelDetailContainer(aktuelContainerID, fethOneID){
                 var query = getParameterByName('q')
                 var aktuelProductDetailList = []
                 var aktuelDetailContainer;
@@ -404,27 +404,35 @@
                     aktuelDetailContainer = $("#aktuel-detail-container");
                 }
 
-                var initalURL = aktuelOlContainer.attr("data-url") || "/api/aktuel/";
+                var initalURL = aktuelDetailContainer.attr("data-url") || "/api/aktuel/";
+
+                function formatAktuelDetail(aktuelDetailValue){
+                    aktuelDetailContent = "<div class='col-md-4 col-sm-4'><div class='xt-feature'><div class='product-img'><img src='" + aktuelDetailValue.image_prod + "' alt='' class='img-responsive'><span class='product-tag xt-uppercase'>" + aktuelDetailValue.name + "</span></div><div class='product-info'><div class='product-title'><span class='category xt-uppercase'>" + aktuelDetailValue.name + "</span><span class='name xt-semibold'>" + aktuelDetailValue.title + "</span></div><div class='price-tag pull-right'><span class='old-price'>" + aktuelDetailValue.name + "</span><span class='new-price xt-semibold'>" + aktuelDetailValue.price + "</span></div><div class='xt-featured-caption'><div class='product-title'><span class='category xt-uppercase'>" + aktuelDetailValue.name + "</span><span class='name xt-semibold'>" + aktuelDetailValue.title + "</span></div><div class='price-tag pull-right'><span class='old-price'>" + aktuelDetailValue.name + "</span><span class='new-price xt-semibold'>" + aktuelDetailValue.price + "</span></div><div class='add-cart'><a href='' class='btn btn-fill'>Add to cart</a><ul class='reaction'><li><a href=''><i class='fa fa-search'></i></a></li><li><a href=''><i class='fa fa-heart-o'></i></a></li><li><a href=''><i class='fa fa-bar-chart-o'></i></a></li></ul></div></div></div></div></div>"
+                    
+                    
+                    return aktuelDetailContent
+                }
 
 
 
-                function fetchAktuels(url){                   
-                    var fetchUrl;
-                    if (!url){
-                        fetchUrl = initalURL
-                    }else{
-                        fetchUrl = url
-                    }
+                function parseAktuelDetails(){
+                    $.each(aktuelProductDetailList, function(key, value){
+                        aktuelDetailValue = value
+                        aktuelDetailFormattedHtml = formatAktuelDetail(aktuelDetailValue)
+                        aktuelDetailContainer.append(aktuelDetailFormattedHtml)
+                    })
+           
+                }
 
+
+                function fetchDetailAktuel(url){
+                    var fetchDetailUrl = '/api/aktuel/' + fethOneID + '/'          
                     $.ajax({
-                        url: "/api/aktuel/",
-                        data: {
-                            "q": query
-                        },
-                        method: "GET",
+                      url : fetchDetailUrl,
+                        method : "GET",
                         success: function(data){
                             aktuelProductDetailList = data
-                            parseDetailAktuel()
+                            parseAktuelDetails()
                         },
                         error: function(data){
                             console.log("error")
@@ -434,6 +442,33 @@
                 }
 
                 fetchDetailAktuel()
+                
+                $( function() {
+                    $( "#xt-price-range" ).slider({
+                      range: true,
+                      min: 0,
+                      max: 500,
+                      values: [ 0, 500 ],
+                      slide: function( event, ui, oi ) {
+                        $( "#amount" ).val( "TL" + ui.values[ 0 ] + " - TL" + ui.values[ 1 ] );
+                            var searchPriceUrl = '/api/aktuel/?q=' + ui.values[ 0 ] + "-" + ui.values[ 1 ] + '/'          
+                            $.ajax({
+                              url : fetchDetailUrl,
+                                method : "GET",
+                                success: function(data){
+                                    aktuelProductDetailList = data
+                                    parseAktuelDetails()
+                                },
+                                error: function(data){
+                                    console.log("error")
+                                    console.log(data)
+                                },
+                            }) 
+                      }
+                    });
+                    $( "#amount" ).val( "TL" + $( "#xt-price-range" ).slider( "values", 0 ) +
+                      " - TL" + $( "#xt-price-range" ).slider( "values", 1 ) );
+                });                           
             }
 
 
@@ -500,6 +535,7 @@
 
                         // Main Category Listing
                         if(categoryList.length >= 10){
+                            var categoryOthers;
                             categoryList.splice(9, categoryList.length)
                             categoryOthers = "<li><a href='/categories/' ><i class='fa flaticon-responsive'></i>Diğer Kategoriler</a></li>"
                         
@@ -747,7 +783,6 @@
 
                 function formatTopFeaturedProduct(productValue){
                     productTopFeaturedContent = "<div class='top-item'><img src='" + productValue.image_prod + "' alt='' class='img-responsive'><div class='top-item-info'><a href=''><h4>" + productValue.name + "</h4></a><span>" + productValue.price + "</span></div></div>"
-                    console.log(productTopFeaturedContent)
                     return productTopFeaturedContent
                 }
 
