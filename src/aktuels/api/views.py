@@ -28,7 +28,8 @@ class AktuelDetailAPIView(generics.ListAPIView):
 		qs = AktuelProducts.objects.filter(aktuel=aktuel_id)
 		query = self.request.GET.get("q")
 		if query:
+			query_arg = query.split("-")
 			qs = qs.filter(
-				Q(price__range=query)
+				Q(price__range=(query_arg[0], query_arg[1]))
 				).distinct()
 		return qs

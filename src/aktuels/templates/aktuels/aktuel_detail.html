@@ -4,7 +4,7 @@
 
     // Products APP Detail Implemented 
         $(document).ready(function(){
-            loadAktuelDetailContainer("aktuel-detail-container", {{ object.id }})
+            loadAktuelDetailContainer("aktuel-detail-container", {{ object.id }}, "{{object.slug}}")
 
         });
 
@@ -70,7 +70,7 @@
                         <div class="each-price-range">
                             <div id="xt-price-range"></div>
                             <input type="text" id="amount"  class="price-range-amount">
-                            <a href="" class="btn btn-fill">Filtrele</a>
+                            <a href="" id="filter" class="btn btn-fill">Filtrele</a>
                         </div>
                     </div>
                     <div class="clearfix"></div>
