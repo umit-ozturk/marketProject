@@ -3,28 +3,27 @@
 	<script>
 
     // Categories APP Detail Implemented 
-        $(document).ready(function(){
-            loadCategoryContainer("category-container", {{ object.id }})
-
-        });
+    $(document).ready(function(){
+        loadCategoryContainer("category-container", {{ object.id }})
+    });
 
     // Products APP Detail Implemented 
-		$(document).ready(function(){
-			loadProductContainer("product-container", {{ object.id }})
+    $(document).ready(function(){
+    	loadProductContainer("product-container", {{ object.id }})
 
-		});
+    });
 
 
     // Products Featured Products Implemented
-        $(document).ready(function(){
-            loadProductContainer("product-feature-container")
-        });
+    $(document).ready(function(){
+        loadProductContainer("product-feature-container")
+    });
 
 
     // Products Top Featured Products Implemented
-        $(document).ready(function(){
-            loadProductContainer("product-top-feature-container", "top-featured")
-        });        
+    $(document).ready(function(){
+        loadProductContainer("product-top-feature-container", "top-featured")
+    });        
 
 	</script>
 {% endblock script %}

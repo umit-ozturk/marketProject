@@ -599,7 +599,7 @@
                 }
 
                 function formatSingleCategory(categoryValue){
-                    categoryContent = "<div class='col-md-4 col-sm-4'><div class='xt-feature'><div class='product-img'><img src='" + categoryValue.image_prod + "' alt='' class='img-responsive'><span class='product-tag xt-uppercase'>" + categoryValue.category.category_name + "</span></div><div class='product-info'><div class='product-title'><span class='category xt-uppercase'>" + categoryValue.name + "</span><span class='name xt-semibold'>" + categoryValue.title + "</span></div><div class='price-tag pull-right'><span class='old-price'>" + categoryValue.company.company_name + "</span><span class='new-price xt-semibold'>" + categoryValue.price + "</span></div><div class='xt-featured-caption'><div class='product-title'><span class='category xt-uppercase'>" + categoryValue.name + "</span><span class='name xt-semibold'>" + categoryValue.title + "</span></div><div class='price-tag pull-right'><span class='old-price'>" + categoryValue.company.company_name + "</span><span class='new-price xt-semibold'>" + categoryValue.price + "</span></div><div class='add-cart'><a href='' class='btn btn-fill'>Add to cart</a><ul class='reaction'><li><a href=''><i class='fa fa-search'></i></a></li><li><a href=''><i class='fa fa-heart-o'></i></a></li><li><a href=''><i class='fa fa-bar-chart-o'></i></a></li></ul></div></div></div></div></div>"
+                    categoryContent = "<div class='col-md-4 col-sm-4'><div class='xt-feature'><a href='/products/" + categoryValue.id + "'><div class='product-img'><img src='" + categoryValue.image_prod + "' alt='' class='img-responsive'><span class='product-tag xt-uppercase'>" + categoryValue.category.category_name + "</span></div></a><div class='product-info'><div class='product-title'><span class='category xt-uppercase'>" + categoryValue.name + "</span><span class='name xt-semibold'>" + categoryValue.title + "</span></div><div class='price-tag pull-right'><span class='old-price'>" + categoryValue.company.company_name + "</span><span class='new-price xt-semibold'>" + categoryValue.price + "</span></div><div class='xt-featured-caption'><div class='product-title'><span class='category xt-uppercase'>" + categoryValue.name + "</span><span class='name xt-semibold'>" + categoryValue.title + "</span></div><div class='price-tag pull-right'><span class='old-price'>" + categoryValue.company.company_name + "</span><span class='new-price xt-semibold'>" + categoryValue.price + "</span></div><div class='add-cart'><a href='' class='btn btn-fill'>Add to cart</a><ul class='reaction'><li><a href=''><i class='fa fa-search'></i></a></li><li><a href=''><i class='fa fa-heart-o'></i></a></li><li><a href=''><i class='fa fa-bar-chart-o'></i></a></li></ul></div></div></div></div></div>"
                     
                     
                     return categoryContent
@@ -679,11 +679,6 @@
                     })                    
                 }
 
-
-
-
-
-
                 if(fetchCategoryId){
 
                     function bigPrice(url){
@@ -698,9 +693,7 @@
                                 console.log("error")
                                 console.log(data)
                             },
-
                         })   
-
                     }
 
                     bigPrice().done(function(data){
@@ -729,7 +722,6 @@
                               " - TL" + $( "#xt-price-range" ).slider( "values", 1 ) );                    
                         });
                     });
-
                     bigPrice()
                     fetchSingleCategory(fetchCategoryId)
                     fetchCategories()
@@ -752,7 +744,7 @@
                 var productContainer;
                 var productDetailContainer;
                 var productTopFeaturedContainer;
-
+                var productCategoriesContainer;
 
                 if (productContainerID){
                     productContainer = $("#" + productContainerID);
@@ -771,6 +763,12 @@
                     productTopFeaturedContainer = $("#product-top-feature-container");
                     var initalDetailURL = productTopFeaturedContainer.attr("data-url") || "/api/product/featured/";   
                 }
+
+                if(productContainerID = 'product-categories-container'){
+                    productTopFeaturedContainer = $("#product-categories-container");
+                    var initalDetailURL = productTopFeaturedContainer.attr("data-url") || "/api/product/compare/category/";
+                    fetchProductsCategory()
+                }                
 
                 function formatProduct(productValue){
                     productContent = "<div class='xt-each-feature'><div class='col-md-3 col-sm-3'><div class='xt-feature'><a href='/products/" + productValue.id + "'><div class='product-img'><img src='" + productValue.image_prod + "' alt='' class='img-responsive img-thumbnail' style='display: block;max-width: 100%;width: 100%;max-height: 250px; min-height: 150px;'><span class='product-tag xt-uppercase'>sale!</span></div></a><div class='product-info'><div class='product-title'><span class='category xt-uppercase'>" + productValue.name + "</span><span class='name xt-semibold'>" + productValue.title + "</span></div><div class='price-tag pull-right'><span class='new-price xt-uppercase'>" + productValue.name +"</span><span class='new-price xt-semibold'>" + productValue.price + " TL</span></div><div class='xt-featured-caption'><div class='product-title'><span class='category xt-uppercase'>" + productValue.name + "</span><span class='name xt-semibold'>" + productValue.title + "</span></div><div class='price-tag pull-right'><span class='new-price xt-uppercase'>" + productValue.name + "</span><span class='new-price xt-semibold'>" + productValue.price + " TL</span></div><div class='add-cart'><a href='' class='btn btn-fill'>Sepete Ekle</a><ul class='reaction'><span class='product-offer'>" + productValue.exist + "></span></ul></div></div></div></div></div></div>"
@@ -884,12 +882,12 @@
 
 
                 function parseTopFeaturedProduct(){
-                        $.each(productList, function(key, value){
-                            productKey = key // index numbers
-                            productValue = value
-                            productTopFeaturedFormattedHtml = formatTopFeaturedProduct(productValue) // product format function
-                            productTopFeaturedContainer.append(productTopFeaturedFormattedHtml)
-                        })
+                    $.each(productList, function(key, value){
+                        productKey = key // index numbers
+                        productValue = value
+                        productTopFeaturedFormattedHtml = formatTopFeaturedProduct(productValue) // product format function
+                        productTopFeaturedContainer.append(productTopFeaturedFormattedHtml)
+                    })
                 }
 
 
@@ -911,6 +909,43 @@
                     })
                 }                
 
+
+                function formatProductsCategory(productValue){
+                    productCategoryContent = "<div class='xt-category-feature col-xs-12'><div class='xt-each-feature'><div class='col-md-3 col-sm-3'><div class='xt-feature'><div class='product-img'><img src='" + productValue.image_prod + "' alt='' class='img-responsive'><span class='product-tag xt-uppercase'>sale!</span></div><div class='product-info'><div class='product-title'><span class='category xt-uppercase'>" + productValue.name + "</span><span class='name xt-semibold'>" + productValue.image_prod + "</span></div><div class='price-tag pull-right'><span class='new-price xt-uppercase'>" + productValue.name + "</span><span class='new-price xt-semibold'>" + productValue.price + " TL</span></div><div class='xt-featured-caption'><div class='product-title'><span class='category xt-uppercase'>" + productValue.name + "</span><span class='name xt-semibold'>" + productValue.name + "</span></div><div class='price-tag pull-right'><span class='new-price xt-uppercase'>" + productValue.name + "</span><span class='new-price xt-semibold'>" + productValue.name + " TL</span></div><div class='add-cart'><a href='' class='btn btn-fill'>Sepete Ekle</a><ul class='reaction'><span class='product-offer'>" + productValue.name + "></span></ul></div></div></div></div></div></div></div>"
+                    return productCategoryContent
+                }
+
+
+                function parseProductsCategory() {
+                    $.each(productList, function(key, value){
+                        productKey = key // index numbers
+                        productValue = value
+                        productCategoriesFormattedHtml = formatProductsCategory(productValue) // product format function
+                        productTopFeaturedContainer.append(productCategoriesFormattedHtml)
+                    })
+
+                }
+
+
+                function fetchProductsCategory(){
+                    var fetchProductCategoryUrl = '/api/product/compare/category/'
+                    $.ajax({
+                      url : fetchProductCategoryUrl,
+                        method : "GET",
+                        success: function(data){
+                            productList = data.results     
+                            parseProductsCategory()
+                        },
+                        error: function(data){
+                            console.log("error")
+                            console.log(data)
+                        },
+                    })                    
+                }
+
+
+
+
                 $("#nextProducts").click(function(event){
                     event.preventDefault();
                     if(nextProductUrl){
@@ -929,7 +964,7 @@
 
                 })
 
-
+                if()
 
                 if(fethOneID){
                     fetchSingle(fethOneID)

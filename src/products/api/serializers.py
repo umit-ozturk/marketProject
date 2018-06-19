@@ -35,3 +35,17 @@ class ProductFeaturedModelSerializer(serializers.ModelSerializer):
 			'image_prod',
 			'company'
 		]
+
+
+class ProductCategoriesModelSerializer(serializers.ModelSerializer):
+	company = CompanyDisplaySerializer()
+	
+	class Meta:
+		model = Product
+		fields = [
+			'id',
+			'name',
+			'price',			
+			'image_prod',
+			'company'
+		]

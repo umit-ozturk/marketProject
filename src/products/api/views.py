@@ -12,7 +12,8 @@ from .pagination import (
 	)
 from .serializers import (
 	ProductModelSerializer,
-	ProductFeaturedModelSerializer
+	ProductFeaturedModelSerializer,
+	ProductCategoriesModelSerializer
 	)
 
 
@@ -50,3 +51,25 @@ class ProductFeaturedListAPIView(generics.ListAPIView):
 	def get_queryset(self, *args, **kwargs):
 		qs = Product.objects.all()
 		return qs
+
+
+class ProductCategoriesListAPIView(generics.ListAPIView):
+	queryset = Product.objects.all()
+	serializer_class = ProductCategoriesModelSerializer
+	pagination_class = StandartResultsPagination
+
+	def get_queryset(self, *args, **kwargs):
+		produc_category_id = self.kwargs.get("pk")
+		print(produc_category_id)
+		qs = Product.objects.all()
+		return qs
+
+
+
+
+
+
+
+
+
+
