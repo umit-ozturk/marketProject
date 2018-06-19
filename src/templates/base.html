@@ -399,6 +399,9 @@
                 var aktuelProductDetailList = []
                 var aktuelDetailContainer;
                 var searchPriceUrl = []
+                var aktuelPriceList = []
+                var currentUrl = window.location.href
+                var equalSep = currentUrl.indexOf("=")
                 if (aktuelContainerID){
                     aktuelDetailContainer = $("#" + aktuelContainerID);
                 }else{
@@ -406,26 +409,7 @@
                 }
 
                 var initalURL = aktuelDetailContainer.attr("data-url") || "/api/aktuel/";
-                // For Price Search Slider
-                $( function() {
-                    $( "#xt-price-range" ).slider({
-                      range: true,
-                      min: 0,
-                      max: 500,
-                      values: [ 0, 500 ],
-                      slide: function( event, ui ) {
-                        $( "#amount" ).val( "TL" + ui.values[ 0 ] + " - TL" + ui.values[ 1 ] );
-                        $( "#filter" ).attr("href", "/aktuels/" + fethOneSlug + "/?q=" + ui.values[ 0 ] + "-" + ui.values[ 1 ] + '/');
-                        searchPriceUrl =   "/api/aktuel/" + fethOneID + "/?q=" + ui.values[ 0 ] + "-" + ui.values[ 1 ] + "/"
-                      }
-                    });
-                    searchPriceUrl =   "/api/aktuel/" + fethOneID + "/?q=" + $( "#xt-price-range" ).slider( "values", 0 ) + "-" + $( "#xt-price-range" ).slider( "values", 1 ) + "/"
-                    console.log(searchPriceUrl)
-                    $( "#amount" ).val( "TL" + $( "#xt-price-range" ).slider( "values", 0 ) +
-                      " - TL" + $( "#xt-price-range" ).slider( "values", 1 ) );                    
-                });
 
-                console.log(searchPriceUrl)
                 function formatAktuelDetail(aktuelDetailValue){
                     aktuelDetailContent = "<div class='col-md-4 col-sm-4'><div class='xt-feature'><div class='product-img'><img src='" + aktuelDetailValue.image_prod + "' alt='' class='img-responsive'><span class='product-tag xt-uppercase'>" + aktuelDetailValue.name + "</span></div><div class='product-info'><div class='product-title'><span class='category xt-uppercase'>" + aktuelDetailValue.name + "</span><span class='name xt-semibold'>" + aktuelDetailValue.title + "</span></div><div class='price-tag pull-right'><span class='old-price'>" + aktuelDetailValue.name + "</span><span class='new-price xt-semibold'>" + aktuelDetailValue.price + "</span></div><div class='xt-featured-caption'><div class='product-title'><span class='category xt-uppercase'>" + aktuelDetailValue.name + "</span><span class='name xt-semibold'>" + aktuelDetailValue.title + "</span></div><div class='price-tag pull-right'><span class='old-price'>" + aktuelDetailValue.name + "</span><span class='new-price xt-semibold'>" + aktuelDetailValue.price + "</span></div><div class='add-cart'><a href='' class='btn btn-fill'>Add to cart</a><ul class='reaction'><li><a href=''><i class='fa fa-search'></i></a></li><li><a href=''><i class='fa fa-heart-o'></i></a></li><li><a href=''><i class='fa fa-bar-chart-o'></i></a></li></ul></div></div></div></div></div>"
                     
@@ -441,18 +425,19 @@
                         aktuelDetailFormattedHtml = formatAktuelDetail(aktuelDetailValue)
                         aktuelDetailContainer.append(aktuelDetailFormattedHtml)
                     })
-           
                 }
 
 
                 function fetchDetailAktuel(url){
-                    if(searchPriceUrl.length > 0){
-                        var fetchDetailUrl = searchPriceUrl
+
+                    if(equalSep != -1){
+                        var argsPrice = currentUrl.slice(equalSep+1, -1)
+                        var argsPrice = argsPrice.split("-")
+                        var fetchDetailUrl = '/api/aktuel/' + fethOneID + '/?q=' + argsPrice[0] + '-' + argsPrice[1]
                     }
                     else{
-                        var fetchDetailUrl = '/api/aktuel/' + fethOneID + '/'          
+                        var fetchDetailUrl = '/api/aktuel/' + fethOneID + '/'
                     }
-                    console.log(fetchDetailUrl)
                     $.ajax({
                       url : fetchDetailUrl,
                         method : "GET",
@@ -464,10 +449,56 @@
                             console.log("error")
                             console.log(data)
                         },
-                    })            
+
+                    })    
                 }
-                 
-                fetchDetailAktuel(searchPriceUrl)                                           
+
+                function bigPrice(url){
+                    var priceDetailUrl = '/api/aktuel/' + fethOneID + '/'
+                    return $.ajax({
+                      url : priceDetailUrl,
+                        method : "GET",
+                        success: function(data){
+
+                        },
+                        error: function(data){
+                            console.log("error")
+                            console.log(data)
+                        },
+
+                    })   
+
+                }
+
+                bigPrice().done(function(data){
+                    var price = []
+                    $.each(data, function(key, value){
+                        price = value.price
+                        aktuelPriceList.push(price)
+                    })
+                    highestPrice = Math.max(...aktuelPriceList)                    
+                    // For Price Search Slider
+                    $( function() {
+                        $( "#xt-price-range" ).slider({
+                          range: true,
+                          min: 0,
+                          max: highestPrice,
+                          values: [ 0, highestPrice ],
+                          slide: function( event, ui ) {
+                            $( "#amount" ).val( "TL" + ui.values[ 0 ] + " - TL" + ui.values[ 1 ] );
+                            $( "#filter" ).attr("href", "/aktuels/" + fethOneSlug + "/?q=" + ui.values[ 0 ] + "-" + ui.values[ 1 ] + '/');
+                            searchPriceUrl =   "/aktuels/" + fethOneSlug + "/?q=" + ui.values[ 0 ] + "-" + ui.values[ 1 ] + "/"
+                          }
+                        });
+                        searchPriceUrl =   "/aktuels/" + fethOneSlug + "/?q=" + $( "#xt-price-range" ).slider( "values", 0 ) + "-" + $( "#xt-price-range" ).slider( "values", 1 ) + "/"
+                        $( "#filter" ).attr("href", searchPriceUrl);
+                        $( "#amount" ).val( "TL" + $( "#xt-price-range" ).slider( "values", 0 ) +
+                          " - TL" + $( "#xt-price-range" ).slider( "values", 1 ) );                    
+                    });
+                });
+                
+                bigPrice()
+                fetchDetailAktuel()              
             }
 
 
