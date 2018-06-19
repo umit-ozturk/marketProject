@@ -23,6 +23,12 @@ class ProductListByCategoryAPIView(generics.ListAPIView):
 	def get_queryset(self, *args, **kwargs):
 		category_id = self.kwargs.get("pk")
 		qs  = Product.objects.filter(category=category_id)
+		query = self.request.GET.get("q")
+		if query:
+			query_arg = query.split("-")
+			qs = qs.filter(
+				Q(price__range=(query_arg[0], query_arg[1]))
+				).distinct()	
 		return qs
 
 
@@ -34,7 +40,7 @@ class CategoryDetailAPIView(generics.ListAPIView):
 		category_id = self.kwargs.get("pk")
 		qs = Category.objects.filter(pk=category_id)
 		if qs.exists() and qs.count() == 1:
-			return qs
+			return qs		
 		return None
 
 class CategoryListAPIView(generics.ListAPIView):
