@@ -767,7 +767,6 @@
                 if(productContainerID = 'product-categories-container'){
                     productTopFeaturedContainer = $("#product-categories-container");
                     var initalDetailURL = productTopFeaturedContainer.attr("data-url") || "/api/product/compare/category/";
-                    fetchProductsCategory()
                 }                
 
                 function formatProduct(productValue){
@@ -964,12 +963,14 @@
 
                 })
 
-                if()
 
                 if(fethOneID){
                     fetchSingle(fethOneID)
                     if(fethOneID == 'top-featured'){
                         fetchTopFeatured()
+                    }
+                    if(fethOneID == 'product-category'){
+                        fetchProductsCategory()
                     }
                 }else{
                     fetchProducts()

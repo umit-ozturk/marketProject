@@ -59,9 +59,12 @@ class ProductCategoriesListAPIView(generics.ListAPIView):
 	pagination_class = StandartResultsPagination
 
 	def get_queryset(self, *args, **kwargs):
-		produc_category_id = self.kwargs.get("pk")
-		print(produc_category_id)
 		qs = Product.objects.all()
+		query = self.request.GET.get("q", None)
+		if query is not None:
+			qs = qs.filter(
+				Q(category_id__icontains=query)
+				)
 		return qs
 
 
