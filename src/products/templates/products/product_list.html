@@ -27,8 +27,13 @@
 
         // Products For Categories APP  Implemented 
         $(document).ready(function(){
-            loadProductContainer("product-categories-container")
+            loadProductContainer("product-categories-container", "product-category")
         });        
+
+        // Products For Categories APP  Implemented 
+        $(document).ready(function(){
+            loadProductContainer("product-categories-header", "product-category-header")
+        });                
     </script>
 {% endblock script %}
 
@@ -70,38 +75,22 @@
                          <h2> KATEGORİLERİNE GÖRE ÜRÜNLER </h2>
                         <span class="xt-title-bg"></span>
                     </div>
-                    <div class="col-xs-12">
-                        <div class="xt-product-slide">
-                            <div class="xt-carousel">
-                                <div class="xt-item">
-                                    <i class="fa flaticon-supermarket-cart"></i>
-                                    <span>Et</span>
-                                </div>
-                                <div class="xt-item">
-                                    <i class="fa flaticon-supermarket-cart"></i>
-                                    <span>Gıda</span>
-                                </div>
-                                <div class="xt-item">
-                                    <i class="fa flaticon-supermarket-cart"></i>
-                                    <span>Temizlik</span>
-                                </div>
-                                <div class="xt-item">
-                                    <i class="fa flaticon-supermarket-cart"></i>
-                                    <span>Kişisel</span>
-                                </div>
-                                <div class="xt-item">
-                                    <i class="fa flaticon-supermarket-cart"></i>
-                                    <span>İçeçek</span>
-                                </div>
+
+
+                    <div class='col-xs-12'>
+                        <div class='xt-product-slide'>
+                            <div class='xt-carousel' id="product-categories-header" data-url="/api/category/">
+
                             </div>
                         </div>
                     </div>
 
-                    <div id="product-categories-container" data-url="/api/product/"> <!-- loadProductContainer() not parameter !!! -->
-                        <!-- Products For Categories Jquery -->
+                    <div class="xt-category-feature col-xs-12">
+                        <div id="product-categories-container" data-url="/api/product/"> <!-- loadProductContainer() not parameter !!! -->
+                            <!-- Products For Categories Jquery -->
 
-                    </div>                    
-
+                        </div> 
+                    </div>
                 </div>
             </div>
         </section>

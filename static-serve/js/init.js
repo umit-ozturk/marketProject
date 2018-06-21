@@ -134,45 +134,55 @@
 | EVENT SLIDE 
 |===================
 */
-      
-    $('.xt-carousel').owlCarousel({
-          loop: true,
-          responsiveClass: true,
-          nav: true,
-          center: true,
-          navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa  fa-chevron-right'></i>"],
-          responsive:{
-              0:{
-                  items: 3,
-                  nav: true,
-                  loop:true
-              },
-              768:{
-                  items: 4,
-                  nav:true,
-                  loop:true
-              },
-              992:{
-                  items: 5,
-                  nav:true,
-                  loop:true
+
+    $(window).load(function(){
+        setTimeout(function(){
+          $('.xt-carousel').owlCarousel({
+                loop: true,
+                responsiveClass: true,
+                nav: true,
+                center: true,
+                navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa  fa-chevron-right'></i>"],
+                responsive:{
+                    0:{
+                        items: 3,
+                        nav: true,
+                        loop:true
+                    },
+                    768:{
+                        items: 4,
+                        nav:true,
+                        loop:true
+                    },
+                    992:{
+                        items: 5,
+                        nav:true,
+                        loop:true
+                    }
+                }
+            });
+        }, 500)
+
+        setTimeout(function(){
+          $('.xt-client-carousel').owlCarousel({
+              loop: true,
+              responsiveClass: true,
+              nav: false,
+              dots: true,
+              responsive:{
+                  0:{
+                      items: 1,
+                      nav: true,
+                      loop:true
+                  },
               }
-          }
-      });
-      
-      $('.xt-client-carousel').owlCarousel({
-          loop: true,
-          responsiveClass: true,
-          nav: false,
-          dots: true,
-          responsive:{
-              0:{
-                  items: 1,
-                  nav: true,
-                  loop:true
-              },
-          }
-      })
+          }) 
+        }, 500)                 
+    });
+
+    
+
+
 
     /*
     |=====================

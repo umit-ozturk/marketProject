@@ -297,7 +297,6 @@
                     $.each(aktuelList, function(key, value){
                         aktuelValue = value
                         aktuelUlFormattedHtml = formatUlAktuel(aktuelValue)
-                        console.log(aktuelUlFormattedHtml)
                         aktuelUlContainer.append(aktuelUlFormattedHtml)
                     })                                     
                 }
@@ -620,10 +619,7 @@
 
 
                 function fetchCategories(url){
-
-                    console.log('fecthing')
                     var fetchUrl;
-
                     if (!url){
                         fetchUrl = initalURL
                     }else{
@@ -745,6 +741,7 @@
                 var productDetailContainer;
                 var productTopFeaturedContainer;
                 var productCategoriesContainer;
+                var productCategoriesHeaderContainer;
 
                 if (productContainerID){
                     productContainer = $("#" + productContainerID);
@@ -765,9 +762,14 @@
                 }
 
                 if(productContainerID = 'product-categories-container'){
-                    productTopFeaturedContainer = $("#product-categories-container");
-                    var initalDetailURL = productTopFeaturedContainer.attr("data-url") || "/api/product/compare/category/";
-                }                
+                    productCategoriesContainer = $("#product-categories-container");
+                    var initalDetailURL = productCategoriesContainer.attr("data-url") || "/api/product/compare/category/";
+                }
+
+                if(productContainerID = 'product-categories-header'){
+                    productCategoriesHeaderContainer = $("#product-categories-header");
+                    var initalDetailURL = productCategoriesHeaderContainer.attr("data-url") || "/api/category/";
+                }                                
 
                 function formatProduct(productValue){
                     productContent = "<div class='xt-each-feature'><div class='col-md-3 col-sm-3'><div class='xt-feature'><a href='/products/" + productValue.id + "'><div class='product-img'><img src='" + productValue.image_prod + "' alt='' class='img-responsive img-thumbnail' style='display: block;max-width: 100%;width: 100%;max-height: 250px; min-height: 150px;'><span class='product-tag xt-uppercase'>sale!</span></div></a><div class='product-info'><div class='product-title'><span class='category xt-uppercase'>" + productValue.name + "</span><span class='name xt-semibold'>" + productValue.title + "</span></div><div class='price-tag pull-right'><span class='new-price xt-uppercase'>" + productValue.name +"</span><span class='new-price xt-semibold'>" + productValue.price + " TL</span></div><div class='xt-featured-caption'><div class='product-title'><span class='category xt-uppercase'>" + productValue.name + "</span><span class='name xt-semibold'>" + productValue.title + "</span></div><div class='price-tag pull-right'><span class='new-price xt-uppercase'>" + productValue.name + "</span><span class='new-price xt-semibold'>" + productValue.price + " TL</span></div><div class='add-cart'><a href='' class='btn btn-fill'>Sepete Ekle</a><ul class='reaction'><span class='product-offer'>" + productValue.exist + "></span></ul></div></div></div></div></div></div>"
@@ -910,7 +912,7 @@
 
 
                 function formatProductsCategory(productValue){
-                    productCategoryContent = "<div class='xt-category-feature col-xs-12'><div class='xt-each-feature'><div class='col-md-3 col-sm-3'><div class='xt-feature'><div class='product-img'><img src='" + productValue.image_prod + "' alt='' class='img-responsive'><span class='product-tag xt-uppercase'>sale!</span></div><div class='product-info'><div class='product-title'><span class='category xt-uppercase'>" + productValue.name + "</span><span class='name xt-semibold'>" + productValue.image_prod + "</span></div><div class='price-tag pull-right'><span class='new-price xt-uppercase'>" + productValue.name + "</span><span class='new-price xt-semibold'>" + productValue.price + " TL</span></div><div class='xt-featured-caption'><div class='product-title'><span class='category xt-uppercase'>" + productValue.name + "</span><span class='name xt-semibold'>" + productValue.name + "</span></div><div class='price-tag pull-right'><span class='new-price xt-uppercase'>" + productValue.name + "</span><span class='new-price xt-semibold'>" + productValue.name + " TL</span></div><div class='add-cart'><a href='' class='btn btn-fill'>Sepete Ekle</a><ul class='reaction'><span class='product-offer'>" + productValue.name + "></span></ul></div></div></div></div></div></div></div>"
+                    productCategoryContent = "<div class='xt-category-feature col-xs-12'><div class='xt-each-feature'><div class='col-md-3 col-sm-3'><div class='xt-feature'><div class='product-img'><img src='" + productValue.image_prod + "' alt='' class='img-responsive'><span class='product-tag xt-uppercase'>sale!</span></div><div class='product-info'><div class='product-title'><span class='category xt-uppercase'>" + productValue.name + "</span><span class='name xt-semibold'>" + productValue.title + "</span></div><div class='price-tag pull-right'><span class='new-price xt-uppercase'>" + productValue.name + "</span><span class='new-price xt-semibold'>" + productValue.price + " TL</span></div><div class='xt-featured-caption'><div class='product-title'><span class='category xt-uppercase'>" + productValue.name + "</span><span class='name xt-semibold'>" + productValue.name + "</span></div><div class='price-tag pull-right'><span class='new-price xt-uppercase'>" + productValue.name + "</span><span class='new-price xt-semibold'>" + productValue.name + " TL</span></div><div class='add-cart'><a href='' class='btn btn-fill'>Sepete Ekle</a><ul class='reaction'><span class='product-offer'>" + productValue.name + "></span></ul></div></div></div></div></div></div></div>"
                     return productCategoryContent
                 }
 
@@ -920,7 +922,7 @@
                         productKey = key // index numbers
                         productValue = value
                         productCategoriesFormattedHtml = formatProductsCategory(productValue) // product format function
-                        productTopFeaturedContainer.append(productCategoriesFormattedHtml)
+                        productCategoriesContainer.append(productCategoriesFormattedHtml)
                     })
 
                 }
@@ -942,6 +944,45 @@
                     })                    
                 }
 
+
+                function formatProductsCategoryHeader(headerValue){
+
+                    productCategoryHeader = "<div class='xt-item'><i class='fa flaticon-" + headerValue.category_logo + "'></i><span>" + headerValue.category_name + "</span></div>"
+                    return productCategoryHeader
+
+                }
+
+
+                function parseProductsCategoryHeader(owl){                  
+                    $.each(headerList, function(key, value){
+                        headerKey = key // index numbers
+                        headerValue = value
+                        productCategoriesHeaderFormattedHtml = formatProductsCategoryHeader(headerValue) // product format function
+                        productCategoriesHeaderContainer.append(productCategoriesHeaderFormattedHtml)
+                    })
+                    console.log(a)
+                //   owl.trigger('add.owl.carousel', [jQuery(a)]);  
+                   owl.trigger('refresh.owl.carousel');  
+                        
+                }
+
+
+                function fetchProductsCategoryHeader(){
+                    var fetchProductCategoryHeaderUrl = '/api/category/'
+                    var owl = $('.xt-carousel');           
+                    $.ajax({
+                      url : fetchProductCategoryHeaderUrl,
+                        method : "GET",
+                        success: function(data){             
+                            headerList = data
+                            parseProductsCategoryHeader(owl)
+                        },
+                        error: function(data){
+                            console.log("error")
+                            console.log(data)
+                        },
+                    })                     
+                }
 
 
 
@@ -965,13 +1006,18 @@
 
 
                 if(fethOneID){
-                    fetchSingle(fethOneID)
+                    if(productContainerID == 'product-container'){
+                        fetchSingle(fethOneID)
+                    }                        
                     if(fethOneID == 'top-featured'){
                         fetchTopFeatured()
                     }
+                    if(fethOneID == 'product-category-header'){                                         
+                        fetchProductsCategoryHeader()
+                    }                        
                     if(fethOneID == 'product-category'){
                         fetchProductsCategory()
-                    }
+                    }                
                 }else{
                     fetchProducts()
                 }                                
@@ -988,7 +1034,10 @@
                           manualControls: ".flex-control-nav li",
                           useCSS: false, /* Chrome fix*/
                         });
-                }, 1000); });
+                }, 1000)  
+            });
+
+
         </script>   
 
 </body>
