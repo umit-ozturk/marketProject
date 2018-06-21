@@ -8,7 +8,8 @@ from products.models import Product
 
 from .pagination import (
 	StandartResultsPagination,
-	FeaturedResultsPagination
+	FeaturedResultsPagination,
+	StandartMainPageProductResultsPagination
 	)
 from .serializers import (
 	ProductModelSerializer,
@@ -31,7 +32,7 @@ class ProductDetailAPIView(generics.ListAPIView):
 
 class ProductListAPIView(generics.ListAPIView):
 	serializer_class = ProductModelSerializer
-	pagination_class = StandartResultsPagination
+	pagination_class = StandartMainPageProductResultsPagination
 
 	def get_queryset(self, *args, **kwargs):
 		qs = Product.objects.all()
