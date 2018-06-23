@@ -732,16 +732,18 @@
 
             /////////           PRODUCTS            /////////
 
-            function loadProductContainer(productContainerID, fethOneID){
+            function loadProductContainer(productContainerID, fethOneID, categoryBoolCheck){
                 var query = getParameterByName('q')
                 var productList = []
                 var nextProductUrl;
                 var previousProductUrl;
+                var centerCategoryObject;
                 var productContainer;
                 var productDetailContainer;
                 var productTopFeaturedContainer;
                 var productCategoriesContainer;
                 var productCategoriesHeaderContainer;
+
 
                 if (productContainerID){
                     productContainer = $("#" + productContainerID);
@@ -913,7 +915,7 @@
 
 
                 function formatProductsCategory(productValue){
-                    productCategoryContent = "<div class='xt-category-feature col-xs-12'><div class='xt-each-feature'><div class='col-md-3 col-sm-3'><div class='xt-feature'><div class='product-img'><img src='" + productValue.image_prod + "' alt='' class='img-responsive'><span class='product-tag xt-uppercase'>sale!</span></div><div class='product-info'><div class='product-title'><span class='category xt-uppercase'>" + productValue.name + "</span><span class='name xt-semibold'>" + productValue.title + "</span></div><div class='price-tag pull-right'><span class='new-price xt-uppercase'>" + productValue.name + "</span><span class='new-price xt-semibold'>" + productValue.price + " TL</span></div><div class='xt-featured-caption'><div class='product-title'><span class='category xt-uppercase'>" + productValue.name + "</span><span class='name xt-semibold'>" + productValue.name + "</span></div><div class='price-tag pull-right'><span class='new-price xt-uppercase'>" + productValue.name + "</span><span class='new-price xt-semibold'>" + productValue.name + " TL</span></div><div class='add-cart'><a href='' class='btn btn-fill'>Sepete Ekle</a><ul class='reaction'><span class='product-offer'>" + productValue.name + "></span></ul></div></div></div></div></div></div></div>"
+                    productCategoryContent = "<div class='xt-each-feature'><div class='xt-feature'><a href='/products/" + productValue.id + "'><div class='product-img'><img src='" + productValue.image_prod + "' alt='' class='img-responsive'><span class='product-tag xt-uppercase'>sale!</span></div></a><div class='product-info'><div class='product-title'><span class='category xt-uppercase'>" + productValue.name + "</span><span class='name xt-semibold'>" + productValue.title + "</span></div><div class='price-tag pull-right'><span class='new-price xt-uppercase'>" + productValue.name + "</span><span class='new-price xt-semibold'>" + productValue.price + " TL</span></div><div class='xt-featured-caption'><div class='product-title'><span class='category xt-uppercase'>" + productValue.name + "</span><span class='name xt-semibold'>" + productValue.name + "</span></div><div class='price-tag pull-right'><span class='new-price xt-uppercase'>" + productValue.name + "</span><span class='new-price xt-semibold'>" + productValue.name + " TL</span></div><div class='add-cart'><a href='' class='btn btn-fill'>Sepete Ekle</a><ul class='reaction'><span class='product-offer'>" + productValue.name + "></span></ul></div></div></div></div></div>"
                     return productCategoryContent
                 }
 
@@ -929,13 +931,14 @@
                 }
 
 
-                function fetchProductsCategory(){
-                    var fetchProductCategoryUrl = '/api/product/compare/category/'
+                function fetchProductsCategory(centerCategoryID){
+                    var fetchProductCategoryUrl = '/api/category/' + centerCategoryID + '/product/'
                     $.ajax({
                       url : fetchProductCategoryUrl,
                         method : "GET",
                         success: function(data){
-                            productList = data.results     
+                            console.log(data)
+                            productList = data     
                             parseProductsCategory()
                         },
                         error: function(data){
@@ -948,7 +951,7 @@
 
                 function formatProductsCategoryHeader(headerValue){
 
-                    productCategoryHeader = "<div class='xt-item'><i class='fa flaticon-" + headerValue.category_logo + "'></i><span>" + headerValue.category_name + "</span></div>"
+                    productCategoryHeader = "<div id='" + headerValue.id + "' class='xt-item'><i class='fa flaticon-" + headerValue.category_logo + "'></i><span>" + headerValue.category_name + "</span></div>"
                     return productCategoryHeader
 
                 }
@@ -966,7 +969,8 @@
 
 
                 function fetchProductsCategoryHeader(){
-                    var fetchProductCategoryHeaderUrl = '/api/category/'           
+                    var fetchProductCategoryHeaderUrl = '/api/category/'                
+                    //console.log(centerCategory)
                     $.ajax({
                       url : fetchProductCategoryHeaderUrl,
                         method : "GET",
@@ -989,16 +993,67 @@
                     if(fethOneID == 'top-featured'){
                         fetchTopFeatured()
                     }
-                    if(fethOneID == 'product-category-header'){                                         
-                        fetchProductsCategoryHeader()
-                    }                        
-                    if(fethOneID == 'product-category'){
-                        fetchProductsCategory()
+                    if(fethOneID == 'product-category-header'){
+                        if(categoryBoolCheck == 'false'){
+                            fetchProductsCategoryHeader()
+                            $(window).load(function(){
+                                setTimeout(function(){
+                                  $('.xt-carousel').owlCarousel({
+                                        loop: true,
+                                        responsiveClass: true,
+                                        nav: true,
+                                        center: true,
+                                        navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa  fa-chevron-right'></i>"],
+                                        responsive:{
+                                            0:{
+                                                items: 3,
+                                                nav: true,
+                                                loop:true
+                                            },
+                                            768:{
+                                                items: 4,
+                                                nav:true,
+                                                loop:true
+                                            },
+                                            992:{
+                                                items: 5,
+                                                nav:true,
+                                                loop:true
+                                            }
+                                        }
+                                    });             
+
+
+
+                                    var headersCategory = $('#product-categories-header')
+                                    var centerCategory = headersCategory.children().find(".center")
+                                    centerCategoryObject = centerCategory[0].children[0]                              
+                                    centerCategoryID = centerCategoryObject.id                             
+                                    fetchProductsCategory(centerCategoryID)
+
+
+                                  }, 1200)
+                            });
+
+                        }
+                        else{  
+                            
+                            var headersCategory = $('#product-categories-header')
+                            var centerCategory = headersCategory.children().find(".center")
+                            if( !centerCategory.length == 0 ){
+                                centerCategoryObject = centerCategory[0].children[0]                              
+                                centerCategoryID = centerCategoryObject.id 
+                                console.log(centerCategoryID)     
+                            }
+                        }                                                           
                     }                
                 }else{
                     fetchProducts()
-                }                                
+                }                              
+
             }
+
+
 
         </script>   
 
@@ -1016,7 +1071,8 @@
 
             $(window).load(function(){
                 setTimeout(function(){
-                  $('.xt-product-carousel').owlCarousel({
+
+                    $('.xt-product-carousel').owlCarousel({
                         loop: true,
                         responsiveClass: true,
                         nav: true,
@@ -1039,10 +1095,41 @@
                             }
                         }
                     });
-                }, 500)
-            });            
+
+                }, 1000)
+            });  
 
 
+            $(window).load(function(){
+                setTimeout(function(){
+
+                    $('.xt-product-carousel-category').owlCarousel({
+                        loop: true,
+                        responsiveClass: true,
+                        nav: true,
+                        margin: 20,
+                        autoplay: true,
+                        autoplayHoverPause: true,
+                        navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa  fa-chevron-right'></i>"],
+                        responsive:{
+                            0:{
+                                items: 1,
+                                nav: true
+                            },
+                            768:{
+                                items: 3,
+                                nav:true
+                            },
+                            992:{
+                                items: 4,
+                                nav:true
+                            }
+                        }
+                    });
+
+                }, 2500)
+            });  
+                        
         </script>   
 
 </body>
