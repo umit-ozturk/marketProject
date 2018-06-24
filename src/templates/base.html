@@ -994,7 +994,6 @@
                         fetchTopFeatured()
                     }
                     if(fethOneID == 'product-category-header'){
-                        if(categoryBoolCheck == 'false'){
                             fetchProductsCategoryHeader()
                             $(window).load(function(){
                                 setTimeout(function(){
@@ -1022,30 +1021,27 @@
                                             }
                                         }
                                     });             
-
-
-
                                     var headersCategory = $('#product-categories-header')
+                                    headersCategory.on('changed.owl.carousel', function(e) {
+                                        setTimeout(function(){
+                                            categoryItems = e.target.children[0].children[0].children
+                                            for (var i=0; i<categoryItems.length; i++) {
+                                                if(categoryItems[i].classList.value.search("center") == "16"){
+                                                    var centerCategoryID = categoryItems[i].children[0].id
+                                                    console.log(centerCategoryID)
+                                                    fetchProductsCategory(centerCategoryID)
+                                                }
+                                            }                                        
+                                        }, 500)
+                                    });
                                     var centerCategory = headersCategory.children().find(".center")
-                                    centerCategoryObject = centerCategory[0].children[0]                              
-                                    centerCategoryID = centerCategoryObject.id                             
+                                    var centerCategoryObject = centerCategory[0].children[0]                              
+                                    var centerCategoryID = centerCategoryObject.id                             
                                     fetchProductsCategory(centerCategoryID)
 
 
                                   }, 1200)
-                            });
-
-                        }
-                        else{  
-                            
-                            var headersCategory = $('#product-categories-header')
-                            var centerCategory = headersCategory.children().find(".center")
-                            if( !centerCategory.length == 0 ){
-                                centerCategoryObject = centerCategory[0].children[0]                              
-                                centerCategoryID = centerCategoryObject.id 
-                                console.log(centerCategoryID)     
-                            }
-                        }                                                           
+                            });                                                        
                     }                
                 }else{
                     fetchProducts()
