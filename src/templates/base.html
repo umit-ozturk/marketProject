@@ -1025,17 +1025,13 @@
                                 headersCategory.on('changed.owl.carousel', function(e) {
                                     setTimeout(function(){
                                         productCarouselContainer = $('.xt-product-carousel-category')
-                                        if (productCarouselContainer.hasClass("owl-carousel")) {
-                                            console.log("debug")                                       
+                                        if (productCarouselContainer.hasClass("owl-carousel")) {                                      
                                             productCarouselContainer.owlCarousel({
                                                 touchDrag: false,
                                                 mouseDrag: false
                                             });
-                                        productCarouselContainer.removeClass('owl-carousel owl-loaded');
-                                        productCarouselContainer.find('.owl-stage-outer').children().unwrap();
-                                        productCarouselContainer.removeData();
-                                        productCarouselContainer.trigger('destroy.owl.carousel', 1 ).trigger('refresh.owl.carousel');
-                                        productCarouselContainer.trigger('del.owl.carousel', 1 ).trigger('refresh.owl.carousel');
+                                        productCarouselContainer.trigger('destroy.owl.carousel').trigger('refresh.owl.carousel');
+                                        productCarouselContainer.trigger('remove.owl.carousel', 0).trigger('refresh.owl.carousel');
                                        
                                         }        
                                     }, 300)
@@ -1043,18 +1039,24 @@
                                     setTimeout(function(){
                                                                                  
                                     //    $('.xt-product-carousel-category').trigger('destroy.owl.carousel').removeClass('owl-carousel owl-loaded');
-                                    //    $('.xt-product-carousel-category').find('.owl-stage-outer').children().unwrap();
-                                    //    $('.xt-product-carousel-category').owlCarousel({touchDrag: false, mouseDrag: false});                                        
-                                        categoryItems = e.target.children[0].children[0].children
-                                        for (var i=0; i<categoryItems.length; i++) {
-                                            if(categoryItems[i].classList.value.search("center") == "16"){
-                                                var centerCategoryID = categoryItems[i].children[0].id
-                                                fetchProductsCategory(centerCategoryID) 
-                                                console.log(centerCategoryID)
-                                                                                                                                     
+                                    //    $('.xt-product-carousel-category').find('.owl-stage-outer').children().unwrap();                                        
+                                        productCarouselCheck = $('.xt-product-slide')
+                                        
+                                        if (!productCarouselCheck.children().hasClass("xt-product-carousel-category")) { 
+                                                    // --- If not exist carousel class so class has been deleted ... -->
+
+                                    
+                                        }else{
+                                            categoryItems = e.target.children[0].children[0].children
+                                            for (var i=0; i<categoryItems.length; i++) {
+                                                if(categoryItems[i].classList.value.search("center") == "16"){
+                                                    var centerCategoryID = categoryItems[i].children[0].id
+                                                    fetchProductsCategory(centerCategoryID)                                             
+                                                }
                                             }
                                         }
                                     }, 800)
+
                                     setTimeout(function(){
                                         $('.xt-product-carousel-category').owlCarousel({
                                             loop: true,
