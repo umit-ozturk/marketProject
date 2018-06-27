@@ -25,12 +25,7 @@
         });
 
 
-
-        // Products For Categories APP  Implemented 
-              
-        $(document).ready(function(){
-            loadProductContainer("product-categories-header", "product-category-header", "false")
-        });                
+          
     </script>
 {% endblock script %}
 
@@ -60,35 +55,4 @@
         </section>
 
 
-        <!--
-        |========================
-        |  BY CATEGORY PRODUCT
-        |========================
-        -->
-        <section class="product-category">
-            <div class="container">
-                <div class="row section-separator">
-                    <div class="section-title">
-                         <h2> KATEGORİLERİNE GÖRE ÜRÜNLER </h2>
-                        <span class="xt-title-bg"></span>
-                    </div>
-
-
-                    <div class='col-xs-12'>
-                        <div class='xt-product-slide'>
-                            <div class='xt-carousel' id="product-categories-header" data-url="/api/category/">
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="xt-category-feature col-xs-11 xt-product-slide">
-                        <div class='xt-product-carousel-category' id="product-categories-container" data-url="/api/product/"> <!-- loadProductContainer() not parameter !!! -->
-                            <!-- Products For Categories Jquery -->
-
-                        </div> 
-                    </div>
-                </div>
-            </div>
-        </section>
 {% endblock content %}
