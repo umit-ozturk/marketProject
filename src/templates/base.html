@@ -732,7 +732,7 @@
 
             /////////           PRODUCTS            /////////
 
-            function loadProductContainer(productContainerID, fethOneID, categoryBoolCheck){
+            function loadProductContainer(productContainerID, fethOneID){
                 var query = getParameterByName('q')
                 var productList = []
                 var nextProductUrl;
@@ -747,31 +747,32 @@
 
                 if (productContainerID){
                     productContainer = $("#" + productContainerID);
-                }else{
-                    productContainer = $("#product-container");
                 }
-                var initalURL = productContainer.attr("data-url") || "/api/product/";
 
-                if (fethOneID){
+                if (productContainerID == 'product-container' && fethOneID){
                     var productDetailContainer;
                     productDetailContainer = $("#product-container");
                     var initalDetailURL = productDetailContainer.attr("data-url") || "/api/product/" + fethOneID;        
-                }
+                }           
 
-                if(productContainerID = 'product-top-feature-container'){
+                if(productContainerID == 'product-top-feature-container'){
                     productTopFeaturedContainer = $("#product-top-feature-container");
                     var initalDetailURL = productTopFeaturedContainer.attr("data-url") || "/api/product/featured/";   
                 }
+                
+                if (productContainerID == "product-featured-container"){
+                    console.log("aaaaaa")
+                    productDetailContainer = $("#product-featured-container");
+                    var initalDetailURL = productDetailContainer.attr("data-url") || "/api/product/"  
+                }                     
 
-                if(productContainerID = 'product-categories-container'){
-                    productCategoriesContainer = $("#product-categories-container");
-                    var initalDetailURL = productCategoriesContainer.attr("data-url") || "/api/product/compare/category/";
+                else{
+                    productContainer = $("#product-container");
+                    var initalURL = productContainer.attr("data-url") || "/api/product/";
+                    
                 }
 
-                if(productContainerID = 'product-categories-header'){
-                    productCategoriesHeaderContainer = $("#product-categories-header");
-                    var initalDetailURL = productCategoriesHeaderContainer.attr("data-url") || "/api/category/";
-                }                                
+
 
                 function formatProduct(productValue){
                     productContent = "<div class='xt-each-feature'><div class='xt-feature'><a href='/products/" + productValue.id + "'><div class='product-img'><img src='" + productValue.image_prod + "' alt='' class='img-responsive img-thumbnail' style='border: none; display: block;max-width: 100%;width: 100%;max-height: 250px; min-height: 150px;'><span class='product-tag xt-uppercase'>sale!</span></div></a><div class='product-info'><div class='product-title'><span class='category xt-uppercase'>" + productValue.name + "</span><span class='name xt-semibold'>" + productValue.title + "</span></div><div class='price-tag pull-right'><span class='new-price xt-uppercase'>" + productValue.name +"</span><span class='new-price xt-semibold'>" + productValue.price + " TL</span></div><div class='xt-featured-caption'><div class='product-title'><span class='category xt-uppercase'>" + productValue.name + "</span><span class='name xt-semibold'>" + productValue.title + "</span></div><div class='price-tag pull-right'><span class='new-price xt-uppercase'>" + productValue.name + "</span><span class='new-price xt-semibold'>" + productValue.price + " TL</span></div><div class='add-cart'><a href='' class='btn btn-fill'>Sepete Ekle</a><ul class='reaction'><span class='product-offer'>" + productValue.exist + "></span></ul></div></div></div></div></div>"
@@ -825,7 +826,6 @@
                     }else{
                         fetchUrl = url
                     }
-                    
                     $.ajax({
                         url: fetchUrl,
                         data: {
@@ -988,9 +988,16 @@
                     if(productContainerID == 'product-container'){
                         fetchSingle(fethOneID)
                     }                        
-                    if(fethOneID == 'top-featured'){
+                    else if(fethOneID == 'top-featured'){
                         fetchTopFeatured()
-                    }               
+                    }
+                    else if(fethOneID == 'featured'){
+                        fetchProducts()
+                    }
+                    else{
+                        fetchSingle(fethOneID)
+
+                    }              
                 }else{
                     fetchProducts()
                 }                              
@@ -1041,7 +1048,38 @@
                     });
 
                 }, 1000)
-            });  
+            }); 
+
+            $(window).load(function(){
+                setTimeout(function(){
+
+                    $('#product-featured-container').owlCarousel({
+                        loop: true,
+                        responsiveClass: true,
+                        nav: true,
+                        margin: 20,
+                        autoplay: true,
+                        autoplayHoverPause: true,
+                        navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa  fa-chevron-right'></i>"],
+                        responsive:{
+                            0:{
+                                items: 1,
+                                nav: true
+                            },
+                            768:{
+                                items: 3,
+                                nav:true
+                            },
+                            992:{
+                                items: 4,
+                                nav:true
+                            }
+                        }
+                    });
+
+                }, 1000)
+            });             
+             
 
 
 

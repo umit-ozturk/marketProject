@@ -14,10 +14,9 @@
     });
 
 
-    // Products Featured Products Implemented
-    $(document).ready(function(){
-        loadProductContainer("product-feature-container")
-    });
+
+    // Products APP  Implemented 
+
 
 
     // Products Top Featured Products Implemented
@@ -144,21 +143,22 @@
                             </div>
                         </div>
                         
-                        <!--end singlw item info -->
-                        <div class="xt-feature-product">
-                            <div class="section-separator">
-                                <div class="section-title">
-                                    <h2>İlgİnİzİ Çeken Dİğer Ürünler</h2>
-                                    <span class="xt-title-bg"></span>
-                                </div>
-                                <div class="xt-each-feature">
-                                    <div id="product-feature-container" data-url="/api/product/">
+                            <section class="xt-feature-product">
+                                <div class="container">
+                                    <div class="row section-separator">
+                                        <div class="section-title">
+                                            <h2>İLGİNİZİ ÇEKEBİLECEK ÜRÜNLER</h2>
+                                            <span class="xt-title-bg"></span>
+                                        </div>
+                                        <div class='xt-product-slide'>
+                                            <div id="product-featured-container" data-url="/api/product/"> <!-- loadProductContainer() not parameter !!! -->
+                                                <!-- Products Jquery -->
 
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!---->
-                        </div>
+                            </section>
                     </div>
                 </div>
             </div>
