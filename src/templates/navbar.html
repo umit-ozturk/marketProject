@@ -10,28 +10,51 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="main-navigation">
-                <nav class="navbar navbar-fixed-top nav-scroll">
-                    <div class="container">
-                        <div class="row">
-                            <div class="navbar-header">
-                              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                <span aria-hidden="true" class="icon"></span>
-                              </button>
-                              <a class="navbar-brand" href=""><img src="{% static 'images/flogo.png' %}" alt="" class="img-responsive"></a>
-                            </div>
-                            
-                            <div class="collapse navbar-collapse" id="js-navbar-menu">
-                                <ul class="nav navbar-nav navbar-right ep-mobile-menu" id="navbar-nav">
-                                    <li><a href="register"> Üye Ol </a></li>
-                                    <li><a href="login"> Gİrİş Yap </a></li>
-                                </ul>
+            {% if user.is_authenticated %}
+                <div class="main-navigation">
+                    <nav class="navbar navbar-fixed-top nav-scroll">
+                        <div class="container">
+                            <div class="row">
+                                <div class="navbar-header">
+                                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span aria-hidden="true" class="icon"></span>
+                                  </button>
+                                  <a class="navbar-brand" href=""><img src="{% static 'images/flogo.png' %}" alt="" class="img-responsive"></a>
+                                </div>
+                                
+                                <div class="collapse navbar-collapse" id="js-navbar-menu">
+                                    <ul class="nav navbar-nav navbar-right ep-mobile-menu" id="navbar-nav">
+                                        <li><a href="register"> Profil Resmi </a></li>
+                                        <li><a href="login"> Çıkış Yap </a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </nav>
-            </div>
+                    </nav>
+                </div>
+            {% else %}
+                <div class="main-navigation">
+                    <nav class="navbar navbar-fixed-top nav-scroll">
+                        <div class="container">
+                            <div class="row">
+                                <div class="navbar-header">
+                                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span aria-hidden="true" class="icon"></span>
+                                  </button>
+                                  <a class="navbar-brand" href=""><img src="{% static 'images/flogo.png' %}" alt="" class="img-responsive"></a>
+                                </div>
+                                
+                                <div class="collapse navbar-collapse" id="js-navbar-menu">
+                                    <ul class="nav navbar-nav navbar-right ep-mobile-menu" id="navbar-nav">
+                                        <li><a href="register"> Üye Ol </a></li>
+                                        <li><a href="login"> Gİrİş Yap </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            {% endif %}
              <!--Mobile Menu-->
             <div class="main-color-bg">
                 <div class="container">
