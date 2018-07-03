@@ -3,7 +3,12 @@ from django.views.generic.edit import FormView
 
 from .forms import UserRegisterForm
 
+from django.views.generic  import (
+			DetailView
+			)
 
+
+from django.shortcuts import render
 from .models import UserProfile
 
 
@@ -12,6 +17,17 @@ from .models import UserProfile
 
 
 User = get_user_model()
+
+
+
+class ProfileDetailView(DetailView):
+	model = UserProfile
+	template_name = "accounts/user_profile.html"
+
+	def get_slug_field(self):
+		"""Get the name of a slug field to be used to look up by slug."""
+		return 'user__username'
+
 
 
 class UserRegisterView(FormView):
