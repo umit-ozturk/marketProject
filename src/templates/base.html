@@ -287,7 +287,7 @@
 
                 function formatUlAktuel(aktuelValue){
 
-                    aktuelContent = "<li><img src='" + aktuelValue.image_aktuel + "' style='max-height:655px;' alt='' /><div class='slide_text'><span class='slide-category'>Fashion</span><h2 class='slide_title'>Spring Summer <br> Fashion Collection</h2><p class='slide_byline '> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.</p><a href='/aktuels/" + aktuelValue.slug + "' class='btn btn-fill '>Görüntüle</a></div></li>"                        
+                    aktuelContent = "<li><img src='" + aktuelValue.image_aktuel + "' style='max-height:655px;' alt='Slider Aktuel' /><div class='slide_text'><span class='slide-category'>1</span><h2 class='slide_title'>1<br>1</h2><p class='slide_byline '>1</p><a href='/aktuels/" + aktuelValue.slug + "' class='btn btn-fill '>Görüntüle</a></div></li>"                        
 
 
                     return aktuelContent
@@ -544,16 +544,16 @@
                 }
 
                 function formatSecondCategory(secondCategoryValue){
-                    secondCategoryContent = "<li id='secondCategoryID' class='secondCategoryClass'><a href='/categories/"+ secondCategoryValue.id +"/' >" + secondCategoryValue.category_name + "</a></li>"
+                    secondCategoryContent = "<li id='secondCategoryID' class='secondCategoryClass " + secondCategoryValue.id + "'><a href='/categories/"+ secondCategoryValue.id +"/' >" + secondCategoryValue.category_name + "</a></li>"
                     
 
                     return secondCategoryContent
                 
                 }
 
-                function formatThirdCategory(thirdCategoryValue){
+                function formatThirdCategory(thirdCategoryValue, secondCategoryValue){
                     
-                    thirdCategoryContent = "<li><a href='/categories/"+ thirdCategoryValue.id +"/' >" + thirdCategoryValue.category_name + "</a></li>"
+                    thirdCategoryContent = "<li class='thirdCategoryClass " + secondCategoryValue.id + "'><a href='/categories/"+ thirdCategoryValue.id +"/' >" + thirdCategoryValue.category_name + "</a></li>"
                     
                     return thirdCategoryContent
                 
@@ -586,7 +586,7 @@
                                 thirdCategoryList = secondCategoryValue.children
                                 $.each(thirdCategoryList, function(thirdKey, thirdValue){
                                     thirdCategoryValue = thirdValue
-                                    thirdCategoryFormattedHtml += formatThirdCategory(thirdCategoryValue)
+                                    thirdCategoryFormattedHtml += formatThirdCategory(thirdCategoryValue, secondCategoryValue)
                                 })
                                 secondCategoryFormattedHtml += formatSecondCategory(secondCategoryValue)
                             })                           
@@ -1078,7 +1078,23 @@
                     });
 
                 }, 1000)
-            });             
+            });      
+
+
+            $(window).load(function(){
+                setTimeout(function(){
+
+                    $('.secondCategoryClass').hover(function(e) {
+                        if(e.currentTarget.classList[1] == $('.thirdCategoryClass')[0].classList[1]){
+                            $('.thirdCategoryClass').show();
+                        }
+                        else{
+                            $('.thirdCategoryClass').hide();
+                        }
+                    });
+
+                }, 1200)
+            });                         
              
 
 
