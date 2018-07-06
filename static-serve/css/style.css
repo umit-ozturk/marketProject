@@ -1854,12 +1854,12 @@ ul li {
 .xt-dropdown > li > a {
   display: block;
   color: #000;
-  padding: 14px 0;
+  padding: 8px 0;
   font-weight: 600;
   font-size: 14px;
   line-height: 22px;
   text-transform: capitalize;
-  padding-left: 20px;
+  padding-left: 15px;
 }
 .xt-dropdown > li > a:hover {
   color: #f26667;

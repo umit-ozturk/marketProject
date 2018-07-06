@@ -68,15 +68,3 @@ class ProductCategoriesListAPIView(generics.ListAPIView):
 				)
 		return qs
 
-
-
-
-
-
-
-
-
-
-
-
-

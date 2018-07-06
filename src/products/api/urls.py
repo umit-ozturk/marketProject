@@ -15,6 +15,7 @@ urlpatterns = [
     path('', ProductListAPIView.as_view(), name="list"), # /api/product/
     path('featured/', ProductFeaturedListAPIView.as_view(), name="featured"), # /api/product/featured
     path('<int:pk>/', ProductDetailAPIView.as_view(), name="detail"), # /api/product/1/
+
 ]
 
 
