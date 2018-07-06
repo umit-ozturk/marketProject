@@ -539,7 +539,6 @@
                         categoryContent = "<li><a href='/categories/"+ categoryValue.id +"/' ><i class='fa flaticon-" + categoryValue.category_logo + "'></i>" + categoryValue.category_name + "</a></li>"                        
                     }
 
-
                     return categoryContent
                 }
 
@@ -589,7 +588,7 @@
                                     thirdCategoryFormattedHtml += formatThirdCategory(thirdCategoryValue, secondCategoryValue)
                                 })
                                 secondCategoryFormattedHtml += formatSecondCategory(secondCategoryValue)
-                            })                           
+                            }) 
                             categoryFormattedHtml = formatCategory(categoryValue, secondCategoryFormattedHtml, thirdCategoryFormattedHtml)
                             categoryContainer.append(categoryFormattedHtml)
                         })
@@ -1083,14 +1082,29 @@
 
             $(window).load(function(){
                 setTimeout(function(){
+                
 
                     $('.secondCategoryClass').hover(function(e) {
-                        if(e.currentTarget.classList[1] == $('.thirdCategoryClass')[0].classList[1]){
-                            $('.thirdCategoryClass').show();
-                        }
-                        else{
+                        $( ".thirdCategoryClass" ).each(function( index, item ) {
                             $('.thirdCategoryClass').hide();
-                        }
+                            if( item.classList[1] == e.currentTarget.classList[1] ){
+                                console.log(item)
+                                $(item).show();
+                                return false;
+
+                            }else{
+                                console.log(item.classList[1])
+                                console.log(e.currentTarget.classList[1])
+                                $(item).hide();
+                                
+
+                                
+                            }
+                        });
+//                        if([1] == $('.thirdCategoryClass')[0].classList[1]){
+//                        }
+//                        else{
+//                        }
                     });
 
                 }, 1200)
