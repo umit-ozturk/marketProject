@@ -1,7 +1,8 @@
 from django.conf import settings
 from django.urls import reverse
 from django.db import models
-from mptt.models import MPTTModel, TreeForeignKey
+from django.utils.safestring import mark_safe
+from mptt.models import TreeForeignKey
 
 # Create your models here.
 
@@ -30,5 +31,9 @@ class Product(models.Model):
 		return reverse("product:detail", kwargs={'pk':self.pk})
 
 
-	def __str__(self):
-		return str(self.pk) + "\t" + str(self.title) 
+	def image_tag(self):
+		if self.image_prod:
+			return mark_safe('<img src="%s" style="width: 100px; height:100px;" />' % self.image_prod.url)
+		else:
+			return 'No Image Found'
+	image_tag.short_description = 'Image'		
