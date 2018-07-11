@@ -1,0 +1,17 @@
+{% extends "admin/base.html" %}
+{%load static%}
+
+{% block extrahead %}
+	<script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
+	{{ block.super }}
+{% endblock %}
+
+{% block extrastyle %}
+    <link href="{% static 'admin/css/extraadmin.css' %}"  rel="stylesheet">
+{% endblock %}
+
+
+{% block js %}
+    {{ block.super }}
+    <script src="{% static 'admin/js/extraadmin.js' %}"></script>
+{% endblock %}
