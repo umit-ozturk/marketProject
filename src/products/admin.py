@@ -12,7 +12,11 @@ class ProductAdmin(admin.ModelAdmin):
 
 	def show_title(self, obj): # Product Explanation for Admin Panel
 		return truncatechars(obj.title, 35)
+<<<<<<< HEAD
 	show_title.short_description = 'Ürün Başlığı'
+=======
+	show_title.short_description = 'Ürün Açıklaması'
+>>>>>>> eedb2f1f75bab1c66a10a468ab54463dcedbca6d
 
 	def show_name(self, obj): # Product Name for Admin Panel
 		return truncatechars(obj.name, 20)
