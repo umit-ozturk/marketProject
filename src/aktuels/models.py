@@ -10,17 +10,23 @@ def upload_location(instance, filename):
 	return upload_path
 
 class Aktuel(models.Model):
-	title 			= models.CharField(max_length=140)
-	explain			= models.CharField(max_length=140)
-	updated 		= models.DateTimeField(auto_now=True)
-	timestamp		= models.DateTimeField(auto_now_add=True)
-	image_aktuel	= models.ImageField(upload_to=upload_location,
+	title 					= models.CharField(max_length=140)
+	explain					= models.CharField(max_length=140)
+	updated 				= models.DateTimeField(auto_now=True)
+	timestamp				= models.DateTimeField(auto_now_add=True)
+	image_aktuel			= models.ImageField(upload_to=upload_location,
 					 		null=True,
 							width_field="width_field", 
 			 				height_field="height_field")
-	height_field	= models.IntegerField(default=0, blank=True)
-	width_field 	= models.IntegerField(default=0, blank=True)
-	slug 			= models.SlugField(blank=True, unique=True)
+	aktuel_company_name 	= models.CharField(max_length=140)
+	aktuel_company_site 	= models.CharField(max_length=140)
+	image_comp			 	= models.ImageField(upload_to=upload_location,
+					 		null=True, blank=True,
+							width_field="width_field", 
+			 				height_field="height_field")
+	height_field			= models.IntegerField(default=0, blank=True)
+	width_field			 	= models.IntegerField(default=0, blank=True)
+	slug 					= models.SlugField(blank=True, unique=True)
 
 	def save(self, *args, **kwargs):
 		self.slug = slugify(self.title)
@@ -28,7 +34,6 @@ class Aktuel(models.Model):
 
 	def __str__(self):
 		return str(self.pk) + "\t" + str(self.title) 
-
 
 class AktuelProducts(models.Model):
 	aktuel 			= models.ForeignKey(Aktuel, on_delete=models.CASCADE, related_name="aktuel_products")

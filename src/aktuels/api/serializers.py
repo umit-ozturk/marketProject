@@ -19,7 +19,10 @@ class AktuelModelSerializer(serializers.ModelSerializer):
 			'image_aktuel',
 			'timestamp',
 			'slug',
-			'aktuel_detail'
+			'aktuel_detail',
+			'aktuel_company_name',
+			'aktuel_company_site',
+			'image_comp'
 		]
 
 

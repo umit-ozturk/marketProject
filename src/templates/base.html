@@ -287,7 +287,7 @@
 
                 function formatUlAktuel(aktuelValue){
 
-                    aktuelContent = "<li><img src='" + aktuelValue.image_aktuel + "' style='max-height:655px;' alt='Slider Aktuel' /><div class='slide_text'><span class='slide-category'>1</span><h2 class='slide_title'>1<br>1</h2><p class='slide_byline '>1</p><a href='/aktuels/" + aktuelValue.slug + "' class='btn btn-fill '>Görüntüle</a></div></li>"                        
+                    aktuelContent = "<a href='/aktuels/" + aktuelValue.slug + "' class=''><li><img src='" + aktuelValue.image_aktuel + "' style='max-height:645px;' alt='Slider Aktuel' /></li></a>"                        
 
 
                     return aktuelContent
@@ -349,7 +349,7 @@
 
                 function formatOlAktuel(aktuelValue){
 
-                    aktuelContent = "<li><img src='" + aktuelValue.image_aktuel + "' style='height:100px; max-width:100px;' alt='' /></li>"                        
+                    aktuelContent = "<li><img src='" + aktuelValue.image_comp + "' style='height:75px; max-width:75px; alt='' /></li>"                        
 
 
                     return aktuelContent
