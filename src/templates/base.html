@@ -271,6 +271,20 @@
                 return decodeURIComponent(results[2].replace(/\+/g, " "));
             }
 
+            function textTruncated(str, length){
+                var ending = '...';
+
+                if (length == null){
+                    length = 50;
+                }
+                if (str.length > length) {
+                  return str.substring(0, length - ending.length) + ending;
+                }
+                else {
+                      return str;
+                }                 
+            }        
+
             /////////           AKTUELS            /////////
 
             function loadAktuelUlContainer(aktuelContainerID){
@@ -779,6 +793,12 @@
 
 
                 function formatProduct(productValue){
+                    $.each(productValue, function(key, value){
+                        if(key != "image_prod"){
+                            productValue[key] = textTruncated(value, 17)
+                        }
+                        console.log(productValue[key])
+                    })
                     productContent = "<div class='xt-each-feature'><div class='xt-feature'><a href='/products/" + productValue.id + "'><div class='product-img'><img src='" + productValue.image_prod + "' alt='' class='img-responsive img-thumbnail' style='border: none; display: block;max-width: 100%;width: 100%;max-height: 250px; min-height: 150px;'><span class='product-tag xt-uppercase'>sale!</span></div></a><div class='product-info'><div class='product-title'><span class='category xt-uppercase'>" + productValue.name + "</span><span class='name xt-semibold'>" + productValue.title + "</span></div><div class='price-tag pull-right'><span class='new-price xt-uppercase'>" + productValue.name +"</span><span class='new-price xt-semibold'>" + productValue.price + " TL</span></div><div class='xt-featured-caption'><div class='product-title'><span class='category xt-uppercase'>" + productValue.name + "</span><span class='name xt-semibold'>" + productValue.title + "</span></div><div class='price-tag pull-right'><span class='new-price xt-uppercase'>" + productValue.name + "</span><span class='new-price xt-semibold'>" + productValue.price + " TL</span></div><div class='add-cart'><a href='' class='btn btn-fill'>Sepete Ekle</a><ul class='reaction'><span class='product-offer'>" + productValue.exist + "></span></ul></div></div></div></div></div>"
 
                     return productContent
