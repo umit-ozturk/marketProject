@@ -7,7 +7,7 @@ td, th {
     vertical-align: middle;
 }
 
-
+/* Start Flaticon For Admin Panel */
 @font-face {
   font-family: "Flaticon";
   src: url("../fonts/Flaticon.eot");
@@ -29,7 +29,7 @@ td, th {
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
 [class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
   font-family: Flaticon;
-        font-size: 20px;
+        font-size: 70px;
 font-style: normal;
 margin-left: 20px;
 }
@@ -44,3 +44,5 @@ margin-left: 20px;
 .flaticon-doll:before { content: "\f107"; }
 .flaticon-glass-of-water:before { content: "\f108"; }
 .flaticon-steak:before { content: "\f109"; }
+
+/* End Flaticon For Admin Panel */

@@ -41,55 +41,55 @@
 					<a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Twitter İle Giriş Yap</a>
 				</p>             	
 	        </div>
-				<form class="form {% if form_class %}{{ form_class }}{% endif %} " method="post" action="{% if action_url %} {{ action_url }} {% endif %}">
+			<form class="form {% if form_class %}{{ form_class }}{% endif %} " method="post" action="{% if action_url %} {{ action_url }} {% endif %}">
 					{% csrf_token %}
-			<div class="form-group col-lg-10">
-	          <label>{{ form.username.label_tag }}</label>
+					<div class="form-group col-lg-10">
+			          <label>{{ form.username.label_tag }}</label>
 
-	          <div class="input-group">
-	            <span class="input-group-addon"><i class="fa fa-user"></i></span>
-	            <input type="text" class="form-control" name="username" placeholder="Kullanıcı Adı">
-	          </div>
-	          <span class="help-block"></span>
-	        </div>
-	        <div class="form-group col-lg-6">
-	          <label> {{ form.password.label_tag }}</label>
-	          <div class="input-group">
-	            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-	            <input  type="password" class="form-control" name="password" placeholder="Parola">
-	          </div>
-	            <span class="help-block"></span>
-	        </div>
-	        <div class="form-group col-lg-6">
-	          <label>Tekrar {{ form.password.label_tag }}</label>
-	          <div class="input-group">
-	            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-	            <input  type="password" class="form-control" name="password" placeholder="Parola">
-	          </div>
-	            <span class="help-block"></span>
-	        </div>       
-	        <div class="form-group col-lg-6">
-	          <label>{{ form.email.label_tag }}</label>
-	        <div class="input-group">
-	            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-	            <input  type="password" class="form-control" name="password" placeholder="E-Mail">
-	          </div>
-	            <span class="help-block"></span>
-	        </div>  
-	        <div class="form-group col-lg-6">
-	          <label>Tekrar {{ form.email.label_tag }}</label>
-	                    <div class="input-group">
-	            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-	            <input  type="password" class="form-control" name="password" placeholder="E-Mail">
-	          </div>
-	                <span class="help-block"></span>
-	        </div>      
-	        <div class="col-sm-6">
-	          <input type="checkbox" class=""> <span>  Bilgilendirmelerden beni haberdar et. </span></input>
-	        </div>
-	        <div class="col-sm-6">
-	          <input class="btn btn-primary btn-block btn-lg btn-fill" type="submit" value="Üye Ol" />
-	        </div>
+			          <div class="input-group">
+			            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+			            <input type="text" class="form-control" name="username" placeholder="Kullanıcı Adı">
+			          </div>
+			          <span class="help-block"></span>
+			        </div>
+			        <div class="form-group col-lg-6">
+			          <label> {{ form.password.label_tag }}</label>
+			          <div class="input-group">
+			            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+			            <input  type="password" class="form-control" name="password" placeholder="Parola">
+			          </div>
+			            <span class="help-block"></span>
+			        </div>
+			        <div class="form-group col-lg-6">
+			          <label>Tekrar {{ form.password.label_tag }}</label>
+			          <div class="input-group">
+			            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+			            <input  type="password" class="form-control" name="password2" placeholder="Parola">
+			          </div>
+			            <span class="help-block"></span>
+			        </div>       
+			        <div class="form-group col-lg-6">
+			          <label>{{ form.email.label_tag }}</label>
+			        <div class="input-group">
+			            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+			            <input  type="email" class="form-control" name="mail" placeholder="E-Mail">
+			          </div>
+			            <span class="help-block"></span>
+			        </div>  
+			        <div class="form-group col-lg-6">
+			          <label>Tekrar {{ form.email.label_tag }}</label>
+			                    <div class="input-group">
+			            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+			            <input  type="email" class="form-control" name="email2" placeholder="E-Mail">
+			          </div>
+			                <span class="help-block"></span>
+			        </div>      
+			        <div class="col-sm-6">
+			          <input type="checkbox" name="info" class=""> <span>  Bilgilendirmelerden beni haberdar et. </span></input>
+			        </div>
+			        <div class="col-sm-6">
+			          <input class="btn btn-primary btn-block btn-lg btn-fill" type="submit" value="Üye Ol" />
+			        </div>
 	        </form>	      
 	      </div>
 	    </div>

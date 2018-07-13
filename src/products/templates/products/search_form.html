@@ -1,26 +1,9 @@
 <form role="form" id="mc-form" action='{% url "product:list" %}'>
-	<div class="col-md-8 col-sm-10 col-xs-12 xt-header-search">
-		<div class="form-group xt-form search-bar  col-md-8 col-sm-8 col-xs-7 padding-right-o">
-	        <input type="text" class="form-control" name="q" placeholder="Ne Arıyorsun?" value='{{ request.GET.q }}' />
+	<div class="col-md-12 col-sm-10 col-xs-12 xt-header-search" style="padding: 0px;">
+		<div class="form-group xt-form search-bar  col-md-10 col-sm-8 col-xs-7 padding-right-o" style="margin-bottom: 0;">
+	        <input type="text" style="border: 1px solid #cfcfcf; border-radius: 3px;" class="form-control" name="q" placeholder="Ne Arıyorsun?" value='{{ request.GET.q }}' />
 	    </div>
-	    <div class="form-group xt-form xt-search-cat col-md-4 col-sm-4 col-xs-5 padding-left-o ">
-            <div class="xt-select xt-search-opt">
-                <select class="xt-dropdown-search select-beast">
-                    <option>Tüm Kategoriler</option>
-                    <option>Et, Et Ürünleri</option>
-                    <option>İçecekler</option>
-                    <option>Temizlik</option>
-                    <option>Kişisel Bakım</option>
-                    <option>Meyve</option>
-                    <option>Sebze</option>
-                    <option>Lorem</option>
-                    <option>Coats</option>
-                    <option>Lorem</option>
-                    <option>Lorem</option>
-                    <option>Lorem</option>
-                    <option>Lorem</option>
-                </select>
-            </div>	    	
+	    <div class="form-group xt-form xt-search-cat col-md-2 col-sm-4 col-xs-5 padding-left-o " style="margin-bottom: 0;"> 	
 	        <div class="xt-search-opt xt-search-btn">
 	            <button type="submit" class="btn btn-primary btn-search"><i class="fa fa-search"></i></button>
 	        </div>
