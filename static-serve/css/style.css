@@ -2141,7 +2141,7 @@ nav ul.xt-side-menu > li > ul.xt-dropdown {
   text-align: center;
 }
 .slide_text {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.05);
   color: #fff;
   display: block;
   left: 0;
@@ -2149,11 +2149,8 @@ nav ul.xt-side-menu > li > ul.xt-dropdown {
   top: 0;
   position: absolute;
   width: 100%;
-  padding-right: 251px;
   bottom: 0;
   zoom: 1;
-  padding-left: 40px;
-  padding-top: 15%;
 }
 .slide_text span {
   font-size: 20px;

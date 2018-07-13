@@ -301,7 +301,8 @@
 
                 function formatUlAktuel(aktuelValue){
 
-                    aktuelContent = "<a href='/aktuels/" + aktuelValue.slug + "' class=''><li><img src='" + aktuelValue.image_aktuel + "' style='max-height:645px;' alt='Slider Aktuel' /></li></a>"                        
+                    aktuelContent = "<li><img src='" + aktuelValue.image_aktuel + "' style='max-height:645px;' alt='Slider Aktuel' /><div class='slide_text'><a href='/aktuels/" + aktuelValue.slug + "' class='btn' style='width: 100%;border: none;height: 100%;'></a></div></li>"                        
+
 
 
                     return aktuelContent
