@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.utils.safestring import mark_safe
 from django.template.defaultfilters import slugify
 
 # Create your models here.
@@ -18,8 +19,8 @@ class Aktuel(models.Model):
 					 		null=True,
 							width_field="width_field", 
 			 				height_field="height_field")
-	aktuel_company_name 	= models.CharField(max_length=140)
-	aktuel_company_site 	= models.CharField(max_length=140)
+	aktuel_company_name 	= models.CharField(max_length=140, verbose_name='Aktuel Firma Ismi')
+	aktuel_company_site 	= models.CharField(max_length=140, verbose_name='Aktuel Firma Sitesi')
 	image_comp			 	= models.ImageField(upload_to=upload_location,
 					 		null=True, blank=True,
 							width_field="width_field", 
@@ -31,6 +32,20 @@ class Aktuel(models.Model):
 	def save(self, *args, **kwargs):
 		self.slug = slugify(self.title)
 		super(Aktuel, self).save(*args, **kwargs)
+
+	def image_akt(self):
+		if self.image_aktuel:
+			return mark_safe('<img src="%s" style="width: 100px; height:100px;" />' % self.image_aktuel.url)
+		else:
+			return 'Resim Bulunamadı'
+	image_akt.short_description = 'Aktuel Resmi'
+
+	def image_akt_comp(self):
+		if self.image_comp:
+			return mark_safe('<img src="%s" style="width: 100px; height:100px;" />' % self.image_comp.url)
+		else:
+			return 'Resim Bulunamadı'
+	image_akt_comp.short_description = 'Aktuel Firma Resmi'			
 
 	def __str__(self):
 		return str(self.pk) + "\t" + str(self.title) 
