@@ -12,7 +12,7 @@
 <div class="col-sm-6 col-sm-offset-3 text-center">
     <h1>Login</h1>
 {% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>{{ form.errors }}
+<p>Kullanıcı adı veya şifre yanlış</p>{{ form.errors }}
 {% endif %}
 
 {% if next %}
@@ -35,9 +35,9 @@
     </div>
 
 
-    <button type="submit" class="btn btn-default"> Login </button>
+    <button type="submit" class="btn btn-default"> Giriş </button>
     <input type="hidden" name="next" value="{{ next }}" />
-    <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+    <p><a href="{% url 'password_reset' %}">Şifremi Unuttum?</a></p>
     </form>
 </div>
 

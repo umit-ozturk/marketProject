@@ -19,7 +19,7 @@
                                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                     <span aria-hidden="true" class="icon"></span>
                                   </button>
-                                  <a class="navbar-brand" href=""><img src="{% static 'images/flogo.png' %}" alt="" class="img-responsive"></a>
+                                  <a class="navbar-brand" href="/"><img src="{% static 'images/flogo.png' %}" alt="" class="img-responsive"></a>
                                 </div>                                
                                 <div class="col-md-7" style="width: 58.000%;">
                                     {% include 'products/search_form.html' %}                                    
@@ -27,7 +27,7 @@
                                 <div class="collapse navbar-collapse" id="js-navbar-menu">
                                     <ul class="nav navbar-nav navbar-right ep-mobile-menu" id="navbar-nav">
                                         <li> <span style="font-size: 14px; font-weight: 700; font-style: italic;"> Merhaba</span>, 
-                                            <a href="profile/{{user}}/">
+                                            <a href="/profile/{{user}}/">
 
                                                 {% if user.username|length > 7 %}
                                                     <span style="font-size: 14px;">{{user.username|truncatechars:7}}</span>
@@ -36,7 +36,7 @@
                                                 {% endif %}
                                                 
                                             </a></li>
-                                        <li><a href="login"> Çıkış Yap </a></li>
+                                        <li><a href='{% url "logout" %}?next=/'>Çıkış Yap</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -52,7 +52,7 @@
                                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                     <span aria-hidden="true" class="icon"></span>
                                   </button>
-                                  <a class="navbar-brand" href=""><img src="{% static 'images/flogo.png' %}" alt="" class="img-responsive"></a>
+                                  <a class="navbar-brand" href="/"><img src="{% static 'images/flogo.png' %}" alt="" class="img-responsive"></a>
                                 </div>
                                 <div class="col-md-7" style="width: 58.000%;">
                                     {% include 'products/search_form.html' %}                                    

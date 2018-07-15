@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 
 
 from accounts.views import UserRegisterView
+
 from products.views import ProductListView
 from .views import home
 
@@ -38,9 +39,10 @@ urlpatterns = [
     path('api/product/', include('products.api.urls', namespace='product-api')),
     path('api/category/', include('categories.api.urls', namespace='category-api')),
     path('api/aktuel/', include('aktuels.api.urls', namespace='aktuel-api')),
+    path('register/', UserRegisterView.as_view(), name="register"),
     #path('api/company/', include('companies.api.urls', namespace='company-api')),
 
-    path('register/', UserRegisterView.as_view(), name="register"),
+    
     path('', include('django.contrib.auth.urls')),
     path('', include('accounts.urls', namespace='profile')),
 ]
