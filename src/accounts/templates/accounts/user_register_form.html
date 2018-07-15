@@ -41,14 +41,17 @@
 					<a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Twitter İle Giriş Yap</a>
 				</p>             	
 	        </div>
-			<form class="form {% if form_class %}{{ form_class }}{% endif %} " method="post" action="{% if action_url %} {{ action_url }} {% endif %}">
+	        {% crispy form %}
+	        <!--
+			<form id="user-register-form" class="form {% if form_class %}{{ form_class }}{% endif %} " method="post" action="{% if action_url %} {{ action_url }} {% endif %}">
 					{% csrf_token %}
-					{{ form.as_p }}
 			        <div class="col-sm-6">
 			        	<button type="submit">Submit</button>
 			          
 			        </div>
-	        </form>	      
+	        </form>	
+
+	        -->      
 	      </div>
 	    </div>
 	  </section>
