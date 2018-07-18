@@ -31,15 +31,6 @@ def post_save_user_receiver(sender, instance, created, *args, **kwargs):
 		#celery + redis
 
 
-@receiver(post_save, sender=settings.AUTH_USER_MODEL)
-def user_post_save(sender, **kwargs):
-	if kwargs.get("raw", False):
-		return False
-
-	user, created = kwargs["instance"], kwargs["created"]
-	disabled = getattr(user, "_disable_account_creation", not settings.ACCOUNT_CREATE_ON_SAVE)
-	if created and not disabled:
-		UserProfile.create(user=user)
 
 
 

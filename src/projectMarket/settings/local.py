@@ -90,7 +90,7 @@ WSGI_APPLICATION = 'projectMarket.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'market',
+        'NAME': 'yenideneme',
         'USER': 'admin',
         'PASSWORD': '',
         'HOST': 'localhost',
