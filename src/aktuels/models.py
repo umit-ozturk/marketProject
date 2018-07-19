@@ -14,7 +14,7 @@ class Aktuel(models.Model):
 	title 					= models.CharField(max_length=140)
 	explain					= models.CharField(max_length=140)
 	updated 				= models.DateTimeField(auto_now=True)
-	timestamp				= models.DateTimeField(auto_now_add=True)
+	timestamp		= models.DateTimeField(auto_now_add=True)
 	image_aktuel			= models.ImageField(upload_to=upload_location,
 					 		null=True,
 							width_field="width_field", 
