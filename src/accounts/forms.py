@@ -7,6 +7,8 @@ from crispy_forms.helper import FormHelper
 
 from crispy_forms.layout import Submit, Layout, Div, Fieldset, Field, HTML, Button
 
+from .models import UserProfile
+
 
 User = get_user_model()
 
@@ -129,3 +131,16 @@ class UserRegisterForm(forms.Form):
 		if User.objects.filter(username=username):
 			raise forms.ValidationError('* Kullanıcı adı bu sitede zaten mevcut.')
 		return self.cleaned_data
+
+
+
+
+
+
+
+class UserUpdateForm(forms.ModelForm):
+
+	class Meta:
+		model = User
+		fields = ['email', 'username' ]
+

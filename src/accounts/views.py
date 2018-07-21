@@ -2,12 +2,16 @@ from django.contrib.auth import get_user_model, login, authenticate
 from django.views.generic.edit import FormView
 
 from django.views.generic  import (
-			DetailView
+			DetailView,
+			UpdateView
 			)
 
 from django.urls import reverse_lazy
 from django.shortcuts import render, get_object_or_404, redirect
-from .forms import UserRegisterForm
+from .forms import (
+	UserRegisterForm,
+	UserUpdateForm
+	)
 from .models import UserProfile
 
 
@@ -48,17 +52,19 @@ class UserDetailView(DetailView):
 		return context
 
 
+class UserUpdateView(UpdateView):
+	model = UserProfile
+	template_name = 'accounts/user_update.html'
+	form_class = UserUpdateForm
+	queryset = User.objects.all()
 
-#class ProfileDetailView(DetailView):
-#	model = UserProfile
-#	template_name = "accounts/user_profile.html"
-#
-#	def get_slug_field(self):
-#		"""Get the name of a slug field to be used to look up by slug."""
-#		print(self.model.user)
-#		return 'user__username'
+	def get_slug_field(self):
+		"""Get the name of a slug field to be used to look up by slug."""
+		return "username"
 
-
+	def get_context_data(self, *args, **kwargs):
+		context = super(UserUpdateView, self).get_context_data(*args, **kwargs)
+		return context
 
 #class UserRegisterView(FormView):
 	#template_name = "accounts/user_register_form.html"

@@ -13,6 +13,7 @@ def upload_location(instance, filename):
 	upload_path = "img/product/" + str(filename)
 	return upload_path
 
+#product.category.CATEGORY.category_name
 
 class Product(models.Model):
 	category 		= TreeForeignKey("categories.category", on_delete=models.CASCADE, null=True,blank=True, verbose_name='Kategori')
