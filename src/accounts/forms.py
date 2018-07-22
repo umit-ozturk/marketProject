@@ -139,8 +139,42 @@ class UserRegisterForm(forms.Form):
 
 
 class UserUpdateForm(forms.ModelForm):
+	userphoto 	= forms.ImageField(label='Profil Fotoğrafı', required = False)
 
 	class Meta:
 		model = User
-		fields = ['email', 'username' ]
+		fields = ['email', 'username', 'userphoto', ]
+
+
+	def __init__(self, *args, **kwargs):
+		super(UserUpdateForm, self).__init__(*args, **kwargs)
+		self.helper = FormHelper()
+		self.helper.form_id = 'user-update-form'
+		self.helper.form_show_labels = False
+		self.helper.attrs = {'novalidate': ''}
+		self.helper.layout = Layout(
+			Div(
+				Div(
+					HTML(
+						"<img alt='User Pic' src='{{user.userphoto}}' class='img-circle img-responsive'>"
+						), 					
+					Field('userphoto', ), css_class='col-md-3 col-lg-3'
+					),
+
+				Div(
+					HTML(
+						"<table class='table table-user-information'><tbody><tr><td>İsim:</td><td><input type='text' name='lname' placeholder='{{user.name}}'></td></tr><tr><td>Soyisim:</td><td><input type='text' name='lname' placeholder='{{user.surname}}'></td></tr><tr><td>Doğum Tarihi:</td><td><input type='text' name='lname' placeholder='{{user.birthday}}'></td></tr><tr><tr><td>Cinsiyet:</td><td><input type='text' name='lname' placeholder='{{user.gender}}'></td></tr><tr><td>Adres:</td><td><input type='text' name='lname' placeholder='{{user.adress}}'></td></tr><tr><td>Email:</td><td><input type='text' name='lname' placeholder='{{user.email}}'></td></tr><td>Telefon Numarası:</td><td><input type='text' name='lname' placeholder='{{user.phone}}'></td></tr></tbody></table><a href='' type='submit' class='btn btn-fill'>Kaydet</a><button type='submit'>Submit</button><a href='' class='btn btn-primary'>Geri Dön</a>"
+						), css_class='col-md-9 col-lg-9'
+					), css_class='form-group col-lg-10'
+				),				
+																			
+			)
+
+
+
+
+
+
+
+
 
