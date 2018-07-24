@@ -37,49 +37,33 @@ class UserRegisterView(FormView):
 		login(self.request, user)		
 		return super(UserRegisterView, self).form_valid(form)
 
-class UserDetailView(DetailView):
-	model = UserProfile
-	template_name = 'accounts/user_detail.html'
-	queryset = User.objects.all()
-	
-	def get_slug_field(self):
-		"""Get the name of a slug field to be used to look up by slug."""
-		return "username"
-
-
-	def get_context_data(self, *args, **kwargs):
-		context = super(UserDetailView, self).get_context_data(*args, **kwargs)
-		return context
 
 
 class UserUpdateView(UpdateView):
 	model = UserProfile
 	template_name = 'accounts/user_update.html'
 	form_class = UserUpdateForm
-	queryset = User.objects.all()
+
+	def get_success_url(self):
+		return reverse_lazy("home")	
+
 
 	def get_slug_field(self):
 		"""Get the name of a slug field to be used to look up by slug."""
-		return "username"
+		return "user__username"		
+
+class UserDetailView(DetailView):
+	model = UserProfile
+	template_name = 'accounts/user_detail.html'
+	queryset = UserProfile.objects.all()
+	
+	def get_slug_field(self):
+		queryset = User.objects.all()
+		"""Get the name of a slug field to be used to look up by slug."""
+		return "user__username"
+
 
 	def get_context_data(self, *args, **kwargs):
-		context = super(UserUpdateView, self).get_context_data(*args, **kwargs)
+		context = super(UserDetailView, self).get_context_data(*args, **kwargs)
 		return context
 
-#class UserRegisterView(FormView):
-	#template_name = "accounts/user_register_form.html"
-	#form_class = UserRegisterForm
-	#success_url = "/login"
-
-	#def form_valid(self, form):
-	#	username = form.cleaned_data.get("username")
-	#	print(username)
-	#	email = form.cleaned_data.get("email")
-	#	print(email)
-	#	password = form.cleaned_data.get("password")
-	#	print(password)
-	#	new_user = UserProfile.objects.create(username=username, email=email)
-	#	print(new_user)
-	#	new_user.set_password(password)
-	#	new_user.save()
-	#	return super(UserRegisterView, self).form_valid(form)

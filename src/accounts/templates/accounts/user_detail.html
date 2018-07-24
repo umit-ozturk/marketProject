@@ -94,38 +94,38 @@ $(document).ready(function() {
 	        </div>
 	        <div class="panel-body">
 	          <div class="row">
-	            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="{{user.picture}}" class="img-circle img-responsive"> </div>
+	            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="/media/{{object.userphoto}}/" class="img-circle img-responsive"> </div>
 	            <div class=" col-md-9 col-lg-9 "> 
 	              <table class="table table-user-information">
 	                <tbody>
 	                  <tr>
 	                    <td>İsim:</td>
-	                    <td>{{ user.name }}</td>
+	                    <td>{{ object.name }}</td>
 	                  </tr>
 	                  <tr>
 	                    <td>Soyisim:</td>
-	                    <td>{{ user.surname }}</td>
+	                    <td>{{ object.surname }}</td>
 	                  </tr>	                  
 	                  <tr>
 	                    <td>Doğum Tarihi:</td>
-	                    <td>{{user.birthday}}</td>
+	                    <td>{{object.birthday}}</td>
 	                  </tr>
 	               
 	                     <tr>
 	                         <tr>
 	                    <td>Cinsiyet:</td>
-	                    <td>{{user.gender}}</td>
+	                    <td>{{object.gender}}</td>
 	                  </tr>
 	                    <tr>
 	                    <td>Adres:</td>
-	                    <td>{{user.adress}}</td>
+	                    <td>{{object.adress}}</td>
 	                  </tr>
 	                  <tr>
 	                    <td>Email:</td>
 	                    <td><a href="mailto:{{user.email}}">{{user.email}}</a></td>
 	                  </tr>
 	                    <td>Telefon Numarası:</td>
-	                    <td>{{user.phone}}</td>
+	                    <td>{{object.phone}}</td>
 	                       
 	                  </tr>
 	                 
