@@ -81,6 +81,9 @@ $(document).ready(function() {
 		.toppad
 		{margin-top:20px;
 		}		
+		.btn-primary:hover{
+			background-color:#f26667;
+		}
 
 	</style>
 	<div class="container">
@@ -90,7 +93,7 @@ $(document).ready(function() {
 
 	      <div class="panel panel-info" style="border-color: #f26667;">
 	        <div class="panel-heading" style="background-color: #f26667; color: #000;">
-	          <h3 class="panel-title"> {{user}}</h3>
+	          <h3 class="panel-title" style="font-weight:800; font-size: 20px; color:#424242;"> {{user}}</h3>
 	        </div>
 	        <div class="panel-body">
 	          <div class="row">
@@ -114,7 +117,7 @@ $(document).ready(function() {
 	                     <tr>
 	                         <tr>
 	                    <td>Cinsiyet:</td>
-	                    <td>{{object.gender}}</td>
+	                    <td>{{object.gender_verbose}}</td>
 	                  </tr>
 	                    <tr>
 	                    <td>Adres:</td>
@@ -132,16 +135,15 @@ $(document).ready(function() {
 	                </tbody>
 	              </table>
 	              
-	              <a href="#" class="btn btn-fill">Sepetim</a>
-	              <a href="#" class="btn btn-primary">Sepeti Boşalt</a>
+	              <a href="/profile/{{user}}/cart/" class="btn btn-fill">Sepetim</a>
+	              <a href="/profile/{{user}}/cart/delete/" class="btn btn-primary">Sepeti Boşalt</a>
 	            </div>
 	          </div>
 	        </div>
 	             <div class="panel-footer">
-	                    <a href="/profile/{{user}}/update/" data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+	                    <a href="/profile/{{user}}/update/" data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-primary"><i class="flaticon flaticon-settings" style="padding-right: 15px; font-weight:500;"></i></a>
 	                    <span class="pull-right">
-	                        <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-	                        <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+	                        <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-danger"><i class="flaticon flaticon-email" style="padding-right: 15px; font-weight:500;"></i></a>
 	                    </span>
 	                </div>
 	        

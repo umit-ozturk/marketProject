@@ -1,6 +1,6 @@
     /*
     Flaticon icon font: Flaticon
-    Creation date: 15/04/2018 18:59
+    Creation date: 25/07/2018 16:48
     */
 
     @font-face {
@@ -36,24 +36,30 @@
   font-smoothing: antialiased;
     }
 
-    .flaticon-supermarket-cart:before { content: "\f100"; }
-.flaticon-weightlifting:before { content: "\f101"; }
-.flaticon-console:before { content: "\f102"; }
-.flaticon-perfume:before { content: "\f103"; }
-.flaticon-dress:before { content: "\f104"; }
-.flaticon-chair:before { content: "\f105"; }
-.flaticon-responsive:before { content: "\f106"; }
-.flaticon-doll:before { content: "\f107"; }
-.flaticon-glass-of-water:before { content: "\f108"; }
-.flaticon-steak:before { content: "\f109"; }
+    .flaticon-email:before { content: "\f100"; }
+.flaticon-settings:before { content: "\f101"; }
+.flaticon-food:before { content: "\f102"; }
+.flaticon-supermarket-cart:before { content: "\f103"; }
+.flaticon-weightlifting:before { content: "\f104"; }
+.flaticon-console:before { content: "\f105"; }
+.flaticon-perfume:before { content: "\f106"; }
+.flaticon-dress:before { content: "\f107"; }
+.flaticon-chair:before { content: "\f108"; }
+.flaticon-responsive:before { content: "\f109"; }
+.flaticon-doll:before { content: "\f10a"; }
+.flaticon-glass-of-water:before { content: "\f10b"; }
+.flaticon-steak:before { content: "\f10c"; }
     
-    $font-Flaticon-supermarket-cart: "\f100";
-    $font-Flaticon-weightlifting: "\f101";
-    $font-Flaticon-console: "\f102";
-    $font-Flaticon-perfume: "\f103";
-    $font-Flaticon-dress: "\f104";
-    $font-Flaticon-chair: "\f105";
-    $font-Flaticon-responsive: "\f106";
-    $font-Flaticon-doll: "\f107";
-    $font-Flaticon-glass-of-water: "\f108";
-    $font-Flaticon-steak: "\f109";
+    $font-Flaticon-email: "\f100";
+    $font-Flaticon-settings: "\f101";
+    $font-Flaticon-food: "\f102";
+    $font-Flaticon-supermarket-cart: "\f103";
+    $font-Flaticon-weightlifting: "\f104";
+    $font-Flaticon-console: "\f105";
+    $font-Flaticon-perfume: "\f106";
+    $font-Flaticon-dress: "\f107";
+    $font-Flaticon-chair: "\f108";
+    $font-Flaticon-responsive: "\f109";
+    $font-Flaticon-doll: "\f10a";
+    $font-Flaticon-glass-of-water: "\f10b";
+    $font-Flaticon-steak: "\f10c";

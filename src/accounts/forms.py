@@ -109,7 +109,7 @@ class UserRegisterForm(forms.Form):
 				),			
 			Div(
 				HTML(
-						"<button type='submit'>Submit</button>"
+						"<button class='btn btn-fill' type='submit'>Submit</button>"
 						
 					), css_class='form-group col-lg-6'
 				),			
@@ -141,6 +141,7 @@ class UserRegisterForm(forms.Form):
 class UserUpdateForm(forms.ModelForm):
 	userphoto		= forms.ImageField(label='Profil Fotoğrafı', required=False)
 	name 			= forms.CharField(label='İsim', required=False)
+	gender 		 	= forms.CharField(label='Soyisim', required=False)
 	surname 		= forms.CharField(label='Soyisim', required=False)
 	birthday 		= forms.DateField(label='Doğum Tarihi', required=False)
 	adress	 		= forms.CharField(label='Adres', required=False)
@@ -156,14 +157,13 @@ class UserUpdateForm(forms.ModelForm):
 			Div(
 				Div(
 					HTML(
-						"<img alt='User Pic' src='/media/accounts/{{object.userphoto}}' class='img-circle img-responsive'>"
-						), 					
-					Field('userphoto', ), css_class='col-md-3 col-lg-3'
+						"<input id='userphoto' name='userphoto' type='file' style='display:None;' capture><img id='UserPhoto' alt='User Pic' src='/media/{{object.userphoto}}' class='img-circle img-responsive' style='cursor: pointer;'>"
+						),css_class='col-md-3 col-lg-3'
 					),
 
 				Div(
 					HTML(
-						"<table class='table table-user-information'><tbody><tr><td>İsim:</td><td><input id='name' type='text' name='name' placeholder='{{object.name}}'></td></tr><tr><td>Soyisim:</td><td><input id='surname' type='text' name='surname' placeholder='{{object.surname}}'></td></tr><tr><td>Doğum Tarihi:</td><td><input id='birthday' type='text' name='birthday' placeholder='{{object.birthday}}'></td></tr><tr><tr><td>Cinsiyet:</td><td><input id='gender' type='text' name='gender' placeholder='{{object.gender}}'></td></tr><tr><td>Adres:</td><td><input id='adress' type='text' name='adress' placeholder='{{object.adress}}'></td></tr><tr><td>Email:</td><td><input type='text' name='lname' placeholder='{{user.email}}'></td></tr><td>Telefon Numarası:</td><td><input id='phone' type='text' name='phone' placeholder='{{object.phone}}'></td></tr></tbody></table><button type='submit'>kaydet</button><a href='/profile/{{user}}/' value='submit' type='submit' class='btn btn-fill'>Kaydet</a><a href='' class='btn btn-primary'>Geri Dön</a>"
+						"<table class='table table-user-information'><tbody><tr><td>İsim:</td><td><input id='name' type='text' name='name' placeholder='{{object.name}}'></td></tr><tr><td>Soyisim:</td><td><input id='surname' type='text' name='surname' placeholder='{{object.surname}}'></td></tr><tr><td>Doğum Tarihi:</td><td><input id='birthday' type='date' name='birthday' placeholder='{{object.birthday}}'></td></tr><tr><tr><td>Cinsiyet:</td><td><input type='radio' name='gender' value='E'> Erkek<br><input type='radio' name='gender' value='K'> Kadın<br></td></tr><tr><td>Adres:</td><td><input id='adress' type='text' name='adress' placeholder='{{object.adress}}'></td></tr><tr><td>Email:</td><td><input type='email' name='lname' placeholder='{{user.email}}'></td></tr><td>Telefon Numarası:</td><td><input id='phone' type='tel' name='phone' placeholder='{{object.phone}}'></td></tr></tbody></table><button class='btn btn-fill' type='submit'>Kaydet</button><a href='/profile/{{user}}/' class='btn btn-primary'>Geri Dön</a>"
 						), css_class='col-md-9 col-lg-9'
 					), css_class='form-group col-lg-10'
 				),				
@@ -174,6 +174,6 @@ class UserUpdateForm(forms.ModelForm):
 
 	class Meta:
 		model = UserProfile
-		fields = ['userphoto', 'name', 'surname', 'birthday', 'adress', 'phone',]
+		fields = ['userphoto', 'name', 'surname', 'birthday', 'adress', 'phone', 'gender',]
 
 

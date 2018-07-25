@@ -43,6 +43,9 @@ class UserProfile(models.Model):
 				pass
 		return AnonymousAccount(request)	
 
+	def gender_verbose(self):
+		return dict(UserProfile.GENDER_CHOICES)[self.gender]
+
 	def __str__(self):
 		return str(self.user.username)
 

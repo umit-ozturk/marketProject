@@ -47,14 +47,11 @@ class UserUpdateView(UpdateView):
 	def form_valid(self, form):
 		form.save(commit=False)
 		form_data = form.cleaned_data
+		print(form.cleaned_data)
 		for data in form_data:
 			if form_data[data] is None or form_data[data] == '':
 				form_data[data] = form.initial[data]
 				form.instance.__dict__[data] = form.initial[data]
-				print(form.instance.__dict__[data])
-				print(form.initial[data])
-
-			print(form.instance.__dict__)
 		form.save()
 		return super(UserUpdateView, self).form_valid(form)
 

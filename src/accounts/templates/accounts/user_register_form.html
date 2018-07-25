@@ -111,68 +111,11 @@
 	        </div>
 	        <div class="crispyform">
 				{% crispy form %}     	        	
-	        </div>
-	        <!--
-			<form id="user-register-form" class="form {% if form_class %}{{ form_class }}{% endif %} " method="post" action="{% if action_url %} {{ action_url }} {% endif %}">
-					{% csrf_token %}
-			        <div class="col-sm-6">
-			        	<button type="submit">Submit</button>
-			          
-			        </div>
-	        </form>	
-
-	        -->      
+	        </div>     
 	      </div>
 	    </div>
 	  </section>
 	</div> <br><br>	
-
-<!--
-					<div class="form-group col-lg-10">
-			          <label>{{ form.username.label_tag }}</label>
-
-			          <div class="input-group">
-			            <span class="input-group-addon"><i class="fa fa-user"></i></span>
-			            {{ form.username }}
-			          </div>
-			          <span class="help-block"></span>
-			        </div>
-			        <div class="form-group col-lg-6">
-			          <label> {{ form.password.label_tag }}</label>
-			          <div class="input-group">
-			            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-			            {{ form.password }}
-			          </div>
-			            <span class="help-block"></span>
-			        </div>
-			        <div class="form-group col-lg-6">
-			          <label>Tekrar {{ form.password.label_tag }}</label>
-			          <div class="input-group">
-			            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-			            {{ form.password2 }}
-			          </div>
-			            <span class="help-block"></span>
-			        </div>       
-			        <div class="form-group col-lg-6">
-			          <label>{{ form.email.label_tag }}</label>
-			        <div class="input-group">
-			            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-			            {{ form.email }}
-			          </div>
-			            <span class="help-block"></span>
-			        </div>  
-			        <div class="form-group col-lg-6">
-			          <label>Tekrar {{ form.email.label_tag }}</label>
-			         <div class="input-group">
-			            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-			            {{ form.email2 }}
-			          </div>
-			                <span class="help-block"></span>
-			        </div>      
-			        <div class="col-sm-6">
-			          {{ form.info }} <span>  Bilgilendirmelerden beni haberdar et. </span>
-			        </div>
-			    -->
 
 {% endblock content %}
 

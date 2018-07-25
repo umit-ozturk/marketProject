@@ -1,7 +1,38 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
-t
+{% block script %}
+<script>
+	$("#UserPhoto").click(function(e) {
+	    $("#userphoto").click();
+	});
+
+
+function fasterPreview( uploader ) {
+    if ( uploader.files && uploader.files[0] ){
+          $('#UserPhoto').attr('src', 
+             window.URL.createObjectURL(uploader.files[0]) );
+    }
+}
+
+$("#userphoto").change(function(){
+	console.log($("#Userphoto"))
+	console.log($("#userphoto"))
+    fasterPreview( this );
+});
+</script>
+{% endblock %}
 {% block content %}
+	<style type="text/css">	
+		.btn-primary{
+			margin-left: 5px; 
+		}
+		.btn-primary:hover{
+			background-color: #f26667;
+			border-color: #f26667;
+		}
+
+	</style>
+
 
 	<div class="container">
 	  <div class="row">
@@ -10,7 +41,7 @@ t
 
 	      <div class="panel panel-info" style="border-color: #f26667;">
 	        <div class="panel-heading" style="background-color: #f26667; color: #000;">
-	          <h3 class="panel-title"> {{user}}</h3>
+	          <h3 class="panel-title" style="font-weight:800; font-size: 20px; color:#424242;"> {{user}}</h3>
 	        </div>
 	        <div class="panel-body">
 
@@ -20,10 +51,9 @@ t
 	          </div>
 	        </div>
 	             <div class="panel-footer">
-	                    <a href="/profile/{{user}}/update/" data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+	                    <a href="/profile/{{user}}/update/" data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-primary"><i class="flaticon flaticon-settings" style="padding-right: 15px; font-weight:500;"></i></a>
 	                    <span class="pull-right">
-	                        <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-	                        <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+	                        <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-danger"><i class="flaticon flaticon-email" style="padding-right: 15px; font-weight:500;"></i></a>
 	                    </span>
 	                </div>
 	        
