@@ -168,6 +168,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+CART_SESSION_ID = 'cart'
 
 
 MEDIA_URL = '/media/'

@@ -1,17 +1,30 @@
-from cart.models import Cart
+from django.shortcuts import render, redirect, get_object_or_404
+from django.views.decorators.http import require_POST
 from products.models import Product
-from django.shortcuts import render_to_response
+from .cart import Cart
+from cart.forms import CartAddProductForm
 
 
-def add_to_cart(request, product_id, quantity):
-    product = Product.objects.get(id=product_id)
+@require_POST
+def cart_add(request, product_id):
     cart = Cart(request)
-    cart.add(product, product.unit_price, quantity)
+    product = get_object_or_404(Product, id=product_id)
+    form = CartAddProductForm(request.POST)
+    if form.is_valid():
+        cd = form.cleaned_data
+        cart.add(product=product, quantity=cd['quantity'], update_quantity=cd['update'])
+    return redirect('cart:cart_detail')
 
-def remove_from_cart(request, product_id):
-    product = Product.objects.get(id=product_id)
+
+def cart_remove(request, product_id):
     cart = Cart(request)
+    product = get_object_or_404(Product, id=product_id)
     cart.remove(product)
+    return redirect('cart:cart_detail')
 
-def get_cart(request):
-    return render_to_response('cart.html', dict(cart=Cart(request)))
+
+def cart_detail(request):
+    cart = Cart(request)
+    for item in cart:
+        item['update_quantity_form'] = CartAddProductForm(initial={'quantity': item['quantity'], 'update': True})
+    return render(request, 'carts/detail.html', {'cart': cart})

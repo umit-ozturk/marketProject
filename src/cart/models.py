@@ -8,8 +8,8 @@ class Cart(models.Model):
     checked_out = models.BooleanField(default=False, verbose_name=_('checked out'))
 
     class Meta:
-        verbose_name = _('cart')
-        verbose_name_plural = _('carts')
+        verbose_name = _('Sepet')
+        verbose_name_plural = _('Sepetler')
         ordering = ('-creation_date',)
 
     def __unicode__(self):
@@ -17,10 +17,10 @@ class Cart(models.Model):
 
 class ItemManager(models.Manager):
     def get(self, *args, **kwargs):
-        if 'product' in kwargs:
-            kwargs['content_type'] = ContentType.objects.get_for_model(type(kwargs['product']))
-            kwargs['object_id'] = kwargs['product'].pk
-            del(kwargs['product'])
+        if 'products' in kwargs:
+            kwargs['content_type'] = ContentType.objects.get_for_model(type(kwargs['products']))
+            kwargs['object_id'] = kwargs['products'].pk
+            del(kwargs['products'])
         return super(ItemManager, self).get(*args, **kwargs)
 
 class Item(models.Model):

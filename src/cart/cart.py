@@ -1,94 +1,53 @@
-import datetime
-import models
+from decimal import Decimal
+from django.conf import settings
+from products.models import Product
 
-CART_ID = 'CART-ID'
 
-class ItemAlreadyExists(Exception):
-    pass
-
-class ItemDoesNotExist(Exception):
-    pass
-
-class Cart:
+class Cart(object):
     def __init__(self, request):
-        cart_id = request.session.get(CART_ID)
-        if cart_id:
-            try:
-                cart = models.Cart.objects.get(id=cart_id, checked_out=False)
-            except models.Cart.DoesNotExist:
-                cart = self.new(request)
-        else:
-            cart = self.new(request)
+        self.session = request.session
+        cart = self.session.get(settings.CART_SESSION_ID)
+        if not cart:
+            cart = self.session[settings.CART_SESSION_ID] = {}
         self.cart = cart
 
-    def __iter__(self):
-        for item in self.cart.item_set.all():
-            yield item
+    def add(self, product, quantity=1, update_quantity=False):
+        product_id = str(product.id)
+        if product_id not in self.cart:
+            self.cart[product_id] = {'quantity': 0, 'price': str(product.price)}
+        if update_quantity:
+            self.cart[product_id]['quantity'] = quantity
+        else:
+            self.cart[product_id]['quantity'] += quantity
+        self.save()
 
-    def new(self, request):
-        cart = models.Cart(creation_date=datetime.datetime.now())
-        cart.save()
-        request.session[CART_ID] = cart.id
-        return cart
-
-    def add(self, product, unit_price, quantity=1):
-        try:
-            item = models.Item.objects.get(
-                cart=self.cart,
-                product=product,
-            )
-        except models.Item.DoesNotExist:
-            item = models.Item()
-            item.cart = self.cart
-            item.product = product
-            item.unit_price = unit_price
-            item.quantity = quantity
-            item.save()
-        else: #ItemAlreadyExists
-            item.unit_price = unit_price
-            item.quantity = item.quantity + int(quantity)
-            item.save()
+    def save(self):
+        self.session[settings.CART_SESSION_ID] = self.cart
+        self.session.modified = True
 
     def remove(self, product):
-        try:
-            item = models.Item.objects.get(
-                cart=self.cart,
-                product=product,
-            )
-        except models.Item.DoesNotExist:
-            raise ItemDoesNotExist
-        else:
-            item.delete()
+        product_id = str(product.id)
+        if product_id in self.cart:
+            del self.cart[product_id]
+            self.save()
 
-    def update(self, product, quantity, unit_price=None):
-        try:
-            item = models.Item.objects.get(
-                cart=self.cart,
-                product=product,
-            )
-        except models.Item.DoesNotExist:
-            raise ItemDoesNotExist
-        else: #ItemAlreadyExists
-            if quantity == 0:
-                item.delete()
-            else:
-                item.unit_price = unit_price
-                item.quantity = int(quantity)
-                item.save()
+    def __iter__(self):
+        product_ids = self.cart.keys()
+        products = Product.objects.filter(id__in=product_ids)
+        for product in products:
+            self.cart[str(product.id)]['product'] = product
 
-    def count(self):
-        result = 0
-        for item in self.cart.item_set.all():
-            result += 1 * item.quantity
-        return result
-        
-    def summary(self):
-        result = 0
-        for item in self.cart.item_set.all():
-            result += item.total_price
-        return result
+        for item in self.cart.values():
+            item['price'] = Decimal(item['price'])
+            item['total_price'] = item['price'] * item['quantity']
+            yield item
+
+    def __len__(self):
+        return sum(item['quantity'] for item in self.cart.values())
+
+    def get_total_price(self):
+        return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())
 
     def clear(self):
-        for item in self.cart.item_set.all():
-            item.delete()
-
+        del self.session[settings.CART_SESSION_ID]
+        self.session.modified = True
