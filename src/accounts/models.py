@@ -19,7 +19,7 @@ class UserProfile(models.Model):
 		('E', 'Erkek'),
 		('K', 'Kadın'),
 	)
-	gender 			= models.CharField(max_length=1, choices=GENDER_CHOICES)	
+	gender 			= models.CharField(max_length=1, choices=GENDER_CHOICES, default='E')	
 	user 			= models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='profile')
 	userphoto		= models.ImageField(upload_to=upload_location,
 					 		null=True,

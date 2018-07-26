@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
     'crispy_forms',
     'import_export',
     'rest_framework',
@@ -56,7 +57,29 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
+
+
+# For Social Auth -->
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+
+SOCIAL_AUTH_TWITTER_KEY = 'qmi0KPcQSmUFfEwBSLb495m7L'
+SOCIAL_AUTH_TWITTER_SECRET = 'w4zGBFyaqArRZRJ2bbfEmHXvuSm3P5HOzzWdSyZpze438D0rsV'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '2277086349235314'
+SOCIAL_AUTH_FACEBOOK_SECRET = '1b65d140f4c1374e5e1d82ab9ff08891' 
+
+
+
 
 ROOT_URLCONF = 'projectMarket.urls'
 
@@ -71,6 +94,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',                
             ],
         },
     },
@@ -113,7 +138,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'home'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
