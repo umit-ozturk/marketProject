@@ -34,6 +34,7 @@ urlpatterns = [
     path('products/', include('products.urls', namespace='product')),
     path('categories/', include('categories.urls', namespace='category')),
     path('aktuels/', include('aktuels.urls', namespace='aktuel')),
+    path('carts/', include('cart.urls', namespace='cart')),
     #path('companies/', include('companies.urls', namespace='company')),
     ### API
     path('api/product/', include('products.api.urls', namespace='product-api')),
