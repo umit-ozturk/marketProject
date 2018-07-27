@@ -49,6 +49,11 @@ class UserProfile(models.Model):
 	def __str__(self):
 		return str(self.user.username)
 
+	def get_slug_field(self):
+		"""Get the name of a slug field to be used to look up by slug."""
+		return "user__username"		
+
+
 	def get_absolute_url(self):
 		return reverse_lazy("profile:detail", kwargs={"username":self.user.username})
 
