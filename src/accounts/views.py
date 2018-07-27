@@ -1,5 +1,7 @@
 from django.contrib.auth import get_user_model, login, authenticate
 from django.views.generic.edit import FormView
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 from django.views.generic  import (
 			DetailView,
@@ -37,8 +39,7 @@ class UserRegisterView(FormView):
 		login(self.request, user)		
 		return super(UserRegisterView, self).form_valid(form)
 
-
-
+@method_decorator(login_required, name='dispatch')
 class UserUpdateView(UpdateView):
 	model = UserProfile
 	template_name = 'accounts/user_update.html'
@@ -60,8 +61,9 @@ class UserUpdateView(UpdateView):
 
 	def get_slug_field(self):
 		"""Get the name of a slug field to be used to look up by slug."""
-		return "user__username"		
+		return "user__username"
 
+@method_decorator(login_required, name='dispatch')
 class UserDetailView(DetailView):
 	model = UserProfile
 	template_name = 'accounts/user_detail.html'

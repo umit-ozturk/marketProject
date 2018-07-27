@@ -7,6 +7,7 @@ from django.views.generic  import (
 
 
 from .models import Product
+from cart.forms import CartAddProductForm
 
 
 class ProductDetailView(DetailView):
@@ -31,4 +32,6 @@ class ProductListView(ListView):
 
 	def get_context_data(self, *args, **kwargs):
 		context = super(ProductListView, self).get_context_data(*args, **kwargs)
+		cart_product_form = CartAddProductForm
+		context[cart_product_form] = cart_product_form
 		return context

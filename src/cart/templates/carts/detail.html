@@ -6,31 +6,38 @@
 
 
 {% block content %}
+
+<style type="text/css">
+    .btn-primary:hover{
+        background-color:#f26667;
+        border-color: #f26667;
+    }
+</style>
     <div class="container">
         <div class="row" style="margin-top: 6%">
-        <h2>Your Shopping Cart
+        <h2>Sepetim
             <span class="badge pull-right">
                 {% with totail_items=cart|length %}
                     {% if cart|length > 0 %}
-                        My Shopping Order:
+                        Sepetimdekiler:
                         <a href="{% url "cart:cart_detail" %}" style="color: #ffffff">
-                            {{ totail_items }} item {{ totail_items|pluralize }}, Kshs. {{ cart.get_total_price }}
+                            {{ totail_items }} Ürün {{ totail_items|pluralize }}, TL. {{ cart.get_total_price }}
                         </a>
                         {% else %}
-                        Your cart is empty.
+                        Sepetiniz boş.
                     {% endif %}
                 {% endwith %}
             </span>
         </h2>
             <table class="table table-striped table-hover">
-                <thead style="background-color: #5AC8FA">
+                <thead style="background-color: #f26667">
                     <tr>
-                        <th>Image</th>
-                        <th>Product</th>
-                        <th>Quantity</th>
-                        <th>Remove</th>
-                        <th>Unit Price</th>
-                        <th>Price</th>
+                        <th>Resim</th>
+                        <th>Ürün</th>
+                        <th>Miktar</th>
+                        <th>Sil</th>
+                        <th>Birim Fiyat</th>
+                        <th>Fiyat</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -52,23 +59,23 @@
                                 </form>
                             </td>
                             <td>
-                                <a href="{% url "cart:cart_remove" product.id %}">Remove</a>
+                                <a href="{% url "cart:cart_remove" product.id %}">Sil</a>
                             </td>
-                            <td>kshs. {{ item.price }}</td>
-                            <td>kshs. {{ item.total_price }}</td>
+                            <td>TL {{ item.price }}</td>
+                            <td>TL {{ item.total_price }}</td>
                         </tr>
                     {% endwith %}
                 {% endfor %}
-                <tr style="background-color: #5AC8FA">
-                    <td><b>Total</b></td>
+                <tr style="background-color: #f26667">
+                    <td><b>Toplam</b></td>
                     <td colspan="4"></td>
-                    <td colspan="num"><b>kshs. {{ cart.get_total_price }}</b></td>
+                    <td colspan="num"><b>TL {{ cart.get_total_price }}</b></td>
                 </tr>
                 </tbody>
             </table>
         <p class="text-right">
 
-            <a href="" class="btn btn-primary">Checkout</a>
+            <a href="" class="btn btn-primary">Gönder</a>
         </p>
         </div>
     </div>
