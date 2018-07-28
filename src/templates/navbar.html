@@ -28,13 +28,7 @@
                                     <ul class="nav navbar-nav navbar-right ep-mobile-menu" id="navbar-nav">
                                         <li> <span style="font-size: 14px; font-weight: 700; font-style: italic;"> Merhaba</span>, 
                                             <a href="/profile/{{user}}/">
-
-                                                {% if user.username|length > 7 %}
-                                                    <span style="font-size: 14px;">{{user.username|truncatechars:7}}</span>
-                                                {% else %}
-                                                    <span style="font-size: 14px;">{{user.username}}</span>
-                                                {% endif %}
-                                                
+                                                <span style="font-size: 14px;">{{user.username|truncatechars:7}}</span>
                                             </a></li>
                                         <li><a href='{% url "logout" %}?next=/'>Çıkış Yap</a></li>
                                     </ul>
@@ -81,42 +75,35 @@
                                        <i class="fa flaticon-supermarket-cart"></i>
                                       </a>
                                         <ul class="dropdown-menu xt-cart-items">
-                                            <li>
-                                                <a href="">
-                                                    <img src="{% static 'images/4.jpg' %}" alt="">
-                                                    <h3>Ruj</h3>
-                                                    <span class="cart-price"> 200 TL</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="">
-                                                    <img src="{% static 'images/1.jpg' %}" alt="">
-                                                    <h3>T-Shirt</h3>
-                                                    <span class="cart-price"> 500 TL</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="">
-                                                    <img src="{% static 'images/3.jpg' %}" alt="">
-                                                    <h3>T-Shirt</h3>
-                                                    <span class="cart-price"> 300 TL </span>
-                                                </a>
-                                            </li>
+                                            {% for item in carts %}
+                                                <li>
+                                                    <a href="/carts/cart/detail/">
+                                                        <img src="/media/{{ item.product.image_prod }}" alt="Ürün Resmi">
+                                                        <h3>
+                                                            {{ item.product.name |truncatechars:22 }}
+                                                            
+                                                        </h3>   
+                                                            
+                                                          
+                                                          
+                                                          
+                                                        <span class="cart-price">{{ item.product.price }} TL <span style="font-size:12px;">( {{ item.quantity }} Adet )</span></span>                 
+                                                    </a>
+                                            {% endfor %}
                                             <li>
                                                 <a href="" class="subtotal top-checkout">
-                                                    <h3>Toplam : 1000 TL </h3>
-                                                    <span class="total-price">1000 TL</span>
+                                                    <h3>Toplam : {{ carts.get_total_price }} TL </h3>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="" class="process top-checkout">
+                                                <a href="/" class="process top-checkout">
                                                     <h3>Gönder </h3>
                                                 </a>
                                             </li>
                                         </ul>
                                     </li>
                                 </ul>
-                                <span class="xt-item-count">8</span>
+                                <span class="xt-item-count">{{ carts.get_total_item }}</span>
                             </div>
                         </div>
                     </div>

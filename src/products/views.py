@@ -7,6 +7,7 @@ from django.views.generic  import (
 
 
 from .models import Product
+from cart.cart import Cart
 from cart.forms import CartAddProductForm
 
 
@@ -30,8 +31,17 @@ class ProductListView(ListView):
 		return qs
 
 
+	def cart(self):
+		cart = Cart(self.request)
+		for item in cart:
+			item['update_quantity_form'] = CartAddProductForm(initial={'quantity': item['quantity'], 'update': True})		
+		return cart
+
+
+
 	def get_context_data(self, *args, **kwargs):
 		context = super(ProductListView, self).get_context_data(*args, **kwargs)
 		cart_product_form = CartAddProductForm
+		context['carts'] = self.cart()
 		context[cart_product_form] = cart_product_form
 		return context
