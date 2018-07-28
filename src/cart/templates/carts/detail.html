@@ -20,7 +20,7 @@
                 {% with totail_items=cart|length %}
                     {% if cart|length > 0 %}
                         Sepetimdekiler:
-                        <a href="{% url "cart:cart_detail" %}" style="color: #ffffff">
+                        <a href="{% url "cart:cart_detail" %}" style="color: #ffffff; font-size:15px;">
                             {{ totail_items }} Ürün {{ totail_items|pluralize }}, TL. {{ cart.get_total_price }}
                         </a>
                         {% else %}
@@ -34,10 +34,10 @@
                     <tr>
                         <th>Resim</th>
                         <th>Ürün</th>
+                        <th>Birim Fiyat</th>
+                        <th>Fiyat</th>                        
                         <th>Miktar</th>
                         <th>Sil</th>
-                        <th>Birim Fiyat</th>
-                        <th>Fiyat</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,23 +46,24 @@
                         <tr>
                             <td>
                                 <a href="{{ product.get__absolute_url }}">
-                                    <img src="{% if product.image %} {{ product.image_prod.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" alt="..." style="height: 130px; width: auto">
+                                    
+                                    <img src="/media/{{ product.image_prod }}" alt="..." style="height: 130px; width: auto">
                                 </a>
                             </td>
                             <td>{{ product.name }}</td>
+                            <td>{{ item.price }} TL </td>
+                            <td>{{ item.total_price }} TL</td>                            
                             <td>
                                 <form action="{% url "cart:cart_add" product.id %}" method="post">
                                     {% csrf_token %}
                                     {{ item.update_quantity_form.quantity }}
                                     {{ item.update_quantity_form.update }}
-                                    <input type="submit" value="Update" class="btn btn-info">
+                                    <input type="submit" value="Güncelle" class="btn btn-primary">
                                 </form>
                             </td>
                             <td>
-                                <a href="{% url "cart:cart_remove" product.id %}">Sil</a>
+                                <a href="{% url "cart:cart_remove" product.id %}" class="btn btn-primary">Sil</a>
                             </td>
-                            <td>TL {{ item.price }}</td>
-                            <td>TL {{ item.total_price }}</td>
                         </tr>
                     {% endwith %}
                 {% endfor %}
