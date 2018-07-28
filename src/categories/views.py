@@ -7,6 +7,7 @@ from django.views.generic  import (
 
 
 from .models import Category
+from cart.views import global_cart_detail
 
 # Create your views here.
 
@@ -27,6 +28,7 @@ class CategoryListView(ListView):
 
 	def get_context_data(self, *args, **kwargs):
 		context = super(CategoryListView, self).get_context_data(*args, **kwargs)
+		context['carts'] = global_cart_detail(self.request)
 		return context
 
 
@@ -40,4 +42,5 @@ class CategoryDetailView(DetailView):
 
 	def get_context_data(self, *args, **kwargs):
 		context = super(CategoryDetailView, self).get_context_data(*args, **kwargs)
+		context['carts'] = global_cart_detail(self.request)
 		return context

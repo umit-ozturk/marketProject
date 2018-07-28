@@ -16,6 +16,8 @@ from .forms import (
 	)
 from .models import UserProfile
 
+from cart.views import global_cart_detail
+
 
 User = get_user_model()
 
@@ -38,6 +40,11 @@ class UserRegisterView(FormView):
 		user = authenticate(username=username, password=password)
 		login(self.request, user)		
 		return super(UserRegisterView, self).form_valid(form)
+
+	def get_context_data(self, *args, **kwargs):
+		context = super(UserRegisterView, self).get_context_data(*args, **kwargs)
+		context['carts'] = global_cart_detail(self.request)
+		return context			
 
 @method_decorator(login_required, name='dispatch')
 class UserUpdateView(UpdateView):
@@ -63,6 +70,11 @@ class UserUpdateView(UpdateView):
 		"""Get the name of a slug field to be used to look up by slug."""
 		return "user__username"
 
+	def get_context_data(self, *args, **kwargs):
+		context = super(UserUpdateView, self).get_context_data(*args, **kwargs)
+		context['carts'] = global_cart_detail(self.request)
+		return context			
+
 @method_decorator(login_required, name='dispatch')
 class UserDetailView(DetailView):
 	model = UserProfile
@@ -77,5 +89,6 @@ class UserDetailView(DetailView):
 
 	def get_context_data(self, *args, **kwargs):
 		context = super(UserDetailView, self).get_context_data(*args, **kwargs)
-		return context
+		context['carts'] = global_cart_detail(self.request)
+		return context	
 

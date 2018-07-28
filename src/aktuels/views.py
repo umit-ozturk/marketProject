@@ -7,6 +7,7 @@ from django.views.generic  import (
 
 
 from .models import Aktuel, AktuelProducts
+from cart.views import global_cart_detail
 
 # Create your views here.
 
@@ -19,6 +20,11 @@ class AktuelProductListView(ListView):
 
 		return qs
 
+	def get_context_data(self, *args, **kwargs):
+		context = super(AktuelProductListView, self).get_context_data(*args, **kwargs)
+		context['carts'] = global_cart_detail(self.request)
+		return context		
+
 class AktuelProductDetailView(DetailView):
 	queryset = AktuelProducts.objects.all()
 
@@ -29,6 +35,11 @@ class AktuelProductDetailView(DetailView):
 			return qs
 		return None
 
+	def get_context_data(self, *args, **kwargs):
+		context = super(AktuelProductDetailView, self).get_context_data(*args, **kwargs)
+		context['carts'] = global_cart_detail(self.request)
+		return context		
+
 class AktuelListView(ListView):
 	queryset = Aktuel.objects.all()
 
@@ -36,6 +47,11 @@ class AktuelListView(ListView):
 		qs = Aktuel.objects.all()
 
 		return qs
+
+	def get_context_data(self, *args, **kwargs):
+		context = super(AktuelListView, self).get_context_data(*args, **kwargs)
+		context['carts'] = global_cart_detail(self.request)
+		return context
 
 class AktuelDetailView(DetailView):
 	queryset = Aktuel.objects.all()
@@ -47,3 +63,8 @@ class AktuelDetailView(DetailView):
 		if qs.exists():
 			return qs
 		return None
+
+	def get_context_data(self, *args, **kwargs):
+		context = super(AktuelDetailView, self).get_context_data(*args, **kwargs)
+		context['carts'] = global_cart_detail(self.request)
+		return context
