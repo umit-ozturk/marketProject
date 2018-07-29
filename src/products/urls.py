@@ -3,7 +3,7 @@ from django.urls import path
 
 from .views import  (
     ProductDetailView,
-    ProductListView,
+    ProductListView, # --> home.html
     SearchProductListView
     )
 

@@ -2,13 +2,13 @@ from django.db.models import Q
 from django.shortcuts import render
 from django.views.generic  import (
 			DetailView, 
-			ListView,
-			TemplateView
+			ListView
 			)
 
 
 from .models import Product
 from cart.views import global_cart_detail
+from categories.models import Category
 
 
 class ProductDetailView(DetailView):
@@ -30,7 +30,7 @@ class ProductListView(ListView):
 		return context
 
 
-class SearchProductListView(TemplateView):
+class SearchProductListView(ListView):
 	template_name = 'products/search_product_list.html'
 	queryset = Product.objects.all()
 
@@ -45,8 +45,9 @@ class SearchProductListView(TemplateView):
 				)
 		return qs
 
-
 	def get_context_data(self, *args, **kwargs):
 		context = super(SearchProductListView, self).get_context_data(*args, **kwargs)
 		context['carts'] = global_cart_detail(self.request)
+		context['categories'] = Category.objects.all()
+		print(context['categories'].__dict__)
 		return context
