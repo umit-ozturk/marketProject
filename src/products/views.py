@@ -2,7 +2,8 @@ from django.db.models import Q
 from django.shortcuts import render
 from django.views.generic  import (
 			DetailView, 
-			ListView
+			ListView,
+			TemplateView
 			)
 
 
@@ -23,6 +24,16 @@ class ProductDetailView(DetailView):
 class ProductListView(ListView):
 	queryset = Product.objects.all()
 
+	def get_context_data(self, *args, **kwargs):
+		context = super(ProductListView, self).get_context_data(*args, **kwargs)
+		context['carts'] = global_cart_detail(self.request)
+		return context
+
+
+class SearchProductListView(TemplateView):
+	template_name = 'products/search_product_list.html'
+	queryset = Product.objects.all()
+
 	def get_queryset(self, *args, **kwargs):
 		qs = Product.objects.all()
 		query = self.request.GET.get("q", None)
@@ -36,6 +47,6 @@ class ProductListView(ListView):
 
 
 	def get_context_data(self, *args, **kwargs):
-		context = super(ProductListView, self).get_context_data(*args, **kwargs)
+		context = super(SearchProductListView, self).get_context_data(*args, **kwargs)
 		context['carts'] = global_cart_detail(self.request)
 		return context

@@ -35,6 +35,10 @@ class Product(models.Model):
 	def get_absolute_url(self):
 		return reverse("product:detail", kwargs={'pk':self.pk})
 
+	def get_filters(self):
+		filters = self.category.category_name
+		return filters
+
 
 	def image_tag(self):
 		if self.image_prod:
