@@ -42,5 +42,5 @@ class CategoryDetailView(DetailView):
 
 	def get_context_data(self, *args, **kwargs):
 		context = super(CategoryDetailView, self).get_context_data(*args, **kwargs)
-		context['carts'] = global_cart_detail(self.request)
+		context['carts'] = global_cart_detail(self.request)	
 		return context

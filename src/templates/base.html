@@ -1007,6 +1007,52 @@
                 }
 
                 if(fethOneID){
+                    if(productContainerID == 'search-products'){
+
+                        function bigPrice(url){
+                            var priceDetailUrl = '/api/product/?q='
+                            return $.ajax({
+                              url : priceDetailUrl,
+                                method : "GET",
+                                success: function(data){
+
+                                },
+                                error: function(data){
+                                    console.log("error")
+                                    console.log(data)
+                                },
+                            })   
+                        }
+
+                        bigPrice().done(function(data){
+                            var price = []
+                            $.each(data, function(key, value){
+                                price = value.price
+                                categoryProductPriceList.push(price)
+                            })
+                            highestPrice = Math.max(...categoryProductPriceList)                    
+                            // For Price Search Slider
+                            $( function() {
+                                $( "#xt-price-range" ).slider({
+                                  range: true,
+                                  min: 0,
+                                  max: highestPrice,
+                                  values: [ 0, highestPrice ],
+                                  slide: function( event, ui ) {
+                                    $( "#amount" ).val( "TL" + ui.values[ 0 ] + " - TL" + ui.values[ 1 ] );
+                                    $( "#filter" ).attr("href", "/categories/" + fetchCategoryId + "/?q=" + ui.values[ 0 ] + "-" + ui.values[ 1 ] + '/');
+                                    searchPriceUrl =   "/categories/" + fetchCategoryId + "/?q=" + ui.values[ 0 ] + "-" + ui.values[ 1 ] + "/"
+                                  }
+                                });
+                                searchPriceUrl =   "/categories/" + fetchCategoryId + "/?q=" + $( "#xt-price-range" ).slider( "values", 0 ) + "-" + $( "#xt-price-range" ).slider( "values", 1 ) + "/"
+                                $( "#filter" ).attr("href", searchPriceUrl);
+                                $( "#amount" ).val( "TL" + $( "#xt-price-range" ).slider( "values", 0 ) +
+                                  " - TL" + $( "#xt-price-range" ).slider( "values", 1 ) );                    
+                            });
+                        });
+                        bigPrice()
+
+                    }
                     if(productContainerID == 'product-container'){
                         fetchSingle(fethOneID)
                     }                        

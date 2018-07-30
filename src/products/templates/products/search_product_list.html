@@ -3,14 +3,18 @@
 {% block script %}
     <script>
 
-
-
+    // Products APP  Implemented 
+    $(document).ready(function(){
+        loadProductContainer("search-products")
+    });
 
     // Categories APP Detail Implemented 
     $(document).ready(function(){
         loadCategoryContainer("category-container", {{ object.id }})
 
     });
+
+
 
     </script>
 {% endblock script %}
@@ -63,14 +67,16 @@
             <div class="row">
                 <!-- SIDEBAR -->
                 <aside class="col-md-3 product-sidebar">
-                    <div class="price-range">
-                        <h3>Fiyat</h3>
-                        <div class="each-price-range">
-                            <div id="xt-price-range"></div>
-                            <input type="text" id="amount"  class="price-range-amount">
-                            <a href="" id="filter" class="btn btn-fill">Filtrele</a>
+                    <form role="form" id="mc-form" action='{% url "product:search-list" %}'>
+                        <div class="price-range">
+                            <h3>Fiyat</h3>
+                            <div class="each-price-range">
+                                <div id="xt-price-range"></div>
+                                <input type="text" id="amount" name="price" value='{{ request.GET.q }}' class="price-range-amount">
+                                <button type="submit" id="filter" class="btn btn-fill">Filtrele</button>
+                            </div>
                         </div>
-                    </div>
+                    </form>                    
                     <div class="clearfix"></div>
                     <div class="xt-product-color">
                         <h3>Color</h3>
@@ -139,8 +145,8 @@
                                 <div class="form-group col-md-4 col-sm-4 col-xs-12">
                                     <div class="xt-select xt-search-opt">
                                         <select class="xt-category-search select-beast">
-                                        {% for object in categories %}
-                                            <option>{{ object.category_name }}</option>
+                                        {% for object in object_list %}
+                                            <option>{{ object.category.category_name }}</option>
                                         {% endfor %}
                                         </select>
                                     </div>
@@ -149,16 +155,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-8 xt-show-item">
-                                    <label>Show: </label>
-                                    <div class="xt-select xt-search-opt xt-item-view-count">
-                                        <select class="xt-category-search select-beast">
-                                            <option>4</option>
-                                            <option>8</option>
-                                            <option>12</option>
-                                            <option>20</option>
-                                            <option>40</option>
-                                        </select>
-                                    </div>
+
                                 </div>
                                 <div class="col-md-5 col-sm-5 col-xs-12">
                                     <div class="xt-page-pagination">
@@ -208,23 +205,6 @@
                                                         <span class='new-price xt-semibold'>{{ object.company.company_name|truncatechars:14 }}</span>
                                                     </div><div class='add-cart'>
                                                         <form action='/carts/cart/add/{{ object.id }}/' method='GET'>{% csrf_token %}{{ cart_product_form }}<input type='submit' value='Sepete Ekle' class='btn btn-fill'></form>
-                                                        <ul class='reaction'>
-                                                            <li>
-                                                                <a href=''>
-                                                                    <i class='fa fa-search'></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href=''>
-                                                                    <i class='fa fa-heart-o'></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href=''>
-                                                                    <i class='fa fa-bar-chart-o'></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
                                                     </div>
                                                 </div>
                                             </div>
