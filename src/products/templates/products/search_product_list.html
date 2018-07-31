@@ -16,11 +16,34 @@
 
 
 
+
+
+
+  $(document).ready($( function() {
+    $( "#xt-price-range" ).slider({
+
+      range: true,
+      min: 0,
+      max: {{max_min_price.price__max}},
+      values: [ 0, {{max_min_price.price__max}} ],
+      slide: function( event, ui ) {
+        $( "#amount" ).val( ui.values[ 0 ] + "TL" + "-" + ui.values[ 1 ] + "TL" );
+        
+      }
+    });
+    $( "#amount" ).val($( "#xt-price-range" ).slider( "values", 0 ) +
+      "TL-" + $( "#xt-price-range" ).slider( "values", 1 ) + "TL" );
+  }));
+    
+
+
+
     </script>
 {% endblock script %}
 
 {% block content %}
 
+    {{ max_low_price.price__max }}
     <div class="menu-spacing">
         <div class="container">
             <div class="row">
@@ -72,7 +95,7 @@
                             <h3>Fiyat</h3>
                             <div class="each-price-range">
                                 <div id="xt-price-range"></div>
-                                <input type="text" id="amount" name="price" value='{{ request.GET.q }}' class="price-range-amount">
+                                <input type="text" id="amount" name="price" value='{{ request.GET.price }}' class="price-range-amount">
                                 <button type="submit" id="filter" class="btn btn-fill">Filtrele</button>
                             </div>
                         </div>

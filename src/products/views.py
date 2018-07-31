@@ -9,7 +9,8 @@ from django.views.generic  import (
 from .models import Product
 from cart.views import global_cart_detail
 from categories.models import Category
-from django.db.models import Min, Max
+from django.db.models import Min, Max, Avg
+from decimal import *
 
 
 class ProductDetailView(DetailView):
@@ -45,18 +46,24 @@ class SearchProductListView(ListView):
 				Q(title__icontains=query) 
 				)
 		if query_price is not None:
-			query_arg = query.split("-")
+			query_arg = query_price.split("TL-")
+			min_value = query_price.split("TL-")[0]
+			max_value = query_arg[1].split("TL")[0]
 			qs = qs.filter(
-				Q(price__range=(query_arg[0], query_arg[1]))
-				).distinct()			
+				Q(price__range=(min_value, max_value))
+				).distinct()				
 		return qs
+
+	def price_list_min_max(self):
+		price__min = round(Product.objects.aggregate(Min('price'))['price__min'])
+		price__max = round(Product.objects.aggregate(Max('price'))['price__max'])
+		price_list = {'price__min':price__min, 'price__max':price__max}
+		return price_list			
 
 	def get_context_data(self, *args, **kwargs):
 		context = super(SearchProductListView, self).get_context_data(*args, **kwargs)
 		context['carts'] = global_cart_detail(self.request)
-		context['max_low_price'] = Product.objects.aggregate(Min('price'), Max('price'))
-		print(context)
-
+		context['max_min_price'] = self.price_list_min_max()
 		return context
 
 
