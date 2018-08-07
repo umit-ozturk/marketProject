@@ -59,14 +59,11 @@
 
 
 
-
-
         {% block content %}
         {% endblock content %}
         {% block contentcategory %}
         {% endblock contentcategory %}
-        {% block aktuelcontent %}
-        {% endblock aktuelcontent %}
+
         <!--
         |========================
         |  SUBSCRIBE
@@ -547,10 +544,10 @@
                 var initalURL = categoryContainer.attr("data-url") || "/api/category/";        
 
 
-                function formatCategory(categoryValue, secondCategoryFormattedHtml, thirdCategoryFormattedHtml){
+                function formatCategory(categoryValue, secondCategoryFormattedHtml, thirdCategoryFormattedHtml, fourthCategoryFormattedHtml){
                     // If not exist second Category
                     if(secondCategoryFormattedHtml){
-                        categoryContent = "<li><a href='/categories/"+ categoryValue.id +"/' ><i class='fa flaticon-" + categoryValue.category_logo + "'></i>" + categoryValue.category_name + "</a><ul class='mega-menu '><li><ul class='xt-single-mega'>" + secondCategoryFormattedHtml + "</ul></li><li><ul class='xt-single-mega'>" + thirdCategoryFormattedHtml + "</ul></li></ul></li>"
+                        categoryContent = "<li><a href='/categories/"+ categoryValue.id +"/' ><i class='fa flaticon-" + categoryValue.category_logo + "'></i>" + categoryValue.category_name + "</a><ul class='mega-menu '><li><ul class='xt-single-mega'>" + secondCategoryFormattedHtml + "</ul></li><li><ul class='xt-single-mega'>" + thirdCategoryFormattedHtml + "</ul></li><li><ul class='xt-single-mega'>" + fourthCategoryFormattedHtml + "</ul></li></ul></li>"
                     }
                     else{
                         categoryContent = "<li><a href='/categories/"+ categoryValue.id +"/' ><i class='fa flaticon-" + categoryValue.category_logo + "'></i>" + categoryValue.category_name + "</a></li>"                        
@@ -574,6 +571,14 @@
                     return thirdCategoryContent
                 
                 }
+
+                function formatFourthCategory(fourthCategoryValue, thirdCategoryValue){
+                    
+                    fourthCategoryContent = "<li class='fourthCategoryClass " + thirdCategoryValue.id + "'><a href='/categories/"+ fourthCategoryValue.id +"/' >" + fourthCategoryValue.category_name + "</a></li>"
+                    
+                    return fourthCategoryContent
+                
+                }                
               
 
                 function parseCategories(){
@@ -595,6 +600,7 @@
                             var thirdCategoryValue;
                             secondCategoryFormattedHtml = "";
                             thirdCategoryFormattedHtml = "";
+                            fourthCategoryFormattedHtml = "";
                             categoryValue = value
                             secondCategoryList = value.children
                             $.each(secondCategoryList, function(secondKey, secondValue){
@@ -602,11 +608,18 @@
                                 thirdCategoryList = secondCategoryValue.children
                                 $.each(thirdCategoryList, function(thirdKey, thirdValue){
                                     thirdCategoryValue = thirdValue
+                                    fourthCategoryList = thirdCategoryValue.children
+                                    $.each(fourthCategoryList, function(fourthKey, fourthValue){
+                                        fourthCategoryValue = fourthValue
+                                        fourthCategoryList = fourthCategoryValue.children
+                                        
+                                        fourthCategoryFormattedHtml += formatFourthCategory(fourthCategoryValue, thirdCategoryValue)
+                                    })                                    
                                     thirdCategoryFormattedHtml += formatThirdCategory(thirdCategoryValue, secondCategoryValue)
                                 })
                                 secondCategoryFormattedHtml += formatSecondCategory(secondCategoryValue)
                             }) 
-                            categoryFormattedHtml = formatCategory(categoryValue, secondCategoryFormattedHtml, thirdCategoryFormattedHtml)
+                            categoryFormattedHtml = formatCategory(categoryValue, secondCategoryFormattedHtml, thirdCategoryFormattedHtml, fourthCategoryFormattedHtml)
                             categoryContainer.append(categoryFormattedHtml)
 
 
