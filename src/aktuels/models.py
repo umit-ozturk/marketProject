@@ -11,22 +11,20 @@ def upload_location(instance, filename):
 	return upload_path
 
 class Aktuel(models.Model):
-	title 					= models.CharField(max_length=140)
-	explain					= models.CharField(max_length=140)
-	updated 				= models.DateTimeField(auto_now=True)
-	timestamp		= models.DateTimeField(auto_now_add=True)
-	image_aktuel			= models.ImageField(upload_to=upload_location,
-					 		null=True,
-							width_field="width_field", 
-			 				height_field="height_field")
-	aktuel_company_name 	= models.CharField(max_length=140, verbose_name='Aktuel Firma Ismi')
-	aktuel_company_site 	= models.CharField(max_length=140, verbose_name='Aktuel Firma Sitesi')
+	title 					= models.CharField(max_length=140, null=True,  blank=True)
+	explain					= models.CharField(max_length=140, null=True,  blank=True)
+	updated 				= models.DateTimeField(auto_now=True, null=True,  blank=True)
+	timestamp				= models.DateTimeField(auto_now_add=True, null=True,  blank=True)
+	image_aktuel			= models.ImageField(upload_to=upload_location, null=True, blank=True, 
+												width_field="width_field", height_field="height_field")
+	aktuel_company_name 	= models.CharField(max_length=140, verbose_name='Aktuel Firma Ismi', null=True,  blank=True)
+	aktuel_company_site 	= models.CharField(max_length=140, verbose_name='Aktuel Firma Sitesi', null=True,  blank=True)
 	image_comp			 	= models.ImageField(upload_to=upload_location,
 					 		null=True, blank=True,
 							width_field="width_field", 
 			 				height_field="height_field")
-	height_field			= models.IntegerField(default=0, blank=True)
-	width_field			 	= models.IntegerField(default=0, blank=True)
+	height_field			= models.IntegerField(default=0, null=True,  blank=True)
+	width_field			 	= models.IntegerField(default=0, null=True,  blank=True)
 	slug 					= models.SlugField(blank=True, unique=True)
 
 	def save(self, *args, **kwargs):

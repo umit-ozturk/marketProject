@@ -16,10 +16,12 @@ def upload_location(instance, filename):
 #product.category.CATEGORY.category_name
 
 class Product(models.Model):
-	category 		= TreeForeignKey("categories.category", on_delete=models.CASCADE, null=True,blank=True, verbose_name='Kategori')
-	company 		= models.ForeignKey("companies.company", on_delete=models.CASCADE, related_name="company", verbose_name='Firma')
-	name 			= models.CharField(max_length=140, verbose_name='Ürün Adı')
-	title 			= models.CharField(max_length=140, verbose_name='Ürün Başlığı', blank=True) # Product Explanation
+	category 		= TreeForeignKey("categories.category", on_delete=models.CASCADE, 
+									null=True,blank=True, verbose_name='Kategori')
+	company 		= models.ForeignKey("companies.company", on_delete=models.CASCADE, related_name="company", 
+										verbose_name='Firma', null=True,  blank=True)
+	name 			= models.CharField(max_length=140, verbose_name='Ürün Adı', null=True,  blank=True)
+	title 			= models.CharField(max_length=140, verbose_name='Ürün Başlığı', null=True,  blank=True) # Product Explanation
 	price 			= models.DecimalField(max_digits=6, decimal_places=2, verbose_name='Fiyat')
 	exist 			= models.BooleanField(verbose_name='Stockta Var Mı?', default=True)
 	updated 		= models.DateTimeField(auto_now=True)

@@ -9,15 +9,13 @@ def upload_location(instance, filename):
 	return upload_path
 
 class Category(MPTTModel):
-	category_name		= models.CharField(max_length=30, verbose_name='Kategori Ismi')
+	category_name		= models.CharField(max_length=30, verbose_name='Kategori Ismi', null=True,  blank=True)
 	parent				= TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children', db_index=True, verbose_name='Üst Kategori')
-	category_defination = models.CharField(max_length=140, blank=True, verbose_name='Kategori Açıklaması')
-	category_logo		= models.CharField(max_length=50)
-	category_slug		= models.SlugField()
-	image_prod			= models.ImageField(upload_to=upload_location,
-					 		null=True,
-							width_field="width_field", 
-			 				height_field="height_field")
+	category_defination = models.CharField(max_length=140, verbose_name='Kategori Açıklaması', null=True,  blank=True)
+	category_logo		= models.CharField(max_length=50, null=True,  blank=True)
+	category_slug		= models.SlugField(verbose_name='Slug', null=True,  blank=True)
+	image_prod			= models.ImageField(upload_to=upload_location, null=True,  blank=True, 
+											width_field="width_field", height_field="height_field")
 	height_field	= models.IntegerField(default=0, blank=True)
 	width_field 	= models.IntegerField(default=0, blank=True)
 
