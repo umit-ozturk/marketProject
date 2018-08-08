@@ -22,4 +22,3 @@ class AktuelAdmin(admin.ModelAdmin):
 	show_explain.short_description = 'Aktuelin Açıklaması'		
 
 admin.site.register(Aktuel, AktuelAdmin)
-admin.site.register(AktuelProducts)

@@ -5,7 +5,7 @@ from django.utils.safestring import mark_safe
 # Create your models here.
 
 def upload_location(instance, filename):
-	upload_path = "img/category/" + str(instance) + "\_" + str(filename)
+	upload_path = "img/category/" + str(filename)
 	return upload_path
 
 class Category(MPTTModel):

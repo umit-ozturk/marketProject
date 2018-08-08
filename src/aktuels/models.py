@@ -7,7 +7,7 @@ from django.template.defaultfilters import slugify
 
 
 def upload_location(instance, filename):
-	upload_path = "img/aktuel/" + str(instance) + "\_" + str(filename)
+	upload_path = "img/aktuel/" + str(filename)
 	return upload_path
 
 class Aktuel(models.Model):

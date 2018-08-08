@@ -5,7 +5,7 @@ from django.utils.safestring import mark_safe
 
 
 def upload_location(instance, filename):
-	upload_path = "img/company/" + str(instance) + "\_" + str(filename)
+	upload_path = "img/company/"+ str(filename)
 	return upload_path
 
 
@@ -15,7 +15,7 @@ class Company(MPTTModel):
 	company_name 		= models.CharField(max_length=140, verbose_name='Firma İsmi', null=True,  blank=True)
 	company_site 		= models.CharField(max_length=140, verbose_name='Firmanın Sitesi', null=True,  blank=True)
 	image_comp		 	= models.ImageField(upload_to=upload_location, null=True, blank=True, width_field="width_field", 
-			 				height_field="height_field", verbose_name="Firma Resmi")
+			 								height_field="height_field", verbose_name="Firma Resmi")
 	height_field 		= models.IntegerField(default=0)
 	width_field 		= models.IntegerField(default=0)
 ##	acıklama
@@ -34,4 +34,9 @@ class Company(MPTTModel):
 
 
 class Brand(models.Model):
-	brand_name = models.CharField(max_length=140, verbose_name='Firma İsmi', null=True,  blank=True)
+	brand_name = models.CharField(max_length=140, verbose_name='Marka İsmi', null=True,  blank=True)
+	brand_site = models.CharField(max_length=140, verbose_name='Markanın Sitesi', null=True,  blank=True)
+	brand_image = models.ImageField(upload_to=upload_location, null=True, blank=True, width_field="width_field", 
+			 						height_field="height_field", verbose_name="Marka Resmi")
+	height_field 		= models.IntegerField(default=0)
+	width_field 		= models.IntegerField(default=0)
