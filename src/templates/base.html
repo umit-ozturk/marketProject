@@ -566,7 +566,7 @@
 
                 function formatThirdCategory(thirdCategoryValue, secondCategoryValue){
                     
-                    thirdCategoryContent = "<li class='thirdCategoryClass " + secondCategoryValue.id + "'><a href='/categories/"+ thirdCategoryValue.id +"/' >" + thirdCategoryValue.category_name + "</a></li>"
+                    thirdCategoryContent = "<li class='thirdCategoryClass " + secondCategoryValue.id + " " + thirdCategoryValue.id + "   '><a href='/categories/"+ thirdCategoryValue.id +"/' >" + thirdCategoryValue.category_name + "</a></li>"
                     
                     return thirdCategoryContent
                 
@@ -1166,6 +1166,7 @@
                     $('.secondCategoryClass').hover(function(e) {
                         $( ".thirdCategoryClass" ).each(function( index, item ) {
                             $('.thirdCategoryClass').hide();
+                            $('.fourthCategoryClass').hide();
                             if( item.classList[1] == e.currentTarget.classList[1] ){
                                 $(item).show();
                                 return false;
@@ -1174,8 +1175,23 @@
                             }
                         });
                     });
-                }, 200)
+                }, 1200)
             });                         
+            $(window).load(function(){
+                setTimeout(function(){
+                    $('.thirdCategoryClass').hover(function(e) {
+                        $( ".fourthCategoryClass" ).each(function( index, item ) {
+                            $('.fourthCategoryClass').hide();
+                            if( item.classList[1] == e.currentTarget.classList[2] ){
+                                $(item).show();
+                                return false;
+                            }else{
+                                $(item).hide();         
+                            }
+                        });
+                    });
+                }, 1200)
+            });  
 
         </script>   
 
