@@ -117,13 +117,11 @@
                     </div>
                     <div class="clearfix"></div>
                     <div class="xt-product-size">
-                        <h3>Size</h3>
+                        <h3>Satıcı</h3>
                         <ul>
-                            <li><a href="">S <span>(11)</span></a></li>
-                            <li><a href="">M <span>(7)</span></a></li>
-                            <li><a href="">L <span>(4)</span></a></li>
-                            <li><a href="">XL <span>(0)</span></a></li>
-                            <li><a href="">XXL <span>(1)</span></a></li>
+                            {% for object in object_list %}
+                                <li><a href=""> {{ object.company.company_name }}<span>(Sayı)</span></a></li>
+                            {% endfor %}  
                         </ul>
                     </div>
                     <div class="clearfix"></div>

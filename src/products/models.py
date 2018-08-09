@@ -13,7 +13,10 @@ def upload_location(instance, filename):
 	upload_path = "img/product/" + str(filename)
 	return upload_path
 
-#product.category.CATEGORY.category_name
+class ProducCompanytManager(models.Manager):
+	def get_queryset(self):
+		super().get_queryset().filter(company_company_name='Roald Dahl')
+
 
 class Product(models.Model):
 	category 		= TreeForeignKey("categories.category", on_delete=models.CASCADE, 
@@ -33,6 +36,9 @@ class Product(models.Model):
 	content 		= RichTextField(verbose_name='Ürün Açıklaması')
 	height_field	= models.IntegerField(default=0, blank=True)
 	width_field 	= models.IntegerField(default=0, blank=True)
+
+	objects = models.Manager() 
+	objects_company = ProducCompanytManager()
 
 	def get_absolute_url(self):
 		return reverse("product:detail", kwargs={'pk':self.pk})
