@@ -15,6 +15,11 @@
     });
 
 
+    // Products Top Featured Products Implemented
+    $(document).ready(function(){
+        loadProductContainer("product-top-feature-container", "top-featured")
+    });  
+
 
 
 
@@ -58,6 +63,7 @@
                                         <li><a href="#">Hijab</a></li>
                                         <li><a href="#">Scarf</a></li>
                                         {% for object in object_list %}
+
                                             <li><a class="main-a" href="">{{ object.category.category_name }}</a></li>
                                         {% endfor %}
                                         </select>                                
@@ -102,13 +108,11 @@
                     </form>                    
                     <div class="clearfix"></div>
                     <div class="xt-product-color">
-                        <h3>Color</h3>
+                        <h3>Kategoriler</h3>
                         <ul>
-                            <li><a href="">Blue <span>(11)</span></a></li>
-                            <li><a href="">Red <span>(7)</span></a></li>
-                            <li><a href="">Green <span>(4)</span></a></li>
-                            <li><a href="">Yellow <span>(0)</span></a></li>
-                            <li><a href="">Magenta <span>(1)</span></a></li>
+                            {% for object in object_list %}
+                                <li><a href=""> {{ object.category.category_name }}<span>(Sayı)</span></a></li>
+                            {% endfor %}                            
                         </ul>
                     </div>
                     <div class="clearfix"></div>
@@ -123,35 +127,12 @@
                         </ul>
                     </div>
                     <div class="clearfix"></div>
-                    <div class="xt-top-product">
-                        <h3>Top Rated Products</h3>
-                        <div class="each-top-product">
-                            <div class="top-item">
-                                <img src="assets/images/1.jpg" alt="" class="img-responsive">
-                                <div class="top-item-info">
-                                    <a href=""><h4>T-SHIRT</h4></a>
-                                    <span>$260</span>
-                                    <del>$280</del>
-                                </div>
-                            </div>                               
-                            <div class="top-item">
-                                <img src="assets/images/3.jpg" alt="" class="img-responsive">
-                                <div class="top-item-info">
-                                    <a href=""><h4>NEW LOOK</h4></a>
-                                    <span>$260</span>
-                                    <del>$280</del>
-                                </div>
-                            </div>                                
-                            <div class="top-item">
-                                <img src="assets/images/b2.jpg" alt="" class="img-responsive">
-                                <div class="top-item-info">
-                                    <a href=""><h4>Shirt</h4></a>
-                                    <span>$260</span>
-                                    <del>$280</del>
-                                </div>
+                        <div class="xt-top-product">
+                            <h3>En Sıcak Ürünler</h3>
+                            <div class="each-top-product" id="product-top-feature-container" data-url="/api/product/featured">
+
                             </div>
                         </div>
-                    </div>
                     <div class="xt-side-deal">
                         <div class="xt-off-deal cover-bg white xt-deal xt-color-bg">
                             <span>summer collection 2017</span>

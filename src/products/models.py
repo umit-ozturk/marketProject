@@ -41,10 +41,9 @@ class Product(models.Model):
 		filters = self.category.category_name
 		return filters
 
-
 	def image_tag(self):
 		if self.image_prod:
 			return mark_safe('<img src="%s" style="width: 100px; height:100px;" />' % self.image_prod.url)
 		else:
 			return 'No Image Found'
-	image_tag.short_description = 'Resim'		
+	image_tag.short_description = 'Resim'
