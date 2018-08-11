@@ -27,7 +27,7 @@ class Category(MPTTModel):
 		ordering = ('-created_at',)		
 
 	class MPTTMeta:
-		order_insertion_by = ['category_name']
+		order_insertion_by = ['category_name']	
 
 	def __str__(self):
 		return str(self.category_name)

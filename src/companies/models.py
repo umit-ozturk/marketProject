@@ -46,3 +46,12 @@ class Brand(models.Model):
 	brand_description = RichTextField(verbose_name='Marka Açıklaması', null=True, blank=True)
 	height_field 		= models.IntegerField(default=0)
 	width_field 		= models.IntegerField(default=0)
+	created_at			= models.DateTimeField(auto_now_add=True, editable=False)
+
+	class Meta:
+		verbose_name = 'Marka'
+		verbose_name_plural = 'Markalar'
+		ordering = ('-created_at',)
+
+	def __str__(self):
+		return str(self.brand_name)		

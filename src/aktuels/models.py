@@ -30,7 +30,10 @@ class Aktuel(models.Model):
 	class Meta:
 		verbose_name = 'Aktuel'
 		verbose_name_plural = 'Aktueller'
-		ordering = ('-timestamp',)			
+		ordering = ('-timestamp',)
+
+	def __str__(self):
+		return str(self.title)		
 
 	def save(self, *args, **kwargs):
 		self.slug = slugify(self.title)
@@ -74,7 +77,7 @@ class AktuelProducts(models.Model):
 		ordering = ('-timestamp',)	
 
 	def __str__(self):
-		return str(self.pk) + "\t" + str(self.title) 
+		return str(self.name) 
 
 
 def pre_save_aktuel_create(sender, m, *args, **kwargs):

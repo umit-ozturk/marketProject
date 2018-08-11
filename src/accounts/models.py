@@ -40,6 +40,9 @@ class UserProfile(models.Model):
 		verbose_name_plural = 'Kullanıcılar'
 		ordering = ('-created_at',)		
 
+	def __str__(self):
+		return str(self.user.username)
+
 	@classmethod
 	def for_request(cls, request):
 		user = getattr(request, "user", None)
@@ -52,9 +55,6 @@ class UserProfile(models.Model):
 
 	def gender_verbose(self):
 		return dict(UserProfile.GENDER_CHOICES)[self.gender]
-
-	def __str__(self):
-		return str(self.user.username)
 
 	def get_slug_field(self):
 		"""Get the name of a slug field to be used to look up by slug."""

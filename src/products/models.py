@@ -51,6 +51,9 @@ class Product(models.Model):
 		verbose_name_plural = 'Ürünler'
 		ordering = ('-timestamp',)	
 
+	def __str__(self):
+		return str(self.name)
+
 	def get_absolute_url(self):
 		return reverse("product:detail", kwargs={'pk':self.pk})
 
