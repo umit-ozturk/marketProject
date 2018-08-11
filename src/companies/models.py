@@ -20,8 +20,12 @@ class Company(MPTTModel):
 			 								height_field="height_field", verbose_name="Firma Resmi")
 	height_field 		= models.IntegerField(default=0)
 	width_field 		= models.IntegerField(default=0)
-##	acıklama
-##	vs.vs 
+	created_at			= models.DateTimeField(auto_now_add=True, editable=False)
+
+	class Meta:
+		verbose_name = 'Firma'
+		verbose_name_plural = 'Firmalar'
+		ordering = ('-created_at',)	
 
 	def __str__(self):
 		return str(self.company_name)
@@ -32,7 +36,6 @@ class Company(MPTTModel):
 		else:
 			return 'Resim Bulunamadı'
 	image_tag.short_description = 'Resim'		
-
 
 
 class Brand(models.Model):

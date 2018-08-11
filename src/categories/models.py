@@ -18,12 +18,16 @@ class Category(MPTTModel):
 											width_field="width_field", height_field="height_field")
 	height_field	= models.IntegerField(default=0, blank=True)
 	width_field 	= models.IntegerField(default=0, blank=True)
+	created_at			= models.DateTimeField(auto_now_add=True, editable=False)
+	
+	class Meta:
+		unique_together = (('parent', 'category_slug',))
+		verbose_name = 'Kategori'
+		verbose_name_plural = 'Kategoriler'
+		ordering = ('-created_at',)		
 
 	class MPTTMeta:
 		order_insertion_by = ['category_name']
-
-	class Meta:
-		unique_together = (('parent', 'category_slug',))
 
 	def __str__(self):
 		return str(self.category_name)
@@ -31,7 +35,6 @@ class Category(MPTTModel):
 	def root_node(self):
 		the_parent = self.tree_id
 		return the_parent
-
 
 	def get_parent(self):
 		the_parent = self

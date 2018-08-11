@@ -28,7 +28,7 @@ class Product(models.Model):
 	price 			= models.DecimalField(max_digits=6, decimal_places=2, verbose_name='Fiyat', null=True,  blank=True)
 	exist 			= models.BooleanField(verbose_name='Stockta Var Mı?', default=True)
 	updated 		= models.DateTimeField(auto_now=True)
-	timestamp		= models.DateTimeField(auto_now_add=True)
+	timestamp		= models.DateTimeField(auto_now_add=True, editable=False)
 	slug			= models.CharField(max_length=140, verbose_name='Ürün Slug/Sayaç', null=True,  blank=True)
 	image_prod_first	= models.ImageField(upload_to=upload_location, null=True, blank=True, width_field="width_field", 
 										height_field="height_field", verbose_name='Ürün Resmi 1')
@@ -45,6 +45,11 @@ class Product(models.Model):
 
 	objects = models.Manager() 
 	objects_company = ProducCompanytManager()
+
+	class Meta:
+		verbose_name = 'Ürün'
+		verbose_name_plural = 'Ürünler'
+		ordering = ('-timestamp',)	
 
 	def get_absolute_url(self):
 		return reverse("product:detail", kwargs={'pk':self.pk})

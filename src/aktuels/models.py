@@ -14,7 +14,7 @@ class Aktuel(models.Model):
 	title 					= models.CharField(max_length=140, null=True,  blank=True)
 	explain					= models.CharField(max_length=140, null=True,  blank=True)
 	updated 				= models.DateTimeField(auto_now=True, null=True,  blank=True)
-	timestamp				= models.DateTimeField(auto_now_add=True, null=True,  blank=True)
+	timestamp				= models.DateTimeField(auto_now_add=True, editable=False)
 	image_aktuel			= models.ImageField(upload_to=upload_location, null=True, blank=True, 
 												width_field="width_field", height_field="height_field")
 	aktuel_company_name 	= models.CharField(max_length=140, verbose_name='Aktuel Firma Ismi', null=True,  blank=True)
@@ -26,6 +26,11 @@ class Aktuel(models.Model):
 	height_field			= models.IntegerField(default=0, null=True,  blank=True)
 	width_field			 	= models.IntegerField(default=0, null=True,  blank=True)
 	slug 					= models.SlugField(blank=True, unique=True)
+
+	class Meta:
+		verbose_name = 'Aktuel'
+		verbose_name_plural = 'Aktueller'
+		ordering = ('-timestamp',)			
 
 	def save(self, *args, **kwargs):
 		self.slug = slugify(self.title)
@@ -55,7 +60,7 @@ class AktuelProducts(models.Model):
 	price 			= models.DecimalField(max_digits=6, decimal_places=2)
 	exist 			= models.BooleanField(verbose_name='Stockta Var Mı?', default=True)
 	updated 		= models.DateTimeField(auto_now=True)
-	timestamp		= models.DateTimeField(auto_now_add=True)
+	timestamp		= models.DateTimeField(auto_now_add=True, editable=False)
 	image_prod		= models.ImageField(upload_to=upload_location,
 					 		null=True,
 							width_field="width_field", 
@@ -63,7 +68,10 @@ class AktuelProducts(models.Model):
 	height_field	= models.IntegerField(default=0, blank=True)
 	width_field 	= models.IntegerField(default=0, blank=True)
 
-
+	class Meta:
+		verbose_name = 'Aktuel Ürünü'
+		verbose_name_plural = 'Aktuel Ürünleri'
+		ordering = ('-timestamp',)	
 
 	def __str__(self):
 		return str(self.pk) + "\t" + str(self.title) 

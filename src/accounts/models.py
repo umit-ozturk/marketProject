@@ -33,6 +33,12 @@ class UserProfile(models.Model):
 	phone 			= models.CharField(max_length=15, blank=True, null=True)
 	height_field	= models.IntegerField(default=0, blank=True)
 	width_field 	= models.IntegerField(default=0, blank=True)
+	created_at 		= models.DateTimeField('Oluşturulma Tarihi', auto_now_add=True, editable=False)
+
+	class Meta:
+		verbose_name = 'Kullanıcı'
+		verbose_name_plural = 'Kullanıcılar'
+		ordering = ('-created_at',)		
 
 	@classmethod
 	def for_request(cls, request):
