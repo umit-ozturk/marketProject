@@ -78,7 +78,7 @@
                                             {% for item in carts %}
                                                 <li>
                                                     <a href="/carts/cart/detail/">
-                                                        <img src="/media/{{ item.product.image_prod }}" alt="Ürün Resmi">
+                                                        <img src="/media/{{ item.product.image_prod_first }}" alt="Ürün Resmi">
                                                         <h3>
                                                             {{ item.product.name |truncatechars:22 }}
                                                             

@@ -29,6 +29,14 @@
 
 {% block content %}
 
+<style type="text/css">
+    .another_prices{
+    width: 100%;   
+    }
+    .another_prices_tr{
+        padding-bottom: 10px;
+    }
+</style>
 
         <!--
         |========================
@@ -80,7 +88,7 @@
                                     <a href="#specification" aria-controls="specification" role="tab" data-toggle="tab">Özellikleri</a>
                                 </li>
                                 <li role="presentation" class="">
-                                    <a href="#review" aria-controls="review" role="tab" data-toggle="tab">Diğer Fiyatlar(3)</a>
+                                    <a href="#review" aria-controls="review" role="tab" data-toggle="tab">Diğer Fiyatlar({{ object.get_slug_count }})</a>
                                 </li>
                                 <li role="presentation" class="">
                                     <a href="#seller" aria-controls="seller" role="tab" data-toggle="tab">Satıcı Bilgisi</a>
@@ -101,7 +109,33 @@
                                     {{ object.feature|safe }}
                                 </div>
                                 <div role="tabpanel" class="tab-pane xt-pane xt-review fade" id="review">
-                                    <h3>Diğer Teklifler</h3>
+                                    <h4>Diğer Fiyatlar({{ object.get_slug_count }})</h4><br>
+                                    <table class="another_prices">
+                                        <thead style="">
+                                            <tr class="another_prices_tr_head">
+                                                        <th style="margin-bottom:20px;">Resim</th>
+                                                        <th>Ürün</th>
+                                                        <th>Şirket</th>
+                                                        <th>Fiyat</th>                 
+                                            </tr>
+                                        </thead>
+                                        <tbody> 
+                                            {% for item in object.get_slug_detail %}            
+                                                <tr class="another_prices_tr">
+                                                    <td>
+                                                        <a href="{{ item.get__absolute_url }}">
+                                                            
+                                                            <img src="/media/{{ item.image_prod_first }}" alt="..." style="max-height: 125px; width:125px; margin-bottom:20px;">
+                                                        </a>
+                                                    </td>
+                                                    <td>{{ item.name }}</td>
+                                                    <td>{{ item.company.company_name }}</td> 
+                                                    <td>{{ item.price }} TL</td> 
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>                                    
+
                                 </div>
                                 <div role="tabpanel" class="tab-pane xt-pane fade" id="seller">
                                     <h3>{{ object.company }}</h3>

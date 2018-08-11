@@ -37,7 +37,7 @@ class ProductByCategoryModelSerializer(serializers.ModelSerializer):
 			'price',
 			'title',
 			'exist',
-			'image_prod',
+			'image_prod_first',
 			'company'
 		]
 

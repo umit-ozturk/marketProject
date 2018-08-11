@@ -15,7 +15,7 @@ def upload_location(instance, filename):
 
 class ProducCompanytManager(models.Manager):
 	def get_queryset(self):
-		super().get_queryset().filter(company_company_name='Roald Dahl')
+		super().get_queryset().filter(slug__icontains=self.slug)
 
 
 class Product(models.Model):
@@ -29,6 +29,7 @@ class Product(models.Model):
 	exist 			= models.BooleanField(verbose_name='Stockta Var Mı?', default=True)
 	updated 		= models.DateTimeField(auto_now=True)
 	timestamp		= models.DateTimeField(auto_now_add=True)
+	slug			= models.CharField(max_length=140, verbose_name='Ürün Slug/Sayaç', null=True,  blank=True)
 	image_prod_first	= models.ImageField(upload_to=upload_location, null=True, blank=True, width_field="width_field", 
 										height_field="height_field", verbose_name='Ürün Resmi 1')
 	image_prod_second	= models.ImageField(upload_to=upload_location, null=True, blank=True, width_field="width_field", 
@@ -51,6 +52,15 @@ class Product(models.Model):
 	def get_filters(self):
 		filters = self.category.category_name
 		return filters
+
+	def get_slug_count(self):
+		slug_count = Product.objects.filter(slug__icontains=self.slug).count()
+		return slug_count
+
+	def get_slug_detail(self):
+		slug_company_detail = Product.objects.filter(slug__icontains=self.slug)
+		print(slug_company_detail)
+		return slug_company_detail
 
 	def image_tag(self):
 		if self.image_prod_first:
