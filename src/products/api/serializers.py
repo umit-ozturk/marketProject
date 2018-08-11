@@ -18,7 +18,10 @@ class ProductModelSerializer(serializers.ModelSerializer):
 			'price',
 			'title',
 			'exist',
-			'image_prod',
+			'image_prod_first',
+			'image_prod_second',
+			'image_prod_third',
+			'image_prod_fourth',
 			'company',
 			'category',
 			'content'
@@ -33,7 +36,7 @@ class ProductFeaturedModelSerializer(serializers.ModelSerializer):
 			'id',
 			'name',
 			'price',			
-			'image_prod',
+			'image_prod_first',
 			'company'
 		]
 
@@ -47,6 +50,6 @@ class ProductCategoriesModelSerializer(serializers.ModelSerializer):
 			'id',
 			'name',
 			'price',			
-			'image_prod',
+			'image_prod_first',
 			'company'
 		]

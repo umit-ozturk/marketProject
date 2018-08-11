@@ -93,20 +93,19 @@
                                     <h3>{{ object.name }}</h3>
                                     <b>{{ object.title }}</b><br>
 
-                                    {{ object.content }}
+                                    {{ object.content|safe }}
                                 </div>
                                 <div role="tabpanel" class="tab-pane xt-pane fade" id="specification">
                                     <h3>Ürün Özellikleri</h3>
                                     
-                                    {{ object.feature }}
+                                    {{ object.feature|safe }}
                                 </div>
                                 <div role="tabpanel" class="tab-pane xt-pane xt-review fade" id="review">
                                     <h3>Diğer Teklifler</h3>
-                                    
                                 </div>
                                 <div role="tabpanel" class="tab-pane xt-pane fade" id="seller">
                                     <h3>{{ object.company }}</h3>
-                                    {{ object.company.company_description }}
+                                    {{ object.company.company_description|safe }}
                                 </div>
                             </div>
                         </div>

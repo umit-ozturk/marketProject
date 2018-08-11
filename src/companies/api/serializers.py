@@ -10,6 +10,7 @@ class ParentCompanyDisplaySerializer(serializers.ModelSerializer):
 			'id',
 			'company_name',
 			'company_site',
+			'company_description',
 			'image_comp',
 			'parent'
 		]
@@ -24,6 +25,7 @@ class CompanyDisplaySerializer(serializers.ModelSerializer):
 			'company_name',
 			'company_site',
 			'image_comp',
+			'company_description',
 			'parent'
 		]
 

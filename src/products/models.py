@@ -29,8 +29,14 @@ class Product(models.Model):
 	exist 			= models.BooleanField(verbose_name='Stockta Var Mı?', default=True)
 	updated 		= models.DateTimeField(auto_now=True)
 	timestamp		= models.DateTimeField(auto_now_add=True)
-	image_prod		= models.ImageField(upload_to=upload_location, null=True, blank=True, width_field="width_field", 
-										height_field="height_field", verbose_name='Ürün Resmi')
+	image_prod_first	= models.ImageField(upload_to=upload_location, null=True, blank=True, width_field="width_field", 
+										height_field="height_field", verbose_name='Ürün Resmi 1')
+	image_prod_second	= models.ImageField(upload_to=upload_location, null=True, blank=True, width_field="width_field", 
+										height_field="height_field", verbose_name='Ürün Resmi 2')
+	image_prod_third	= models.ImageField(upload_to=upload_location, null=True, blank=True, width_field="width_field", 
+										height_field="height_field", verbose_name='Ürün Resmi 3')	
+	image_prod_fourth	= models.ImageField(upload_to=upload_location, null=True, blank=True, width_field="width_field", 
+										height_field="height_field", verbose_name='Ürün Resmi 4')	
 	content 		= RichTextField(verbose_name='Ürün Açıklaması', null=True, blank=True)
 	feature 		= RichTextField(verbose_name='Ürün Özellikleri', null=True, blank=True)
 	height_field	= models.IntegerField(default=0, blank=True)
@@ -47,8 +53,8 @@ class Product(models.Model):
 		return filters
 
 	def image_tag(self):
-		if self.image_prod:
-			return mark_safe('<img src="%s" style="width: 100px; height:100px;" />' % self.image_prod.url)
+		if self.image_prod_first:
+			return mark_safe('<img src="%s" style="width: 100px; height:100px;" />' % self.image_prod_first.url)
 		else:
 			return 'No Image Found'
 	image_tag.short_description = 'Resim'
