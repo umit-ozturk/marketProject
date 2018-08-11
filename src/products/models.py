@@ -24,16 +24,15 @@ class Product(models.Model):
 	company 		= models.ForeignKey("companies.company", on_delete=models.CASCADE, related_name="company", 
 										verbose_name='Firma', null=True,  blank=True)
 	name 			= models.CharField(max_length=140, verbose_name='Ürün Adı', null=True,  blank=True)
-	title 			= models.CharField(max_length=140, verbose_name='Ürün Başlığı', null=True,  blank=True) # Product Explanation
-	price 			= models.DecimalField(max_digits=6, decimal_places=2, verbose_name='Fiyat')
+	title 			= models.CharField(max_length=140, verbose_name='Ürün Başlığı', null=True,  blank=True)
+	price 			= models.DecimalField(max_digits=6, decimal_places=2, verbose_name='Fiyat', null=True,  blank=True)
 	exist 			= models.BooleanField(verbose_name='Stockta Var Mı?', default=True)
 	updated 		= models.DateTimeField(auto_now=True)
 	timestamp		= models.DateTimeField(auto_now_add=True)
-	image_prod		= models.ImageField(upload_to=upload_location,
-					 		null=True,
-							width_field="width_field", 
-			 				height_field="height_field", verbose_name='Ürün Resmi')
-	content 		= RichTextField(verbose_name='Ürün Açıklaması')
+	image_prod		= models.ImageField(upload_to=upload_location, null=True, blank=True, width_field="width_field", 
+										height_field="height_field", verbose_name='Ürün Resmi')
+	content 		= RichTextField(verbose_name='Ürün Açıklaması', null=True, blank=True)
+	feature 		= RichTextField(verbose_name='Ürün Özellikleri', null=True, blank=True)
 	height_field	= models.IntegerField(default=0, blank=True)
 	width_field 	= models.IntegerField(default=0, blank=True)
 

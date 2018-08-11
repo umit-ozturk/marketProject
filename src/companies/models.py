@@ -1,6 +1,7 @@
 from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
 from django.utils.safestring import mark_safe
+from ckeditor.fields import RichTextField
 # Create your models here.
 
 
@@ -14,6 +15,7 @@ class Company(MPTTModel):
 										related_name='children', db_index=True, verbose_name='Üst Kategori')
 	company_name 		= models.CharField(max_length=140, verbose_name='Firma İsmi', null=True,  blank=True)
 	company_site 		= models.CharField(max_length=140, verbose_name='Firmanın Sitesi', null=True,  blank=True)
+	company_description = RichTextField(verbose_name='Firma Açıklaması', null=True, blank=True)
 	image_comp		 	= models.ImageField(upload_to=upload_location, null=True, blank=True, width_field="width_field", 
 			 								height_field="height_field", verbose_name="Firma Resmi")
 	height_field 		= models.IntegerField(default=0)
@@ -38,5 +40,6 @@ class Brand(models.Model):
 	brand_site = models.CharField(max_length=140, verbose_name='Markanın Sitesi', null=True,  blank=True)
 	brand_image = models.ImageField(upload_to=upload_location, null=True, blank=True, width_field="width_field", 
 			 						height_field="height_field", verbose_name="Marka Resmi")
+	brand_description = RichTextField(verbose_name='Marka Açıklaması', null=True, blank=True)
 	height_field 		= models.IntegerField(default=0)
 	width_field 		= models.IntegerField(default=0)

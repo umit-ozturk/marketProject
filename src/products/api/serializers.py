@@ -20,7 +20,8 @@ class ProductModelSerializer(serializers.ModelSerializer):
 			'exist',
 			'image_prod',
 			'company',
-			'category'
+			'category',
+			'content'
 		]
 
 class ProductFeaturedModelSerializer(serializers.ModelSerializer):
