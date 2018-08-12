@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'companies',
     'categories',
     'aktuels',
-    'cart'
+    'cart',
+    'zextra'
 
 
 ]
