@@ -19,29 +19,31 @@ class ProducCompanytManager(models.Manager):
 
 
 class Product(models.Model):
-	category 		= TreeForeignKey("categories.category", on_delete=models.CASCADE, 
-									null=True,blank=True, verbose_name='Kategori')
-	company 		= models.ForeignKey("companies.company", on_delete=models.CASCADE, related_name="company", 
-										verbose_name='Firma', null=True,  blank=True)
-	name 			= models.CharField(max_length=140, verbose_name='Ürün Adı', null=True,  blank=True)
-	title 			= models.CharField(max_length=140, verbose_name='Ürün Başlığı', null=True,  blank=True)
-	price 			= models.DecimalField(max_digits=6, decimal_places=2, verbose_name='Fiyat', null=True,  blank=True)
-	exist 			= models.BooleanField(verbose_name='Stockta Var Mı?', default=True)
-	updated 		= models.DateTimeField(auto_now=True)
-	timestamp		= models.DateTimeField(auto_now_add=True, editable=False)
-	slug			= models.CharField(max_length=140, verbose_name='Ürün Slug/Sayaç', null=True,  blank=True)
-	image_prod_first	= models.ImageField(upload_to=upload_location, null=True, blank=True, width_field="width_field", 
-										height_field="height_field", verbose_name='Ürün Resmi 1')
-	image_prod_second	= models.ImageField(upload_to=upload_location, null=True, blank=True, width_field="width_field", 
-										height_field="height_field", verbose_name='Ürün Resmi 2')
-	image_prod_third	= models.ImageField(upload_to=upload_location, null=True, blank=True, width_field="width_field", 
-										height_field="height_field", verbose_name='Ürün Resmi 3')	
-	image_prod_fourth	= models.ImageField(upload_to=upload_location, null=True, blank=True, width_field="width_field", 
-										height_field="height_field", verbose_name='Ürün Resmi 4')	
-	content 		= RichTextField(verbose_name='Ürün Açıklaması', null=True, blank=True)
-	feature 		= RichTextField(verbose_name='Ürün Özellikleri', null=True, blank=True)
-	height_field	= models.IntegerField(default=0, blank=True)
-	width_field 	= models.IntegerField(default=0, blank=True)
+	category			= TreeForeignKey("categories.category", verbose_name='Kategori', on_delete=models.CASCADE, 
+										null=True,blank=True)
+	company				= models.ForeignKey("companies.company", verbose_name='Firma', on_delete=models.CASCADE, 
+											related_name="company", null=True,  blank=True)
+	brand				= models.ForeignKey("companies.brand", verbose_name='Marka', on_delete=models.CASCADE, 
+											related_name="brand", null=True,  blank=True)
+	slug				= models.CharField('Ürün Slug/Sayaç', max_length=140, null=True,  blank=True)	
+	name				= models.CharField('Ürün Adı', max_length=140, null=True,  blank=True)
+	title				= models.CharField('Ürün Başlığı', max_length=140, null=True,  blank=True)
+	price				= models.DecimalField('Ürün Fiyatı', max_digits=6, decimal_places=2, null=True,  blank=True)
+	old_price			= models.DecimalField('Eski Ürün Fiyatı', max_digits=6, decimal_places=2, null=True,  blank=True)
+	content				= RichTextField('Ürün Açıklaması', null=True, blank=True)
+	feature				= RichTextField('Ürün Özellikleri', null=True, blank=True)
+	image_prod_first	= models.ImageField('Ürün Resmi 1', upload_to=upload_location, null=True, blank=True, 
+											width_field="width_field", height_field="height_field")
+	image_prod_second	= models.ImageField('Ürün Resmi 2', upload_to=upload_location, null=True, blank=True, 
+											width_field="width_field", height_field="height_field")
+	image_prod_third	= models.ImageField('Ürün Resmi 3', upload_to=upload_location, null=True, blank=True, 
+											width_field="width_field", height_field="height_field")	
+	image_prod_fourth	= models.ImageField('Ürün Resmi 4', upload_to=upload_location, null=True, blank=True, 
+											width_field="width_field", height_field="height_field")	
+	height_field 		= models.IntegerField('Uzunluk Değeri', default=0, blank=True)
+	width_field 		= models.IntegerField('Genişlik Değeri', default=0, blank=True)
+	created_at			= models.DateTimeField('Oluşturulma Tarihi', auto_now_add=True, editable=False)
+	updated_at			= models.DateTimeField('Güncellenme Tarihi', auto_now=True, editable=False)
 
 	objects = models.Manager() 
 	objects_company = ProducCompanytManager()
@@ -49,13 +51,17 @@ class Product(models.Model):
 	class Meta:
 		verbose_name = 'Ürün'
 		verbose_name_plural = 'Ürünler'
-		ordering = ('-timestamp',)	
+		ordering = ('-created_at',)	
 
 	def __str__(self):
 		return str(self.name)
 
 	def get_absolute_url(self):
 		return reverse("product:detail", kwargs={'pk':self.pk})
+
+	def get_sale_percent(self):
+		sale_percent = int((self.old_price - self.price) / self.old_price * 100)
+		return sale_percent
 
 	def get_filters(self):
 		filters = self.category.category_name

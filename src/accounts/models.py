@@ -19,21 +19,20 @@ class UserProfile(models.Model):
 		('E', 'Erkek'),
 		('K', 'Kadın'),
 	)
-	gender 			= models.CharField(max_length=1, choices=GENDER_CHOICES, default='E')	
-	user 			= models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='profile', null=True,  blank=True)
-	userphoto		= models.ImageField(upload_to=upload_location,
-					 		null=True,
-					 		blank=True,
-							width_field="width_field", 
-			 				height_field="height_field", verbose_name='Kullanıcı Resmi')
-	name 			= models.CharField(max_length=50, verbose_name='İsim', blank=True)
-	surname 		= models.CharField(max_length=50, verbose_name='Soyisim', blank=True)
-	birthday 		= models.DateField(blank=True, null=True)
-	adress	 		= models.CharField(max_length=200, blank=True, null=True)
-	phone 			= models.CharField(max_length=15, blank=True, null=True)
-	height_field	= models.IntegerField(default=0, blank=True)
-	width_field 	= models.IntegerField(default=0, blank=True)
-	created_at 		= models.DateTimeField('Oluşturulma Tarihi', auto_now_add=True, editable=False)
+	user			= models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='profile',
+											null=True,  blank=True)
+	userphoto		= models.ImageField('Kullanıcı Resmi', upload_to=upload_location, null=True, blank=True,
+										width_field="width_field",  height_field="height_field")
+	name 			= models.CharField('İsim', max_length=50, null=True, blank=True)
+	surname 		= models.CharField('Soyisim', max_length=50, null=True, blank=True)
+	birthday 		= models.DateField('Doğum Tarihi', blank=True, null=True)
+	gender 			= models.CharField('Cinsiyet', max_length=1, choices=GENDER_CHOICES, default='E')
+	adress	 		= models.CharField('Adres', max_length=200, blank=True, null=True)
+	phone 			= models.CharField('Telefon Numarası', max_length=15, blank=True, null=True)
+	height_field 	= models.IntegerField('Uzunluk Değeri', default=0, blank=True)
+	width_field 	= models.IntegerField('Genişlik Değeri', default=0, blank=True)
+	created_at		= models.DateTimeField('Oluşturulma Tarihi', auto_now_add=True, editable=False)
+	updated_at		= models.DateTimeField('Güncellenme Tarihi', auto_now=True, editable=False)
 
 	class Meta:
 		verbose_name = 'Kullanıcı'

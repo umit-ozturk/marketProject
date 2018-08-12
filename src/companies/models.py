@@ -11,16 +11,17 @@ def upload_location(instance, filename):
 
 
 class Company(MPTTModel):
-	parent				= TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, 
-										related_name='children', db_index=True, verbose_name='Üst Kategori')
-	company_name 		= models.CharField(max_length=140, verbose_name='Firma İsmi', null=True,  blank=True)
-	company_site 		= models.CharField(max_length=140, verbose_name='Firmanın Sitesi', null=True,  blank=True)
-	company_description = RichTextField(verbose_name='Firma Açıklaması', null=True, blank=True)
-	image_comp		 	= models.ImageField(upload_to=upload_location, null=True, blank=True, width_field="width_field", 
-			 								height_field="height_field", verbose_name="Firma Resmi")
-	height_field 		= models.IntegerField(default=0)
-	width_field 		= models.IntegerField(default=0)
-	created_at			= models.DateTimeField(auto_now_add=True, editable=False)
+	parent				= TreeForeignKey('self', verbose_name='Üst Kategori', on_delete=models.CASCADE, null=True, 
+										blank=True, related_name='children', db_index=True)
+	company_name 		= models.CharField('Firma İsmi', max_length=140, null=True,  blank=True)
+	company_site 		= models.CharField('Firmanın Sitesi', max_length=140, null=True,  blank=True)
+	company_description = RichTextField('Firma Açıklaması', null=True, blank=True)
+	image_comp		 	= models.ImageField('Firma Resmi', upload_to=upload_location, null=True, blank=True, 
+											width_field="width_field", height_field="height_field")
+	height_field 		= models.IntegerField('Uzunluk Değeri', default=0, blank=True)
+	width_field 		= models.IntegerField('Genişlik Değeri', default=0, blank=True)
+	created_at			= models.DateTimeField('Oluşturulma Tarihi', auto_now_add=True, editable=False)
+	updated_at			= models.DateTimeField('Güncellenme Tarihi', auto_now=True, editable=False)
 
 	class Meta:
 		verbose_name = 'Firma'
@@ -39,14 +40,15 @@ class Company(MPTTModel):
 
 
 class Brand(models.Model):
-	brand_name = models.CharField(max_length=140, verbose_name='Marka İsmi', null=True,  blank=True)
-	brand_site = models.CharField(max_length=140, verbose_name='Markanın Sitesi', null=True,  blank=True)
-	brand_image = models.ImageField(upload_to=upload_location, null=True, blank=True, width_field="width_field", 
-			 						height_field="height_field", verbose_name="Marka Resmi")
-	brand_description = RichTextField(verbose_name='Marka Açıklaması', null=True, blank=True)
-	height_field 		= models.IntegerField(default=0)
-	width_field 		= models.IntegerField(default=0)
-	created_at			= models.DateTimeField(auto_now_add=True, editable=False)
+	brand_name 			= models.CharField('Marka İsmi', max_length=140, null=True,  blank=True)
+	brand_site 			= models.CharField('Markanın Sitesi', max_length=140, null=True,  blank=True)
+	brand_description	= RichTextField('Marka Açıklaması', null=True, blank=True)	
+	brand_image 		= models.ImageField('Marka Resmi', upload_to=upload_location, null=True, blank=True, 
+											width_field="width_field", height_field="height_field")
+	height_field 		= models.IntegerField('Uzunluk Değeri', default=0, blank=True)
+	width_field 		= models.IntegerField('Genişlik Değeri', default=0, blank=True)
+	created_at			= models.DateTimeField('Oluşturulma Tarihi', auto_now_add=True, editable=False)
+	updated_at			= models.DateTimeField('Güncellenme Tarihi', auto_now=True, editable=False)
 
 	class Meta:
 		verbose_name = 'Marka'

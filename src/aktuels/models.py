@@ -11,26 +11,24 @@ def upload_location(instance, filename):
 	return upload_path
 
 class Aktuel(models.Model):
-	title 					= models.CharField(max_length=140, null=True,  blank=True)
-	explain					= models.CharField(max_length=140, null=True,  blank=True)
-	updated 				= models.DateTimeField(auto_now=True, null=True,  blank=True)
-	timestamp				= models.DateTimeField(auto_now_add=True, editable=False)
-	image_aktuel			= models.ImageField(upload_to=upload_location, null=True, blank=True, 
+	slug 					= models.SlugField('Aktuel Slug', blank=True, unique=True)
+	title 					= models.CharField('Aktuel Başlığı', max_length=140, null=True,  blank=True)
+	explain					= models.CharField('Aktuel Açıklaması', max_length=140, null=True,  blank=True)
+	aktuel_company_name 	= models.CharField('Aktuel Firma Ismi', max_length=140, null=True, blank=True)
+	aktuel_company_site 	= models.CharField('Aktuel Firma Sitesi', max_length=140, null=True, blank=True)
+	image_aktuel			= models.ImageField('Aktuel Firma Resmi', upload_to=upload_location, null=True, blank=True, 
+												width_field="width_field", height_field="height_field")	
+	image_comp			 	= models.ImageField('Aktuel Resmi', upload_to=upload_location, null=True, blank=True,
 												width_field="width_field", height_field="height_field")
-	aktuel_company_name 	= models.CharField(max_length=140, verbose_name='Aktuel Firma Ismi', null=True,  blank=True)
-	aktuel_company_site 	= models.CharField(max_length=140, verbose_name='Aktuel Firma Sitesi', null=True,  blank=True)
-	image_comp			 	= models.ImageField(upload_to=upload_location,
-					 		null=True, blank=True,
-							width_field="width_field", 
-			 				height_field="height_field")
-	height_field			= models.IntegerField(default=0, null=True,  blank=True)
-	width_field			 	= models.IntegerField(default=0, null=True,  blank=True)
-	slug 					= models.SlugField(blank=True, unique=True)
+	height_field 			= models.IntegerField('Uzunluk Değeri', default=0, blank=True)
+	width_field 			= models.IntegerField('Genişlik Değeri', default=0, blank=True)
+	created_at				= models.DateTimeField('Oluşturulma Tarihi', auto_now_add=True, editable=False)
+	updated_at				= models.DateTimeField('Güncellenme Tarihi', auto_now=True, editable=False)
 
 	class Meta:
 		verbose_name = 'Aktuel'
 		verbose_name_plural = 'Aktueller'
-		ordering = ('-timestamp',)
+		ordering = ('-created_at',)
 
 	def __str__(self):
 		return str(self.title)		

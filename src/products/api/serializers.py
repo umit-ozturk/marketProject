@@ -17,11 +17,12 @@ class ProductModelSerializer(serializers.ModelSerializer):
 			'name',
 			'price',
 			'title',
-			'exist',
 			'image_prod_first',
 			'image_prod_second',
 			'image_prod_third',
 			'image_prod_fourth',
+			'get_sale_percent',
+			'get_slug_count',
 			'company',
 			'category',
 			'content'

@@ -138,8 +138,13 @@
 
                                 </div>
                                 <div role="tabpanel" class="tab-pane xt-pane fade" id="seller">
-                                    <h3>{{ object.company }}</h3>
-                                    {{ object.company.company_description|safe }}
+                                    {% if object.company.company_description %}
+                                        <h3>{{ object.company }}</h3>
+                                        {{ object.company.company_description|safe }}
+                                    {% else %}
+                                        <h3>{{ object.brand }}</h3>
+                                        {{ object.brand.brand_description|safe }}
+                                    {% endif %}                                        
                                 </div>
                             </div>
                         </div>
