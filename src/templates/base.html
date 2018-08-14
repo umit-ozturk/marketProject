@@ -1163,25 +1163,47 @@
 
             $(window).load(function(){
                 setTimeout(function(){
+                    $( '.secondCategoryClass' ).each(function( index, item ){ $(item).hide(); });
+                    $( '.thirdCategoryClass' ).each(function( index, item ){ $(item).hide(); });
+                    $( '.fourthCategoryClass' ).each(function( index, item ){ $(item).hide(); });
+
+                    first_second_category = $( '.secondCategoryClass' ).first();
+                    first_second_category_id = first_second_category[0].classList[1]
+                    first_second_category.addClass('active');
+
+                    first_third_category = $( '.thirdCategoryClass' ).first();
+                    first_third_category_id = first_third_category[0].classList[1]
+                    first_third_category.addClass('active');
+
+                    first_fourth_category = $( '.fourthCategoryClass' ).first();
+                    first_fourth_category_id = first_fourth_category[0].classList[1]
+                    first_fourth_category.addClass('active');                                        
+
                     $('.secondCategoryClass').hover(function(e) {
-                        $( ".thirdCategoryClass" ).each(function( index, item ) {
-                            $('.thirdCategoryClass').hide();
-                            $('.fourthCategoryClass').hide();
-                            if( item.classList[1] == e.currentTarget.classList[1] ){
-                                $(item).show();
-                                return false;
-                            }else{
-                                $(item).hide();         
+                        console.log(first_second_category)
+                        first_second_category.removeClass('active');
+                        e.currentTarget.classList.add("active");
+                        $( '.thirdCategoryClass' ).each(function( index, item ){
+                            if(e.currentTarget.classList[1] == item.classList[1]){
+                                console.log(e.currentTarget.classList[1])
+                                console.log(e.currentTarget.classList)
+                                $(item).show(); // Thirt Category Class Show Function Clearly Run ...
+                            }
+                            else{
+                                $(item).hide(); 
                             }
                         });
                     });
+                    if(first_second_category_id == $( '.thirdCategoryClass' )){
+
+                    }
+
                 }, 1200)
             });                         
             $(window).load(function(){
                 setTimeout(function(){
                     $('.thirdCategoryClass').hover(function(e) {
                         $( ".fourthCategoryClass" ).each(function( index, item ) {
-                            $('.fourthCategoryClass').hide();
                             if( item.classList[1] == e.currentTarget.classList[2] ){
                                 $(item).show();
                                 return false;
