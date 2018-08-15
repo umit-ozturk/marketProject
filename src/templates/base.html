@@ -1167,22 +1167,25 @@
                     $( '.thirdCategoryClass' ).each(function( index, item ){ $(item).hide(); });
                     $( '.fourthCategoryClass' ).each(function( index, item ){ $(item).hide(); });                    
 
-                    first_second_category = $( '.secondCategoryClass' ).first();
+                    second_categories = $( '.secondCategoryClass' )
+                    first_second_category = second_categories.first();
                     first_second_category_id = first_second_category[0].classList[1]
                     first_second_category.addClass('active');
 
-                    first_third_category = $( '.thirdCategoryClass' ).first();
+                    third_categories = $( '.thirdCategoryClass' )
+                    first_third_category = third_categories.first();
                     first_third_category_id = first_third_category[0].classList[1]
                     first_third_category.addClass('active');
 
-                    first_fourth_category = $( '.fourthCategoryClass' ).first();
+                    fourth_categories = $( '.fourthCategoryClass' )
+                    first_fourth_category = fourth_categories.first();
                     first_fourth_category_id = first_fourth_category[0].classList[1]
                     first_fourth_category.addClass('active');                                        
 
                     // Zero Level
 
-                    $('.secondCategoryClass').hover(function(e) {
-                        $( '.thirdCategoryClass' ).each(function( index, item ){
+                    second_categories.hover(function(e) {
+                        third_categories.each(function( index, item ){
                             $(item).hide(); 
                             if( item.classList[1] == e.currentTarget.classList[1] ){ $(item).addClass('active'); }else{ $(item).removeClass('active'); }             
                             if (item.classList[3] == 'active') { $(item).show(); }
@@ -1190,6 +1193,16 @@
                     });    
 
                     // First Level
+
+                    third_categories.hover(function(e) {
+                        fourth_categories.each(function( index, item ){
+                            $(item).hide(); 
+                            if( item.classList[1] == e.currentTarget.classList[2] ){ $(item).addClass('active'); }else{ $(item).removeClass('active'); }             
+                            if (item.classList[2] == 'active') { $(item).show(); }
+                        });
+                    });                        
+
+                    second_categories.hover(function(e) { fourth_categories.each(function( index, item ){$(item).hide();});});
                 }, 1200)
             });
 
