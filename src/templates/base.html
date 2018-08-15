@@ -547,7 +547,7 @@
                 function formatCategory(categoryValue, secondCategoryFormattedHtml, thirdCategoryFormattedHtml, fourthCategoryFormattedHtml){
                     // If not exist second Category
                     if(secondCategoryFormattedHtml){
-                        categoryContent = "<li><a href='/categories/"+ categoryValue.id +"/' ><i class='fa flaticon-" + categoryValue.category_logo + "'></i>" + categoryValue.category_name + "</a><ul class='mega-menu '><li><ul class='xt-single-mega'>" + secondCategoryFormattedHtml + "</ul></li><li><ul class='xt-single-mega'>" + thirdCategoryFormattedHtml + "</ul></li><li><ul class='xt-single-mega'>" + fourthCategoryFormattedHtml + "</ul></li></ul></li>"
+                        categoryContent = "<li class='firstCategoryClass'><a href='/categories/"+ categoryValue.id +"/' ><i class='fa flaticon-" + categoryValue.category_logo + "'></i>" + categoryValue.category_name + "</a><ul class='mega-menu '><li><ul class='xt-single-mega'>" + secondCategoryFormattedHtml + "</ul></li><li><ul class='xt-single-mega'>" + thirdCategoryFormattedHtml + "</ul></li><li><ul class='xt-single-mega'>" + fourthCategoryFormattedHtml + "</ul></li></ul></li>"
                     }
                     else{
                         categoryContent = "<li><a href='/categories/"+ categoryValue.id +"/' ><i class='fa flaticon-" + categoryValue.category_logo + "'></i>" + categoryValue.category_name + "</a></li>"                        
@@ -1163,9 +1163,9 @@
 
             $(window).load(function(){
                 setTimeout(function(){
-                    $( '.secondCategoryClass' ).each(function( index, item ){ $(item).hide(); });
+
                     $( '.thirdCategoryClass' ).each(function( index, item ){ $(item).hide(); });
-                    $( '.fourthCategoryClass' ).each(function( index, item ){ $(item).hide(); });
+                    $( '.fourthCategoryClass' ).each(function( index, item ){ $(item).hide(); });                    
 
                     first_second_category = $( '.secondCategoryClass' ).first();
                     first_second_category_id = first_second_category[0].classList[1]
@@ -1179,41 +1179,19 @@
                     first_fourth_category_id = first_fourth_category[0].classList[1]
                     first_fourth_category.addClass('active');                                        
 
+                    // Zero Level
+
                     $('.secondCategoryClass').hover(function(e) {
-                        console.log(first_second_category)
-                        first_second_category.removeClass('active');
-                        e.currentTarget.classList.add("active");
                         $( '.thirdCategoryClass' ).each(function( index, item ){
-                            if(e.currentTarget.classList[1] == item.classList[1]){
-                                console.log(e.currentTarget.classList[1])
-                                console.log(e.currentTarget.classList)
-                                $(item).show(); // Thirt Category Class Show Function Clearly Run ...
-                            }
-                            else{
-                                $(item).hide(); 
-                            }
+                            $(item).hide(); 
+                            if( item.classList[1] == e.currentTarget.classList[1] ){ $(item).addClass('active'); }else{ $(item).removeClass('active'); }             
+                            if (item.classList[3] == 'active') { $(item).show(); }
                         });
-                    });
-                    if(first_second_category_id == $( '.thirdCategoryClass' )){
+                    });    
 
-                    }
-
+                    // First Level
                 }, 1200)
-            });                         
-            $(window).load(function(){
-                setTimeout(function(){
-                    $('.thirdCategoryClass').hover(function(e) {
-                        $( ".fourthCategoryClass" ).each(function( index, item ) {
-                            if( item.classList[1] == e.currentTarget.classList[2] ){
-                                $(item).show();
-                                return false;
-                            }else{
-                                $(item).hide();         
-                            }
-                        });
-                    });
-                }, 1200)
-            });  
+            });
 
         </script>   
 
