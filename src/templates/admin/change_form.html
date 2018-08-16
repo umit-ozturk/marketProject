@@ -10,13 +10,20 @@
 	<div class="demo">
 
 	</div>
+
+  <div class='printchatbox'>CHANGE ME</div>
+  <input type='text' name='fname' class='chatinput'>
+
+<script type="script/javascript">
+  $('.chatinput').keyup(function(event) {
+  	console.log(event)
+    newText = event.target.value;
+    $('.printchatbox').text(newText);
+  });
+</script>	
 	<script>
-		category_text = document.getElementById("id_category")
-		category_selected_text = category_text.options[category_text.selectedIndex].text;
-		company_text = document.getElementById("id_company")
-		company_selected_text = category_text.options[category_text.selectedIndex].text;
-		brand_text = document.getElementById("id_brand")
-		brand_selected_text = category_text.options[category_text.selectedIndex].text;
+		product_slug_text = document.getElementById("id_slug").value;
+		console.log(product_slug_text);
 
 	</script>	
 {% endblock content %}
