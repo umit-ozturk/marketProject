@@ -23,6 +23,7 @@ from django.conf.urls.static import static
 
 from accounts.views import UserRegisterView
 
+from ajax_select import urls as ajax_select_urls
 from products.views import ProductListView
 from .views import home
 
@@ -43,6 +44,7 @@ urlpatterns = [
     path('register/', UserRegisterView.as_view(), name="register"),
     #path('api/company/', include('companies.api.urls', namespace='company-api')),
 
+    path('ajax_select/', include(ajax_select_urls)),
     
     path('', include('django.contrib.auth.urls')),
     path('oauth/', include('social_django.urls', namespace='social')),

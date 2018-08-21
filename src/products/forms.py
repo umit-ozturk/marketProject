@@ -1,0 +1,11 @@
+from ajax_select.fields import AutoCompleteSelectField, AutoCompleteSelectMultipleField
+from django import forms
+from .models import Product
+
+class ProductForm(forms.ModelForm):
+
+    class Meta:
+        model = Product
+        fields = "__all__"
+
+    slug = AutoCompleteSelectMultipleField('slug', required=False, help_text=None)
