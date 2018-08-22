@@ -10,23 +10,16 @@ except ImportError:
 from django.http.response import HttpResponse, HttpResponseBadRequest
 
 
-from ajax_select import make_ajax_form
-from ajax_select.admin import AjaxSelectAdmin
-from .forms import ProductForm
 
-
-class ProductAdmin(AjaxSelectAdmin):
+class ProductAdmin(admin.ModelAdmin):
 	list_display = ('show_name', 'show_title', 'price', 'company', 'category', 'image_tag', )
 	list_filter = ('company', 'category')
 	search_fields = ('name', 'title', 'price', 'slug',)
 	search_prefix = '__icontains'
-	autocomplete_fields = ['company', 'brand', 'category']
 	change_list_template = 'products/change_form.html'
-	form = ProductForm
 
 	def get_urls(self):
 		urls = super(ProductAdmin, self).get_urls()
-		print(urls)
 		api_urls = [
 			url(r'^search/(?P<search_term>\w{0,50})$', self.search_api)
 		]
