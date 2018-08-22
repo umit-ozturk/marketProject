@@ -23,14 +23,14 @@
                 list: {
                     maxNumberOfElements: 6,
                     onChooseEvent: function () {
-                        location.href = $('#id_slug').getSelectedItemData().url
+                        location.href = $('#searchbar').getSelectedItemData().url
                     },
                     match: {
                         enabled: true
                     }
                 }
             };
-            $("#id_slug").easyAutocomplete(options);
+            $("#searchbar").easyAutocomplete(options);
         })
     </script>
 {% endblock %}

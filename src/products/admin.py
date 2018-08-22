@@ -14,9 +14,10 @@ from django.http.response import HttpResponse, HttpResponseBadRequest
 class ProductAdmin(admin.ModelAdmin):
 	list_display = ('show_name', 'show_title', 'price', 'company', 'category', 'image_tag', )
 	list_filter = ('company', 'category')
-	search_fields = ('name', 'title', 'price', 'slug',)
+	search_fields = ('slug', 'title', 'price', 'name',)
+	search_fields = ['slug', ]
 	search_prefix = '__icontains'
-	change_list_template = 'products/change_form.html'
+	change_list_template = 'products/change_list.html'
 
 	def get_urls(self):
 		urls = super(ProductAdmin, self).get_urls()
@@ -27,11 +28,11 @@ class ProductAdmin(admin.ModelAdmin):
 
 	def search_api(self, request, search_term):
 		if not self.search_fields:
-			return HttpResponseBadRequest(reason='Aramanızla Eşleşen Ürün Yok {}'.format(self.__name__))
+			return HttpResponseBadRequest(reason='Mo search_fields defined in {}'.format(self.__name__))
 		elif not search_term:
-			return HttpResponseBadRequest(reason='Bir Sorun Oluştu.')
+			return HttpResponseBadRequest(reason='Mo search term provided')
 		else:
-			keyword = self.search_fields[3]
+			keyword = self.search_fields[0]
 			options = {
 				keyword + self.search_prefix: search_term,
 			}
@@ -41,7 +42,7 @@ class ProductAdmin(admin.ModelAdmin):
 				data.append(
 					{
 						'keyword': getattr(instance, keyword),
-						'list_url': self.get_change_list_url(self.model, instance, self.model.app_label),
+						'url': self.get_change_form_url(self.model, instance, self.model._meta.app_label)
 					}
 				)
 
@@ -50,11 +51,10 @@ class ProductAdmin(admin.ModelAdmin):
 			return HttpResponse(content=data, content_type='application/json')
 
 	@staticmethod
-	def get_change_list_url(model, instance, app_label):
-		""" /django/contrib/admin/options/get_urls 'i override ediyoz. """
+	def get_change_form_url(model, instance, app_label):
 		return reverse(
-			"admin:%s_%s_add" % (app_label, str(model.__name__).lower()), args=(instance.id,)
-			)
+			"admin:%s_%s_change" % (app_label, str(model.__name__).lower()), args=(instance.id,)
+	)
 
 	def show_title(self, obj): # Product Explanation for Admin Panel
 		return truncatechars(obj.title, 35)
