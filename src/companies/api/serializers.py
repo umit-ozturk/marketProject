@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from companies.models import Company, Brand
+from products.models import ProductInfo
 
 
 class ParentCompanyDisplaySerializer(serializers.ModelSerializer):
@@ -18,6 +19,7 @@ class ParentCompanyDisplaySerializer(serializers.ModelSerializer):
 
 class CompanyDisplaySerializer(serializers.ModelSerializer):
 	parent = ParentCompanyDisplaySerializer()
+
 	class Meta:
 		model = Company
 		fields = [
@@ -43,3 +45,17 @@ class BrandDisplaySerializer(serializers.ModelSerializer):
 			'updated_at'
 		]
 
+
+class ProductInfoModelSerializer(serializers.ModelSerializer):
+
+	class Meta:
+		model = ProductInfo
+		fields = [
+			'id',
+			'slug',
+			'image_prod_first',
+			'image_prod_second',
+			'image_prod_third',
+			'image_prod_fourth',
+			'get_slug_count'
+		]

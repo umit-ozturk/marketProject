@@ -51,14 +51,6 @@ class Product(models.Model):
         filters = self.category.category_name
         return filters
 
-    def get_slug_count(self):
-        slug_count = Product.objects.filter(slug__icontains=self.slug).count()
-        return slug_count
-
-    def get_slug_detail(self):
-        slug_company_detail = Product.objects.filter(slug__icontains=self.slug)
-        return slug_company_detail
-
     def image_tag(self):
         if self.slug.image_prod_first:
             return mark_safe('<img src="%s" style="width: 100px; height:100px;" />' % self.slug.image_prod_first.url)
@@ -84,6 +76,14 @@ class ProductInfo(models.Model):
 
     def __str__(self):
         return str(self.slug)
+
+    def get_slug_count(self):
+        slug_count = Product.objects.filter(slug__slug__icontains=self.slug).count()
+        return slug_count
+
+    def get_slug_detail(self):
+        slug_company_detail = Product.objects.filter(slug__icontains=self.slug)
+        return slug_company_detail
 
     class Meta:
         verbose_name = 'Ürün Bilgisi'
