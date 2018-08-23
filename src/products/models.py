@@ -59,6 +59,13 @@ class Product(models.Model):
         slug_company_detail = Product.objects.filter(slug__icontains=self.slug)
         return slug_company_detail
 
+    def image_tag(self):
+        if self.slug.image_prod_first:
+            return mark_safe('<img src="%s" style="width: 100px; height:100px;" />' % self.slug.image_prod_first.url)
+        else:
+            return 'Resim Bulunamadı.'
+    image_tag.short_description = 'Resim'
+
 
 class ProductInfo(models.Model):
     slug = models.CharField('Ürün Slug / Sayacı', max_length=140, null=True, blank=True)
@@ -72,13 +79,20 @@ class ProductInfo(models.Model):
                                           width_field="width_field", height_field="height_field")
     height_field = models.IntegerField('Uzunluk Değeri', default=0, blank=True)
     width_field = models.IntegerField('Genişlik Değeri', default=0, blank=True)
+    created_at = models.DateTimeField('Oluşturulma Tarihi', auto_now_add=True, editable=False)
+    updated_at = models.DateTimeField('Güncellenme Tarihi', auto_now=True, editable=False)
 
     def __str__(self):
         return str(self.slug)
+
+    class Meta:
+        verbose_name = 'Ürün Bilgisi'
+        verbose_name_plural = 'Ürün Bilgileri'
+        ordering = ('-created_at',)
 
     def image_tag(self):
         if self.image_prod_first:
             return mark_safe('<img src="%s" style="width: 100px; height:100px;" />' % self.image_prod_first.url)
         else:
-            return 'No Image Found'
+            return 'Resim Bulunamadı.'
     image_tag.short_description = 'Resim'
