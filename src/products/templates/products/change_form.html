@@ -7,10 +7,6 @@
     <link type="text/css" href="{% static 'search_admin_autocomplete/css/styles.css' %}" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" crossorigin="anonymous"></script>
     <script src="{% static 'easy_autocomplete/jquery.easy-autocomplete.js' %}"></script>
-    <form class="center-align card-panel" enctype="multipart/form-data" id="JobOfferForm" action="" method="POST">
-    {% csrf_token %}
-    {{ ProductForm.slug }}
-</form>
     <script type="text/javascript">
         $(function () {
             var options = {
@@ -27,14 +23,14 @@
                 list: {
                     maxNumberOfElements: 6,
                     onChooseEvent: function () {
-                        location.href = $('#id_slug').getSelectedItemData().url
+                        location.href = $('#searchbar').getSelectedItemData().url
                     },
                     match: {
                         enabled: true
                     }
                 }
             };
-            $("#id_slug").easyAutocomplete(options);
+            $("#searchbar").easyAutocomplete(options);
         })
     </script>
 {% endblock %}
