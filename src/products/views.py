@@ -1,16 +1,11 @@
 from django.db.models import Q
-from django.shortcuts import render
-from django.views.generic  import (
+from django.views.generic import (
 			DetailView, 
 			ListView
 			)
-
-
 from .models import Product
 from cart.views import global_cart_detail
-from categories.models import Category
-from django.db.models import Min, Max, Avg
-from decimal import *
+from django.db.models import Min, Max
 
 
 class ProductDetailView(DetailView):
@@ -20,7 +15,6 @@ class ProductDetailView(DetailView):
 		context = super(ProductDetailView, self).get_context_data(*args, **kwargs)
 		context['carts'] = global_cart_detail(self.request)
 		return context
-
 
 
 class ProductListView(ListView):
@@ -54,20 +48,15 @@ class SearchProductListView(ListView):
 				).distinct()				
 		return qs
 
-	def price_list_min_max(self):
-		price__min = round(Product.objects.aggregate(Min('price'))['price__min'])
-		price__max = round(Product.objects.aggregate(Max('price'))['price__max'])
-		price_list = {'price__min':price__min, 'price__max':price__max}
-		return price_list			
-
 	def get_context_data(self, *args, **kwargs):
 		context = super(SearchProductListView, self).get_context_data(*args, **kwargs)
 		context['carts'] = global_cart_detail(self.request)
 		context['max_min_price'] = self.price_list_min_max()
 		return context
 
-
-
-
-
-
+	@staticmethod
+	def price_list_min_max():
+		price__min = round(Product.objects.aggregate(Min('price'))['price__min'])
+		price__max = round(Product.objects.aggregate(Max('price'))['price__max'])
+		price_list = {'price__min': price__min, 'price__max': price__max}
+		return price_list

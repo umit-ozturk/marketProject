@@ -74,6 +74,11 @@ class ProductInfo(models.Model):
     created_at = models.DateTimeField('Oluşturulma Tarihi', auto_now_add=True, editable=False)
     updated_at = models.DateTimeField('Güncellenme Tarihi', auto_now=True, editable=False)
 
+    class Meta:
+        verbose_name = 'Ürün Bilgisi'
+        verbose_name_plural = 'Ürün Bilgileri'
+        ordering = ('-created_at',)
+
     def __str__(self):
         return str(self.slug)
 
@@ -82,13 +87,8 @@ class ProductInfo(models.Model):
         return slug_count
 
     def get_slug_detail(self):
-        slug_company_detail = Product.objects.filter(slug__icontains=self.slug)
+        slug_company_detail = Product.objects.filter(slug__slug__icontains=self.slug)
         return slug_company_detail
-
-    class Meta:
-        verbose_name = 'Ürün Bilgisi'
-        verbose_name_plural = 'Ürün Bilgileri'
-        ordering = ('-created_at',)
 
     def image_tag(self):
         if self.image_prod_first:

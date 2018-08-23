@@ -1,4 +1,3 @@
-from rest_framework.views import APIView
 from rest_framework import generics
 from django.db.models import Q
 from products.models import Product
@@ -18,7 +17,6 @@ from .serializers import (
 	)
 
 
-
 class ProductDetailAPIView(generics.ListAPIView):
 	queryset = Product.objects.all()
 	serializer_class = ProductModelSerializer
@@ -29,6 +27,7 @@ class ProductDetailAPIView(generics.ListAPIView):
 		if qs.exists() and qs.count() == 1:
 			return qs
 		return None
+
 
 class ProductListAPIView(generics.ListAPIView):
 	serializer_class = ProductModelSerializer
@@ -44,6 +43,7 @@ class ProductListAPIView(generics.ListAPIView):
 				Q(title__icontains=query)
 				)
 		return qs
+
 
 class ProductFeaturedListAPIView(generics.ListAPIView):
 	serializer_class = ProductFeaturedModelSerializer

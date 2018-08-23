@@ -88,7 +88,7 @@
                                     <a href="#specification" aria-controls="specification" role="tab" data-toggle="tab">Özellikleri</a>
                                 </li>
                                 <li role="presentation" class="">
-                                    <a href="#review" aria-controls="review" role="tab" data-toggle="tab">Diğer Fiyatlar({{ object.get_slug_count }})</a>
+                                    <a href="#review" aria-controls="review" role="tab" data-toggle="tab">Diğer Fiyatlar({{ object.slug.get_slug_count }})</a>
                                 </li>
                                 <li role="presentation" class="">
                                     <a href="#seller" aria-controls="seller" role="tab" data-toggle="tab">Satıcı Bilgisi</a>
@@ -109,7 +109,7 @@
                                     {{ object.feature|safe }}
                                 </div>
                                 <div role="tabpanel" class="tab-pane xt-pane xt-review fade" id="review">
-                                    <h4>Diğer Fiyatlar({{ object.get_slug_count }})</h4><br>
+                                    <h4>Diğer Fiyatlar({{ object.slug.get_slug_count }})</h4><br>
                                     <table class="another_prices">
                                         <thead style="">
                                             <tr class="another_prices_tr_head">
@@ -120,17 +120,18 @@
                                             </tr>
                                         </thead>
                                         <tbody> 
-                                            {% for item in object.get_slug_detail %}            
+                                            {% for item in object.slug.get_slug_detail %}
                                                 <tr class="another_prices_tr">
                                                     <td>
                                                         <a href="{{ item.get__absolute_url }}">
                                                             
-                                                            <img src="/media/{{ item.image_prod_first }}" alt="..." style="max-height: 125px; min-height:125px; width:125px; margin-bottom:20px;">
+                                                            <img src="/media/{{ item.slug.image_prod_first }}" alt="..." style="max-height: 125px; min-height:125px; width:125px; margin-bottom:20px;">
                                                         </a>
                                                     </td>
                                                     <td>{{ item.name }}</td>
                                                     <td>{{ item.company.company_name }}</td> 
-                                                    <td>{{ item.price }} TL</td> 
+                                                    <td>{{ item.price }} TL</td>
+                                                    <td><form action='/carts/cart/add/{{item.id}}/' method='GET'>{% csrf_token %}{{ cart_product_form }}<input type='submit' value='Sepete Ekle' class='btn btn-fill'></form></td>
                                                 </tr>
                                             {% endfor %}
                                         </tbody>

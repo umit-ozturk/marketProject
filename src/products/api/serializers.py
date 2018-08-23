@@ -1,8 +1,5 @@
 from rest_framework import serializers
-
 from products.models import Product, ProductInfo
-
-
 from companies.api.serializers import CompanyDisplaySerializer, BrandDisplaySerializer, ProductInfoModelSerializer
 from categories.api.serializers import ProductCategoryModelSerializer
 
@@ -32,6 +29,7 @@ class ProductModelSerializer(serializers.ModelSerializer):
 
 class ProductFeaturedModelSerializer(serializers.ModelSerializer):
     company = CompanyDisplaySerializer()
+    slug = ProductInfoModelSerializer()
 
     class Meta:
         model = Product
@@ -46,6 +44,7 @@ class ProductFeaturedModelSerializer(serializers.ModelSerializer):
 
 class ProductCategoriesModelSerializer(serializers.ModelSerializer):
     company = CompanyDisplaySerializer()
+    slug = ProductInfoModelSerializer()
 
     class Meta:
         model = Product
