@@ -13,10 +13,9 @@ from django.http.response import HttpResponse, HttpResponseBadRequest
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('show_name', 'show_title', 'price', 'company', 'category', 'image_tag',)
     list_filter = ('company', 'category',)
-    search_fields = ('title', 'slug', 'price', 'name',)
+    search_fields = ('title', 'slug', 'price', 'show_name',)
     autocomplete_fields = ['slug', 'category', 'company', 'brand', ]
     search_prefix = '__icontains'
-    list_display_list = ('name',)
     change_list_template = 'products/change_list.html'
     change_form_template = 'products/change_form.html'
 
@@ -29,14 +28,15 @@ class ProductAdmin(admin.ModelAdmin):
         return api_urls + urls
 
     def search_api_for_add(self, request, search_term):
-        print(self.list_display_list[0])
-        if not self.list_display_list[0]:
+        print(self)
+        print(request)
+        print(search_term)
+        if not self.fields[0]:
             return HttpResponseBadRequest(reason='{} Search Fieldi Tanımlanamadı.'.format(self.__name__))
         elif not search_term:
             return HttpResponseBadRequest(reason='Aranan Kelime Desteklenemedi.')
         else:
-            keyword = self.list_display_list[0]
-            print(keyword)
+            keyword = self.fields[0]
             options = {
                 keyword + self.search_prefix: search_term,
             }
@@ -74,13 +74,13 @@ class ProductAdmin(admin.ModelAdmin):
 
     @staticmethod
     def get_change_form_url(model, instance, app_label):
-        print(model)
-        print(instance)
-        print(app_label)
-        print(instance.__dict__)
         return reverse(
             "admin:products_product_add"
         )
+
+    @staticmethod
+    def get_change_fill_url(model, instance, app_label):
+        return None
 
     def show_title(self, obj):  # Product Explanation for Admin Panel
         return truncatechars(obj.title, 35)

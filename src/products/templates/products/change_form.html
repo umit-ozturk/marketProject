@@ -7,6 +7,42 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" crossorigin="anonymous"></script>
     <script src="{% static 'easy_autocomplete/jquery.easy-autocomplete.js' %}"></script>
     <script type="text/javascript">
+        $(window).load(function(){
+             var pickUpLoop = setInterval(function(){
+                if($("#select2-id_slug-container").attr("title")){
+                    clearInterval(pickUpLoop);
+                    function parseProductsCategory() {
+                        $.each(productList, function(key, value){
+                            productKey = key // index numbers
+                            productValue = value
+                        });
+                    };
+                    function fetchProductsAdmin(centerCategoryID){
+                        console.log("Başarılı")
+                        var fetchProductAdminUrl = '/api/product/' + centerCategoryID;
+                        $.ajax({
+                          url : fetchProductAdminUrl,
+                            method : "GET",
+                            success: function(data){
+                                console.log(data)
+                                productList = data
+                                parseProductsCategory()
+                            },
+                            error: function(data){
+                                console.log("error")
+                                console.log(data)
+                            },
+                        })
+                    }
+                    var centerCategoryID = 1;
+                    fetchProductsAdmin(centerCategoryID);
+                }
+                else{
+                    console.log("Başarısız");
+                }
+            }, 1000)
+        });
+
         $(function () {
             var options = {
                 url: function (phrase) {
