@@ -10,6 +10,7 @@ def upload_location(instance, filename):
 	upload_path = "img/aktuel/" + str(filename)
 	return upload_path
 
+
 class Aktuel(models.Model):
 	slug 					= models.SlugField('Aktuel Slug', blank=True, unique=True)
 	title 					= models.CharField('Aktuel Başlığı', max_length=140, null=True,  blank=True)
