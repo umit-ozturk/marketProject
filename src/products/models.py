@@ -44,7 +44,10 @@ class Product(models.Model):
         return reverse("product:detail", kwargs={'pk': self.pk})
 
     def get_sale_percent(self):
-        sale_percent = int((self.old_price - self.price) / self.old_price * 100)
+        if self.old_price is not None or self.price is not None:
+            sale_percent = int((self.old_price - self.price) / self.old_price * 100)
+        else:
+            sale_percent = 0
         return sale_percent
 
     def get_filters(self):

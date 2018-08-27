@@ -7,79 +7,59 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" crossorigin="anonymous"></script>
     <script src="{% static 'easy_autocomplete/jquery.easy-autocomplete.js' %}"></script>
     <script type="text/javascript">
-        $(window).load(function(){
-             var pickUpLoop = setInterval(function(){
-                if($("#select2-id_slug-container").attr("title")){
-                    clearInterval(pickUpLoop);
-                    function formatPrintProductData(productValue){
-                        document.getElementById("id_name").value = productValue.name;
-                        document.getElementById("id_title").value = productValue.title;
-                        document.getElementById("id_price").value = productValue.price;
-                        document.getElementById("id_old_price").value = productValue.old_price;
-                        document.getElementById("select2-id_category-container").value = productValue.name;
-                        CKEDITOR.instances['id_content'].setData(productValue.content);
-                        CKEDITOR.instances['feature'].setData(productValue.feature);
-                    }
 
-                    function parseProductsCategory() {
-                        $.each(productList, function(key, value){
-                            productKey = Object.keys(value);
-                            productValue = value;
-                            productKey.forEach( function (element) {
-                                if (productList[0][element] == null) {
-                                    productList[0][element] = "Boş";
-                                }
+        if (window.location.href.includes('/add/')){
+            $(window).load(function () {
+                var pickUpLoop = setInterval(function () {
+                    if ($("#select2-id_slug-container").attr("title")) {
+                        clearInterval(pickUpLoop);
+
+                        function formatPrintProductData(productValue) {
+                            console.log(productValue.category.category_name)
+                            document.getElementById("id_name").value = productValue.name;
+                            document.getElementById("id_title").value = productValue.title;
+                            document.getElementById("id_price").value = productValue.price;
+                            document.getElementById("id_old_price").value = productValue.old_price;
+                            document.getElementById("select2-id_category-container").innerText = productValue.category.category_name;
+                            document.getElementById("select2-id_company-container").innerText = productValue.company.company_name;
+                            document.getElementById("select2-id_brand-container").innerText = productValue.brand.brand_name;
+                            CKEDITOR.instances['id_content'].setData(productValue.content);
+                            CKEDITOR.instances['id_feature'].setData(productValue.feature);
+                        }
+
+                        function parseProductsCategory() {
+                            $.each(productList, function (key, value) {
+                                productKey = Object.keys(value);
+                                productValue = value;
+
+                                formatPrintProductData(productValue)
                             });
-                            formatPrintProductData(productValue)
-                        });
-                    }
-                    function fetchProductsAdmin(slug){
-                        var fetchProductAdminUrl = '/api/product/' + slug;
-                        $.ajax({
-                          url : fetchProductAdminUrl,
-                            method : "GET",
-                            success: function(data){
-                                productList = data
-                                parseProductsCategory()
-                            },
-                            error: function(data){
-                                console.log("error")
-                                console.log(data)
-                            },
-                        })
-                    }
-                    var slug = $("#select2-id_slug-container")[0].lastChild.data;
-                    fetchProductsAdmin(slug);
-                }
-                else{
-                    console.log("Başarısız");
-                }
-            }, 1000)
-        });
+                        }
 
-        $(function () {
-            var options = {
-                url: function (phrase) {
-                    return "search/" + phrase;
-                },
-                getValue: "keyword",
-                template: {
-                    type: "links",
-                    fields: {
-                        link: "url"
+                        function fetchProductsAdmin(slug) {
+                            var fetchProductAdminUrl = '/api/product/' + slug;
+                            $.ajax({
+                                url: fetchProductAdminUrl,
+                                method: "GET",
+                                success: function (data) {
+                                    productList = data
+                                    parseProductsCategory()
+                                },
+                                error: function (data) {
+                                    console.log("error")
+                                    console.log(data)
+                                },
+                            })
+                        }
+
+                        var slug = $("#select2-id_slug-container")[0].lastChild.data;
+                        fetchProductsAdmin(slug);
                     }
-                },
-                list: {
-                    maxNumberOfElements: 6,
-                    onChooseEvent: function () {
-                        location.href = $('#id_name').getSelectedItemData().url
-                    },
-                    match: {
-                        enabled: true
+                    else {
+                        console.log("Başarısız");
                     }
-                }
-            };
-            $("#id_name").easyAutocomplete(options);
-        })
+                }, 1000)
+            });
+        }
     </script>
 {% endblock %}
