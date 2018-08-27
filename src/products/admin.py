@@ -16,22 +16,26 @@ class ProductAdmin(admin.ModelAdmin):
     search_fields = ('title', 'slug', 'price', 'name',)
     autocomplete_fields = ['slug', 'category', 'company', 'brand', ]
     search_prefix = '__icontains'
+    list_display_list = ('name',)
     change_list_template = 'products/change_list.html'
+    change_form_template = 'products/change_form.html'
 
     def get_urls(self):
         urls = super(ProductAdmin, self).get_urls()
         api_urls = [
-            url(r'^search/(?P<search_term>\w{0,50})$', self.search_api)
+            url(r'^search/(?P<search_term>\w{0,50})$', self.search_api_for_list),
+            url(r'^search/(?P<search_term>\w{0,50})$', self.search_api_for_add)
         ]
         return api_urls + urls
 
-    def search_api(self, request, search_term):
-        if not self.search_fields:
-            return HttpResponseBadRequest(reason='Mo search_fields defined in {}'.format(self.__name__))
+    def search_api_for_add(self, request, search_term):
+        print(self.list_display_list[0])
+        if not self.list_display_list[0]:
+            return HttpResponseBadRequest(reason='{} Search Fieldi Tanımlanamadı.'.format(self.__name__))
         elif not search_term:
-            return HttpResponseBadRequest(reason='Mo search term provided')
+            return HttpResponseBadRequest(reason='Aranan Kelime Desteklenemedi.')
         else:
-            keyword = self.search_fields[0]
+            keyword = self.list_display_list[0]
             print(keyword)
             options = {
                 keyword + self.search_prefix: search_term,
@@ -45,13 +49,37 @@ class ProductAdmin(admin.ModelAdmin):
                     }
                 )
                 data = json.dumps(data)
-                print(data)
+                return HttpResponse(content=data, content_type='application/json')
+
+    def search_api_for_list(self, request, search_term):
+        if not self.search_fields:
+            return HttpResponseBadRequest(reason='Mo search_fields defined in {}'.format(self.__name__))
+        elif not search_term:
+            return HttpResponseBadRequest(reason='Mo search term provided')
+        else:
+            keyword = self.search_fields[0]
+            options = {
+                keyword + self.search_prefix: search_term,
+            }
+            data = []
+            for instance in self.model.objects.filter(**options):
+                data.append(
+                    {
+                        'keyword': getattr(instance, keyword),
+                        'url': self.get_change_form_url(self.model, instance, self.model._meta.app_label)
+                    }
+                )
+                data = json.dumps(data)
                 return HttpResponse(content=data, content_type='application/json')
 
     @staticmethod
     def get_change_form_url(model, instance, app_label):
+        print(model)
+        print(instance)
+        print(app_label)
+        print(instance.__dict__)
         return reverse(
-            "admin:%s_%s_change" % (app_label, str(model.__name__).lower()), args=(instance.id,)
+            "admin:products_product_add"
         )
 
     def show_title(self, obj):  # Product Explanation for Admin Panel
