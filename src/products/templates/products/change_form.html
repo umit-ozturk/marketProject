@@ -11,19 +11,26 @@
              var pickUpLoop = setInterval(function(){
                 if($("#select2-id_slug-container").attr("title")){
                     clearInterval(pickUpLoop);
-
                     function formatPrintProductData(productValue){
                         document.getElementById("id_name").value = productValue.name;
                         document.getElementById("id_title").value = productValue.title;
                         document.getElementById("id_price").value = productValue.price;
                         document.getElementById("id_old_price").value = productValue.old_price;
+                        document.getElementById("select2-id_category-container").value = productValue.name;
+                        CKEDITOR.instances['id_content'].setData(productValue.content);
+                        CKEDITOR.instances['feature'].setData(productValue.feature);
                     }
 
                     function parseProductsCategory() {
                         $.each(productList, function(key, value){
-                            productKey = key // index numbers
-                            productValue = value
-                            formatPrintProductData(value)
+                            productKey = Object.keys(value);
+                            productValue = value;
+                            productKey.forEach( function (element) {
+                                if (productList[0][element] == null) {
+                                    productList[0][element] = "Boş";
+                                }
+                            });
+                            formatPrintProductData(productValue)
                         });
                     }
                     function fetchProductsAdmin(slug){
@@ -33,7 +40,6 @@
                             method : "GET",
                             success: function(data){
                                 productList = data
-                                console.log(data)
                                 parseProductsCategory()
                             },
                             error: function(data){

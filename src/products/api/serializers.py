@@ -23,7 +23,8 @@ class ProductModelSerializer(serializers.ModelSerializer):
             'company',
             'category',
             'brand',
-            'content'
+            'content',
+            'feature'
         ]
 
 
