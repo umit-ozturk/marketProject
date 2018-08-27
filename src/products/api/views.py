@@ -54,17 +54,12 @@ class ProductFeaturedListAPIView(generics.ListAPIView):
 		return qs
 
 
-class ProductCategoriesListAPIView(generics.ListAPIView):
+class ProductSlugAPIView(generics.ListAPIView):
 	queryset = Product.objects.all()
-	serializer_class = ProductCategoriesModelSerializer
-	pagination_class = StandartResultsPagination
+	serializer_class = ProductModelSerializer
 
 	def get_queryset(self, *args, **kwargs):
-		qs = Product.objects.all()
-		query = self.request.GET.get("q", None)
-		if query is not None:
-			qs = qs.filter(
-				Q(category_id__icontains=query)
-				)
-		return qs
+		slug = self.kwargs.get("slug")
+		qs = Product.objects.filter(slug__slug=slug)
 
+		return qs
