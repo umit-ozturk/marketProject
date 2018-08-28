@@ -5,6 +5,7 @@ from django.views.generic import (
 			)
 from .models import Product
 from cart.views import global_cart_detail
+from tickets.views import global_ticket_detail
 from django.db.models import Min, Max
 
 
@@ -23,6 +24,7 @@ class ProductListView(ListView):
 	def get_context_data(self, *args, **kwargs):
 		context = super(ProductListView, self).get_context_data(*args, **kwargs)
 		context['carts'] = global_cart_detail(self.request)
+		context['tickets'] = global_ticket_detail(*args)
 		return context
 
 
