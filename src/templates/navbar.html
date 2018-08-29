@@ -70,7 +70,9 @@
                         <div class="col-md-8 col-sm-2 col-xs-2">
                             <div class="col-md-1">
                                 {% for item in tickets %}
-                                    <img class="img-responsive" src="/media/{{item.company.image_comp}}">
+                                    <div style="vertical-align: middle;">
+                                        <img class="img-responsive" src="/media/{{item.company.image_comp}}">
+                                    </div>
                                 {% endfor %}
                             </div>
                         </div>
