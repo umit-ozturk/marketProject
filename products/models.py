@@ -65,13 +65,13 @@ class Product(models.Model):
 
 class ProductInfo(models.Model):
     slug = models.CharField('Ürün Slug / Sayacı', max_length=140, null=True, blank=True)
-    image_prod_first = models.VersatileImageField('Ürün Resmi 1', upload_to=upload_location, null=True, blank=True,
+    image_prod_first = VersatileImageField('Ürün Resmi 1', upload_to=upload_location, null=True, blank=True,
                                          width_field="width_field", height_field="height_field")
-    image_prod_second = models.VersatileImageField('Ürün Resmi 2', upload_to=upload_location, null=True, blank=True,
+    image_prod_second = VersatileImageField('Ürün Resmi 2', upload_to=upload_location, null=True, blank=True,
                                           width_field="width_field", height_field="height_field")
-    image_prod_third = models.VersatileImageField('Ürün Resmi 3', upload_to=upload_location, null=True, blank=True,
+    image_prod_third = VersatileImageField('Ürün Resmi 3', upload_to=upload_location, null=True, blank=True,
                                          width_field="width_field", height_field="height_field")
-    image_prod_fourth = models.VersatileImageField('Ürün Resmi 4', upload_to=upload_location, null=True, blank=True,
+    image_prod_fourth = VersatileImageField('Ürün Resmi 4', upload_to=upload_location, null=True, blank=True,
                                           width_field="width_field", height_field="height_field")
     height_field = models.IntegerField('Uzunluk Değeri', default=0, blank=True)
     width_field = models.IntegerField('Genişlik Değeri', default=0, blank=True)
