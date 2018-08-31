@@ -2,6 +2,7 @@ from django.conf import settings
 from django.db import models
 from django.utils.safestring import mark_safe
 from django.template.defaultfilters import slugify
+from versatileimagefield.fields import VersatileImageField, PPOIField
 
 # Create your models here.
 

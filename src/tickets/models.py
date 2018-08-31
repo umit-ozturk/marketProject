@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.safestring import mark_safe
 from ckeditor.fields import RichTextField
+from versatileimagefield.fields import VersatileImageField, PPOIField
 
 
 def upload_location(instance, filename):

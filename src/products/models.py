@@ -3,6 +3,7 @@ from django.db import models
 from django.utils.safestring import mark_safe
 from mptt.models import TreeForeignKey
 from ckeditor.fields import RichTextField
+from versatileimagefield.fields import VersatileImageField, PPOIField
 
 # Create your models here.
 

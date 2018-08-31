@@ -1,6 +1,7 @@
 from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
 from django.utils.safestring import mark_safe
+from versatileimagefield.fields import VersatileImageField, PPOIField
 
 # Create your models here.
 
