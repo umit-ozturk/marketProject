@@ -4,7 +4,7 @@ from django.dispatch import receiver
 from django.db.models.signals import post_save
 from django.contrib.auth import get_user_model
 from django.urls import reverse_lazy
-from versatileimagefield.fields import VersatileImageField, PPOIField
+from versatileimagefield.fields import VersatileImageField
 # Create your models here.
 
 User = get_user_model()
@@ -23,7 +23,7 @@ class UserProfile(models.Model):
 	)
 	user			= models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='profile',
 											null=True,  blank=True)
-	userphoto		= models.ImageField('Kullanıcı Resmi', upload_to=upload_location, null=True, blank=True,
+	userphoto		= VersatileImageField('Kullanıcı Resmi', upload_to=upload_location, null=True, blank=True,
 										width_field="width_field",  height_field="height_field")
 	name 			= models.CharField('İsim', max_length=50, null=True, blank=True)
 	surname 		= models.CharField('Soyisim', max_length=50, null=True, blank=True)
@@ -31,8 +31,8 @@ class UserProfile(models.Model):
 	gender 			= models.CharField('Cinsiyet', max_length=1, choices=GENDER_CHOICES, default='E')
 	adress	 		= models.CharField('Adres', max_length=200, blank=True, null=True)
 	phone 			= models.CharField('Telefon Numarası', max_length=15, blank=True, null=True)
-	height_field 	= models.IntegerField('Uzunluk Değeri', default=0, blank=True)
-	width_field 	= models.IntegerField('Genişlik Değeri', default=0, blank=True)
+	height_field 	= models.PositiveIntegerField('Uzunluk Değeri', default=0, blank=True)
+	width_field 	= models.PositiveIntegerField('Genişlik Değeri', default=0, blank=True)
 	created_at		= models.DateTimeField('Oluşturulma Tarihi', auto_now_add=True, editable=False)
 	updated_at		= models.DateTimeField('Güncellenme Tarihi', auto_now=True, editable=False)
 

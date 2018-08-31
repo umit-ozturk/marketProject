@@ -1,4 +1,4 @@
-hillside/local_settings.py
+marketproject/local_settings.py
 credentials.dat
 
 celerybeat-schedule.db
@@ -109,5 +109,5 @@ logs/
 *.pdf
 *.png
 .DS_Store
-hillside/.DS_Store
+marketproject/.DS_Store
 dump.sql

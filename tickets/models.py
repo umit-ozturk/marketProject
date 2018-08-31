@@ -32,8 +32,8 @@ class TicketCompany(models.Model):
     company_description = RichTextField('Ticket Firmasının Açıklaması', null=True, blank=True)
     image_comp = models.ImageField('Ticket Firmasının Resmi', upload_to=upload_location, null=True, blank=True,
                                    width_field="width_field", height_field="height_field")
-    height_field = models.IntegerField('Uzunluk Değeri', default=0, blank=True)
-    width_field = models.IntegerField('Genişlik Değeri', default=0, blank=True)
+    height_field = models.PositiveIntegerField('Uzunluk Değeri', default=0, blank=True)
+    width_field = models.PositiveIntegerField('Genişlik Değeri', default=0, blank=True)
     created_at = models.DateTimeField('Oluşturulma Tarihi', auto_now_add=True, editable=False)
     updated_at = models.DateTimeField('Güncellenme Tarihi', auto_now=True, editable=False)
 

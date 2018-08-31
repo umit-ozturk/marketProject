@@ -2,7 +2,7 @@ from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
 from django.utils.safestring import mark_safe
 from ckeditor.fields import RichTextField
-from versatileimagefield.fields import VersatileImageField, PPOIField
+from versatileimagefield.fields import VersatileImageField
 # Create your models here.
 
 
@@ -17,10 +17,10 @@ class Company(MPTTModel):
 	company_name 		= models.CharField('Firma İsmi', max_length=140, null=True,  blank=True)
 	company_site 		= models.CharField('Firmanın Sitesi', max_length=140, null=True,  blank=True)
 	company_description = RichTextField('Firma Açıklaması', null=True, blank=True)
-	image_comp		 	= models.ImageField('Firma Resmi', upload_to=upload_location, null=True, blank=True, 
+	image_comp		 	= VersatileImageField('Firma Resmi', upload_to=upload_location, null=True, blank=True,
 											width_field="width_field", height_field="height_field")
-	height_field 		= models.IntegerField('Uzunluk Değeri', default=0, blank=True)
-	width_field 		= models.IntegerField('Genişlik Değeri', default=0, blank=True)
+	height_field 		= models.PositiveIntegerField('Uzunluk Değeri', default=0, blank=True)
+	width_field 		= models.PositiveIntegerField('Genişlik Değeri', default=0, blank=True)
 	created_at			= models.DateTimeField('Oluşturulma Tarihi', auto_now_add=True, editable=False)
 	updated_at			= models.DateTimeField('Güncellenme Tarihi', auto_now=True, editable=False)
 
@@ -44,10 +44,10 @@ class Brand(models.Model):
 	brand_name 			= models.CharField('Marka İsmi', max_length=140, null=True,  blank=True)
 	brand_site 			= models.CharField('Markanın Sitesi', max_length=140, null=True,  blank=True)
 	brand_description	= RichTextField('Marka Açıklaması', null=True, blank=True)	
-	brand_image 		= models.ImageField('Marka Resmi', upload_to=upload_location, null=True, blank=True, 
+	brand_image 		= VersatileImageField('Marka Resmi', upload_to=upload_location, null=True, blank=True,
 											width_field="width_field", height_field="height_field")
-	height_field 		= models.IntegerField('Uzunluk Değeri', default=0, blank=True)
-	width_field 		= models.IntegerField('Genişlik Değeri', default=0, blank=True)
+	height_field 		= models.PositiveIntegerField('Uzunluk Değeri', default=0, blank=True)
+	width_field 		= models.PositiveIntegerField('Genişlik Değeri', default=0, blank=True)
 	created_at			= models.DateTimeField('Oluşturulma Tarihi', auto_now_add=True, editable=False)
 	updated_at			= models.DateTimeField('Güncellenme Tarihi', auto_now=True, editable=False)
 
