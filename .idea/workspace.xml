@@ -1,99 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7c5309c8-e65b-4acd-8f12-cd9acbf6a2b9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/.dylibs/libfreetype.6.dylib" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/.dylibs/libfreetype.6.dylib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/.dylibs/libjpeg.9.dylib" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/.dylibs/libjpeg.9.dylib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/.dylibs/liblcms2.2.dylib" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/.dylibs/liblcms2.2.dylib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/.dylibs/liblzma.5.dylib" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/.dylibs/liblzma.5.dylib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/.dylibs/libopenjp2.2.1.0.dylib" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/.dylibs/libopenjp2.2.1.0.dylib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/.dylibs/libpng16.16.dylib" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/.dylibs/libpng16.16.dylib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/.dylibs/libtiff.5.dylib" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/.dylibs/libtiff.5.dylib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/.dylibs/libwebp.7.dylib" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/.dylibs/libwebp.7.dylib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/.dylibs/libwebpdemux.2.dylib" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/.dylibs/libwebpdemux.2.dylib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/.dylibs/libwebpmux.3.dylib" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/.dylibs/libwebpmux.3.dylib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/.dylibs/libz.1.2.11.dylib" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/.dylibs/libz.1.2.11.dylib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/BlpImagePlugin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/BmpImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/BmpImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/DcxImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/DcxImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/DdsImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/DdsImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/EpsImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/EpsImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/FpxImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/FpxImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/GbrImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/GbrImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/GdImageFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/GdImageFile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/GifImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/GifImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/GimpGradientFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/GimpGradientFile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/IcnsImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/IcnsImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/Image.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/Image.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageCms.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageCms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageColor.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageColor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageDraw.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageDraw.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageDraw2.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageDraw2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageFile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageFilter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageFont.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageFont.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageMath.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageMath.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageMorph.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageMorph.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImagePath.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImagePath.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageQt.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageQt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageShow.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageShow.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageStat.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageStat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageTk.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageTk.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageTransform.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageTransform.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageWin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/ImageWin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/Jpeg2KImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/Jpeg2KImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/JpegImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/JpegImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/MpoImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/MpoImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/MspImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/MspImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/PSDraw.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/PSDraw.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/PalmImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/PalmImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/PcxImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/PcxImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/PdfImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/PdfImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/PdfParser.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/PngImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/PngImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/PpmImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/PpmImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/PsdImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/PsdImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/PyAccess.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/PyAccess.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/SgiImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/SgiImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/SpiderImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/SpiderImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/SunImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/SunImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/TgaImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/TgaImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/TiffImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/TiffImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/TiffTags.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/TiffTags.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/WalImageFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/WalImageFile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/WmfImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/WmfImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/XpmImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/XpmImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/_binary.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/_binary.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/_imaging.cpython-36m-darwin.so" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/_imaging.cpython-36m-darwin.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/_imagingcms.cpython-36m-darwin.so" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/_imagingcms.cpython-36m-darwin.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/_imagingft.cpython-36m-darwin.so" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/_imagingft.cpython-36m-darwin.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/_imagingmath.cpython-36m-darwin.so" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/_imagingmath.cpython-36m-darwin.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/_imagingmorph.cpython-36m-darwin.so" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/_imagingmorph.cpython-36m-darwin.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/_imagingtk.cpython-36m-darwin.so" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/_imagingtk.cpython-36m-darwin.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/_tkinter_finder.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/_tkinter_finder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/_util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/_version.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/_webp.cpython-36m-darwin.so" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/_webp.cpython-36m-darwin.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/features.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/python3.6/site-packages/PIL/features.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/Pillow-5.2.0.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/Pillow-5.2.0.dist-info/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/Pillow-5.2.0.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/Pillow-5.2.0.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/Pillow-5.2.0.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/Pillow-5.2.0.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/python3.6/site-packages/Pillow-5.2.0.dist-info/zip-safe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/accounts/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aktuels/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/aktuels/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cart/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/cart/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/categories/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/categories/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/companies/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/companies/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/products/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/products/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projectMarket/settings/local.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectMarket/settings/local.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tickets/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/tickets/models.py" afterDir="false" />
-    </list>
+    <list default="true" id="85fcef1e-28fd-4ec3-862e-ff5a8f8992d2" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,98 +9,64 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FUSProjectUsageTrigger">
-    <session id="-185910193">
+    <session id="-398822778">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.15" value="1" />
-          <entry key="project.open.time.18" value="1" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="5" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="html" value="2070" />
-          <entry key="js" value="33" />
-          <entry key="py" value="4028" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="HTML" value="2070" />
-          <entry key="JavaScript" value="33" />
-          <entry key="Python" value="4028" />
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="Procfile" value="1" />
-          <entry key="css" value="1" />
-          <entry key="html" value="24" />
-          <entry key="jpg" value="2" />
-          <entry key="js" value="5" />
-          <entry key="py" value="89" />
+          <entry key="html" value="3" />
+          <entry key="py" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="1" />
-          <entry key="HTML" value="24" />
-          <entry key="Image" value="2" />
-          <entry key="JavaScript" value="5" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="89" />
+          <entry key="HTML" value="3" />
+          <entry key="Python" value="10" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="html" value="155" />
+          <entry key="py" value="203" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="HTML" value="155" />
+          <entry key="Python" value="203" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/companies/models.py">
+        <entry file="file://$PROJECT_DIR$/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="4" column="69" selection-start-line="4" selection-start-column="69" selection-end-line="4" selection-end-column="69" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
+            <state relative-caret-position="-538" />
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/categories/models.py">
+        <entry file="file://$PROJECT_DIR$/templates/navbar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="69" selection-start-line="3" selection-start-column="69" selection-end-line="3" selection-end-column="69" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="160">
+              <caret line="73" column="44" selection-start-line="73" selection-start-column="44" selection-end-line="73" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/cart/models.py">
+        <entry file="file://$PROJECT_DIR$/products/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="70" lean-forward="true" selection-start-line="27" selection-start-column="70" selection-end-line="27" selection-end-column="70" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/aktuels/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="267">
+              <caret line="39" column="65" lean-forward="true" selection-start-line="39" selection-start-column="65" selection-end-line="39" selection-end-column="65" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -201,15 +75,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/accounts/tests.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/accounts/models.py">
+        <entry file="file://$PROJECT_DIR$/products/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            <state>
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -218,10 +86,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tickets/models.py">
+        <entry file="file://$PROJECT_DIR$/products/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="69" selection-start-line="3" selection-start-column="69" selection-end-line="3" selection-end-column="69" />
+            <state relative-caret-position="384">
+              <caret line="26" column="56" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
+              <folding>
+                <element signature="e#0#30#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tickets/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tickets/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="31" column="14" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="14" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -230,92 +122,25 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/zextra/models.py">
+        <entry file="file://$PROJECT_DIR$/cart/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-694" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/projectMarket/settings/local.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
-              <caret line="133" column="1" selection-start-line="133" selection-start-column="1" selection-end-line="133" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/products/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="69" selection-start-line="5" selection-start-column="69" selection-end-line="5" selection-end-column="69" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="285">
+              <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>change_list_template</find>
-      <find>slug</find>
-      <find>reverse</find>
-      <find>image_prod</find>
-      <find>icontain</find>
-      <find>get_slug_count</find>
-      <find>image_pro</find>
-      <find>img sr</find>
-      <find>productValue.image_prod_first</find>
-      <find>productValue.image_prod_fourth</find>
-      <find>add</find>
-      <find>form</find>
-      <find>formatsin</find>
-      <find>coun</find>
-      <find>TopF</find>
-      <find>search</find>
-      <find>s</find>
-      <find>all_fields</find>
-      <find>fields</find>
-      <find>pho</find>
-      <find>conso</find>
-      <find>li</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/templates/base.html" />
-        <option value="$PROJECT_DIR$/src/companies/api/serializers.py" />
-        <option value="$PROJECT_DIR$/src/products/templates/products/product_detail.html" />
-        <option value="$PROJECT_DIR$/src/products/views.py" />
-        <option value="/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py" />
-        <option value="$PROJECT_DIR$/static-serve/easy_autocomplete/jquery.easy-autocomplete.js" />
-        <option value="$PROJECT_DIR$/src/products/api/urls.py" />
-        <option value="$PROJECT_DIR$/src/products/api/views.py" />
-        <option value="$PROJECT_DIR$/src/products/api/serializers.py" />
-        <option value="$PROJECT_DIR$/src/products/templates/products/change_list.html" />
-        <option value="$PROJECT_DIR$/src/products/admin.py" />
-        <option value="$PROJECT_DIR$/src/products/templates/products/change_form.html" />
-        <option value="$PROJECT_DIR$/src/tickets/admin.py" />
-        <option value="$PROJECT_DIR$/src/tickets/apps.py" />
-        <option value="$PROJECT_DIR$/src/zextra/__init__.py" />
-        <option value="$PROJECT_DIR$/src/zextra/apps.py" />
-        <option value="$PROJECT_DIR$/src/templates/navbar.html" />
-        <option value="$PROJECT_DIR$/src/tickets/models.py" />
-        <option value="$PROJECT_DIR$/src/products/models.py" />
-        <option value="$PROJECT_DIR$/src/companies/models.py" />
-        <option value="$PROJECT_DIR$/src/categories/models.py" />
-        <option value="$PROJECT_DIR$/src/cart/models.py" />
-        <option value="$PROJECT_DIR$/src/aktuels/models.py" />
-        <option value="$PROJECT_DIR$/src/accounts/models.py" />
-        <option value="$PROJECT_DIR$/src/projectMarket/settings/local.py" />
+        <option value="$PROJECT_DIR$/templates/navbar.html" />
+        <option value="$PROJECT_DIR$/products/views.py" />
+        <option value="$PROJECT_DIR$/tickets/views.py" />
       </list>
     </option>
   </component>
@@ -325,38 +150,72 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="marketProjectComp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="marketProjectComp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="marketProjectComp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="marketProjectComp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="b2602c69:ProjectViewProjectNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="marketProjectComp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="marketProjectComp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="b2602c69:ProjectViewProjectNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="accounts" type="462c0819:PsiDirectoryNode" />
+              <item name="categories" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="src" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="categories" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="src" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="categories" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="categories" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="src" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="products" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="src" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="projectMarket" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="src" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="projectMarket" type="462c0819:PsiDirectoryNode" />
+              <item name="settings" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="src" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="src" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tickets" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -382,38 +241,38 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="7c5309c8-e65b-4acd-8f12-cd9acbf6a2b9" name="Default Changelist" comment="" />
-      <created>1535031847921</created>
+      <changelist id="85fcef1e-28fd-4ec3-862e-ff5a8f8992d2" name="Default Changelist" comment="" />
+      <created>1535470362891</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1535031847921</updated>
+      <updated>1535470362891</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2639485" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Python Console" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3294271" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="right" id="SciView" />
+      <window_info anchor="right" id="Database" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,345 +281,84 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/companies/models.py</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/cart/models.py</url>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file:///usr/local/lib/python3.6/site-packages/django/__init__.py">
+    <entry file="file://$PROJECT_DIR$/categories/templates/categories/category_list.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/python_stubs/-1199943127/builtins.py">
+    <entry file="file://$PROJECT_DIR$/cart/cart.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="4617" column="8" selection-start-line="4617" selection-start-column="8" selection-end-line="4617" selection-end-column="8" />
+        <state relative-caret-position="60">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/python3.6/site-packages/django/contrib/admin/options.py">
+    <entry file="file://$PROJECT_DIR$/cart/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="1085" column="19" selection-start-line="1085" selection-start-column="19" selection-end-line="1085" selection-end-column="19" />
+        <state relative-caret-position="285">
+          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/lib/python3.6/site-packages/django/urls/base.py">
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+        <state relative-caret-position="-538" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tickets/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="14" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/cart.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/companies/api/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="22" column="15" lean-forward="true" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/companies/api/views.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file:///usr/local/lib/python3.6/site-packages/django/db/models/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/products/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/python3.6/site-packages/django/contrib/auth/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="87" column="24" lean-forward="true" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/python3.6/site-packages/django/contrib/sitemaps/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="63" column="23" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static-serve/easy_autocomplete/jquery.easy-autocomplete.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="1586" lean-forward="true" selection-start-line="1586" selection-end-line="1586" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/products/api/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="109" lean-forward="true" selection-start-line="17" selection-start-column="109" selection-end-line="17" selection-end-column="109" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/products/api/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="61" column="36" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="958" selection-start-line="958" selection-end-line="966" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/products/templates/products/product_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="67" column="91" selection-start-line="67" selection-start-column="82" selection-end-line="67" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="125" selection-start-line="125" selection-end-line="125" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/media/img/product/bim_sPruT75.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/media/img/product/bim.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/static-storage/easy_autocomplete/jquery.easy-autocomplete.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15988">
-          <caret line="535" column="35" selection-start-line="535" selection-start-column="33" selection-end-line="535" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/products/templates/products/change_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="81" selection-start-line="24" selection-start-column="81" selection-end-line="24" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/static-storage/easy_autocomplete/easy-autocomplete.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/products/api/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/products/templates/products/change_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tickets/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tickets/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/products/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="68" column="28" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/products/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/manage.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Procfile">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/companies/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="14" selection-start-line="14" selection-end-line="16" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/companies/views.py">
+    <entry file="file://$PROJECT_DIR$/products/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectMarket/urls.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/products/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="26" column="56" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/companies/apps.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectMarket/settings/__init__.py">
+    <entry file="file://$PROJECT_DIR$/tickets/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="135">
+          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/products/__init__.py">
+    <entry file="file://$PROJECT_DIR$/templates/navbar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="51" selection-end-column="51" />
+        <state relative-caret-position="160">
+          <caret line="73" column="44" selection-start-line="73" selection-start-column="44" selection-end-line="73" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/zextra/__init__.py">
+    <entry file="file://$PROJECT_DIR$/products/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="46" selection-start-column="46" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/zextra/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/navbar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="72" column="72" selection-start-line="72" selection-start-column="72" selection-end-line="72" selection-end-column="72" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#header#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/products/tests.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/products/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tickets/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="69" selection-start-line="3" selection-start-column="69" selection-end-line="3" selection-end-column="69" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/zextra/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-694" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/products/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="69" selection-start-line="5" selection-start-column="69" selection-end-line="5" selection-end-column="69" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/companies/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="4" column="69" selection-start-line="4" selection-start-column="69" selection-end-line="4" selection-end-column="69" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/categories/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="69" selection-start-line="3" selection-start-column="69" selection-end-line="3" selection-end-column="69" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aktuels/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="267">
+          <caret line="39" column="65" lean-forward="true" selection-start-line="39" selection-start-column="65" selection-end-line="39" selection-end-column="65" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/accounts/tests.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/accounts/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectMarket/settings/local.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="133" column="1" selection-start-line="133" selection-start-column="1" selection-end-line="133" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cart/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="70" lean-forward="true" selection-start-line="27" selection-start-column="70" selection-end-line="27" selection-end-column="70" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
