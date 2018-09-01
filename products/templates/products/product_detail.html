@@ -90,9 +90,6 @@
                                 <li role="presentation" class="">
                                     <a href="#review" aria-controls="review" role="tab" data-toggle="tab">Diğer Fiyatlar({{ object.slug.get_slug_count }})</a>
                                 </li>
-                                <li role="presentation" class="">
-                                    <a href="#seller" aria-controls="seller" role="tab" data-toggle="tab">Satıcı Bilgisi</a>
-                                </li>
                             </ul>
                             
                             <!-- Tab panes -->
@@ -137,15 +134,6 @@
                                         </tbody>
                                     </table>                                    
 
-                                </div>
-                                <div role="tabpanel" class="tab-pane xt-pane fade" id="seller">
-                                    {% if object.company.company_description %}
-                                        <h3>{{ object.company }}</h3>
-                                        {{ object.company.company_description|safe }}
-                                    {% else %}
-                                        <h3>{{ object.brand }}</h3>
-                                        {{ object.brand.brand_description|safe }}
-                                    {% endif %}                                        
                                 </div>
                             </div>
                         </div>

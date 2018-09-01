@@ -54,4 +54,9 @@
         </section>
 
 
+{% for object in object_list %}
+    {{object.slug.image_prod_first.normal}}
+    <img src='{{ object.slug.image_prod_first.normal }}' alt='' class='img-responsive img-thumbnail' style='border: none; display: block;max-height: 200px; min-height: 200px;'>
+
+{% endfor %}
 {% endblock content %}
