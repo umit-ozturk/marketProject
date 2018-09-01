@@ -24,7 +24,6 @@ from django.conf.urls.static import static
 from accounts.views import UserRegisterView
 
 from products.views import ProductListView
-from .views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,6 +33,7 @@ urlpatterns = [
     path('categories/', include('categories.urls', namespace='category')),
     path('aktuels/', include('aktuels.urls', namespace='aktuel')),
     path('carts/', include('cart.urls', namespace='cart')),
+    path('tickets/', include('tickets.urls', namespace='ticket')),
     #path('companies/', include('companies.urls', namespace='company')),
     ### API
     path('api/product/', include('products.api.urls', namespace='product-api')),
@@ -41,7 +41,7 @@ urlpatterns = [
     path('api/aktuel/', include('aktuels.api.urls', namespace='aktuel-api')),
     path('register/', UserRegisterView.as_view(), name="register"),
     #path('api/company/', include('companies.api.urls', namespace='company-api')),
-    
+
     path('', include('django.contrib.auth.urls')),
     path('oauth/', include('social_django.urls', namespace='social')),
     path('', include('accounts.urls', namespace='profile')),

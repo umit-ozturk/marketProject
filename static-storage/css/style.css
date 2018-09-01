@@ -2685,3 +2685,7 @@ nav ul.xt-side-menu > li > ul.xt-dropdown {
 .xt-view a.active {
   background-color: #f26667;
 }
+
+.ticket-align{
+  display: flex;
+}
