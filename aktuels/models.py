@@ -19,7 +19,7 @@ class Aktuel(models.Model):
     aktuel_company_site = models.CharField('Aktuel Firma Sitesi', max_length=140, null=True, blank=True)
     image_aktuel = VersatileImageField('Aktuel Firma Resmi', upload_to=upload_location, null=True, blank=True,
                                        width_field="width_field", height_field="height_field")
-    image_comp = VersatileImageField('Aktuel Resmi', upload_to=upload_location, null=True, blank=True,
+    image_aktuel_comp = VersatileImageField('Aktuel Resmi', upload_to=upload_location, null=True, blank=True,
                                      width_field="width_field", height_field="height_field")
     height_field = models.PositiveIntegerField('Uzunluk Değeri', default=0, blank=True)
     width_field = models.PositiveIntegerField('Genişlik Değeri', default=0, blank=True)
@@ -61,7 +61,7 @@ class AktuelProducts(models.Model):
     exist = models.BooleanField(verbose_name='Stockta Var Mı?', default=True)
     updated = models.DateTimeField(auto_now=True)
     timestamp = models.DateTimeField(auto_now_add=True, editable=False)
-    image_prod = VersatileImageField(upload_to=upload_location, null=True, width_field="width_field",
+    image_aktuel_prod = VersatileImageField(upload_to=upload_location, null=True, width_field="width_field",
                                      height_field="height_field")
     height_field = models.PositiveIntegerField(default=0, blank=True)
     width_field = models.PositiveIntegerField(default=0, blank=True)
