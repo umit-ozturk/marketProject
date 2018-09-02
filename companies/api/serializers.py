@@ -4,22 +4,8 @@ from products.models import ProductInfo
 from versatileimagefield.serializers import VersatileImageFieldSerializer
 
 
-class ParentCompanyDisplaySerializer(serializers.ModelSerializer):
-
-	class Meta:
-		model = Company
-		fields = [
-			'id',
-			'company_name',
-			'company_site',
-			'company_description',
-			'image_comp',
-			'parent'
-		]
-
-
 class CompanyDisplaySerializer(serializers.ModelSerializer):
-	parent = ParentCompanyDisplaySerializer()
+	image_comp = VersatileImageFieldSerializer(sizes='image_comp')
 
 	class Meta:
 		model = Company
@@ -29,11 +15,14 @@ class CompanyDisplaySerializer(serializers.ModelSerializer):
 			'company_site',
 			'image_comp',
 			'company_description',
-			'parent'
+			'created_at',
+			'updated_at'
 		]
 
 
 class BrandDisplaySerializer(serializers.ModelSerializer):
+	brand_image = VersatileImageFieldSerializer(sizes='brand_image')
+
 	class Meta:
 		model = Brand
 		fields = [
@@ -52,6 +41,7 @@ class ProductInfoModelSerializer(serializers.ModelSerializer):
 	image_prod_second = VersatileImageFieldSerializer(sizes='image_prod_second')
 	image_prod_third = VersatileImageFieldSerializer(sizes='image_prod_third')
 	image_prod_fourth = VersatileImageFieldSerializer(sizes='image_prod_fourth')
+
 	class Meta:
 		model = ProductInfo
 		fields = [
@@ -61,5 +51,7 @@ class ProductInfoModelSerializer(serializers.ModelSerializer):
 			'image_prod_second',
 			'image_prod_third',
 			'image_prod_fourth',
-			'get_slug_count'
+			'get_slug_count',
+			'created_at',
+			'updated_at'
 		]

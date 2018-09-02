@@ -149,6 +149,15 @@ VERSATILEIMAGEFIELD_RENDITION_KEY_SETS = {
     ],
     'image_ticket_comp': [
         ('normal', 'thumbnail__200x200')
+    ],
+    'image_comp': [
+        ('normal', 'thumbnail__200x200')
+    ],
+    'brand_image': [
+        ('normal', 'thumbnail__800x800')
+    ],
+    'image_prod': [
+        ('normal', 'thumbnail__800x800')
     ]
 }
 
@@ -181,7 +190,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'yenideneme',
-        'USER': 'admin',
+        'USER': '',
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '5432',

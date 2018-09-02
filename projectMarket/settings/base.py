@@ -25,7 +25,7 @@ SECRET_KEY = '9wj(n62bfmwl1rqva=z!reix=5*6+=_l%!&(s79vk5w$b6_95o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -177,14 +177,13 @@ WSGI_APPLICATION = 'projectMarket.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'yenideneme',
-        'USER': 'admin',
-        'PASSWORD': '',
+        'NAME': 'deneme',
+        'USER': 'denemeuser2',
+        'PASSWORD': '12345678',
         'HOST': 'localhost',
         'PORT': '5432',
     }
 }
-
 
 #DEBUG = config('DEBUG', default=False, cast=bool)
 #DATABASES = {

@@ -4,9 +4,7 @@ from mptt.admin import MPTTModelAdmin
 from .models import Category
 from .resources import CategoryResource
 from django.template.defaultfilters import truncatechars
-from import_export import resources
 # Register your models here.
-
 
 
 @admin.register(Category)

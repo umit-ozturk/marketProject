@@ -1,13 +1,12 @@
 from django.db.models import Q
-from django.shortcuts import render
-from django.views.generic  import (
+from django.views.generic import (
 			DetailView, 
 			ListView
 			)
 
 
 from .models import Company
-from cart.views import global_cart_detail
+from marketproject.cart.views import global_cart_detail
 
 
 class CompanyDetailView(DetailView):
@@ -17,7 +16,6 @@ class CompanyDetailView(DetailView):
 		context = super(CompanyDetailView, self).get_context_data(*args, **kwargs)
 		context['carts'] = global_cart_detail(self.request)
 		return context
-
 
 
 class CompanyListView(ListView):
@@ -33,7 +31,6 @@ class CompanyListView(ListView):
 				Q(title__icontains=query)
 				)
 		return qs
-
 
 	def get_context_data(self, *args, **kwargs):
 		context = super(CompanyListView, self).get_context_data(*args, **kwargs)
