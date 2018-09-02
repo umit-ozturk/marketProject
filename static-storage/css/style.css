@@ -2689,3 +2689,20 @@ nav ul.xt-side-menu > li > ul.xt-dropdown {
 .ticket-align{
   display: flex;
 }
+
+.mobile-search{
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .search {
+    display: none;
+  }
+  .mobile-search{
+    display: block;
+    margin: 10px;
+    margin-left: 15%;
+    margin-top: 0;
+  }
+
+}

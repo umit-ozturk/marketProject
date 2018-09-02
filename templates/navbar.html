@@ -20,13 +20,13 @@
                                     <span aria-hidden="true" class="icon"></span>
                                   </button>
                                   <a class="navbar-brand" href="/"><img src="{% static 'images/flogo.png' %}" alt="" class="img-responsive"></a>
-                                </div>                                
-                                <div class="col-md-7" style="width: 58.000%;">
-                                    {% include 'products/search_form.html' %}                                    
+                                </div>
+                                <div class="col-md-6 search">
+                                    {% include 'products/search_form.html' %}
                                 </div>
                                 <div class="collapse navbar-collapse" id="js-navbar-menu">
                                     <ul class="nav navbar-nav navbar-right ep-mobile-menu" id="navbar-nav">
-                                        <li> <span style="font-size: 14px; font-weight: 700; font-style: italic;"> Merhaba</span>, 
+                                        <li> <span style="font-size: 12px; font-weight: 700; font-style: italic;"> Merhaba</span>,
                                             <a href="/profile/{{user}}/">
                                                 <span style="font-size: 14px;">{{user.username|truncatechars:7}}</span>
                                             </a></li>
@@ -36,6 +36,11 @@
                             </div>
                         </div>
                     </nav>
+                                                <div class="row mobile-search">
+                                <div class="col-md-12">
+                                    {% include 'products/search_form.html' %}
+                                </div>
+                            </div>
                 </div>
             {% else %}
                 <div class="main-navigation">
@@ -49,8 +54,8 @@
                                   <a class="navbar-brand" href="/"><img src="{% static 'images/flogo.png' %}" alt="" class="img-responsive"></a>
                                 </div>
                                 <div class="col-md-7" style="width: 58.000%;">
-                                    {% include 'products/search_form.html' %}                                    
-                                </div>                                
+                                    {% include 'products/search_form.html' %}
+                                </div>
                                 <div class="collapse navbar-collapse" id="js-navbar-menu">
                                     <ul class="nav navbar-nav navbar-right ep-mobile-menu" id="navbar-nav">
                                         <li><a href="/register"> Üye Ol </a></li>
