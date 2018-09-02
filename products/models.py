@@ -4,6 +4,9 @@ from django.utils.safestring import mark_safe
 from mptt.models import TreeForeignKey
 from ckeditor.fields import RichTextField
 from versatileimagefield.fields import VersatileImageField
+import os
+from django.db.models.signals import post_delete
+from django.dispatch.dispatcher import receiver
 
 # Create your models here.
 
@@ -100,3 +103,21 @@ class ProductInfo(models.Model):
         else:
             return 'Resim Bulunamadı.'
     image_tag.short_description = 'Resim'
+
+
+def _delete_file(path):
+    # Deletes file from filesystem.
+    if os.path.isfile(path):
+        os.remove(path)
+
+
+@receiver(post_delete, sender=ProductInfo)
+def delete_img_pre_delete_post(sender, instance, *args, **kwargs):
+    if instance:
+        try:
+            _delete_file(instance.image_prod_first.path)
+            _delete_file(instance.image_prod_second.path)
+            _delete_file(instance.image_prod_third.path)
+            _delete_file(instance.image_prod_fourth.path)
+        except Exception as ex:
+            print(ex)

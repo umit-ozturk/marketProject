@@ -71,8 +71,8 @@
                             <div class="col-md-1" style="margin-top: 25px;">
                                 {% for item in tickets %}
                                     <div class="ticket-align">
-                                        <a href="/ticket/{{ item.company.slug }}">
-                                            <img class="img-responsive" style="margin: auto;" src="/media/{{item.company.image_ticket_comp}}">
+                                        <a href="/tickets/{{ item.slug }}">
+                                            <img class="img-responsive" style="margin: auto;" src="/media/{{item.image_ticket_comp}}">
                                         </a>
                                     </div>
                                 {% endfor %}

@@ -6,7 +6,7 @@ from django.views.generic import (
 
 
 def global_ticket_detail():
-    ticket = Ticket.objects.all()
+    ticket = TicketCompany.objects.all()
     return ticket
 
 
