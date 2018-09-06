@@ -18,13 +18,13 @@ def upload_location(instance, filename):
 
 class Product(models.Model):
     slug = models.ForeignKey("products.productinfo", verbose_name='Ürün Slug / Sayacı', on_delete=models.CASCADE,
-                             related_name="productinfo", null=True,  blank=True)
+                             related_name="productinfo", null=False,  blank=False)
     category = TreeForeignKey("categories.category", verbose_name='Kategori', on_delete=models.CASCADE,
-                              null=True, blank=True)
+                              null=False, blank=False)
     company = models.ForeignKey("companies.company", verbose_name='Firma', on_delete=models.CASCADE,
-                                related_name="company", null=True,  blank=True)
+                                related_name="company", null=False,  blank=False)
     brand = models.ForeignKey("companies.brand", verbose_name='Marka', on_delete=models.CASCADE,
-                              related_name="brand", null=True,  blank=True)
+                              related_name="brand", null=False,  blank=False)
     name = models.CharField('Ürün Adı', max_length=140, null=True,  blank=True)
     title = models.CharField('Ürün Başlığı', max_length=140, null=True,  blank=True)
     price = models.DecimalField('Ürün Fiyatı', max_digits=6, decimal_places=2, null=True,  blank=True)
