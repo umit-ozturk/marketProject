@@ -20,9 +20,6 @@
                             document.getElementById("id_title").value = productValue.title;
                             document.getElementById("id_price").value = productValue.price;
                             document.getElementById("id_old_price").value = productValue.old_price;
-                            document.getElementById("select2-id_category-container").innerText = productValue.category.category_name;
-                            document.getElementById("select2-id_company-container").innerText = productValue.company.company_name;
-                            document.getElementById("select2-id_brand-container").innerText = productValue.brand.brand_name;
                             CKEDITOR.instances['id_content'].setData(productValue.content);
                             CKEDITOR.instances['id_feature'].setData(productValue.feature);
                         }
