@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils.safestring import mark_safe
-from django.template.defaultfilters import slugify
 from versatileimagefield.fields import VersatileImageField
 
 # Create your models here.
@@ -12,11 +11,8 @@ def upload_location(filename):
 
 
 class Aktuel(models.Model):
-    slug = models.SlugField('Aktuel Slug', blank=True, unique=True)
-    title = models.CharField('Aktuel Başlığı', max_length=140, null=True,  blank=True)
-    explain = models.CharField('Aktuel Açıklaması', max_length=140, null=True,  blank=True)
-    aktuel_company_name = models.CharField('Aktuel Firma Ismi', max_length=140, null=True, blank=True)
-    aktuel_company_site = models.CharField('Aktuel Firma Sitesi', max_length=140, null=True, blank=True)
+    slug = models.ForeignKey("aktuels.aktuelslug", verbose_name='Aktuel Slug', on_delete=models.CASCADE,
+                             related_name="aktuelslug", null=False,  blank=False)
     image_aktuel = VersatileImageField('Aktuel Firma Resmi', upload_to=upload_location, null=True, blank=True,
                                        width_field="width_field", height_field="height_field")
     image_aktuel_comp = VersatileImageField('Aktuel Resmi', upload_to=upload_location, null=True, blank=True,
@@ -33,10 +29,6 @@ class Aktuel(models.Model):
 
     def __str__(self):
         return str(self.title)
-
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
-        super(Aktuel, self).save(*args, **kwargs)
 
     def image_akt(self):
         if self.image_aktuel:
@@ -75,9 +67,8 @@ class AktuelProducts(models.Model):
         return str(self.name)
 
 
-def pre_save_aktuel_create(m):
-    slug = slugify(m.title)
-    check = Aktuel.objects.filter(slug=slug).exists()
-    if check:
-        slug = "%s-%s" % (slug, m.id)
-    m.slug = slug
+class AktuelSlug(models.Model):
+    title = models.CharField('Aktuel Başlığı', max_length=140, null=True,  blank=True)
+    explain = models.CharField('Aktuel Açıklaması', max_length=140, null=True,  blank=True)
+    aktuel_company_name = models.CharField('Aktuel Firma Ismi', max_length=140, null=True, blank=True)
+    aktuel_company_site = models.CharField('Aktuel Firma Sitesi', max_length=140, null=True, blank=True)

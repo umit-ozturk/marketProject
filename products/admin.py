@@ -69,6 +69,7 @@ class ProductAdmin(admin.ModelAdmin):
         return '%{}'.format(obj.get_sale_percent())
     show_sale_percent.short_description = 'İndirim Yüzdesi'
 
+
 class ProductInfoAdmin(admin.ModelAdmin):
     fields = ['slug', 'image_prod_first', 'image_prod_second', 'image_prod_third', 'image_prod_fourth', ]
     list_display = ('slug', 'image_tag',)
