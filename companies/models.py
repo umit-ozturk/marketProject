@@ -7,7 +7,7 @@ from versatileimagefield.fields import VersatileImageField
 
 
 def upload_location(instance, filename):
-    upload_path = "img/company/"+ str(filename)
+    upload_path = "img/company/" + str(filename)
     return upload_path
 
 

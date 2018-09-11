@@ -361,7 +361,7 @@
 
                 function formatOlAktuel(aktuelValue){
 
-                    aktuelContent = "<li><img src='" + aktuelValue.image_comp + "' style='height:75px; max-width:75px; alt='' /></li>"                        
+                    aktuelContent = "<li><img src='" + aktuelValue.image_aktuel + "' style='height:75px; max-width:75px; alt='' /></li>"
 
 
                     return aktuelContent
@@ -442,15 +442,8 @@
 
 
                 function fetchDetailAktuel(url){
+                    var fetchDetailUrl = '/api/aktuel/' + fethOneID + '/';
 
-                    if(equalSep != -1){
-                        var argsPrice = currentUrl.slice(equalSep+1, -1)
-                        var argsPrice = argsPrice.split("-")
-                        var fetchDetailUrl = '/api/aktuel/' + fethOneID + '/?q=' + argsPrice[0] + '-' + argsPrice[1]
-                    }
-                    else{
-                        var fetchDetailUrl = '/api/aktuel/' + fethOneID + '/'
-                    }
                     $.ajax({
                       url : fetchDetailUrl,
                         method : "GET",
@@ -465,52 +458,6 @@
 
                     })    
                 }
-
-                function bigPrice(url){
-                    var priceDetailUrl = '/api/aktuel/' + fethOneID + '/'
-                    return $.ajax({
-                      url : priceDetailUrl,
-                        method : "GET",
-                        success: function(data){
-
-                        },
-                        error: function(data){
-                            console.log("error")
-                            console.log(data)
-                        },
-
-                    })   
-
-                }
-
-                bigPrice().done(function(data){
-                    var price = []
-                    $.each(data, function(key, value){
-                        price = value.price
-                        aktuelPriceList.push(price)
-                    })
-                    highestPrice = Math.max(...aktuelPriceList)                    
-                    // For Price Search Slider
-                    $( function() {
-                        $( "#xt-price-range" ).slider({
-                          range: true,
-                          min: 0,
-                          max: highestPrice,
-                          values: [ 0, highestPrice ],
-                          slide: function( event, ui ) {
-                            $( "#amount" ).val( "TL" + ui.values[ 0 ] + " - TL" + ui.values[ 1 ] );
-                            $( "#filter" ).attr("href", "/aktuels/" + fethOneSlug + "/?q=" + ui.values[ 0 ] + "-" + ui.values[ 1 ] + '/');
-                            searchPriceUrl =   "/aktuels/" + fethOneSlug + "/?q=" + ui.values[ 0 ] + "-" + ui.values[ 1 ] + "/"
-                          }
-                        });
-                        searchPriceUrl =   "/aktuels/" + fethOneSlug + "/?q=" + $( "#xt-price-range" ).slider( "values", 0 ) + "-" + $( "#xt-price-range" ).slider( "values", 1 ) + "/"
-                        $( "#filter" ).attr("href", searchPriceUrl);
-                        $( "#amount" ).val( "TL" + $( "#xt-price-range" ).slider( "values", 0 ) +
-                          " - TL" + $( "#xt-price-range" ).slider( "values", 1 ) );                    
-                    });
-                });
-
-                bigPrice()
                 fetchDetailAktuel()              
             }
 
