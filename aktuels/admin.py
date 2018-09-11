@@ -19,8 +19,9 @@ class AktuelSlugAdmin(admin.ModelAdmin):
 
 
 class AktuelProductsAdmin(admin.ModelAdmin):
-	list_display = ('image_akt_prod', 'get_created_at')
-	search_fields = ()
+	list_display = ('image_akt_prod', 'aktuel', 'get_created_at')
+	autocomplete_fields = ['aktuel', ]
+	search_fields = ('aktuel',)
 
 
 admin.site.register(Aktuel, AktuelAdmin)

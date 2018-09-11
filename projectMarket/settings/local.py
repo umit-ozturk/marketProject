@@ -163,7 +163,7 @@ VERSATILEIMAGEFIELD_RENDITION_KEY_SETS = {
         ('normal', 'thumbnail__800x800')
     ],
     'image_aktuel_comp': [
-        ('normal', 'thumbnail__800x800')
+        ('normal', 'thumbnail__500x800')
     ],
     'image_aktuel_prod': [
         ('normal', 'thumbnail__800x800')

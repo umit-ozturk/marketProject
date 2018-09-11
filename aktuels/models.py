@@ -13,7 +13,6 @@ def upload_location(instance, filename):
 class Aktuel(models.Model):
     slug = models.ForeignKey("aktuels.aktuelslug", verbose_name='Aktuel Slug', on_delete=models.CASCADE,
                              related_name="aktuelslug", null=False,  blank=False)
-    aktuel_images = models.ForeignKey("aktuels.aktuelproducts", on_delete=models.CASCADE, related_name="aktuel_products")
     image_aktuel = VersatileImageField('Aktuel Firma Resmi', upload_to=upload_location, null=True, blank=True,
                                        width_field="width_field", height_field="height_field")
     image_aktuel_comp = VersatileImageField('Aktuel Resmi', upload_to=upload_location, null=True, blank=True,
@@ -47,8 +46,10 @@ class Aktuel(models.Model):
 
 
 class AktuelProducts(models.Model):
-    image_aktuel_prod = VersatileImageField('Aktuel Resmi', upload_to=upload_location, null=True,
-                                            width_field="width_field", height_field="height_field")
+    aktuel = models.ForeignKey(Aktuel, on_delete=models.CASCADE, related_name="aktuel_products")
+    image_aktuel_prod = VersatileImageField('Aktuel Ürün Resmi', upload_to=upload_location, null=True, width_field="width_field",
+                                            height_field="height_field")
+    explain = models.CharField("Açıklama", max_length=300, null=True, blank=True)
     height_field = models.PositiveIntegerField(default=0, blank=True)
     width_field = models.PositiveIntegerField(default=0, blank=True)
     created_at = models.DateTimeField('Oluşturulma Tarihi', auto_now_add=True, editable=False)
@@ -60,7 +61,7 @@ class AktuelProducts(models.Model):
         ordering = ('-created_at',)
 
     def __str__(self):
-        return '{}-{}'.format(self.aktuel)
+        return '{}'.format(self.aktuel.slug)
 
     def image_akt_prod(self):
         if self.image_aktuel_prod:

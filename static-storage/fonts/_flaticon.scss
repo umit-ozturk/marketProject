@@ -1,6 +1,6 @@
     /*
     Flaticon icon font: Flaticon
-    Creation date: 05/08/2018 16:54
+    Creation date: 11/09/2018 14:10
     */
 
     @font-face {
@@ -36,6 +36,30 @@
   font-smoothing: antialiased;
     }
 
-    .flaticon-meat:before { content: "\f100"; }
+    .flaticon-supermarket-cart:before { content: "\f100"; }
+.flaticon-settings:before { content: "\f101"; }
+.flaticon-glass-of-water:before { content: "\f102"; }
+.flaticon-steak:before { content: "\f103"; }
+.flaticon-weightlifting:before { content: "\f104"; }
+.flaticon-doll:before { content: "\f105"; }
+.flaticon-responsive:before { content: "\f106"; }
+.flaticon-perfume:before { content: "\f107"; }
+.flaticon-email:before { content: "\f108"; }
+.flaticon-dress:before { content: "\f109"; }
+.flaticon-console:before { content: "\f10a"; }
+.flaticon-food:before { content: "\f10b"; }
+.flaticon-chair:before { content: "\f10c"; }
     
-    $font-Flaticon-meat: "\f100";
+    $font-Flaticon-supermarket-cart: "\f100";
+    $font-Flaticon-settings: "\f101";
+    $font-Flaticon-glass-of-water: "\f102";
+    $font-Flaticon-steak: "\f103";
+    $font-Flaticon-weightlifting: "\f104";
+    $font-Flaticon-doll: "\f105";
+    $font-Flaticon-responsive: "\f106";
+    $font-Flaticon-perfume: "\f107";
+    $font-Flaticon-email: "\f108";
+    $font-Flaticon-dress: "\f109";
+    $font-Flaticon-console: "\f10a";
+    $font-Flaticon-food: "\f10b";
+    $font-Flaticon-chair: "\f10c";
