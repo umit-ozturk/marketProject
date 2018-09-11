@@ -47,8 +47,8 @@ class Aktuel(models.Model):
 
 class AktuelProducts(models.Model):
     aktuel = models.ForeignKey(Aktuel, on_delete=models.CASCADE, related_name="aktuel_products")
-    image_aktuel_prod = VersatileImageField('Aktuel Ürün Resmi', upload_to=upload_location, null=True, width_field="width_field",
-                                            height_field="height_field")
+    image_aktuel_prod = VersatileImageField('Aktuel Ürün Resmi', upload_to=upload_location, null=True,
+                                            width_field="width_field", height_field="height_field")
     explain = models.CharField("Açıklama", max_length=300, null=True, blank=True)
     height_field = models.PositiveIntegerField(default=0, blank=True)
     width_field = models.PositiveIntegerField(default=0, blank=True)
