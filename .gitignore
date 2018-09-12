@@ -1,4 +1,4 @@
-marketproject/local_settings.py
+projectMarket/settings/local_settings.py
 credentials.dat
 
 celerybeat-schedule.db
@@ -97,7 +97,7 @@ docs/_build/
 # PyBuilder
 target/
 
-settings_local.py
+local_settings.py
 logs/
 
 ### Vagrant ###
