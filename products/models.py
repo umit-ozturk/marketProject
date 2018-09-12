@@ -119,5 +119,9 @@ def delete_img_pre_delete_post(sender, instance, *args, **kwargs):
             _delete_file(instance.image_prod_second.path)
             _delete_file(instance.image_prod_third.path)
             _delete_file(instance.image_prod_fourth.path)
+            instance.image_prod_first.delete_sized_images()
+            instance.image_prod_second.delete_sized_images()
+            instance.image_prod_third.delete_sized_images()
+            instance.image_prod_fourth.delete_sized_images()
         except Exception as ex:
             print(ex)

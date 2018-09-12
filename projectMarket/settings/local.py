@@ -136,16 +136,16 @@ VERSATILEIMAGEFIELD_SETTINGS = {
 
 VERSATILEIMAGEFIELD_RENDITION_KEY_SETS = {
     'image_prod_first': [
-        ('normal', 'thumbnail__800x540')
+        ('normal', 'thumbnail__800x800')
     ],
     'image_prod_second': [
-        ('normal', 'thumbnail__800x540')
+        ('normal', 'thumbnail__800x800')
     ],
     'image_prod_third': [
-        ('normal', 'thumbnail__800x540')
+        ('normal', 'thumbnail__800x800')
     ],
     'image_prod_fourth': [
-        ('normal', 'thumbnail__800x540')
+        ('normal', 'thumbnail__800x800')
     ],
     'image_ticket_comp': [
         ('normal', 'thumbnail__200x200')
@@ -163,7 +163,7 @@ VERSATILEIMAGEFIELD_RENDITION_KEY_SETS = {
         ('normal', 'thumbnail__800x800')
     ],
     'image_aktuel_comp': [
-        ('normal', 'thumbnail__500x800')
+        ('normal', 'thumbnail__800x800')
     ],
     'image_aktuel_prod': [
         ('normal', 'thumbnail__800x800')
@@ -201,9 +201,9 @@ WSGI_APPLICATION = 'projectMarket.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'yenideneme',
-        'USER': '',
-        'PASSWORD': '',
+        'NAME': 'marketfiyatim',
+        'USER': 'marketfiyatim',
+        'PASSWORD': 'marketfiyatim123',
         'HOST': 'localhost',
         'PORT': '5432',
     }
