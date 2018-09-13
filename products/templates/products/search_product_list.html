@@ -47,7 +47,7 @@
 {% endblock script %}
 
 {% block content %}
-
+<form role="form" id="mc-form" action='{% url "product:search-list" %}'>
     {{ max_low_price.price__max }}
     <div class="menu-spacing">
         <div class="container">
@@ -96,7 +96,6 @@
             <div class="row">
                 <!-- SIDEBAR -->
                 <aside class="col-md-3 product-sidebar">
-                    <form role="form" id="mc-form" action='{% url "product:search-list" %}'>
                         <div class="price-range">
                             <h3>Fiyat</h3>
                             <div class="each-price-range">
@@ -105,7 +104,6 @@
                                 <button type="submit" id="filter" class="btn btn-fill">Filtrele</button>
                             </div>
                         </div>
-                    </form>                    
                     <div class="clearfix"></div>
                     <div class="xt-product-color">
                         <h3>Kategoriler</h3>
@@ -177,6 +175,7 @@
                                     <hr class="xt-hr">
                                 </div>
                             </div>
+
                             <div class="clearfix"></div>
                             <div class="xt-each-feature">
                                 {% for object in object_list %} 
@@ -184,7 +183,7 @@
                                         <div class='xt-feature'>
                                             <a href='/products/{{ object.id }}'>
                                                 <div class='product-img'>
-                                                    <img src='/media/{{ object.image_prod_first }}' alt='' class='img-responsive'>
+                                                    <img src='/media/{{ object.slug.image_prod_first }}' alt='' class='img-responsive'>
                                                     <span class='product-tag xt-uppercase'></span>
                                                 </div>
                                             </a>
@@ -206,13 +205,14 @@
                                                         <span class='old-price'>{{ object.price }}</span>
                                                         <span class='new-price xt-semibold'>{{ object.company.company_name|truncatechars:14 }}</span>
                                                     </div><div class='add-cart'>
-                                                        <form action='/carts/cart/add/{{ object.id }}/' method='GET'>{% csrf_token %}{{ cart_product_form }}<input type='submit' value='Sepete Ekle' class='btn btn-fill'></form>
+                                                        <form action='/carts/cart/add/{{ object.id }}/' method='POST'>{% csrf_token %}{{ cart_product_form }}<input type='submit' value='Sepete Ekle' class='btn btn-fill'></form>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                {% endfor %}                                  
+                                {% endfor %}
+
                             </div>
                             <div class="clearfix"></div>
                             <div class="col-md-12 xt-bottom-hr">
@@ -228,7 +228,7 @@
                                 <div class="col-md-3 col-sm-3 col-xs-6 xt-show-item">
                                     <label>Show: </label>
                                     <div class="xt-select xt-search-opt xt-item-view-count">
-                                        <select class="xt-category-search select-beast">
+                                        <select class="xt-category-search select-beast" data-value="{{ request.GET.pagination }}">
                                             <option>4</option>
                                             <option>8</option>
                                             <option>12</option>
@@ -237,6 +237,7 @@
                                         </select>
                                     </div>
                                 </div>
+
                                 <div class="form-group xt-shop-category col-md-4 col-sm-4 col-xs-12">
                                     <div class="xt-select xt-search-opt">
                                         <select class="xt-category-search select-beast">
@@ -253,24 +254,38 @@
                                 <div class="col-md-3 col-sm-3 col-xs-12">
                                     <div class="xt-page-pagination">
                                         <nav aria-label="Page navigation">
+                                            {% if object_list.has_other_pages %}
                                             <ul class="pagination xt-pagination">
-                                                <li class="active"><a href="#">1</a></li>
-                                                <li><a href="#">2</a></li>
-                                                <li><a href="#">3</a></li>
-                                                <li><a href="#">4</a></li>
-                                                <li><a href="#" aria-label="Next"><i class="fa fa-caret-right"></i></a></li>
+                                                {% if object_list.has_previous %}
+                                                <li><a href="?page={{ users.previous_page_number }}">&laquo;</a></li>
+                                                {% else %}
+                                                  <li class="disabled"><span>&laquo;</span></li>
+                                                {% endif %}
+                                                {% for i in object_list.paginator.page_range %}
+                                                  {% if object_list.number == i %}
+                                                    <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                                                  {% else %}
+                                                    <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                                  {% endif %}
+                                                {% endfor %}
+                                                {% if object_list.has_next %}
+                                                  <li><a href="?page={{ object_list.next_page_number }}">&raquo;</a></li>
+                                                {% else %}
+                                                  <li class="disabled"><span>&raquo;</span></li>
+                                                {% endif %}
                                             </ul>
+                                            {% endif %}
                                         </nav>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <!---->
                     </div>
                 </div>
             </div>
         </div>
-    </div>    
-
-
+    </div>
+</form>
 {% endblock content %}
