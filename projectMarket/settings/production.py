@@ -136,16 +136,40 @@ VERSATILEIMAGEFIELD_SETTINGS = {
 
 VERSATILEIMAGEFIELD_RENDITION_KEY_SETS = {
     'image_prod_first': [
-        ('normal', 'thumbnail__800x540')
+        ('normal', 'thumbnail__800x800')
     ],
     'image_prod_second': [
-        ('normal', 'thumbnail__800x540')
+        ('normal', 'thumbnail__800x800')
     ],
     'image_prod_third': [
-        ('normal', 'thumbnail__800x540')
+        ('normal', 'thumbnail__800x800')
     ],
     'image_prod_fourth': [
-        ('normal', 'thumbnail__800x540')
+        ('normal', 'thumbnail__800x800')
+    ],
+    'image_ticket_comp': [
+        ('normal', 'thumbnail__200x200')
+    ],
+    'image_comp': [
+        ('normal', 'thumbnail__200x200')
+    ],
+    'brand_image': [
+        ('normal', 'thumbnail__800x800')
+    ],
+    'image_prod': [
+        ('normal', 'thumbnail__800x800')
+    ],
+    'image_aktuel': [
+        ('normal', 'thumbnail__800x800')
+    ],
+    'image_aktuel_comp': [
+        ('normal', 'thumbnail__800x800')
+    ],
+    'image_aktuel_prod': [
+        ('normal', 'thumbnail__800x800')
+    ],
+    'userphoto': [
+        ('normal', 'thumbnail__800x800')
     ]
 }
 
@@ -170,13 +194,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'projectMarket.wsgi.application'
 
-SOCIAL_AUTH_TWITTER_KEY = 'qmi0KPcQSmUFfEwBSLb495m7L'
-SOCIAL_AUTH_TWITTER_SECRET = 'w4zGBFyaqArRZRJ2bbfEmHXvuSm3P5HOzzWdSyZpze438D0rsV'
-
-
-SOCIAL_AUTH_FACEBOOK_KEY = '2277086349235314'
-SOCIAL_AUTH_FACEBOOK_SECRET = '1b65d140f4c1374e5e1d82ab9ff08891'
-
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
@@ -184,13 +201,14 @@ SOCIAL_AUTH_FACEBOOK_SECRET = '1b65d140f4c1374e5e1d82ab9ff08891'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'deneme',
-        'USER': 'postgres',
-        'PASSWORD': '12345678',
+        'NAME': 'marketfiyatim',
+        'USER': 'marketfiyatim',
+        'PASSWORD': 'marketfiyatim123',
         'HOST': 'localhost',
         'PORT': '5432',
     }
 }
+
 
 #DEBUG = config('DEBUG', default=False, cast=bool)
 #DATABASES = {
@@ -241,25 +259,12 @@ CART_SESSION_ID = 'cart'
 CATEGORT_SESSION_ID = 'category'
 
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.0/howto/static-files/
-
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join('media')
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR + 'static')
 
-
-# will not be served, long term storage
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static-storage"),
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder'
 ]
-
-# will be served
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static-serve")
-
-try:
-    from  local_settings import *
-except ImportError:
-    pass
