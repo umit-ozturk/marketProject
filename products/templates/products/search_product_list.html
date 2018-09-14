@@ -29,8 +29,8 @@
 
       range: true,
       min: 0,
-      max: {{max_min_price.price__max}},
-      values: [ 0, {{max_min_price.price__max}} ],
+      max: {{ max_price }},
+      values: [ 0, {{max_price}} ],
       slide: function( event, ui ) {
         $( "#amount" ).val( ui.values[ 0 ] + "TL" + "-" + ui.values[ 1 ] + "TL" );
         
@@ -46,9 +46,9 @@
     </script>
 {% endblock script %}
 
+
 {% block content %}
-<form role="form" id="mc-form" action='{% url "product:search-list" %}'>
-    {{ max_low_price.price__max }}
+<form role="form" id="mc-form" action='{% url "product:search-list" %}'></form>
     <div class="menu-spacing">
         <div class="container">
             <div class="row">
@@ -62,9 +62,9 @@
                                     <ul>
                                         <li><a href="#">Hijab</a></li>
                                         <li><a href="#">Scarf</a></li>
-                                        {% for object in object_list %}
+                                        {% for template in results %}
 
-                                            <li><a class="main-a" href="">{{ object.category.category_name }}</a></li>
+                                            <li><a class="main-a" href="">{{ template.object.category.category_name }}</a></li>
                                         {% endfor %}
                                         </select>                                
                                             <ul>
@@ -108,8 +108,8 @@
                     <div class="xt-product-color">
                         <h3>Kategoriler</h3>
                         <ul>
-                            {% for object in object_list %}
-                                <li><a href=""> {{ object.category.category_name }}<span>(Sayı)</span></a></li>
+                            {% for template in results %}
+                                <li><a href=""> {{ template.object.category.category_name }}<span>(1)</span></a></li>
                             {% endfor %}                            
                         </ul>
                     </div>
@@ -117,8 +117,8 @@
                     <div class="xt-product-size">
                         <h3>Satıcı</h3>
                         <ul>
-                            {% for object in object_list %}
-                                <li><a href=""> {{ object.company.company_name }}<span>(Sayı)</span></a></li>
+                            {% for template in results %}
+                                <li><a href=""> {{ template.object.company.company_name }}<span>(1)</span></a></li>
                             {% endfor %}  
                         </ul>
                     </div>
@@ -145,8 +145,8 @@
                                 <div class="form-group col-md-4 col-sm-4 col-xs-12">
                                     <div class="xt-select xt-search-opt">
                                         <select class="xt-category-search select-beast">
-                                        {% for object in object_list %}
-                                            <option>{{ object.category.category_name }}</option>
+                                        {% for template in results %}
+                                            <option>{{ template.object.category.category_name }}</option>
                                         {% endfor %}
                                         </select>
                                     </div>
@@ -178,32 +178,33 @@
 
                             <div class="clearfix"></div>
                             <div class="xt-each-feature">
-                                {% for object in object_list %} 
+                                {% for template in results %}
                                     <div class='col-md-4 col-sm-4'>
+
                                         <div class='xt-feature'>
-                                            <a href='/products/{{ object.id }}'>
+                                            <a href='/products/{{ template.object.id }}'>
                                                 <div class='product-img'>
-                                                    <img src='/media/{{ object.slug.image_prod_first }}' alt='' class='img-responsive'>
+                                                    <img src='/media/{{ template.object.slug.image_prod_first }}' alt='' class='img-responsive'>
                                                     <span class='product-tag xt-uppercase'></span>
                                                 </div>
                                             </a>
                                             <div class='product-info'>
                                                 <div class='product-title'>
-                                                    <span class='category xt-uppercase'>{{ object.name|truncatechars:14 }}</span>
-                                                    <span class='name xt-semibold'>{{ object.title|truncatechars:14 }}</span>
+                                                    <span class='category xt-uppercase'>{{ template.object.name|truncatechars:14 }}</span>
+                                                    <span class='name xt-semibold'>{{ template.object.title|truncatechars:14 }}</span>
                                                 </div>
                                                 <div class='price-tag pull-right'>
-                                                    <span class='old-price'>{{ object.price }}</span>
-                                                    <span class='new-price xt-semibold'>{{ object.company.company_name|truncatechars:14 }}</span>
+                                                    <span class='old-price'>{{ template.object.price }}</span>
+                                                    <span class='new-price xt-semibold'>{{ template.object.company.company_name|truncatechars:14 }}</span>
                                                 </div>
                                                 <div class='xt-featured-caption'>
                                                     <div class='product-title'>
-                                                        <span class='category xt-uppercase'>{{ object.name|truncatechars:14 }}</span>
-                                                        <span class='name xt-semibold'>{{ object.title|truncatechars:14 }}</span>
+                                                        <span class='category xt-uppercase'>{{ template.object.name|truncatechars:14 }}</span>
+                                                        <span class='name xt-semibold'>{{ template.object.title|truncatechars:14 }}</span>
                                                     </div>
                                                     <div class='price-tag pull-right'>
-                                                        <span class='old-price'>{{ object.price }}</span>
-                                                        <span class='new-price xt-semibold'>{{ object.company.company_name|truncatechars:14 }}</span>
+                                                        <span class='old-price'>{{ template.object.price }}</span>
+                                                        <span class='new-price xt-semibold'>{{ template.object.company.company_name|truncatechars:14 }}</span>
                                                     </div><div class='add-cart'>
                                                         <form action='/carts/cart/add/{{ object.id }}/' method='POST'>{% csrf_token %}{{ cart_product_form }}<input type='submit' value='Sepete Ekle' class='btn btn-fill'></form>
                                                     </div>
