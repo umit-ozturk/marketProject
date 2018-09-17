@@ -5,11 +5,10 @@ from django.views.generic import (
             TemplateView
             )
 from .models import Product
+from categories.models import Category
 from cart.views import global_cart_detail
 from tickets.views import global_ticket_detail
 from django.db.models import Min, Max
-from django.core.paginator import Paginator
-from products.mixins import PaginationMixin
 from django.http import HttpResponse, Http404
 import json
 
@@ -61,9 +60,18 @@ class SearchView(TemplateView):
         return [{'template': self.partial_templates[self.type],
                  'object': item} for item in method()]
 
+    def get_category_count(self):
+        return Category.objects.filter(id=self.model.category).count()
+
+    def get_category_detail(self):
+        return Category.objects.filter(category=self.model.category)
+
     def get_context_data(self, **kwargs):
         return super(SearchView, self).get_context_data(min_price=self.get_min_price(), max_price=self.get_max_price(),
+                                                        category_count=self.get_category_count(),
+                                                        category_detail=self.get_category_detail(),
                                                         results=self.get_search_bundle(), **kwargs)
+
 
     def get_next_page_url(self):
         return '?keywords=%(keywords)s&price=%(price)s&pagination=%(pagination)s' % {
@@ -74,7 +82,12 @@ class SearchView(TemplateView):
 
     def get_queries(self):
         keywords = self.request.GET.get('keywords')
+        price = self.request.GET.get('price')
+        print(keywords)
+        print(price)
         min_value, max_value = self.get_values()
+        print(min_value)
+        print(max_value)
         if not keywords or len(keywords) < 1:
             result = Product.objects.none()
         else:
@@ -107,3 +120,5 @@ class SearchView(TemplateView):
     def get_max_price():
         price__max = round(Product.objects.aggregate(Max('price'))['price__max'])
         return price__max
+
+

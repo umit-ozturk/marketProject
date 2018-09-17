@@ -48,7 +48,11 @@
 
 
 {% block content %}
-<form role="form" id="mc-form" action='{% url "product:search-list" %}'></form>
+
+{% for template in results %}
+
+    <li><a class="main-a" href="">{{ template.object.get_category_count }}</a></li>
+{% endfor %}
     <div class="menu-spacing">
         <div class="container">
             <div class="row">
@@ -90,27 +94,30 @@
     |========================
     |  PRODUCT SUB PAGE
     |========================
-    --> 
+    -->
+
     <div class="xt-product-subpage">    
         <div class="container">
             <div class="row">
                 <!-- SIDEBAR -->
                 <aside class="col-md-3 product-sidebar">
+                    <form role="form" id="mc-form" action='{% url "product:search-list" %}'>
                         <div class="price-range">
                             <h3>Fiyat</h3>
                             <div class="each-price-range">
                                 <div id="xt-price-range"></div>
-                                <input type="text" id="amount" name="price" value='{{ request.GET.price }}' class="price-range-amount">
+                                <input type="text" id="amount" name="price" value='{{ request.GET.keywords }}' class="price-range-amount">
                                 <button type="submit" id="filter" class="btn btn-fill">Filtrele</button>
                             </div>
                         </div>
+                    </form>
                     <div class="clearfix"></div>
                     <div class="xt-product-color">
                         <h3>Kategoriler</h3>
                         <ul>
                             {% for template in results %}
-                                <li><a href=""> {{ template.object.category.category_name }}<span>(1)</span></a></li>
-                            {% endfor %}                            
+                                <li><a href=""> {{ template.object.get_category_detail.category.category_name  }}<span>( {{ template.object.get_category_count }} )</span></a></li>
+                            {% endfor %}
                         </ul>
                     </div>
                     <div class="clearfix"></div>
