@@ -54,6 +54,16 @@ class Product(models.Model):
             sale_percent = 0
         return sale_percent
 
+    def get_category_count(self):
+        category_count = Product.objects.filter(category_id=self.category.id).count()
+        print(category_count)
+        return category_count
+
+    def get_category_detail(self):
+        category_detail = Product.objects.filter(category_id=self.category.id)[0]
+        print(category_detail)
+        return category_detail
+
     def get_filters(self):
         filters = self.category.category_name
         return filters

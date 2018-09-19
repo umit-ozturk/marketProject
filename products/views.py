@@ -61,10 +61,10 @@ class SearchView(TemplateView):
                  'object': item} for item in method()]
 
     def get_category_count(self):
-        return Category.objects.filter(id=self.model.category).count()
+        return None
 
     def get_category_detail(self):
-        return Category.objects.filter(category=self.model.category)
+        return None
 
     def get_context_data(self, **kwargs):
         return super(SearchView, self).get_context_data(min_price=self.get_min_price(), max_price=self.get_max_price(),
