@@ -1,0 +1,214 @@
+            /////////           COMPANIES            /////////
+
+
+
+            function loadCompanyContainer(companyContainerID, fetchCompanyId){
+                var query = getParameterByName('q')
+                var companyList = []
+                var companyDetail = []
+                var currentUrl = window.location.href
+                var equalSep = currentUrl.indexOf("=")
+                var nextCompanyUrl;
+                var companyContainer;
+                if (fetchCompanyId){
+                    var companyDetailContainer;
+                    companyDetailContainer = $("#company-detail-container");
+                    var initalDetailURL = companyDetailContainer.attr("data-url") || "/api/company/" + fetchCompanyId + "/product/ ";
+                }
+
+                if (companyContainerID){
+                    companyContainer = $("#" + companyContainerID);
+                }else{
+                    companyContainer = $("#company-container");
+                }
+                var initalURL = companyContainer.attr("data-url") || "/api/company/";
+
+
+                function formatCompany(companyValue, secondCompanyFormattedHtml, thirdCompanyFormattedHtml, fourthCompanyFormattedHtml){
+                    // If not exist second Company
+                    if(secondCompanyFormattedHtml){
+                        companyContent = "<li class='firstCompanyClass'><a href='/companies/"+ companyValue.id +"/' ><i class='fa flaticon-" + companyValue.company_logo + "'></i>" + companyValue.company_name + "</a><ul class='mega-menu '><li><ul class='xt-single-mega'>" + secondCompanyFormattedHtml + "</ul></li><li><ul class='xt-single-mega'>" + thirdCompanyFormattedHtml + "</ul></li><li><ul class='xt-single-mega'>" + fourthCompanyFormattedHtml + "</ul></li></ul></li>"
+                    }
+                    else{
+                        companyContent = "<li><a href='/companies/"+ companyValue.id +"/' ><i class='fa flaticon-" + companyValue.company_logo + "'></i>" + companyValue.company_name + "</a></li>"
+                    }
+
+                    return companyContent
+                }
+
+                function formatSecondCompany(secondCompanyValue){
+                    secondCompanyContent = "<li id='secondCompanyID' class='secondCompanyClass " + secondCompanyValue.id + "'><a href='/companies/"+ secondCompanyValue.id +"/' >" + secondCompanyValue.company_name + "</a></li>"
+
+
+                    return secondCompanyContent
+
+                }
+
+                function formatThirdCompany(thirdCompanyValue, secondCompanyValue){
+
+                    thirdCompanyContent = "<li class='thirdCompanyClass " + secondCompanyValue.id + " " + thirdCompanyValue.id + "   '><a href='/companies/"+ thirdCompanyValue.id +"/' >" + thirdCompanyValue.company_name + "</a></li>"
+
+                    return thirdCompanyContent
+
+                }
+
+                function formatFourthCompany(fourthCompanyValue, thirdCompanyValue){
+
+                    fourthCompanyContent = "<li class='fourthCompanyClass " + thirdCompanyValue.id + "'><a href='/companies/"+ fourthCompanyValue.id +"/' >" + fourthCompanyValue.company_name + "</a></li>"
+
+                    return fourthCompanyContent
+
+                }
+
+
+                function parseCompanies(){
+                    if(companyList == 0 && companyDetail == 0){
+                        companyContainer.text("Kayıtlı Kategoriniz Yoktur.")
+                    }else{
+                    // product exist, parse & display them
+
+                        // Main Company Listing
+                        if(companyList.length >= 12){
+                            var companyOthers;
+                            companyList.splice(9, companyList.length)
+                            companyOthers = "<li><a href='/companies/' ><i class='fa flaticon-responsive'></i>Diğer Kategoriler</a></li>"
+
+                        }
+
+                        $.each(companyList, function(key, value){
+                            var secondCompanyValue;
+                            var thirdCompanyValue;
+                            secondCompanyFormattedHtml = "";
+                            thirdCompanyFormattedHtml = "";
+                            fourthCompanyFormattedHtml = "";
+                            companyValue = value
+                            secondCompanyList = value.children
+                            $.each(secondCompanyList, function(secondKey, secondValue){
+                                secondCompanyValue = secondValue
+                                thirdCompanyList = secondCompanyValue.children
+                                $.each(thirdCompanyList, function(thirdKey, thirdValue){
+                                    thirdCompanyValue = thirdValue
+                                    fourthCompanyList = thirdCompanyValue.children
+                                    $.each(fourthCompanyList, function(fourthKey, fourthValue){
+                                        fourthCompanyValue = fourthValue
+                                        fourthCompanyList = fourthCompanyValue.children
+
+                                        fourthCompanyFormattedHtml += formatFourthCompany(fourthCompanyValue, thirdCompanyValue)
+                                    })
+                                    thirdCompanyFormattedHtml += formatThirdCompany(thirdCompanyValue, secondCompanyValue)
+                                })
+                                secondCompanyFormattedHtml += formatSecondCompany(secondCompanyValue)
+                            })
+                            companyFormattedHtml = formatCompany(companyValue, secondCompanyFormattedHtml, thirdCompanyFormattedHtml, fourthCompanyFormattedHtml)
+                            companyContainer.append(companyFormattedHtml)
+
+
+                        })
+                        companyContainer.append(companyOthers)
+                   }
+                }
+
+                function formatSingleCompany(companyValue){
+                    companyContent = "<div class='col-md-4 col-sm-4'><div class='xt-feature'><a href='/products/" + companyValue.id + "'><div class='product-img'><img src='" + companyValue.image_prod_first + "' alt='' class='img-responsive'><span class='product-tag xt-uppercase'>" + companyValue.company.company_name + "</span></div></a><div class='product-info'><div class='product-title'><span class='company xt-uppercase'>" + companyValue.name + "</span><span class='name xt-semibold'>" + companyValue.title + "</span></div><div class='price-tag pull-right'><span class='old-price'>" + companyValue.company.company_name + "</span><span class='new-price xt-semibold'>" + companyValue.price + "</span></div><div class='xt-featured-caption'><div class='product-title'><span class='company xt-uppercase'>" + companyValue.name + "</span><span class='name xt-semibold'>" + companyValue.title + "</span></div><div class='price-tag pull-right'><span class='old-price'>" + companyValue.company.company_name + "</span><span class='new-price xt-semibold'>" + companyValue.price + "</span></div><div class='add-cart'><a href='' class='btn btn-fill'>Add to cart</a><ul class='reaction'><li><a href=''><i class='fa fa-search'></i></a></li><li><a href=''><i class='fa fa-heart-o'></i></a></li><li><a href=''><i class='fa fa-bar-chart-o'></i></a></li></ul></div></div></div></div></div>"
+
+
+                    return companyContent
+                }
+
+
+                function parseSingleCompanies(){
+                    $.each(companyDetail, function(key, value){
+                        companyValue = value
+                        companyFormattedHtml = formatSingleCompany(companyValue)
+                        companyDetailContainer.append(companyFormattedHtml)
+
+                    })
+
+                }
+
+
+
+
+
+                function fetchCompanies(url){
+                    var fetchUrl;
+                    if (!url){
+                        fetchUrl = initalURL
+                    }else{
+                        fetchUrl = url
+                    }
+                    $.ajax({
+                        url: "/api/company/",
+                        data: {
+                            "q": query
+                        },
+                        method: "GET",
+                        success: function(data){
+                            companyList = data
+
+
+                            parseCompanies()
+                        },
+                        error: function(data){
+                            console.log("error")
+                            console.log(data)
+                        },
+                    })
+                }
+
+                function fetchSingleCompany(fetchCompanyId){
+
+                    if(equalSep != -1){
+                        var argsPrice = currentUrl.slice(equalSep+1, -1)
+                        var argsPrice = argsPrice.split("-")
+                        var fetchDetailUrl = '/api/company/' + fetchCompanyId + '/product/?q=' + argsPrice[0] + '-' + argsPrice[1]
+                    }
+                    else{
+                        var fetchDetailUrl = '/api/company/' + fetchCompanyId + '/product/'
+                    }
+                    $.ajax({
+                      url : fetchDetailUrl,
+                        method : "GET",
+                        success: function(data){
+                            companyDetail = data
+                            if(data.next){
+                                nextProductUrl = data.next
+
+                            }else{
+                                 $("#slider-xt").hide()
+                                 $("#deal-xt").hide()
+                            }
+                            parseSingleCompanies()
+                        },
+                        error: function(data){
+                            console.log("error")
+                            console.log(data)
+                        },
+                    })
+                }
+
+                if(fetchCompanyId){
+
+                    function bigPrice(url){
+                        var priceDetailUrl = '/api/company/' + fetchCompanyId + '/' + "product/"
+                        return $.ajax({
+                          url : priceDetailUrl,
+                            method : "GET",
+                            success: function(data){
+
+                            },
+                            error: function(data){
+                                console.log("error")
+                                console.log(data)
+                            },
+                        })
+                    }
+                    fetchSingleCompany(fetchCompanyId)
+                    fetchCompanies()
+
+                }else{
+                    fetchCompanies()
+                }
+
+
+            }

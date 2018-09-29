@@ -40,6 +40,7 @@ urlpatterns = [
     path('api/product/', include('products.api.urls', namespace='product-api')),
     path('api/category/', include('categories.api.urls', namespace='category-api')),
     path('api/aktuel/', include('aktuels.api.urls', namespace='aktuel-api')),
+    path('api/company/', include('companies.api.urls', namespace='company-api')),
     path('register/', UserRegisterView.as_view(), name="register"),
     #path('api/company/', include('companies.api.urls', namespace='company-api')),
 

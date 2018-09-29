@@ -79,9 +79,13 @@
                                             <a href="#">KATEGORİLER</a>
                                             <ul class="xt-dropdown" id="category-container" data-url="/api/category/">
                                                 {% include 'categories/category_list.html' %}
-                                                {% include 'companies/company_list.html' %}
+                                            </ul>
+                                            <ul class="xt-dropdown" style="margin-top: 200%" id="company-container" data-url="/api/company/">
+                                                <li><a href='/categories/' >Marketler</a></li>"
+                                                {% include 'categories/category_list.html' %}
                                             </ul>
                                         </li>
+
                                     </ul>
                                 </nav>
                             </div>

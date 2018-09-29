@@ -2,9 +2,11 @@ from rest_framework import serializers
 from companies.models import Company, Brand
 from products.models import ProductInfo
 from versatileimagefield.serializers import VersatileImageFieldSerializer
+from rest_framework_recursive.fields import RecursiveField
 
 
 class CompanyDisplaySerializer(serializers.ModelSerializer):
+	children = serializers.ListSerializer(read_only=True, child=RecursiveField())
 	image_comp = VersatileImageFieldSerializer(sizes='image_comp')
 
 	class Meta:
@@ -16,7 +18,8 @@ class CompanyDisplaySerializer(serializers.ModelSerializer):
 			'image_comp',
 			'company_description',
 			'created_at',
-			'updated_at'
+			'updated_at',
+			'children'
 		]
 
 

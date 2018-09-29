@@ -1,13 +1,15 @@
 from django.db.models import Q
 from django.views.generic import (
-			DetailView, 
-			ListView
-			)
-
-
+	DetailView,
+	ListView
+	)
 from .models import Company
 from cart.views import global_cart_detail
 
+
+def global_companies_detail():
+	companies = Company.objects.all()
+	return companies
 
 class CompanyDetailView(DetailView):
 	queryset = Company.objects.all()

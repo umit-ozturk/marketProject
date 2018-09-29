@@ -5,6 +5,7 @@ from django.views.generic import (
             TemplateView
             )
 from .models import Product
+from companies.views import global_companies_detail
 from categories.models import Category
 from cart.views import global_cart_detail
 from tickets.views import global_ticket_detail
@@ -28,6 +29,7 @@ class ProductListView(ListView):
         context = super(ProductListView, self).get_context_data(*args, **kwargs)
         context['carts'] = global_cart_detail(self.request)
         context['tickets'] = global_ticket_detail(*args)
+        context['companies'] = global_companies_detail(*args)
         return context
 
 
