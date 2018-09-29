@@ -6,7 +6,7 @@ from django.views.generic import (
 
 
 from .models import Company
-from marketproject.cart.views import global_cart_detail
+from cart.views import global_cart_detail
 
 
 class CompanyDetailView(DetailView):
@@ -20,16 +20,19 @@ class CompanyDetailView(DetailView):
 
 class CompanyListView(ListView):
 	queryset = Company.objects.all()
+	template_name = "company_list.html"
 
 	def get_queryset(self, *args, **kwargs):
 		qs = Company.objects.all()
 		query = self.request.GET.get("q", None)
+
 		if query is not None:
 			qs = qs.filter(
 				Q(name__icontains=query) |
 				Q(price__icontains=query) |
 				Q(title__icontains=query)
 				)
+		print(qs.count())
 		return qs
 
 	def get_context_data(self, *args, **kwargs):

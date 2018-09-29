@@ -31,6 +31,7 @@ urlpatterns = [
     ### APPS
     path('products/', include('products.urls', namespace='product')),
     path('categories/', include('categories.urls', namespace='category')),
+    path('companies/', include('companies.urls', namespace='company')),
     path('aktuels/', include('aktuels.urls', namespace='aktuel')),
     path('carts/', include('cart.urls', namespace='cart')),
     path('tickets/', include('tickets.urls', namespace='ticket')),
