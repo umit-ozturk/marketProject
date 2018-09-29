@@ -272,7 +272,6 @@
 
             function textTruncated(str, length){
                 var ending = '...';
-
                 if (length == null){
                     length = 50;
                 }
@@ -295,27 +294,19 @@
                 }else{
                     aktuelUlContainer = $("#aktuel-container");
                 }
-                var initalURL = aktuelUlContainer.attr("data-url") || "/api/aktuel/";        
-
+                var initalURL = aktuelUlContainer.attr("data-url") || "/api/aktuel/";
 
                 function formatUlAktuel(aktuelValue){
-
                     aktuelContent = "<li><img src='" + aktuelValue.image_aktuel_comp.normal + "' style='max-height:645px;' alt='Slider Aktuel' /><div class='slide_text'><a href='/aktuels/" + aktuelValue.slug + "' class='btn' style='width: 100%;border: none;height: 100%;'></a></div></li>"
-
-
-
                     return aktuelContent
                 }
-              
                 function parseAktuels(){                    
                     $.each(aktuelList, function(key, value){
                         aktuelValue = value
                         aktuelUlFormattedHtml = formatUlAktuel(aktuelValue)
                         aktuelUlContainer.append(aktuelUlFormattedHtml)
-
                     })                                     
                 }
-
 
                 function fetchAktuels(url){
                     var fetchUrl;
@@ -324,7 +315,6 @@
                     }else{
                         fetchUrl = url
                     }
-
                     $.ajax({
                         url: "/api/aktuel/",
                         data: {
@@ -341,19 +331,13 @@
                         },
                     })            
                 }
-
-                
-                fetchAktuels()                     
-             
+                fetchAktuels()
             }
-
-
 
             function loadAktuelOlContainer(aktuelContainerID){
                 var query = getParameterByName('q')
                 var aktuelList = []
                 var aktuelOlContainer;
-
                 if (aktuelContainerID){
                     aktuelOlContainer = $("#" + aktuelContainerID);
                 }else{
@@ -362,10 +346,7 @@
                 var initalURL = aktuelOlContainer.attr("data-url") || "/api/aktuel/";        
 
                 function formatOlAktuel(aktuelValue){
-
                     aktuelContent = "<li><img src='" + aktuelValue.image_aktuel.normal + "' style='height:75px; max-width:75px; alt='' /></li>"
-
-
                     return aktuelContent
                 }
 
@@ -374,10 +355,8 @@
                         aktuelValue = value
                         aktuelOlFormattedHtml = formatOlAktuel(aktuelValue)
                         aktuelOlContainer.append(aktuelOlFormattedHtml)
-
                     })
                 }
-
 
                 function fetchAktuels(url){                   
                     var fetchUrl;
@@ -403,11 +382,8 @@
                         },
                     })            
                 }
-                
-                fetchAktuels()          
-             
+                fetchAktuels()
             }
-
 
             function loadAktuelDetailContainer(aktuelContainerID, fethOneID, fethOneSlug){
                 var query = getParameterByName('q')
@@ -422,17 +398,12 @@
                 }else{
                     aktuelDetailContainer = $("#aktuel-detail-container");
                 }
-
                 var initalURL = aktuelDetailContainer.attr("data-url") || "/api/aktuel/";
 
                 function formatAktuelDetail(aktuelDetailValue){
                     aktuelDetailContent = "<div class='col-md-4 col-sm-4'><div class='xt-feature'><div class='product-img'><img src='" + aktuelDetailValue.image_prod_first + "' alt='' class='img-responsive'><span class='product-tag xt-uppercase'>" + aktuelDetailValue.name + "</span></div><div class='product-info'><div class='product-title'><span class='category xt-uppercase'>" + aktuelDetailValue.name + "</span><span class='name xt-semibold'>" + aktuelDetailValue.title + "</span></div><div class='price-tag pull-right'><span class='old-price'>" + aktuelDetailValue.name + "</span><span class='new-price xt-semibold'>" + aktuelDetailValue.price + "</span></div><div class='xt-featured-caption'><div class='product-title'><span class='category xt-uppercase'>" + aktuelDetailValue.name + "</span><span class='name xt-semibold'>" + aktuelDetailValue.title + "</span></div><div class='price-tag pull-right'><span class='old-price'>" + aktuelDetailValue.name + "</span><span class='new-price xt-semibold'>" + aktuelDetailValue.price + "</span></div><div class='add-cart'><a href='' class='btn btn-fill'>Add to cart</a><ul class='reaction'><li><a href=''><i class='fa fa-search'></i></a></li><li><a href=''><i class='fa fa-heart-o'></i></a></li><li><a href=''><i class='fa fa-bar-chart-o'></i></a></li></ul></div></div></div></div></div>"
-                    
-                    
                     return aktuelDetailContent
                 }
-
-
 
                 function parseAktuelDetails(){
                     $.each(aktuelProductDetailList, function(key, value){
@@ -442,10 +413,8 @@
                     })
                 }
 
-
                 function fetchDetailAktuel(url){
                     var fetchDetailUrl = '/api/aktuel/' + fethOneID + '/';
-
                     $.ajax({
                       url : fetchDetailUrl,
                         method : "GET",
@@ -463,14 +432,9 @@
                 fetchDetailAktuel()              
             }
 
-
             /////////           COMPANIES            /////////
 
-
-
             function loadCompanyContainer(companyContainerID, fetchCompanyId){
-                console.log("Its Ok")
-
                 var query = getParameterByName('q')
                 var companyList = []
                 var companyDetail = []
@@ -483,14 +447,12 @@
                     companyDetailContainer = $("#company-detail-container");
                     var initalDetailURL = companyDetailContainer.attr("data-url") || "/api/company/" + fetchCompanyId + "/product/ ";
                 }
-
                 if (companyContainerID){
                     companyContainer = $("#" + companyContainerID);
                 }else{
                     companyContainer = $("#company-container");
                 }
                 var initalURL = companyContainer.attr("data-url") || "/api/company/";
-
 
                 function formatCompany(companyValue, secondCompanyFormattedHtml, thirdCompanyFormattedHtml, fourthCompanyFormattedHtml){
                     // If not exist second Company
@@ -500,34 +462,23 @@
                     else{
                         companyContent = "<li><a href='/companies/"+ companyValue.id +"/' ><i class='fa flaticon-" + companyValue.company_logo + "'></i>" + companyValue.company_name + "</a></li>"
                     }
-
                     return companyContent
                 }
 
                 function formatSecondCompany(secondCompanyValue){
                     secondCompanyContent = "<li id='secondCompanyID' class='secondCompanyClass " + secondCompanyValue.id + "'><a href='/companies/"+ secondCompanyValue.id +"/' >" + secondCompanyValue.company_name + "</a></li>"
-
-
                     return secondCompanyContent
-
                 }
 
                 function formatThirdCompany(thirdCompanyValue, secondCompanyValue){
-
                     thirdCompanyContent = "<li class='thirdCompanyClass " + secondCompanyValue.id + " " + thirdCompanyValue.id + "   '><a href='/companies/"+ thirdCompanyValue.id +"/' >" + thirdCompanyValue.company_name + "</a></li>"
-
                     return thirdCompanyContent
-
                 }
 
                 function formatFourthCompany(fourthCompanyValue, thirdCompanyValue){
-
                     fourthCompanyContent = "<li class='fourthCompanyClass " + thirdCompanyValue.id + "'><a href='/companies/"+ fourthCompanyValue.id +"/' >" + fourthCompanyValue.company_name + "</a></li>"
-
                     return fourthCompanyContent
-
                 }
-
 
                 function parseCompanies(){
                     if(companyList == 0 && companyDetail == 0){
@@ -577,25 +528,16 @@
 
                 function formatSingleCompany(companyValue){
                     companyContent = "<div class='col-md-4 col-sm-4'><div class='xt-feature'><a href='/products/" + companyValue.id + "'><div class='product-img'><img src='" + companyValue.image_prod_first + "' alt='' class='img-responsive'><span class='product-tag xt-uppercase'>" + companyValue.company.company_name + "</span></div></a><div class='product-info'><div class='product-title'><span class='company xt-uppercase'>" + companyValue.name + "</span><span class='name xt-semibold'>" + companyValue.title + "</span></div><div class='price-tag pull-right'><span class='old-price'>" + companyValue.company.company_name + "</span><span class='new-price xt-semibold'>" + companyValue.price + "</span></div><div class='xt-featured-caption'><div class='product-title'><span class='company xt-uppercase'>" + companyValue.name + "</span><span class='name xt-semibold'>" + companyValue.title + "</span></div><div class='price-tag pull-right'><span class='old-price'>" + companyValue.company.company_name + "</span><span class='new-price xt-semibold'>" + companyValue.price + "</span></div><div class='add-cart'><a href='' class='btn btn-fill'>Add to cart</a><ul class='reaction'><li><a href=''><i class='fa fa-search'></i></a></li><li><a href=''><i class='fa fa-heart-o'></i></a></li><li><a href=''><i class='fa fa-bar-chart-o'></i></a></li></ul></div></div></div></div></div>"
-
-
                     return companyContent
                 }
-
 
                 function parseSingleCompanies(){
                     $.each(companyDetail, function(key, value){
                         companyValue = value
                         companyFormattedHtml = formatSingleCompany(companyValue)
                         companyDetailContainer.append(companyFormattedHtml)
-
                     })
-
                 }
-
-
-
-
 
                 function fetchCompanies(url){
                     var fetchUrl;
@@ -611,10 +553,7 @@
                         },
                         method: "GET",
                         success: function(data){
-                            console.log(data)
                             companyList = data
-
-
                             parseCompanies()
                         },
                         error: function(data){
@@ -624,9 +563,7 @@
                     })
                 }
 
-
                 if(fetchCompanyId){
-
                     function bigPrice(url){
                         var priceDetailUrl = '/api/company/' + fetchCompanyId + '/' + "product/"
                         return $.ajax({
@@ -647,15 +584,9 @@
                 }else{
                     fetchCompanies()
                 }
-
-
             }
 
-
-
             /////////           CATEGORIES            /////////
-
-
 
             function loadCategoryContainer(categoryContainerID, fetchCategoryId){
                 var query = getParameterByName('q')
@@ -939,8 +870,6 @@
                     
                 }
 
-
-
                 function formatProduct(productValue){
                     $.each(productValue, function(key, value){
 
@@ -976,7 +905,6 @@
                     return productSingleContent
                 }
 
-
                 function parseSingleProduct(){
                     if(productList == 0){
                         productContainer.text("Ürün Yok.")
@@ -990,7 +918,6 @@
                         })
                    }                    
                 }
-
 
                 function fetchProducts(url){
                     var fetchUrl;
@@ -1055,9 +982,6 @@
                     return productTopFeaturedContent
                 }
 
-
-
-
                 function parseTopFeaturedProduct(){
                     $.each(productList, function(key, value){
                         productKey = key // index numbers
@@ -1066,9 +990,6 @@
                         productTopFeaturedContainer.append(productTopFeaturedFormattedHtml)
                     })
                 }
-
-
-
 
                 function fetchTopFeatured(){
                     var fetchTopUrl = '/api/product/featured/'
@@ -1086,12 +1007,10 @@
                     })
                 }                
 
-
                 function formatProductsCategory(productValue){
                     productCategoryContent = "<div class='xt-each-feature'><div class='xt-feature'><a href='/products/" + productValue.id + "'><div class='product-img'><img src='" + productValue.slug.image_prod_first.normal + "' alt='' class='img-responsive'><span class='product-tag xt-uppercase'>sale!</span></div></a><div class='product-info'><div class='product-title'><span class='category xt-uppercase'>" + productValue.name + "</span><span class='name xt-semibold'>" + productValue.title + "</span></div><div class='price-tag pull-right'><span class='new-price xt-uppercase'>" + productValue.name + "</span><span class='new-price xt-semibold'>" + productValue.price + " TL</span></div><div class='xt-featured-caption'><div class='product-title'><span class='category xt-uppercase'>" + productValue.name + "</span><span class='name xt-semibold'>" + productValue.name + "</span></div><div class='price-tag pull-right'><span class='new-price xt-uppercase'>" + productValue.name + "</span><span class='new-price xt-semibold'>" + productValue.name + " TL</span></div><div class='add-cart'><form action='/carts/cart/add/" + productValue.id + "/' method='GET'>{% csrf_token %}{{ cart_product_form }}<input type='submit' value='Sepete Ekle' class='btn btn-fill'></form><ul class='reaction'><span class='product-offer'>" + productValue.name + "></span></ul></div></div></div></div></div>"
                     return productCategoryContent
                 }
-
 
                 function parseProductsCategory() {
                     $.each(productList, function(key, value){
@@ -1100,9 +1019,7 @@
                         productCategoriesFormattedHtml = formatProductsCategory(productValue) // product format function
                         productCategoriesContainer.append(productCategoriesFormattedHtml)
                     })
-
                 }
-
 
                 function fetchProductsCategory(centerCategoryID){
                     var fetchProductCategoryUrl = '/api/category/' + centerCategoryID + '/product/'
@@ -1120,14 +1037,11 @@
                     })                    
                 }
 
-
                 function formatProductsCategoryHeader(headerValue){
-
                     productCategoryHeader = "<div id='" + headerValue.id + "' class='xt-item'><i class='fa flaticon-" + headerValue.category_logo + "'></i><span>" + headerValue.category_name + "</span></div>"
                     return productCategoryHeader
 
                 }
-
 
                 function parseProductsCategoryHeader(){                  
                     $.each(headerList, function(key, value){
@@ -1136,9 +1050,7 @@
                         productCategoriesHeaderFormattedHtml = formatProductsCategoryHeader(headerValue) // product format function
                         productCategoriesHeaderContainer.append(productCategoriesHeaderFormattedHtml)
                     })
-                   
                 }
-
 
                 function fetchProductsCategoryHeader(){
                     var fetchProductCategoryHeaderUrl = '/api/category/'                
@@ -1158,7 +1070,6 @@
 
                 if(fethOneID){
                     if(productContainerID == 'search-products'){
-
                         function bigPrice(url){
                             var priceDetailUrl = '/api/product/?q='
                             return $.ajax({
@@ -1214,20 +1125,12 @@
                     }
                     else{
                         fetchSingle(fethOneID)
-
                     }
-
                 }else{
                     fetchProducts()
-
-                }                              
-
+                }
             }
-
-
-
-        </script>   
-
+        </script>
         <script type="text/javascript">
     
             $(window).load(function(){
@@ -1242,7 +1145,6 @@
 
             $(window).load(function(){
                 setTimeout(function(){
-
                     $('.xt-product-carousel').owlCarousel({
                         loop: true,
                         responsiveClass: true,
@@ -1300,9 +1202,8 @@
 
             $(window).load(function(){
                 setTimeout(function(){
-
                     $( '.thirdCategoryClass' ).each(function( index, item ){ $(item).hide(); });
-                    $( '.fourthCategoryClass' ).each(function( index, item ){ $(item).hide(); });                    
+                    $( '.fourthCategoryClass' ).each(function( index, item ){ $(item).hide(); });
 
                     second_categories = $( '.secondCategoryClass' )
                     first_second_category = second_categories.first();
@@ -1317,7 +1218,6 @@
                     first_fourth_category.addClass('active');                                        
 
                     // Zero Level
-
                     second_categories.hover(function(e) {
                         third_categories.each(function( index, item ){
                             $(item).hide(); 
@@ -1327,20 +1227,16 @@
                     });    
 
                     // First Level
-
                     third_categories.hover(function(e) {
                         fourth_categories.each(function( index, item ){
                             $(item).hide(); 
                             if( item.classList[1] == e.currentTarget.classList[2] ){ $(item).addClass('active'); }else{ $(item).removeClass('active'); }             
                             if (item.classList[2] == 'active') { $(item).show(); }
                         });
-                    });                        
-
+                    });
                     second_categories.hover(function(e) { fourth_categories.each(function( index, item ){$(item).hide();});});
                 }, 1200)
             });
-
-        </script>   
-
+        </script>
 </body>
 </html>
