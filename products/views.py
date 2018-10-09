@@ -85,11 +85,7 @@ class SearchView(TemplateView):
     def get_queries(self):
         keywords = self.request.GET.get('keywords')
         price = self.request.GET.get('price')
-        print(keywords)
-        print(price)
         min_value, max_value = self.get_values()
-        print(min_value)
-        print(max_value)
         if not keywords or len(keywords) < 1:
             result = Product.objects.none()
         else:
