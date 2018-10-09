@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from products.models import Product
 from .cart import Cart
-from cart.forms import CartAddProductForm
+from cart.forms import CartAddProductForm, QuantityForm
 from projectMarket.settings.local import EMAIL_HOST_USER
 from django.core.mail import send_mail
 
@@ -26,9 +26,10 @@ def cart_detail(request):
 
 
 def cart_opt(request, product_id):
+    quantity = QuantityForm(request.POST).data["quantity"]
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
-    cart.update(product)
+    cart.update(product, quantity)
     return redirect('cart:cart_detail')
 
 
