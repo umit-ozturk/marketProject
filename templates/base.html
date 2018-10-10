@@ -493,7 +493,8 @@
                             companyOthers = "<li><a href='/companies/' ><i class='fa flaticon-responsive'></i>Diğer Marketler</a></li>"
 
                         }
-
+                        var companyHead = "<li><a href='/companies/' >Marketler</a></li>";
+                        companyContainer.append(companyHead)
                         $.each(companyList, function(key, value){
                             var secondCompanyValue;
                             var thirdCompanyValue;
@@ -661,7 +662,6 @@
                             categoryOthers = "<li><a href='/categories/' ><i class='fa flaticon-responsive'></i>Diğer Kategoriler</a></li>"
                         
                         }
-
                         $.each(categoryList, function(key, value){
                             var secondCategoryValue;
                             var thirdCategoryValue;
