@@ -58,8 +58,9 @@
                             <td>
                                 <form action="{% url "cart:cart_opt" product.id %}" method="post">
                                     {% csrf_token %}
-                                    <input type="number" step="1" value="{{ item.quantity }}" name="quantity" onchange="clickButton()">
-                                    <input style="display: none;" type="submit" id="submitButton" value="Güncelle" class="btn btn-primary">
+                                    <input type="number" step="1" value="{{ item.quantity }}" name="quantity" onchange="clickButton({{ product.id }})">
+                                    <input style="display: none;" type="number" value="{{ product.id }}" name="product_id">
+                                    <input style="display: none;" type="submit" id="submitButton{{ product.id }}" value="Güncelle" class="btn btn-primary">
                                 </form>
                             </td>
                             <td>
@@ -87,8 +88,8 @@
     </div>
 
 <script>
-    function clickButton() {
-        document.getElementById("submitButton").click();
+    function clickButton(product_id) {
+        document.getElementById("submitButton" + product_id).click();
     }
 </script>
 {% endblock %}

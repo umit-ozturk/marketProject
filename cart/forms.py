@@ -11,3 +11,4 @@ class CartAddProductForm(forms.Form):
 
 class QuantityForm(forms.Form):
     quantity = forms.IntegerField(label='Adet')
+    product_id = forms.IntegerField(label='Ürün Id')

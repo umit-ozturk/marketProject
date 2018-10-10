@@ -28,7 +28,7 @@ def cart_detail(request):
 def cart_opt(request, product_id):
     quantity = QuantityForm(request.POST).data["quantity"]
     cart = Cart(request)
-    product = get_object_or_404(Product, id=product_id)
+    product = get_object_or_404(Product, id=int(product_id))
     cart.update(product, quantity)
     return redirect('cart:cart_detail')
 
