@@ -933,7 +933,9 @@
                         },
                         method: "GET",
                         success: function(data){
+                            console.log(data)
                             productList = data.results
+                            console.log(productList)
                             if(data.next){
                                 nextProductUrl = data.next
                             }

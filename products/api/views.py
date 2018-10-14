@@ -1,7 +1,7 @@
 from rest_framework import generics
 from django.db.models import Q
-from products.models import Product
-from django.db.models import Min
+from products.models import Product, ProductInfo
+from itertools import chain
 from .pagination import (
     FeaturedResultsPagination,
     StandartMainPageProductResultsPagination
@@ -29,7 +29,8 @@ class ProductListAPIView(generics.ListAPIView):
     pagination_class = StandartMainPageProductResultsPagination
 
     def get_queryset(self, *args, **kwargs):
-        qs = Product.objects.all()
+        qs_id_list = ProductSlugAPIView.product_for_slug_min_price()
+        qs = Product.objects.filter(id__in=qs_id_list)
         query = self.request.GET.get("q", None)
         if query is not None:
             qs = qs.filter(
@@ -55,11 +56,16 @@ class ProductSlugAPIView(generics.ListAPIView):
 
     def get_queryset(self, *args, **kwargs):
         slug = self.kwargs.get("slug")
-        qs = Product.objects.filter(slug__slug=slug).order_by("price").first()
+        qs = [Product.objects.filter(slug__slug=slug).order_by("price").first()]
         return qs
 
     @staticmethod
-    def same_product(self, *args, **kwargs):
-        slug = self.kwargs.get("slug")
-        qs = Product.objects.filter(slug__slug=slug)
+    def product_for_slug_min_price():
+        slug_list = ProductInfo.objects.all().values_list('id', flat=True)
+        none_qs = Product.objects.none()
+        prod_list = []
+        for slug in slug_list:
+            single_prod = Product.objects.filter(slug_id=slug).order_by("price").first()
+            prod_list.append(single_prod.id)
+        qs = list(chain(none_qs, prod_list))
         return qs
