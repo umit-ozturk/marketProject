@@ -1,4 +1,7 @@
 /projectMarket/settings/local_settings.py
+/projectMarket/settings/production.py
+/projectMarket/settings/base.py
+/projectMarket/settings/local.py
 credentials.dat
 
 celerybeat-schedule.db
