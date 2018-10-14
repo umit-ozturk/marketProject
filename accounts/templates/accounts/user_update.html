@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block script %}
+<script>
+	$("#UserPhoto").click(function(e) {
+	    $("#userphoto").click();
+	});
+
+
+function fasterPreview( uploader ) {
+    if ( uploader.files && uploader.files[0] ){
+          $('#UserPhoto').attr('src', 
+             window.URL.createObjectURL(uploader.files[0]) );
+    }
+}
+
+$("#userphoto").change(function(){
+	console.log($("#Userphoto"))
+	console.log($("#userphoto"))
+    fasterPreview( this );
+});
+</script>
+{% endblock %}
+{% block content %}
+	<style type="text/css">	
+		.btn-primary{
+			margin-left: 5px; 
+		}
+		.btn-primary:hover{
+			background-color: #f26667;
+			border-color: #f26667;
+		}
+
+	</style>
+
+
+	<div class="container">
+	  <div class="row">
+	    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 col-xs-offset-0 col-sm-offset-0 col-lg-offset-3 toppad" >
+
+
+	      <div class="panel panel-info" style="border-color: #f26667;">
+	        <div class="panel-heading" style="background-color: #f26667; color: #000;">
+	          <h3 class="panel-title" style="font-weight:800; font-size: 20px; color:#424242;"> {{user}}</h3>
+	        </div>
+	        <div class="panel-body">
+
+	          <div class="row">
+	          	{% crispy form %}
+	          	<button type="submit" value="submit"></button>
+	          </div>
+	        </div>
+	             <div class="panel-footer">
+	                    <a href="/profile/{{user}}/update/" data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-primary"><i class="flaticon flaticon-settings" style="padding-right: 15px; font-weight:500;"></i></a>
+	                    <span class="pull-right">
+	                        <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-danger"><i class="flaticon flaticon-email" style="padding-right: 15px; font-weight:500;"></i></a>
+	                    </span>
+	                </div>
+	        
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+{% endblock content %}

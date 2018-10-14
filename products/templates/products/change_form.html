@@ -1,0 +1,61 @@
+{% extends "admin/change_form.html" %}
+{% load i18n admin_urls static admin_list %}
+{% block extrastyle %}
+    {{ block.super }}
+    <link type="text/css" href="{% static 'easy_autocomplete/easy-autocomplete.min.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'search_admin_autocomplete/css/styles.css' %}" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" crossorigin="anonymous"></script>
+    <script src="{% static 'easy_autocomplete/jquery.easy-autocomplete.js' %}"></script>
+    <script type="text/javascript">
+
+        if (window.location.href.includes('/add/')){
+            $(window).load(function () {
+                var pickUpLoop = setInterval(function () {
+                    if ($("#select2-id_slug-container").attr("title")) {
+                        clearInterval(pickUpLoop);
+
+                        function formatPrintProductData(productValue) {
+                            document.getElementById("id_name").value = productValue.name;
+                            document.getElementById("id_title").value = productValue.title;
+                            document.getElementById("id_price").value = productValue.price;
+                            document.getElementById("id_old_price").value = productValue.old_price;
+                            CKEDITOR.instances['id_content'].setData(productValue.content);
+                            CKEDITOR.instances['id_feature'].setData(productValue.feature);
+                        }
+
+                        function parseProductsCategory() {
+                            $.each(productList, function (key, value) {
+                                productKey = Object.keys(value);
+                                productValue = value;
+
+                                formatPrintProductData(productValue)
+                            });
+                        }
+
+                        function fetchProductsAdmin(slug) {
+                            var fetchProductAdminUrl = '/api/product/' + slug;
+                            $.ajax({
+                                url: fetchProductAdminUrl,
+                                method: "GET",
+                                success: function (data) {
+                                    productList = data;
+                                    parseProductsCategory()
+                                },
+                                error: function (data) {
+                                    console.log("error");
+                                    console.log(data)
+                                },
+                            })
+                        }
+
+                        var slug = $("#select2-id_slug-container")[0].lastChild.data;
+                        fetchProductsAdmin(slug);
+                    }
+                    else {
+                        console.log("Başarısız");
+                    }
+                }, 1000)
+            });
+        }
+    </script>
+{% endblock %}
