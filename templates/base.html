@@ -297,7 +297,7 @@
                 var initalURL = aktuelUlContainer.attr("data-url") || "/api/aktuel/";
 
                 function formatUlAktuel(aktuelValue){
-                    aktuelContent = "<li><img src='" + aktuelValue.image_aktuel_comp.normal + "' style='max-height:645px;' alt='Slider Aktuel' /><div class='slide_text'><a href='/aktuels/" + aktuelValue.slug + "' class='btn' style='width: 100%;border: none;height: 100%;'></a></div></li>"
+                    aktuelContent = "<li><img src='" + aktuelValue.image_aktuel_comp.normal + "' style='max-height:465px;' alt='Slider Aktuel' /><div class='slide_text'><a href='/aktuels/" + aktuelValue.slug + "' class='btn' style='width: 100%;border: none;height: 100%;'></a></div></li>"
                     return aktuelContent
                 }
                 function parseAktuels(){                    
@@ -493,7 +493,7 @@
                             companyOthers = "<li><a href='/companies/' ><i class='fa flaticon-responsive'></i>Diğer Marketler</a></li>"
 
                         }
-                        var companyHead = "<li><a href='/companies/' >Marketler</a></li>";
+                        var companyHead = "<li><a style='background:#555555; height:40px; text-color:#fff;' href='/companies/' >Marketler</a></li>";
                         companyContainer.append(companyHead)
                         $.each(companyList, function(key, value){
                             var secondCompanyValue;
@@ -656,9 +656,9 @@
                     // product exist, parse & display them
 
                         // Main Category Listing
-                        if(categoryList.length >= 19){
+                        if(categoryList.length >= 12){
                             var categoryOthers;
-                            categoryList.splice(9, categoryList.length)
+                            categoryList.splice(14, categoryList.length)
                             categoryOthers = "<li><a href='/categories/' ><i class='fa flaticon-responsive'></i>Diğer Kategoriler</a></li>"
                         
                         }
@@ -877,7 +877,7 @@
                             productValue[key] = textTruncated(value, 15)
                         }
                     })
-                    productContent = "<div class='xt-each-feature'><div class='xt-feature'><a href='/products/" + productValue.id + "'><div class='product-img'><img src='" + productValue.slug.image_prod_first.normal + "' alt='' class='img-responsive img-thumbnail' style='border: none; display: block;max-height: 200px; min-height: 200px;'><span class='product-tag xt-uppercase' style='font-size:13px; font-weigth:800;'>%" + productValue.get_sale_percent + "</span></div></a><div class='product-info'><div class='product-title'><span class='category xt-uppercase'>" + productValue.name + "</span><span class='name xt-semibold'>" + productValue.title + "</span></div><div class='price-tag pull-right'><span class='new-price xt-uppercase'>" + productValue.name +"</span><span class='new-price xt-semibold'>" + productValue.price + " TL</span></div><div class='xt-featured-caption'><div class='product-title'><span class='category xt-uppercase'>" + productValue.name + "</span><span class='name xt-semibold'>" + productValue.name + "</span></div><div class='price-tag pull-right'><span class='new-price xt-uppercase'>" + productValue.title + "</span><span class='new-price xt-semibold'>" + productValue.price + " TL</span></div><div class='add-cart'><form style='position: absolute;' action='/carts/cart/add/" + productValue.id + "/' method='GET'>{% csrf_token %}{{ cart_product_form }}<input type='submit' value='Sepete Ekle' class='btn btn-fill'></form><ul class='reaction'><span class='product-offer'>(" + productValue.slug.get_slug_count + ") Fiyat Var</span></ul></div></div></div></div></div>"
+                    productContent = "<div class='xt-each-feature'><div class='xt-feature'><a href='/products/" + productValue.id + "'><div class='product-img'><img src='" + productValue.slug.image_prod_first.normal + "' alt='' class='img-responsive img-thumbnail' style='border: none; display: block;max-height: 200px;'><span class='product-tag xt-uppercase' style='font-size:13px; font-weigth:800;'>%" + productValue.get_sale_percent + "</span></div></a><div class='product-info'><div class='product-title'><span class='category xt-uppercase'>" + productValue.name + "</span><span class='name xt-semibold'>" + productValue.title + "</span></div><div class='price-tag pull-right'><span class='new-price xt-uppercase'>" + productValue.name +"</span><span class='new-price xt-semibold'>" + productValue.price + " TL</span></div><div class='xt-featured-caption'><div class='product-title'><span class='category xt-uppercase'>" + productValue.name + "</span><span class='name xt-semibold'>" + productValue.name + "</span></div><div class='price-tag pull-right'><span class='new-price xt-uppercase'>" + productValue.title + "</span><span class='new-price xt-semibold'>" + productValue.price + " TL</span></div><div class='add-cart'><form style='position: absolute;' action='/carts/cart/add/" + productValue.id + "/' method='GET'>{% csrf_token %}{{ cart_product_form }}<input type='submit' value='Sepete Ekle' class='btn btn-fill'></form><ul class='reaction'><span class='product-offer'>(" + productValue.slug.get_slug_count + ") Fiyat Var</span></ul></div></div></div></div></div>"
 
                     return productContent
                 }
@@ -1157,7 +1157,7 @@
                         navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa  fa-chevron-right'></i>"],
                         responsive:{
                             0:{
-                                items: 1,
+                                items: 2,
                                 nav: true
                             },
                             768:{
@@ -1165,7 +1165,7 @@
                                 nav:true
                             },
                             992:{
-                                items: 4,
+                                items: 5,
                                 nav:true
                             }
                         }

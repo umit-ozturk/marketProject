@@ -53,10 +53,10 @@
                                   </button>
                                   <a class="navbar-brand" href="/"><img src="{% static 'images/flogo.png' %}" alt="" class="img-responsive"></a>
                                 </div>
-                                <div class="col-md-7" style="width: 58.000%;">
+                                <div class="col-md-7" style="width: 38.000%;float:left;">
                                     {% include 'products/search_form.html' %}
                                 </div>
-                                <div class="collapse navbar-collapse" id="js-navbar-menu">
+                                <div class="collapse navbar-collapse" id="js-navbar-menu" style="float:right">
                                     <ul class="nav navbar-nav navbar-right ep-mobile-menu" id="navbar-nav">
                                         <li><a href="/register"> Üye Ol </a></li>
                                         <li><a href="/login"> Gİrİş Yap </a></li>
@@ -80,7 +80,7 @@
                                             <ul class="xt-dropdown" id="category-container" data-url="/api/category/">
                                                 {% include 'categories/category_list.html' %}
                                             </ul>
-                                            <ul class="xt-dropdown" style="margin-top: 200%" id="company-container" data-url="/api/company/">
+                                            <ul class="xt-dropdown" style="margin-top: 116%" id="company-container" data-url="/api/company/">
                                                 {% include 'categories/category_list.html' %}
                                             </ul>
                                         </li>

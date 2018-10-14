@@ -67,7 +67,7 @@
         <div class="clearfix"></div>
 
         
-        <div class="xt-product-description">   <br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <div class="xt-product-description">
             <div class="container">
                 <div class="row section-separator">
                     <aside class="col-md-3">
@@ -90,6 +90,9 @@
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs xt-single-item-tab" role="tablist" id="xt-product-dec-nav">
                                 <li role="presentation" class="active">
+                                    <a href="#review" aria-controls="review" role="tab" data-toggle="tab">Diğer Fiyatlar({{ object.slug.get_slug_count }})</a>
+                                </li>
+                                <li role="presentation" class="">
                                     <a href="#description" aria-controls="description" role="tab" data-toggle="tab">Tanıtım</a>
                                 </li>
                                 <li role="presentation" class="">
@@ -102,7 +105,7 @@
                             
                             <!-- Tab panes -->
                             <div class="tab-content xt-tab-content">
-                                <div role="tabpanel" class="tab-pane xt-pane xt-description fade in active" id="description">
+                                <div role="tabpanel" class="tab-pane xt-pane xt-description fade" id="description">
                                     <h3>{{ object.name }}</h3>
                                     <b>{{ object.title }}</b><br>
 
@@ -113,12 +116,12 @@
                                     
                                     {{ object.feature|safe }}
                                 </div>
-                                <div role="tabpanel" class="tab-pane xt-pane xt-review fade" id="review">
+                                <div role="tabpanel" class="tab-pane xt-pane xt-review fade in active" id="review">
                                     <h4>Diğer Fiyatlar({{ object.slug.get_slug_count }})</h4><br>
                                     <table class="another_prices">
                                         <thead style="">
                                             <tr class="another_prices_tr_head">
-                                                        <th style="margin-bottom:20px;">Resim</th>
+                                                        <th style="margin-bottom:20px;text-align: center;">Resim</th>
                                                         <th>Ürün</th>
                                                         <th>Şirket</th>
                                                         <th>Fiyat</th>                 
@@ -129,14 +132,15 @@
                                                 <tr class="another_prices_tr">
                                                     <td>
                                                         <a href="{{ item.get__absolute_url }}">
-                                                            
-                                                            <img src="/media/{{ item.slug.image_prod_first }}" alt="..." style="max-height: 125px; min-height:125px; width:125px; margin-bottom:20px;">
+                                                            <div class="cartdetailimg">
+                                                                <img src="/media/{{ item.slug.image_prod_first }}" alt="..." style="margin-bottom:10px;">
+                                                            </div>
                                                         </a>
                                                     </td>
                                                     <td>{{ item.name }}</td>
                                                     <td>{{ item.company.company_name }}</td> 
                                                     <td>{{ item.price }} TL</td>
-                                                    <td><form action='/carts/cart/add/{{item.id}}/' method='GET'>{% csrf_token %}{{ cart_product_form }}<input type='submit' value='Sepete Ekle' class='btn btn-fill'></form></td>
+                                                    <td><form action='/carts/cart/add/{{item.id}}/' method='GET'>{% csrf_token %}{{ cart_product_form }}<input type='submit' value='Hesapla' class='btn btn-fill'></form></td>
                                                 </tr>
                                             {% endfor %}
                                         </tbody>

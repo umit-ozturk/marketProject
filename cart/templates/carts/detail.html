@@ -18,7 +18,7 @@
     }
 </style>
     <div class="container">
-        <div class="row" style="overflow-x:auto; margin-top: 6%;">
+        <div class="row" style="margin-top: 6%">
         <h2>Sepetim
             <span class="badge pull-right">
                 {% with totail_items=carts|length %}
@@ -49,8 +49,9 @@
                         <tr>
                             <td>
                                 <a href="{{ product.get__absolute_url }}">
-
-                                    <img src="/media/{{ product.slug.image_prod_first }}" alt="..." style="height: 130px; width: auto">
+                                    <div class="cartdetailimg">
+                                        <img src="/media/{{ product.slug.image_prod_first }}" alt="...">
+                                    </div>
                                 </a>
                             </td>
                             <td class="align-text-middle"><span>{{ product.name }}</span></td>
