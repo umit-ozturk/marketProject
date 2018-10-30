@@ -275,7 +275,7 @@ a:focus {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #f26667;
+  background: #0288D1;
   color: #fff;
   border-color: transparent;
   -webkit-transform: scaleY(0);
@@ -328,7 +328,7 @@ a:focus {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #f26667;
+  background: #0288D1;
   color: #fff;
   border-color: transparent;
   -webkit-transform: scaleY(0);
@@ -405,12 +405,12 @@ a:focus {
   margin-left: 15px;
 }
 .btn.btn-fill {
-  background-color: #f26667;
+  background-color: #0288D1;
   color: #fff;
   border-color: transparent;
 }
 .btn.btn-fill:hover {
-  background-color: #f04e50;
+  background-color: #01579B;
   border-color: transparent;
 }
 .btn.btn-border {
@@ -551,7 +551,7 @@ a:focus {
 }
 .subscription-failed,
 .email-failed {
-  color: #FF5252 !important;
+  color: #0277BD !important;
 }
 .subscription-failed .icon,
 .email-failed .icon {
@@ -920,11 +920,11 @@ p {
   border-color: #fff;
 }
 .btn-border:hover {
-  background-color: #f26667;
+  background-color: #0288D1;
   color: #fff;
 }
 .btn-base {
-  background-color: #f26667;
+  background-color: #0288D1;
   color: #fff;
   border-color: transparent;
 }
@@ -938,11 +938,11 @@ p {
   margin: 90px 0;
 }
 .xt-color-bg {
-  background-color: #f26667;
+  background-color: #0288D1;
   color: #fff;
 }
 .main-color {
-  color: #f26667;
+  color: #0288D1;
 }
 .white-bg {
   background-color: #fff;
@@ -973,7 +973,7 @@ p {
   text-align: center;
 }
 .main-color-bg {
-  background-color: #0620debd;
+  background-color: #0288D1;
   color: #fff;
 }
 .margin-top-o {
@@ -998,7 +998,7 @@ p {
   margin-bottom: 5px;
 }
 .section-title h2 span {
-  color: #f26667;
+  color: #0288D1;
 }
 .section-title p {
   font-size: 18px;
@@ -1014,6 +1014,7 @@ ul li {
 }
 .xt-semibold {
   font-weight: 600;
+  font-size: 12px;
 }
 .xt-uppercase {
   text-transform: uppercase;
@@ -1065,7 +1066,7 @@ ul li {
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 .form-control:focus {
-  border-color: #f26667;
+  border-color: #0288D1;
   outline: 0;
   -webkit-box-shadow: inset 0 0px 0px transparent, 0 0 0px transparent;
   box-shadow: inset 0 0px 0px transparent, 0 0 0px transparent;
@@ -1208,7 +1209,7 @@ ul li {
 }
 .dropdowna {list-style:none;}
 .navbar-nav .dropdown li:hover a {
-  color: #f26667;
+  color: #0288D1;
   -webkit-transition: all 0.4s ease-out;
   -moz-transition: all 0.4s ease-out;
   -o-transition: all 0.4s ease-out;
@@ -1218,19 +1219,19 @@ ul li {
   -moz-osx-font-smoothing: grayscale;
 }
 .navbar-nav .dropdown.open a {
-  color: #f26667;
+  color: #0288D1;
   background-color: transparent;
 }
 .navbar-nav .dropdown.open a:focus {
-  color: #f26667;
+  color: #0288D1;
   background-color: transparent;
 }
 .navbar-nav .dropdown.open a:active {
-  color: #f26667;
+  color: #0288D1;
   background-color: transparent;
 }
 .navbar-nav .dropdown.open .dropdown-menu {
-  color: #f26667;
+  color: #0288D1;
 }
 .navbar-nav .dropdown.open .dropdown-menu li a {
   color: #000;
@@ -1238,16 +1239,16 @@ ul li {
   -webkit-transform: translate3d(0, 0, 0);
 }
 .navbar-nav .dropdown.open .dropdown-menu li a:hover {
-  color: #f26667;
+  color: #0288D1;
   -webkit-transform: translateX(10px);
   transform: translateX(10px);
 }
 .navbar-nav .dropdown.open .dropdown-menu li a:focus {
-  color: #f26667;
+  color: #0288D1;
 }
 .dropdown-menu > li.open > a {
   background-color: transparent;
-  color: #f26667 !important;
+  color: #0288D1 !important;
   text-decoration: none;
 }
 .nav .open > a,
@@ -1269,7 +1270,7 @@ ul li {
   border-top: 2px solid transparent;
 }
 .navbar-nav > li > a.sign-up {
-  border: 3px solid #f26667;
+  border: 3px solid #0288D1;
   border-radius: 30px;
   padding: 15px 30px;
 }
@@ -1287,22 +1288,22 @@ ul li {
 }
 .navbar-nav > li > a:hover:before,
 .navbar-nav > li > a:focus:before {
-  background: #f26667;
-  color: #f26667;
+  background: #0288D1;
+  color: #0288D1;
   width: 100%;
 }
 .navbar-nav > li > a:hover,
 .navbar-nav > li > a:focus {
   background: none;
-  color: #f26667;
+  color: #0288D1;
 }
 .navbar-nav li.active a:before {
-  color: #f26667;
-  background: #f26667;
+  color: #0288D1;
+  background: #0288D1;
   width: 100%;
 }
 .navbar-nav li.active a {
-  color: #f26667;
+  color: #0288D1;
 }
 .navbar-right .dropdown-menu .dropdown-menu {
     right: 110%;
@@ -1345,13 +1346,13 @@ ul li {
   top: 25px;
 }
 .mean-container .mean-nav ul li a.mean-expand {
-  background-color: #f26667;
+  background-color: #0288D1;
 }
 .mean-container .mean-nav ul li a.mean-expand:hover {
-  background-color: #f26667;
+  background-color: #0288D1;
 }
 .mean-container .mean-nav ul li {
-  border-color: #f26667;
+  border-color: #0288D1;
 }
 .xt-header .strict {
   background-color: #fff;
@@ -1447,9 +1448,14 @@ ul li {
   left: 20px;
   font-size: 10px;
   font-weight: 600;
-  background: #f26667;
+  background: #0288D1;
   padding: 0px 8px;
   color: #fff;
+}
+
+.product-offer{
+  font-weight: 600;
+  font-size: 10px;
 }
 .xt-feature .product-info {
   padding-top: 20px;
@@ -1460,6 +1466,7 @@ ul li {
 }
 .xt-feature .product-title span {
   display: block;
+  font-size: 12px;
 }
 .xt-feature .product-title span.category {
   font-size: 12px;
@@ -1467,6 +1474,7 @@ ul li {
 }
 .xt-feature .price-tag span {
   display: block;
+  font-size: 11px;
 }
 .xt-feature .price-tag span.old-price {
   opacity: 0.7;
@@ -1497,8 +1505,9 @@ ul li {
   margin-top: 20px;
 }
 .xt-feature .xt-featured-caption .add-cart .btn {
-  padding: 0px 5px;
-  font-size: 12px;
+    padding: 0px 0px;
+    font-weight: 900;
+    font-size: 12px;
 }
 .xt-feature .xt-featured-caption .add-cart .reaction {
   display: inline;
@@ -1524,13 +1533,13 @@ ul li {
 }
 .xt-product-slide .xt-carousel {
   padding: 40px 0;
-  background-color: #f26667;
+  background-color: #0288D1;
 }
 .xt-product-slide .xt-item {
-  background: #f26667;
+  background: #0288D1;
   color: #fff;
   text-align: center;
-  border-right: 1px solid #d14648;
+  border-right: 1px solid #01579B;
 }
 .xt-product-slide .xt-item .fa {
   display: block;
@@ -1616,7 +1625,7 @@ ul li {
   height: 150px;
   width: 150px;
   border-radius: 50%;
-  border: 5px solid rgba(242, 102, 103, 0.2);
+  border: 5px solid #0288D1;
 }
 .xt-grid-post img {
   margin-bottom: 30px;
@@ -1633,7 +1642,7 @@ ul li {
   margin-bottom: 30px;
 }
 .xt-grid-post .grid-content a:hover {
-  color: #f26667;
+  color: #0288D1;
 }
 .xt-grid-post .grid-content p {
   font-size: 14px;
@@ -1669,11 +1678,11 @@ ul li {
 }
 .xt-subscribe .form-control:focus {
   border-color: transparent;
-  -webkit-box-shadow: 0px 0px 7px #f26667 ;
-  -moz-box-shadow: 0px 0px 7px #f26667 ;
-  -ms-box-shadow: 0px 0px 7px #f26667 ;
-  -o-box-shadow: 0px 0px 7px #f26667 ;
-  box-shadow: 0px 0px 7px #f26667 ;
+  -webkit-box-shadow: 0px 0px 7px #0288D1 ;
+  -moz-box-shadow: 0px 0px 7px #0288D1 ;
+  -ms-box-shadow: 0px 0px 7px #0288D1 ;
+  -o-box-shadow: 0px 0px 7px #0288D1 ;
+  box-shadow: 0px 0px 7px #0288D1 ;
 }
 .xt-social {
   float: right;
@@ -1697,7 +1706,7 @@ ul li {
   color: #fff;
 }
 .xt-social ul li a:hover {
-  color: #f26667;
+  color: #0288D1;
 }
 .footer-widget h4 {
   margin-bottom: 30px;
@@ -1713,10 +1722,10 @@ ul li {
   text-transform: capitalize;
 }
 .footer-widget ul li a:hover {
-  color: #f26667;
+  color: #0288D1;
 }
 .footer-widget ul li a .fa {
-  color: #f26667;
+  color: #0288D1;
   margin-right: 10px;
 }
 .footer-contact img {
@@ -1726,7 +1735,7 @@ ul li {
   width: 20%;
   display: block;
   float: left;
-  color: #f26667;
+  color: #0288D1;
   font-size: 16px;
   line-height: 26px;
 }
@@ -1741,7 +1750,7 @@ ul li {
 .footer-widget-2 .fa {
   font-size: 26px;
   line-height: 35px;
-  color: #f26667;
+  color: #0288D1;
 }
 .footer-widget-2 .fa:before {
     font-size: 26px;
@@ -1752,7 +1761,7 @@ ul li {
   line-height: 30px;
   margin-top: 0;
   font-family: 'Open Sans', sans-serif;
-  color: #f26667;
+  color: #0288D1;
   font-weight: 600;
 }
 .footer-widget-2 p {
@@ -1795,11 +1804,11 @@ ul li {
 }
 .xt-language ul .dropdown li a:hover {
   background-color: transparent;
-  color: #f26667;
+  color: #0288D1;
 }
 .xt-language ul .dropdown li a:focus {
   background-color: transparent;
-  color: #f26667;
+  color: #0288D1;
 }
 .xt-language ul .dropdown li:first-child {
   border-left: 1px solid #f1f1f1;
@@ -1819,11 +1828,11 @@ ul li {
   font-weight: normal;
 }
 .xt-client-carousel {
-  background: #f857a6;
+  background: #0288D1;
   /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #ff5858, #f857a6);
+  background: -webkit-linear-gradient(to right, #01579B, #0288D1);
   /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #ff5858, #f857a6);
+  background: linear-gradient(to right, #01579B, #0288D1);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .left-menu-wrapper {
@@ -1897,10 +1906,10 @@ ul li {
   padding-left: 15px;
 }
 .xt-dropdown > li > a:hover {
-  color: #f26667;
+  color: #0288D1;
 }
 .xt-dropdown > li > a:focus {
-  color: #f26667;
+  color: #0288D1;
 }
 .xt-dropdown > li > a:focus {
   outline: 0;
@@ -1977,7 +1986,7 @@ ul li {
 
 }
 .xt-single-mega li a:hover {
-  color: #f26667;background-color:#FBE5E8;
+  color: #0288D1;background-color:#FBE5E8;
 }
 .xt-column {
   padding: 20px 0;
@@ -2080,7 +2089,7 @@ nav ul.xt-side-menu > li > ul.xt-dropdown {
   background-color: transparent;
 }
 .xt-dropdown-search .selectize-dropdown-content .option:hover {
-  color: red;
+  color: #01579B;
   background-color: transparent;
 }
 .xt-cart {
@@ -2107,7 +2116,7 @@ nav ul.xt-side-menu > li > ul.xt-dropdown {
   background-color: #fff;
   border-radius: 50%;
   font-size: 14px;
-  color: #f26667;
+  color: #0288D1;
   text-align: center;
   line-height: 18px;
 }
@@ -2119,11 +2128,11 @@ nav ul.xt-side-menu > li > ul.xt-dropdown {
   padding: 4px 20px;
 }
 .xt-lang-dropdown li a:hover {
-  color: #f26667;
+  color: #0288D1;
   background-color: transparent;
 }
 .xt-lang-dropdown li a:focus {
-  color: #f26667;
+  color: #0288D1;
   background-color: transparent;
 }
 .xt-cart-items {
@@ -2134,11 +2143,11 @@ nav ul.xt-side-menu > li > ul.xt-dropdown {
   padding: 1px 20px;
 }
 .xt-cart-items li a:hover {
-  color: #f26667;
+  color: #0288D1;
   background-color: transparent;
 }
 .xt-cart-items li a:focus {
-  color: #f26667;
+  color: #0288D1;
   background-color: transparent;
 }
 .xt-cart-items li a h3 {
@@ -2173,7 +2182,7 @@ nav ul.xt-side-menu > li > ul.xt-dropdown {
   float: right;
 }
 .xt-cart-items li a.process {
-  background-color: #f26667;
+  background-color: #0288D1;
   color: #fff;
   text-align: center;
 }
@@ -2304,7 +2313,7 @@ nav ul.xt-side-menu > li > ul.xt-dropdown {
 .flex-control-nav .flex-active {
   background: #fff;
   color: #000;
-  border-bottom: 2px solid #f26667;
+  border-bottom: 2px solid #0288D1;
 }
 .xt-pro-thumbs-list {
   margin-top: 10px;
@@ -2333,7 +2342,7 @@ nav ul.xt-side-menu > li > ul.xt-dropdown {
   margin-bottom: 10px;
 }
 .each-product-info .single-price {
-  color: #f26667;
+  color: #0288D1;
 }
 .each-product-info .single-price b {
   color: #000;
@@ -2361,7 +2370,7 @@ nav ul.xt-side-menu > li > ul.xt-dropdown {
   margin-right: 10px;
   height: 20px;
   width: 20px;
-  background: red;
+  background: #01579B;
   text-align: center;
   line-height: 19px;
   cursor: pointer;
@@ -2371,7 +2380,7 @@ nav ul.xt-side-menu > li > ul.xt-dropdown {
   color: transparent;
 }
 .each-product-info .color-select ul li.red-bg {
-  background-color: #f26667;
+  background-color: #0288D1;
 }
 .each-product-info .color-select ul li.green-bg {
   background-color: #6ee45a;
@@ -2403,8 +2412,8 @@ nav ul.xt-side-menu > li > ul.xt-dropdown {
   font-size: 10px;
 }
 .each-product-info .select-size ul li.selected {
-  background-color: #f26667;
-  border-color: #f26667;
+  background-color: #0288D1;
+  border-color: #0288D1;
   color: #fff;
 }
 .each-product-info .product-additional-info {
@@ -2420,7 +2429,7 @@ nav ul.xt-side-menu > li > ul.xt-dropdown {
   font-weight: 600;
 }
 .each-product-info .product-additional-info ul li a:hover {
-  color: #f26667;
+  color: #0288D1;
 }
 .each-product-info .product-add-cart {
   margin: 20px 0;
@@ -2442,7 +2451,7 @@ nav ul.xt-side-menu > li > ul.xt-dropdown {
 }
 .each-product-info .product-add-cart .liked .xt-color {
   display: none;
-  color: #f26667;
+  color: #0288D1;
 }
 .each-product-info .product-add-cart .liked .xt-no-color {
   display: block;
@@ -2455,7 +2464,7 @@ nav ul.xt-side-menu > li > ul.xt-dropdown {
   padding: 0 15px;
 }
 .each-product-info .select-quantity .qty:focus {
-  border-color: #f26667;
+  border-color: #0288D1;
   outline-color: transparent;
 }
 .xt-product-description {
@@ -2486,7 +2495,7 @@ nav ul.xt-side-menu > li > ul.xt-dropdown {
   padding-left: 110px;
 }
 .xt-top-product .top-item .top-item-info a:hover {
-  color: #f26667;
+  color: #0288D1;
 }
 .xt-top-product .top-item .top-item-info h4 {
   font-family: 'Open Sans', sans-serif;
@@ -2527,7 +2536,7 @@ nav ul.xt-side-menu > li > ul.xt-dropdown {
   font-weight: 600;
 }
 .xt-single-item-info .xt-single-item-tab li a:hover {
-  color: #f26667;
+  color: #0288D1;
 }
 .xt-single-item-info .xt-tab-content .xt-pane {
   padding: 0px 0px;
@@ -2598,7 +2607,7 @@ nav ul.xt-side-menu > li > ul.xt-dropdown {
   padding: 0px 10px;
 }
 .xt-product-subpage .price-range .ui-slider-horizontal .ui-slider-range {
-  background-color: #f26667;
+  background-color: #0288D1;
 }
 .xt-product-subpage .price-range .ui-widget.ui-widget-content {
   height: 6px;
@@ -2610,7 +2619,7 @@ nav ul.xt-side-menu > li > ul.xt-dropdown {
   width: 15px;
   top: -6px;
   border-radius: 50%;
-  background: #f26667;
+  background: #0288D1;
   border-color: transparent;
   outline-color: transparent;
 }
@@ -2641,7 +2650,7 @@ nav ul.xt-side-menu > li > ul.xt-dropdown {
   cursor: pointer;
 }
 .xt-product-subpage .xt-product-color ul li a:hover {
-  color: #f26667;
+  color: #0288D1;
 }
 .xt-product-subpage .xt-product-color ul li a span {
   float: right;
@@ -2656,7 +2665,7 @@ nav ul.xt-side-menu > li > ul.xt-dropdown {
   cursor: pointer;
 }
 .xt-product-subpage .xt-product-size ul li a:hover {
-  color: #f26667;
+  color: #0288D1;
 }
 .xt-product-subpage .xt-product-size ul li a span {
   float: right;
@@ -2700,7 +2709,7 @@ nav ul.xt-side-menu > li > ul.xt-dropdown {
   opacity: 0.9;
 }
 .xt-page-pagination .xt-pagination .active a {
-  background-color: #f26667;
+  background-color: #0288D1;
   color: #fff;
   border-color: transparent;
 }
@@ -2722,7 +2731,7 @@ nav ul.xt-side-menu > li > ul.xt-dropdown {
   margin-right: -4px;
 }
 .xt-view a.active {
-  background-color: #f26667;
+  background-color: #0288D1;
 }
 
 .ticket-align{
