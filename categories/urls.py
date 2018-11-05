@@ -10,6 +10,6 @@ from .views import  (
 app_name = 'categories'
 
 urlpatterns = [
-    path('', CategoryListView.as_view(), name="list"), # /category/
-    path('<int:pk>/', CategoryDetailView.as_view(), name="detail"), # /category/1/
+    path('', CategoryListView.as_view(), name="list"),  # /category/
+    path('<int:pk>/', CategoryDetailView.as_view(), name="detail"),  # /category/1/
 ]

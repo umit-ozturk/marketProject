@@ -14,6 +14,12 @@
 
     });
 
+    // Companies APP Detail Implemented
+        $(document).ready(function(){
+            loadCompanyContainer("company-container")
+
+        });
+
 
     // Products Top Featured Products Implemented
     $(document).ready(function(){
@@ -49,10 +55,6 @@
 
 {% block content %}
 
-{% for object in object_list %}
-
-    <li><a class="main-a" href="">{{ object.get_category_count }}</a></li>
-{% endfor %}
     <div class="menu-spacing">
         <div class="container">
             <div class="row">
@@ -107,7 +109,7 @@
                         <h3>Kategoriler</h3>
                         <ul>
                             {% for object in object_list %}
-                                <li><a href=""> {{ object.get_category_detail.category.category_name  }}<span>( {{ object.get_category_count }} )</span></a></li>
+                                <li><a href="/categories/{{ object.get_category_detail.category.id  }}"> {{ object.get_category_detail.category.category_name  }}<span>( {{ object.get_category_count }} )</span></a></li>
                             {% endfor %}
                         </ul>
                     </div>
