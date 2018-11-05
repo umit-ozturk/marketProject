@@ -48,12 +48,14 @@ class SearchProductListView(ListView):
     template_name = 'products/search_product_list.html'
     qs_id_list = ProductSlugAPIView.product_for_slug_min_price()
     queryset = Product.objects.filter(id__in=qs_id_list)
+    paginate_by = 10
 
     def get_queryset(self, *args, **kwargs):
         qs_id_list = ProductSlugAPIView.product_for_slug_min_price()
         qs = Product.objects.filter(id__in=qs_id_list)
         query = self.request.GET.get("keywords", None)
         query_price = self.request.GET.get("price", None)
+        page = self.request.GET.get('page')
         if query is not None:
             qs = qs.filter(
                 Q(name__icontains=query) |

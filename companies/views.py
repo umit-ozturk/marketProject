@@ -23,6 +23,7 @@ class CompanyDetailView(DetailView):
 class CompanyListView(ListView):
 	queryset = Company.objects.all()
 	template_name = "company_list.html"
+	paginate_by = 10
 
 	def get_queryset(self, *args, **kwargs):
 		qs = Company.objects.all()

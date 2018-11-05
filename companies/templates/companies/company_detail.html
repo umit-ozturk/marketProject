@@ -58,66 +58,32 @@
             <div class="row">
                 <!-- SIDEBAR -->
                 <aside class="col-md-3 product-sidebar">
-                    <div class="price-range">
-                        <h3>Fiyat</h3>
-                        <div class="each-price-range">
-                            <div id="xt-price-range"></div>
-                            <input type="text" id="amount"  class="price-range-amount">
-                            <a href="" id="filter" class="btn btn-fill">Filtrele</a>
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="xt-product-color">
-                        <h3>Color</h3>
-                        <ul>
-                            <li><a href="">Blue <span>(11)</span></a></li>
-                            <li><a href="">Red <span>(7)</span></a></li>
-                            <li><a href="">Green <span>(4)</span></a></li>
-                            <li><a href="">Yellow <span>(0)</span></a></li>
-                            <li><a href="">Magenta <span>(1)</span></a></li>
-                        </ul>
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="xt-product-size">
-                        <h3>Size</h3>
-                        <ul>
-                            <li><a href="">S <span>(11)</span></a></li>
-                            <li><a href="">M <span>(7)</span></a></li>
-                            <li><a href="">L <span>(4)</span></a></li>
-                            <li><a href="">XL <span>(0)</span></a></li>
-                            <li><a href="">XXL <span>(1)</span></a></li>
-                        </ul>
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="xt-top-product">
-                        <h3>Top Rated Products</h3>
-                        <div class="each-top-product">
-                            <div class="top-item">
-                                <img src="assets/images/1.jpg" alt="" class="img-responsive">
-                                <div class="top-item-info">
-                                    <a href=""><h4>T-SHIRT</h4></a>
-                                    <span>$260</span>
-                                    <del>$280</del>
-                                </div>
-                            </div>                               
-                            <div class="top-item">
-                                <img src="assets/images/3.jpg" alt="" class="img-responsive">
-                                <div class="top-item-info">
-                                    <a href=""><h4>NEW LOOK</h4></a>
-                                    <span>$260</span>
-                                    <del>$280</del>
-                                </div>
-                            </div>                                
-                            <div class="top-item">
-                                <img src="assets/images/b2.jpg" alt="" class="img-responsive">
-                                <div class="top-item-info">
-                                    <a href=""><h4>Shirt</h4></a>
-                                    <span>$260</span>
-                                    <del>$280</del>
-                                </div>
+                    <form role="form" id="mc-form" action=''>
+                        <div class="price-range">
+                            <h3>Fiyat</h3>
+                            <div class="each-price-range">
+                                <div id="xt-price-range"></div>
+                                <input type="text" id="amount" name="price" value='{{ request.GET.keywords }}' class="price-range-amount">
+                                <button type="submit" id="filter" class="btn btn-fill">Filtrele</button>
                             </div>
                         </div>
+                    </form>
+                    <div class="clearfix"></div>
+                    <div class="xt-product-color">
+                        <h3>Kategoriler</h3>
+                        <ul>
+                            {% for object in object_list %}
+                                <li><a href="/categories/{{ object.get_category_detail.category.id  }}"> {{ object.get_category_detail.category.category_name  }}<span>( {{ object.get_category_count }} )</span></a></li>
+                            {% endfor %}
+                        </ul>
                     </div>
+                    <div class="clearfix"></div>
+                        <div class="xt-top-product">
+                            <h3>En Sıcak Ürünler</h3>
+                            <div class="each-top-product" id="product-top-feature-container" data-url="/api/product/featured">
+
+                            </div>
+                        </div>
                     <div class="xt-side-deal">
                         <div class="xt-off-deal cover-bg white xt-deal xt-color-bg">
                             <span>summer collection 2017</span>
@@ -157,17 +123,24 @@
                                     </div>
                                 </div>
                                 <div class="col-md-5 col-sm-5 col-xs-12">
-                                    <div class="xt-page-pagination">
-                                        <nav aria-label="Page navigation">
-                                            <ul class="pagination xt-pagination">
-                                                <li class="active"><a href="#">1</a></li>
-                                                <li><a href="#">2</a></li>
-                                                <li><a href="#">3</a></li>
-                                                <li><a href="#">4</a></li>
-                                                <li><a href="#" aria-label="Next"><i class="fa fa-caret-right"></i></a></li>
-                                            </ul>
-                                        </nav>
-                                    </div>
+                                        <div class="xt-page-pagination">
+                                            <nav aria-label="Page navigation">
+                                                <ul class="pagination xt-pagination">
+                                                    {% for i in paginator.page_range %}
+                                                      {% if page_obj.number == i %}
+                                                        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                                                      {% else %}
+                                                        <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                                      {% endif %}
+                                                    {% endfor %}
+                                                    {% if page_obj.has_next %}
+                                                        <li><a href="?page={{ page_obj.next_page_number }}" aria-label="Next"><i class="fa fa-caret-right"></i></a></li>
+                                                    {% else %}
+                                                        <li><a href="" aria-label="Next"><i class="disabled fa fa-caret-right"></i></a></li>
+                                                    {% endif %}
+                                                </ul>
+                                            </nav>
+                                        </div>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div class="col-xs-12 xt-top-hr">
@@ -214,19 +187,6 @@
                                     </div>
                                     <div class="xt-search-opt xt-search-btn">
                                         <button type="button" class="btn-search"><i class="fa fa-long-arrow-down"></i></button>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <div class="xt-page-pagination">
-                                        <nav aria-label="Page navigation">
-                                            <ul class="pagination xt-pagination">
-                                                <li class="active"><a href="#">1</a></li>
-                                                <li><a href="#">2</a></li>
-                                                <li><a href="#">3</a></li>
-                                                <li><a href="#">4</a></li>
-                                                <li><a href="#" aria-label="Next"><i class="fa fa-caret-right"></i></a></li>
-                                            </ul>
-                                        </nav>
                                     </div>
                                 </div>
                             </div>

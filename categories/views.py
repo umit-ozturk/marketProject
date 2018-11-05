@@ -21,6 +21,7 @@ class CategoryListView(ListView):
 
 class CategoryDetailView(DetailView):
     queryset = Category.objects.all()
+    paginate_by = 10
 
     def get_queryset(self, *args, **kwargs):
         qs = Category.objects.all()

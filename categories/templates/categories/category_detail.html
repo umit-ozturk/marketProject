@@ -18,7 +18,7 @@
     // Products Top Featured Products Implemented
     $(document).ready(function(){
         loadProductContainer("product-top-feature-container", "top-featured")
-    });          
+    });
 
     </script>
 {% endblock scriptcategory %}
@@ -79,15 +79,6 @@
                         </div>
                     </form>
                     <div class="clearfix"></div>
-                    <div class="xt-product-color">
-                        <h3>Kategoriler</h3>
-                        <ul>
-                            {% for object in object_list %}
-                                <li><a href="/categories/{{ object.get_category_detail.category.id  }}"> {{ object.get_category_detail.category.category_name  }}<span>( {{ object.get_category_count }} )</span></a></li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    <div class="clearfix"></div>
                     <div class="xt-product-size">
                         <h3>Satıcı</h3>
                         <ul>
@@ -142,17 +133,24 @@
                                     </div>
                                 </div>
                                 <div class="col-md-5 col-sm-5 col-xs-12">
-                                    <div class="xt-page-pagination">
-                                        <nav aria-label="Page navigation">
-                                            <ul class="pagination xt-pagination">
-                                                <li class="active"><a href="#">1</a></li>
-                                                <li><a href="#">2</a></li>
-                                                <li><a href="#">3</a></li>
-                                                <li><a href="#">4</a></li>
-                                                <li><a href="#" aria-label="Next"><i class="fa fa-caret-right"></i></a></li>
-                                            </ul>
-                                        </nav>
-                                    </div>
+                                        <div class="xt-page-pagination">
+                                            <nav aria-label="Page navigation">
+                                                <ul class="pagination xt-pagination">
+                                                    {% for i in paginator.page_range %}
+                                                      {% if page_obj.number == i %}
+                                                        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                                                      {% else %}
+                                                        <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                                      {% endif %}
+                                                    {% endfor %}
+                                                    {% if page_obj.has_next %}
+                                                        <li><a href="?page={{ page_obj.next_page_number }}" aria-label="Next"><i class="fa fa-caret-right"></i></a></li>
+                                                    {% else %}
+                                                        <li><a href="" aria-label="Next"><i class="disabled fa fa-caret-right"></i></a></li>
+                                                    {% endif %}
+                                                </ul>
+                                            </nav>
+                                        </div>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div class="col-xs-12 xt-top-hr">
@@ -199,19 +197,6 @@
                                     </div>
                                     <div class="xt-search-opt xt-search-btn">
                                         <button type="button" class="btn-search"><i class="fa fa-long-arrow-down"></i></button>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <div class="xt-page-pagination">
-                                        <nav aria-label="Page navigation">
-                                            <ul class="pagination xt-pagination">
-                                                <li class="active"><a href="#">1</a></li>
-                                                <li><a href="#">2</a></li>
-                                                <li><a href="#">3</a></li>
-                                                <li><a href="#">4</a></li>
-                                                <li><a href="#" aria-label="Next"><i class="fa fa-caret-right"></i></a></li>
-                                            </ul>
-                                        </nav>
                                     </div>
                                 </div>
                             </div>
