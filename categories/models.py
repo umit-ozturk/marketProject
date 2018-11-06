@@ -2,7 +2,7 @@ from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
 from django.utils.safestring import mark_safe
 from versatileimagefield.fields import VersatileImageField
-
+from products.models import Product
 # Create your models here.
 
 
@@ -37,6 +37,9 @@ class Category(MPTTModel):
     def __str__(self):
         return str(self.category_name)
 
+    def get_count(self):
+        return Category.objects.filter(pk=self.id).count()
+
     def root_node(self):
         the_parent = self.tree_id
         return the_parent
@@ -63,7 +66,6 @@ class Category(MPTTModel):
     def image_logo_cat(self):
         flat = 'fa flaticon-'
         if self.category_logo:
-            print(mark_safe("<i class='fa flaticon-%s></i>" % self.category_logo))
             return mark_safe('<i class="%s%s"></i>' % (flat, self.category_logo))
         else:
             return 'Kategori Logosu Bulunamadı'

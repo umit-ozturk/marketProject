@@ -108,8 +108,8 @@
                     <div class="xt-product-color">
                         <h3>Kategoriler</h3>
                         <ul>
-                            {% for object in object_list %}
-                                <li><a href="/categories/{{ object.get_category_detail.category.id  }}"> {{ object.get_category_detail.category.category_name  }}<span>( {{ object.get_category_count }} )</span></a></li>
+                            {% for object in category_names %}
+                                <li><a href="/categories/{{ object.id  }}"> {{ object.category_name  }}<span>( {{ object.num_prod }} )</span></a></li>
                             {% endfor %}
                         </ul>
                     </div>

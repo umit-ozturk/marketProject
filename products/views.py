@@ -11,6 +11,7 @@ from cart.views import global_cart_detail
 from tickets.views import global_ticket_detail
 from django.db.models import Min, Max
 from products.api.views import ProductSlugAPIView
+from django.db.models import Count
 
 
 class ProductDetailView(DetailView):
@@ -63,8 +64,16 @@ class SearchProductListView(ListView):
             )
         return qs
 
+    def get_category_name(self):
+        cat_ids = Product.objects.values_list('category', flat=True)
+        category_names = Category.objects.filter(pk__in=cat_ids)
+        category_count = Category.objects.get(category_name='root_node').annotate(num_prod=Count('product'))
+        print(category_count)
+        return category_names
+
     def get_context_data(self, *args, **kwargs):
         context = super(SearchProductListView, self).get_context_data(*args, **kwargs)
         context['carts'] = global_cart_detail(self.request)
         context['max_price'] = ProductListView.get_max_price()
+        context['category_names'] = self.get_category_name()
         return context
