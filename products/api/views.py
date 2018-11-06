@@ -65,7 +65,12 @@ class ProductSlugAPIView(generics.ListAPIView):
         none_qs = Product.objects.none()
         prod_list = []
         for slug in slug_list:
-            single_prod = Product.objects.filter(slug_id=slug).order_by("price").first()
+            if Product.objects.filter(slug_id=slug).count() == 1:
+                single_prod = Product.objects.filter(slug_id=slug).first()
+            if Product.objects.filter(slug_id=slug).count() > 1:
+                single_prod = Product.objects.filter(slug_id=slug).order_by("price").first()
+            else:
+                pass
             prod_list.append(single_prod.id)
         qs = list(chain(none_qs, prod_list))
         return qs

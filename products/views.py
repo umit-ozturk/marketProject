@@ -48,7 +48,7 @@ class SearchProductListView(ListView):
     template_name = 'products/search_product_list.html'
     qs_id_list = ProductSlugAPIView.product_for_slug_min_price()
     queryset = Product.objects.filter(id__in=qs_id_list)
-    paginate_by = 10
+    paginate_by = 18
 
     def get_queryset(self, *args, **kwargs):
         qs_id_list = ProductSlugAPIView.product_for_slug_min_price()
