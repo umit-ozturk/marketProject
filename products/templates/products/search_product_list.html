@@ -118,7 +118,7 @@
                         <h3>Satıcı</h3>
                         <ul>
                             {% for object in company_names %}
-                                <li><a href="/companies/{{ object.id  }}"> {{ object.company_name }}<span>( {{ object.com_prod }} )</span></a></li>
+                                <li><a href="/companies/{{ object.company.id  }}"> {{ object.company_name }}<span>( {{ object.com_prod }} )</span></a></li>
                             {% endfor %}  
                         </ul>
                     </div>

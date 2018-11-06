@@ -82,8 +82,8 @@
                     <div class="xt-product-size">
                         <h3>Satıcı</h3>
                         <ul>
-                            {% for object in object_list %}
-                                <li><a href=""> {{ object.company.company_name }}<span>(1)</span></a></li>
+                            {% for object in company_names %}
+                                <li><a href="/companies/{{ object.id  }}"> {{ object.company_name }}<span>( {{ object.com_prod }} )</span></a></li>
                             {% endfor %}
                         </ul>
                     </div>
