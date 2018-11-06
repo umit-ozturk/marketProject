@@ -37,8 +37,6 @@ class Category(MPTTModel):
     def __str__(self):
         return str(self.category_name)
 
-    def get_count(self):
-        return Category.objects.filter(pk=self.id).count()
 
     def root_node(self):
         the_parent = self.tree_id

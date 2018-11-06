@@ -7,6 +7,7 @@ from django.views.generic import (
 from .models import Product
 from companies.views import global_companies_detail
 from categories.models import Category
+from companies.models import Company
 from cart.views import global_cart_detail
 from tickets.views import global_ticket_detail
 from django.db.models import Min, Max
@@ -66,14 +67,18 @@ class SearchProductListView(ListView):
 
     def get_category_name(self):
         cat_ids = Product.objects.values_list('category', flat=True)
-        category_names = Category.objects.filter(pk__in=cat_ids)
-        category_count = Category.objects.get(category_name='root_node').annotate(num_prod=Count('product'))
-        print(category_count)
+        category_names = Category.objects.filter(pk__in=cat_ids).annotate(cat_prod=Count('product'))
         return category_names
+
+    def get_company_name(self):
+        com_ids = Product.objects.values_list('company', flat=True)
+        company_names = Company.objects.filter(pk__in=com_ids).annotate(com_prod=Count('company'))
+        return company_names
 
     def get_context_data(self, *args, **kwargs):
         context = super(SearchProductListView, self).get_context_data(*args, **kwargs)
         context['carts'] = global_cart_detail(self.request)
         context['max_price'] = ProductListView.get_max_price()
         context['category_names'] = self.get_category_name()
+        context['company_names'] = self.get_company_name()
         return context
