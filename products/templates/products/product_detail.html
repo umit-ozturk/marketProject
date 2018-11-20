@@ -58,11 +58,11 @@
                         <div class="xt-product-inner" id="product-container" data-url="/api/product/">
 
                         </div>
-                    </div>          
+                    </div>
             	</div>
             </div>
         </section>
-        
+
         <div class="clearfix"></div>
 
         <div class="xt-product-description">
@@ -101,7 +101,7 @@
                                     <a href="#review" aria-controls="review" role="tab" data-toggle="tab">Diğer Fiyatlar({{ object.slug.get_slug_count }})</a>
                                 </li>
                             </ul>
-                            
+
                             <!-- Tab panes -->
                             <div class="tab-content xt-tab-content">
                                 <div role="tabpanel" class="tab-pane xt-pane xt-description fade" id="description">
@@ -112,7 +112,7 @@
                                 </div>
                                 <div role="tabpanel" class="tab-pane xt-pane fade" id="specification">
                                     <h3>Ürün Özellikleri</h3>
-                                    
+
                                     {{ object.feature|safe }}
                                 </div>
                                 <div role="tabpanel" class="tab-pane xt-pane xt-review fade in active" id="review">
@@ -123,10 +123,10 @@
                                                         <th style="margin-bottom:20px;text-align: center;">Resim</th>
                                                         <th>Ürün</th>
                                                         <th>Şirket</th>
-                                                        <th>Fiyat</th>                 
+                                                        <th>Fiyat</th>
                                             </tr>
                                         </thead>
-                                        <tbody> 
+                                        <tbody>
                                             {% for item in object.slug.get_slug_detail %}
                                                 <tr class="another_prices_tr">
                                                     <td>
@@ -137,13 +137,13 @@
                                                         </a>
                                                     </td>
                                                     <td>{{ item.name }}</td>
-                                                    <td>{{ item.company.company_name }}</td> 
+                                                    <td>{{ item.company.company_name }}</td>
                                                     <td>{{ item.price }} TL</td>
                                                     <td><form action='/carts/cart/add/{{item.id}}/' method='GET'>{% csrf_token %}{{ cart_product_form }}<input type='submit' value='Hesapla' class='btn btn-fill'></form></td>
                                                 </tr>
                                             {% endfor %}
                                         </tbody>
-                                    </table>                                    
+                                    </table>
 
                                 </div>
                             </div>

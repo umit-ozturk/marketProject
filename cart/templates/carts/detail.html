@@ -19,7 +19,7 @@
 </style>
     <div class="container">
         <div class="row" style="margin-top: 6%">
-        <h2>Sepetim
+        <h3><b>Alışveriş Listem</b>
             <span class="badge pull-right">
                 {% with totail_items=carts|length %}
                     {% if carts|length > 0 %}
@@ -39,8 +39,8 @@
                         <th>Resim</th>
                         <th>Ürün</th>
                         <th>Fiyat</th>
-                        <th>Miktar</th>
-                        <th>Sil</th>
+                        <th style="padding-right: 2px; padding-left: 2px; width: 15%;">	Miktar</th>
+                        <th style="width:10%;">Sil</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -59,7 +59,7 @@
                             <td>
                                 <form action="{% url "cart:cart_opt" product.id %}" method="post">
                                     {% csrf_token %}
-                                    <input type="number" step="1" value="{{ item.quantity }}" name="quantity" onchange="clickButton({{ product.id }})">
+                                    <input type="number" step="1" value="{{ item.quantity }}" name="quantity" style="width: 50%;" onchange="clickButton({{ product.id }})">
                                     <input style="display: none;" type="number" value="{{ product.id }}" name="product_id">
                                     <input style="display: none;" type="submit" id="submitButton{{ product.id }}" value="Güncelle" class="btn btn-primary">
                                 </form>
@@ -73,7 +73,7 @@
                 <tr style="background-color: #f26667">
                     <td><b>Toplam</b></td>
                     <td colspan="3"></td>
-                    <td colspan="num"><b>TL {{ carts.get_total_price }}</b></td>
+                    <td colspan="num"><b>{{ carts.get_total_price }} TL</b></td>
                 </tr>
                 </tbody>
             </table>

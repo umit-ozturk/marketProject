@@ -1,10 +1,9 @@
-from django.conf.urls import url
 from django.urls import path
 
-from .views import  (
-	UserDetailView,
-	UserUpdateView
-    )
+from .views import (
+    UserDetailView,
+    UserUpdateView
+)
 
 
 app_name = 'profiles'
