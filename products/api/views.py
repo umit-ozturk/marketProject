@@ -71,6 +71,6 @@ class ProductSlugAPIView(generics.ListAPIView):
                 single_prod = Product.objects.filter(slug_id=slug).order_by("price").first()
             else:
                 pass
-            prod_list.append(single_prod.id)
+            #prod_list.append(single_prod.id)
         qs = list(chain(none_qs, prod_list))
         return qs
