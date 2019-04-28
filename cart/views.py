@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from products.models import Product
 from .cart import Cart
 from cart.forms import CartAddProductForm, QuantityForm
-from projectMarket.settings.local import EMAIL_HOST_USER
+from projectMarket.settings import EMAIL_HOST_USER
 from django.core.mail import send_mail
 
 

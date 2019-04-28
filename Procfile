@@ -1,1 +1,0 @@
-web: gunicorn projectMarket.wsgi --log-file -

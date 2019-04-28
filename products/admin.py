@@ -71,7 +71,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 class ProductInfoAdmin(admin.ModelAdmin):
-    fields = ['slug', 'image_prod_first', 'image_prod_second', 'image_prod_third', 'image_prod_fourth', ]
+    fields = ['image_prod_first', 'image_prod_second', 'image_prod_third', 'image_prod_fourth', ]
     list_display = ('slug', 'image_tag',)
     search_fields = ('slug',)
 
