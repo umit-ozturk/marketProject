@@ -28,21 +28,17 @@ from products.views import ProductListView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', ProductListView.as_view(), name="home"),
-    ### APPS
     path('products/', include('products.urls', namespace='product')),
     path('categories/', include('categories.urls', namespace='category')),
     path('companies/', include('companies.urls', namespace='company')),
     path('aktuels/', include('aktuels.urls', namespace='aktuel')),
     path('carts/', include('cart.urls', namespace='cart')),
     path('tickets/', include('tickets.urls', namespace='ticket')),
-    #path('companies/', include('companies.urls', namespace='company')),
-    ### API
 
     path('api/category/', include('categories.api.urls', namespace='category-api')),
     path('api/aktuel/', include('aktuels.api.urls', namespace='aktuel-api')),
     path('api/company/', include('companies.api.urls', namespace='company-api')),
     path('register/', UserRegisterView.as_view(), name="register"),
-    #path('api/company/', include('companies.api.urls', namespace='company-api')),
 
     path('', include('django.contrib.auth.urls')),
     path('oauth/', include('social_django.urls', namespace='social')),

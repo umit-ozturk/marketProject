@@ -44,8 +44,7 @@ INSTALLED_APPS = [
     'categories',
     'aktuels',
     'tickets',
-    'cart',
-    'zextra'
+    'cart'
 
 
 ]
