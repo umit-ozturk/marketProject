@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -38,13 +38,13 @@ INSTALLED_APPS = [
     'ckeditor',
     'versatileimagefield',
     'mptt',
+    'products',
     'accounts',
     'companies',
     'categories',
     'aktuels',
     'tickets',
     'cart',
-    'products',
     'zextra'
 
 
@@ -68,10 +68,8 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.github.GithubOAuth2',
     'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.facebook.FacebookOAuth2',
-
     'django.contrib.auth.backends.ModelBackend',
 )
-
 
 
 ROOT_URLCONF = 'projectMarket.urls'
@@ -164,7 +162,7 @@ VERSATILEIMAGEFIELD_RENDITION_KEY_SETS = {
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "templates")],
+        'DIRS': [os.path.join("templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -227,7 +225,7 @@ CATEGORT_SESSION_ID = 'category'
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join('media')
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR + 'static')
+STATIC_ROOT = os.path.join('static-serve')
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',

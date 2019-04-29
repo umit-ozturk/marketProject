@@ -1,3 +1,4 @@
+.static-serve
 .*migrations
 .migrations
 .__pycache__
