@@ -33,7 +33,6 @@ urlpatterns = [
     path('companies/', include('companies.urls', namespace='company')),
     path('aktuels/', include('aktuels.urls', namespace='aktuel')),
     path('carts/', include('cart.urls', namespace='cart')),
-    path('tickets/', include('tickets.urls', namespace='ticket')),
 
     path('api/category/', include('categories.api.urls', namespace='category-api')),
     path('api/aktuel/', include('aktuels.api.urls', namespace='aktuel-api')),

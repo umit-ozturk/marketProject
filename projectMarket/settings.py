@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'companies',
     'categories',
     'aktuels',
-    'tickets',
     'cart'
 
 
@@ -130,9 +129,6 @@ VERSATILEIMAGEFIELD_RENDITION_KEY_SETS = {
     ],
     'image_prod_fourth': [
         ('normal', 'thumbnail__800x800')
-    ],
-    'image_ticket_comp': [
-        ('normal', 'thumbnail__200x200')
     ],
     'image_comp': [
         ('normal', 'thumbnail__200x200')

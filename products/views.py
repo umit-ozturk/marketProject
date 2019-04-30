@@ -6,7 +6,6 @@ from django.views.generic import (
 from .models import Product
 from companies.views import global_companies_detail
 from cart.views import global_cart_detail
-from tickets.views import global_ticket_detail
 from django.db.models import Max
 
 from products.utils import get_category_name, get_company_name
@@ -27,7 +26,6 @@ class ProductListView(ListView):
     def get_context_data(self, *args, **kwargs):
         context = super(ProductListView, self).get_context_data(*args, **kwargs)
         context['carts'] = global_cart_detail(self.request)
-        context['tickets'] = global_ticket_detail(*args)
         context['companies'] = global_companies_detail(*args)
         return context
 
