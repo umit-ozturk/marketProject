@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from rest_framework_recursive.fields import RecursiveField
-from companies.api.serializers import CompanyDisplaySerializer, ProductInfoModelSerializer
+from companies.serializers import CompanyDisplaySerializer, ProductInfoModelSerializer
 from categories.models import Category
 from products.models import Product
 from versatileimagefield.serializers import VersatileImageFieldSerializer

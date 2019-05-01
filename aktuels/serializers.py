@@ -1,5 +1,4 @@
 from rest_framework import serializers
-
 from aktuels.models import AktuelProducts, Aktuel, AktuelSlug
 from versatileimagefield.serializers import VersatileImageFieldSerializer
 
@@ -7,7 +6,6 @@ from versatileimagefield.serializers import VersatileImageFieldSerializer
 class AktuelModelSerializer(serializers.ModelSerializer):
     image_aktuel = VersatileImageFieldSerializer(sizes='image_aktuel')
     image_aktuel_comp = VersatileImageFieldSerializer(sizes='image_aktuel_comp')
-    # aktuel_slug = serializers.SerializerMethodField()
 
     class Meta:
         model = Aktuel

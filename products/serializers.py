@@ -1,8 +1,7 @@
 from rest_framework import serializers
 from products.models import Product
-from companies.api.serializers import CompanyDisplaySerializer, BrandDisplaySerializer,\
-    ProductInfoModelSerializer
-from categories.api.serializers import ProductCategoryModelSerializer
+from companies.serializers import CompanyDisplaySerializer, BrandDisplaySerializer, ProductInfoModelSerializer
+from categories.serializers import ProductCategoryModelSerializer
 
 
 class ProductModelSerializer(serializers.ModelSerializer):

@@ -34,9 +34,7 @@ urlpatterns = [
     path('aktuels/', include('aktuels.urls', namespace='aktuel')),
     path('carts/', include('cart.urls', namespace='cart')),
 
-    path('api/category/', include('categories.api.urls', namespace='category-api')),
-    path('api/aktuel/', include('aktuels.api.urls', namespace='aktuel-api')),
-    path('api/company/', include('companies.api.urls', namespace='company-api')),
+    path('api/', include('api.urls')),
     path('register/', UserRegisterView.as_view(), name="register"),
 
     path('', include('django.contrib.auth.urls')),
