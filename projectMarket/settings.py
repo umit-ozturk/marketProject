@@ -220,7 +220,7 @@ CATEGORT_SESSION_ID = 'category'
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join('media')
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join('static-serve')
+STATIC_ROOT = os.path.join('static')
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
