@@ -83,17 +83,4 @@ class CompanyDetailAPIView(generics.ListAPIView):
         return None
 
 
-class ProductListByCategoryAPIView(generics.ListAPIView):
-    queryset = Company.objects.all()
-    serializer_class = ProductByCompanyModelSerializer
-
-    def get_queryset(self, *args, **kwargs):
-        company_id = self.kwargs.get("pk")
-        qs = Product.objects.filter(company=company_id)
-        query = self.request.GET.get("q")
-        if query:
-            query_arg = query.split("-")
-            qs = qs.filter(
-                Q(price__range=(query_arg[0], query_arg[1]))
-                ).distinct()
-        return qs
+#  Product Apis
