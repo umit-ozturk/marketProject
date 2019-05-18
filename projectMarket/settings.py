@@ -216,15 +216,14 @@ CART_SESSION_ID = 'cart'
 
 CATEGORT_SESSION_ID = 'category'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join('media')
+MEDIA_URL = '/media/'
+
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join('static')
-
-STATICFILES_FINDERS = [
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder'
+# STATIC_ROOT = (os.path.join(BASE_DIR, "static"))
+STATICFILES_DIRS = [
+    (os.path.join(BASE_DIR, "static"))
 ]
 
 try:
