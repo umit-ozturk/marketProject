@@ -99,25 +99,26 @@
 
 			<div class="container">
 			    <section class="container">
-			    <div class="container-page">        
-			      <div class="col-md-12">  	
-			        <h3 class="dark-grey center"> Üye Ol </h3><hr>
-			        <div class="form-group col-lg-12">
-			        <div class="col-md-6">
-						<p>
-							<a href="{% url 'social:begin' 'facebook' %}" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Facebook İle Giriş Yap</a>
-						</p>             	
-			        </div>       
-			        <div class="col-md-6">
-						<p>
-							<a href="{% url 'social:begin' 'twitter' %}" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Twitter İle Giriş Yap</a>
-						</p>             	
-			        </div>
-			        <div class="crispyform">
-						{% crispy form %}     	        	
-			        </div>     
-			      </div>
-			    </div>
+			    <div class="container-page">
+					<div class="row">
+						<h3 class="dark-grey center"> Üye Ol </h3><hr>
+						<div class="form-group">
+							<div class="col-md-6">
+								<p>
+									<a href="{% url 'social:begin' 'facebook' %}" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Facebook İle Giriş Yap</a>
+								</p>
+							</div>
+							<div class="col-md-6">
+								<p>
+									<a href="{% url 'social:begin' 'twitter' %}" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Twitter İle Giriş Yap</a>
+								</p>
+							</div>
+							<div class="crispyform">
+								{% crispy form %}
+							</div>
+						</div>
+					</div>
+				</div>
 			  </section>
 			</div> <br><br>	
 	{% endif %}
