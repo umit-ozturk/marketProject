@@ -11,10 +11,10 @@ from django.http.response import HttpResponse, HttpResponseBadRequest
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('show_name', 'show_title', 'price', 'show_sale_percent', 'company', 'category', 'image_tag',)
+    list_display = ('show_name', 'show_title', 'price', 'show_sale_percent', 'company', 'category',)
     list_filter = ('company', 'category',)
-    search_fields = ('name', 'title', 'slug', 'price',)
-    autocomplete_fields = ['slug', 'category', 'company', 'brand', ]
+    search_fields = ('name', 'title', 'price',)
+    autocomplete_fields = ['category', 'company', 'brand', ]
     search_prefix = '__icontains'
     change_list_template = 'products/change_list.html'
     change_form_template = 'products/change_form.html'
@@ -71,9 +71,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 class ProductInfoAdmin(admin.ModelAdmin):
-    fields = ['image_prod_first', 'image_prod_second', 'image_prod_third', 'image_prod_fourth', ]
-    list_display = ('slug', 'image_tag',)
-    search_fields = ('slug',)
+    list_display = ('product', 'image_tag',)
 
 
 admin.site.register(Product, ProductAdmin)

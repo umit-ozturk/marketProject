@@ -8,8 +8,6 @@ from companies.views import global_companies_detail
 from cart.views import global_cart_detail
 from django.db.models import Max
 
-from products.utils import get_category_name, get_company_name
-
 
 class ProductDetailView(DetailView):
     queryset = Product.objects.all()

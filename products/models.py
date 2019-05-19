@@ -17,7 +17,8 @@ def upload_location(instance, filename):
 
 
 class ProductInfo(models.Model):
-    slug = models.CharField('Ürün Slug / Sayacı', max_length=140, null=True, blank=True)
+    product = models.ForeignKey("products.product", verbose_name='Ürün', on_delete=models.CASCADE,
+                                null=False,  blank=False)
     image_prod_first = VersatileImageField('Ürün Resmi 1', upload_to=upload_location, null=True, blank=True,
                                          width_field="width_field", height_field="height_field")
     image_prod_second = VersatileImageField('Ürün Resmi 2', upload_to=upload_location, null=True, blank=True,
@@ -36,17 +37,6 @@ class ProductInfo(models.Model):
         verbose_name_plural = 'Ürün Bilgileri'
         ordering = ('-created_at',)
 
-    def __str__(self):
-        return str(self.slug)
-
-    def get_slug_count(self):
-        slug_count = Product.objects.filter(slug__slug__icontains=self.slug).count()
-        return slug_count
-
-    def get_slug_detail(self):
-        slug_company_detail = Product.objects.filter(slug__slug__icontains=self.slug)
-        return slug_company_detail
-
     def image_tag(self):
         if self.image_prod_first:
             return mark_safe('<img src="%s" style="width: 100px; height:100px;" />' % self.image_prod_first.url)
@@ -56,8 +46,6 @@ class ProductInfo(models.Model):
 
 
 class Product(models.Model):
-    slug = models.ForeignKey("products.productinfo", verbose_name='Ürün Slug / Sayacı', on_delete=models.CASCADE,
-                             related_name="productinfo", null=False,  blank=False)
     category = TreeForeignKey("categories.category", verbose_name='Kategori', on_delete=models.CASCADE,
                               null=False, blank=False)
     company = models.ForeignKey("companies.company", verbose_name='Firma', on_delete=models.CASCADE,
@@ -110,12 +98,12 @@ class Product(models.Model):
         filters = self.category.category_name
         return filters
 
-    def image_tag(self):
-        if self.slug.image_prod_first:
-            return mark_safe('<img src="%s" style="width: 100px; height:100px;" />' % self.slug.image_prod_first.url)
-        else:
-            return 'Resim Bulunamadı.'
-    image_tag.short_description = 'Resim'
+#    def image_tag(self):
+#        if self.slug.image_prod_first:
+#            return mark_safe('<img src="%s" style="width: 100px; height:100px;" />' % self.slug.image_prod_first.url)
+#        else:
+#            return 'Resim Bulunamadı.'
+#    image_tag.short_description = 'Resim'
 
 
 def _delete_file(path):
