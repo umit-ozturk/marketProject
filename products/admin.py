@@ -1,7 +1,7 @@
 from django.contrib import admin
 import json
 from django.template.defaultfilters import truncatechars
-from .models import Product, ProductInfo
+from .models import Product
 from django.conf.urls import url
 try:
     from django.urls import reverse
@@ -70,9 +70,4 @@ class ProductAdmin(admin.ModelAdmin):
     show_sale_percent.short_description = 'İndirim Yüzdesi'
 
 
-class ProductInfoAdmin(admin.ModelAdmin):
-    list_display = ('product', 'image_tag',)
-
-
 admin.site.register(Product, ProductAdmin)
-admin.site.register(ProductInfo, ProductInfoAdmin)

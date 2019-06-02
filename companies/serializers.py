@@ -1,29 +1,8 @@
 from rest_framework import serializers
 from companies.models import Company, Brand
-from products.models import Product, ProductInfo
+from products.models import Product
 from versatileimagefield.serializers import VersatileImageFieldSerializer
 from rest_framework_recursive.fields import RecursiveField
-
-
-class ProductInfoModelSerializer(serializers.ModelSerializer):
-    image_prod_first = VersatileImageFieldSerializer(sizes='image_prod_first')
-    image_prod_second = VersatileImageFieldSerializer(sizes='image_prod_second')
-    image_prod_third = VersatileImageFieldSerializer(sizes='image_prod_third')
-    image_prod_fourth = VersatileImageFieldSerializer(sizes='image_prod_fourth')
-
-    class Meta:
-        model = ProductInfo
-        fields = [
-            'id',
-            'slug',
-            'image_prod_first',
-            'image_prod_second',
-            'image_prod_third',
-            'image_prod_fourth',
-            'get_slug_count',
-            'created_at',
-            'updated_at'
-        ]
 
 
 class CompanyDisplaySerializer(serializers.ModelSerializer):
@@ -45,7 +24,6 @@ class CompanyDisplaySerializer(serializers.ModelSerializer):
 
 
 class ProductByCompanyModelSerializer(serializers.ModelSerializer):
-    slug = ProductInfoModelSerializer()
     company = CompanyDisplaySerializer()
 
     class Meta:
@@ -55,7 +33,6 @@ class ProductByCompanyModelSerializer(serializers.ModelSerializer):
             'name',
             'price',
             'title',
-            'slug',
             'company',
             'get_sale_percent'
         ]
@@ -76,23 +53,3 @@ class BrandDisplaySerializer(serializers.ModelSerializer):
             'updated_at'
         ]
 
-
-class ProductInfoModelSerializer(serializers.ModelSerializer):
-    image_prod_first = VersatileImageFieldSerializer(sizes='image_prod_first')
-    image_prod_second = VersatileImageFieldSerializer(sizes='image_prod_second')
-    image_prod_third = VersatileImageFieldSerializer(sizes='image_prod_third')
-    image_prod_fourth = VersatileImageFieldSerializer(sizes='image_prod_fourth')
-
-    class Meta:
-        model = ProductInfo
-        fields = [
-            'id',
-            'slug',
-            'image_prod_first',
-            'image_prod_second',
-            'image_prod_third',
-            'image_prod_fourth',
-            'get_slug_count',
-            'created_at',
-            'updated_at'
-        ]

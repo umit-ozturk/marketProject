@@ -16,35 +16,6 @@ def upload_location(instance, filename):
     return upload_path
 
 
-class ProductInfo(models.Model):
-    product = models.ForeignKey("products.product", verbose_name='Ürün', on_delete=models.CASCADE,
-                                null=False,  blank=False)
-    image_prod_first = VersatileImageField('Ürün Resmi 1', upload_to=upload_location, null=True, blank=True,
-                                         width_field="width_field", height_field="height_field")
-    image_prod_second = VersatileImageField('Ürün Resmi 2', upload_to=upload_location, null=True, blank=True,
-                                          width_field="width_field", height_field="height_field")
-    image_prod_third = VersatileImageField('Ürün Resmi 3', upload_to=upload_location, null=True, blank=True,
-                                         width_field="width_field", height_field="height_field")
-    image_prod_fourth = VersatileImageField('Ürün Resmi 4', upload_to=upload_location, null=True, blank=True,
-                                          width_field="width_field", height_field="height_field")
-    height_field = models.PositiveIntegerField('Uzunluk Değeri', default=0, blank=True)
-    width_field = models.PositiveIntegerField('Genişlik Değeri', default=0, blank=True)
-    created_at = models.DateTimeField('Oluşturulma Tarihi', auto_now_add=True, editable=False)
-    updated_at = models.DateTimeField('Güncellenme Tarihi', auto_now=True, editable=False)
-
-    class Meta:
-        verbose_name = 'Ürün Bilgisi'
-        verbose_name_plural = 'Ürün Bilgileri'
-        ordering = ('-created_at',)
-
-    def image_tag(self):
-        if self.image_prod_first:
-            return mark_safe('<img src="%s" style="width: 100px; height:100px;" />' % self.image_prod_first.url)
-        else:
-            return 'Resim Bulunamadı.'
-    image_tag.short_description = 'Resim'
-
-
 class Product(models.Model):
     category = TreeForeignKey("categories.category", verbose_name='Kategori', on_delete=models.CASCADE,
                               null=False, blank=False)
@@ -63,6 +34,16 @@ class Product(models.Model):
     number = RichTextField('Ürün Numarası', null=True, blank=True)
     body = RichTextField('Ürün Bedeni', null=True, blank=True)
     feature = RichTextField('Ürün Özellikleri', null=True, blank=True)
+    image_prod_first = VersatileImageField('Ürün Resmi 1', upload_to=upload_location, null=True, blank=True,
+                                         width_field="width_field", height_field="height_field")
+    image_prod_second = VersatileImageField('Ürün Resmi 2', upload_to=upload_location, null=True, blank=True,
+                                          width_field="width_field", height_field="height_field")
+    image_prod_third = VersatileImageField('Ürün Resmi 3', upload_to=upload_location, null=True, blank=True,
+                                         width_field="width_field", height_field="height_field")
+    image_prod_fourth = VersatileImageField('Ürün Resmi 4', upload_to=upload_location, null=True, blank=True,
+                                          width_field="width_field", height_field="height_field")
+    height_field = models.PositiveIntegerField('Uzunluk Değeri', default=0, blank=True)
+    width_field = models.PositiveIntegerField('Genişlik Değeri', default=0, blank=True)
     created_at = models.DateTimeField('Oluşturulma Tarihi', auto_now_add=True, editable=False)
     updated_at = models.DateTimeField('Güncellenme Tarihi', auto_now=True, editable=False)
 
@@ -112,7 +93,7 @@ def _delete_file(path):
         os.remove(path)
 
 
-@receiver(post_delete, sender=ProductInfo)
+@receiver(post_delete, sender=Product)
 def delete_img_pre_delete_post(sender, instance, *args, **kwargs):
     if instance:
         try:

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from rest_framework_recursive.fields import RecursiveField
-from companies.serializers import CompanyDisplaySerializer, ProductInfoModelSerializer
+from companies.serializers import CompanyDisplaySerializer
 from categories.models import Category
 from products.models import Product
 from versatileimagefield.serializers import VersatileImageFieldSerializer
@@ -30,7 +30,6 @@ class CategoryModelSerializer(serializers.ModelSerializer):
 class ProductByCategoryModelSerializer(serializers.ModelSerializer):
     company = CompanyDisplaySerializer()
     category = CategoryModelSerializer()
-    slug = ProductInfoModelSerializer()
 
     class Meta:
         model = Product
@@ -40,7 +39,6 @@ class ProductByCategoryModelSerializer(serializers.ModelSerializer):
             'name',
             'price',
             'title',
-            'slug',
             'company'
         ]
 

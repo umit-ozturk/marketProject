@@ -51,7 +51,10 @@
                     <div class='xt-product-slide'>
                         <div class='xt-product-carousel' id="product-container" data-url="/api/product/"> <!-- loadProductContainer() not parameter !!! -->
                         	<!-- Products Jquery -->
-
+                            {% for object in object_list %}
+                                {{ object }}
+                                {{ object.image_prod_first }}
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
