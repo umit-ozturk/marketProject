@@ -23,13 +23,6 @@
             loadCompanyContainer("company-container")
         });
 
-
-        // Products APP  Implemented 
-        $(document).ready(function(){
-            loadProductContainer("product-container", "")
-        });
-
-
           
     </script>
 {% endblock script %}
@@ -49,18 +42,51 @@
                         <span class="xt-title-bg"></span>
                     </div>
                     <div class='xt-product-slide'>
-                        <div class='xt-product-carousel' id="product-container" data-url="/api/product/"> <!-- loadProductContainer() not parameter !!! -->
-                        	<!-- Products Jquery -->
+                        <div class='xt-product-carousel' id="product-featured-container" data-url="/api/product/">
                             {% for object in object_list %}
-                                {{ object }}
-                                {{ object.image_prod_first }}
+                                <div class='xt-each-feature'>
+                                    <div class='xt-feature'>
+                                        <a href='/products/{{ object.id }}'>
+                                            <div class='product-img'>
+                                                <img src='/media/{{ object.image_prod_first }}' alt='' class='img-responsive img-thumbnail' style='border: none; display: block;max-height: 200px;'>
+                                                <span class='product-tag xt-uppercase' style='font-size:13px; font-weigth:800;'>%{{ object.get_sale_percent }}</span>
+                                            </div>
+                                        </a>
+                                        <div class='product-info'>
+                                            <div class='product-title'>
+                                                <span class='category xt-uppercase'>{{ object.name }}</span>
+                                                <span class='name xt-semibold'>{{ object.title }}</span>
+                                            </div>
+                                            <div class='price-tag pull-right'>
+                                                <span class='new-price xt-uppercase'>{{ object.name }}</span>
+                                                <span class='new-price xt-semibold'>{{ object.price }} TL</span>
+                                            </div><div class='xt-featured-caption'>
+                                            <div class='product-title'>
+                                                <span class='category xt-uppercase'>{{ object.name }}</span>
+                                                <span class='name xt-semibold'>{{ object.name }}</span>
+                                            </div>
+                                            <div class='price-tag pull-right'>
+                                                <span class='new-price xt-uppercase'>{{ object.title }}</span>
+                                                <span class='new-price xt-semibold'>{{ object.price }} TL</span>
+                                            </div>
+                                            <div class='add-cart'>
+                                                <form style='position: absolute;' action='/carts/cart/add/{{ object.id }}/' method='GET'>
+                                                    {% csrf_token %}
+                                                    {{ cart_product_form }}
+                                                    <input type='submit' value='Sepete Ekle' class='btn btn-fill'>
+                                                </form>
+                                                <ul class='reaction'>
+                                                    <span class='product-offer'>(x) Fiyat Var</span>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
                             {% endfor %}
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
-
-
 {% endblock content %}
