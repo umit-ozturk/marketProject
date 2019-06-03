@@ -295,7 +295,7 @@
                 }else{
                     aktuelUlContainer = $("#aktuel-container");
                 }
-                var initalURL = aktuelUlContainer.attr("data-url") || "/api/aktuel/";
+                var initalURL = aktuelUlContainer.attr("data-url") || "/api/v1/aktuel/";
 
                 function formatUlAktuel(aktuelValue){
                     aktuelContent = "<li><img src='" + aktuelValue.image_aktuel_comp.normal + "' style='max-height:465px;' alt='Slider Aktuel' /><div class='slide_text'><a href='/aktuels/" + aktuelValue.slug + "' class='btn' style='width: 100%;border: none;height: 100%;'></a></div></li>"
@@ -317,7 +317,7 @@
                         fetchUrl = url
                     }
                     $.ajax({
-                        url: "/api/aktuel/",
+                        url: "/api/v1/aktuel/",
                         data: {
                             "q": query
                         },
@@ -344,7 +344,7 @@
                 }else{
                     aktuelOlContainer = $("#aktuel-ol-container");
                 }
-                var initalURL = aktuelOlContainer.attr("data-url") || "/api/aktuel/";        
+                var initalURL = aktuelOlContainer.attr("data-url") || "/api/v1/aktuel/";
 
                 function formatOlAktuel(aktuelValue){
                     aktuelContent = "<li><img src='" + aktuelValue.image_aktuel.normal + "' style='height:75px; max-width:75px; alt='' /></li>"
@@ -368,7 +368,7 @@
                     }
 
                     $.ajax({
-                        url: "/api/aktuel/",
+                        url: "/api/v1/aktuel/",
                         data: {
                             "q": query
                         },
@@ -399,7 +399,7 @@
                 }else{
                     aktuelDetailContainer = $("#aktuel-detail-container");
                 }
-                var initalURL = aktuelDetailContainer.attr("data-url") || "/api/aktuel/";
+                var initalURL = aktuelDetailContainer.attr("data-url") || "/api/v1/aktuel/";
 
                 function formatAktuelDetail(aktuelDetailValue){
                     aktuelDetailContent = "<div class='col-md-4 col-sm-4'><div class='xt-feature'><div class='product-img'><img src='" + aktuelDetailValue.image_prod_first + "' alt='' class='img-responsive'><span class='product-tag xt-uppercase'>" + aktuelDetailValue.name + "</span></div><div class='product-info'><div class='product-title'><span class='category xt-uppercase'>" + aktuelDetailValue.name + "</span><span class='name xt-semibold'>" + aktuelDetailValue.title + "</span></div><div class='price-tag pull-right'><span class='old-price'>" + aktuelDetailValue.name + "</span><span class='new-price xt-semibold'>" + aktuelDetailValue.price + "</span></div><div class='xt-featured-caption'><div class='product-title'><span class='category xt-uppercase'>" + aktuelDetailValue.name + "</span><span class='name xt-semibold'>" + aktuelDetailValue.title + "</span></div><div class='price-tag pull-right'><span class='old-price'>" + aktuelDetailValue.name + "</span><span class='new-price xt-semibold'>" + aktuelDetailValue.price + "</span></div><div class='add-cart'><a href='' class='btn btn-fill'>Add to cart</a><ul class='reaction'><li><a href=''><i class='fa fa-search'></i></a></li><li><a href=''><i class='fa fa-heart-o'></i></a></li><li><a href=''><i class='fa fa-bar-chart-o'></i></a></li></ul></div></div></div></div></div>"
@@ -415,7 +415,7 @@
                 }
 
                 function fetchDetailAktuel(url){
-                    var fetchDetailUrl = '/api/aktuel/' + fethOneID + '/';
+                    var fetchDetailUrl = '/api/v1/aktuel/' + fethOneID + '/';
                     $.ajax({
                       url : fetchDetailUrl,
                         method : "GET",
@@ -446,14 +446,14 @@
                 if (fetchCompanyId){
                     var companyDetailContainer;
                     companyDetailContainer = $("#company-detail-container");
-                    var initalDetailURL = companyDetailContainer.attr("data-url") || "/api/company/" + fetchCompanyId + "/product/ ";
+                    var initalDetailURL = companyDetailContainer.attr("data-url") || "/api/v1/company/" + fetchCompanyId + "/product/ ";
                 }
                 if (companyContainerID){
                     companyContainer = $("#" + companyContainerID);
                 }else{
                     companyContainer = $("#company-container");
                 }
-                var initalURL = companyContainer.attr("data-url") || "/api/company/";
+                var initalURL = companyContainer.attr("data-url") || "/api/v1/company/";
 
                 function formatCompany(companyValue, secondCompanyFormattedHtml, thirdCompanyFormattedHtml, fourthCompanyFormattedHtml){
                     // If not exist second Company
@@ -542,7 +542,7 @@
                 }
 
                 function fetchSingleCompany(fetchCompanyId) {
-                    var fetchDetailUrl = '/api/company/' + fetchCompanyId + '/product/';
+                    var fetchDetailUrl = '/api/v1/company/' + fetchCompanyId + '/product/';
                     $.ajax({
                       url : fetchDetailUrl,
                         method : "GET",
@@ -573,7 +573,7 @@
                         fetchUrl = url
                     }
                     $.ajax({
-                        url: "/api/company/",
+                        url: "/api/v1/company/",
                         data: {
                             "q": query
                         },
@@ -591,7 +591,7 @@
 
                 if(fetchCompanyId){
                     function bigPrice(url){
-                        var priceDetailUrl = '/api/company/' + fetchCompanyId + '/' + "product/"
+                        var priceDetailUrl = '/api/v1/company/' + fetchCompanyId + '/' + "product/"
                         return $.ajax({
                           url : priceDetailUrl,
                             method : "GET",
@@ -626,7 +626,7 @@
                 if (fetchCategoryId){
                     var categoryDetailContainer;
                     categoryDetailContainer = $("#category-detail-container");
-                    var initalDetailURL = categoryDetailContainer.attr("data-url") || "/api/category/" + fetchCategoryId + "/product/ ";        
+                    var initalDetailURL = categoryDetailContainer.attr("data-url") || "/api/v1/category/" + fetchCategoryId + "/product/ ";
                 }
 
                 if (categoryContainerID){
@@ -634,7 +634,7 @@
                 }else{
                     categoryContainer = $("#category-container");
                 }
-                var initalURL = categoryContainer.attr("data-url") || "/api/category/";        
+                var initalURL = categoryContainer.attr("data-url") || "/api/v1/category/";
 
 
                 function formatCategory(categoryValue, secondCategoryFormattedHtml, thirdCategoryFormattedHtml, fourthCategoryFormattedHtml){
@@ -750,7 +750,7 @@
                         fetchUrl = url
                     }
                     $.ajax({
-                        url: "/api/category/",
+                        url: "/api/v1/category/",
                         data: {
                             "q": query
                         },
@@ -773,10 +773,10 @@
                     if(equalSep != -1){
                         var argsPrice = currentUrl.slice(equalSep+1, -1)
                         var argsPrice = argsPrice.split("-")
-                        var fetchDetailUrl = '/api/category/' + fetchCategoryId + '/product/?q=' + argsPrice[0] + '-' + argsPrice[1]
+                        var fetchDetailUrl = '/api/v1/category/' + fetchCategoryId + '/product/?q=' + argsPrice[0] + '-' + argsPrice[1]
                     }
                     else{
-                        var fetchDetailUrl = '/api/category/' + fetchCategoryId + '/product/'
+                        var fetchDetailUrl = '/api/v1/category/' + fetchCategoryId + '/product/'
                     }                    
                     $.ajax({
                       url : fetchDetailUrl,
@@ -802,7 +802,7 @@
                 if(fetchCategoryId){
 
                     function bigPrice(url){
-                        var priceDetailUrl = '/api/category/' + fetchCategoryId + '/' + "product/"
+                        var priceDetailUrl = '/api/v1/category/' + fetchCategoryId + '/' + "product/"
                         return $.ajax({
                           url : priceDetailUrl,
                             method : "GET",

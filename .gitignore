@@ -1,5 +1,4 @@
 .idea/
-.static
 .*migrations
 .migrations
 .__pycache__
