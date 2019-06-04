@@ -528,43 +528,6 @@
                    }
                 }
 
-                function formatSingleCompany(companyValue){
-                    companyContent = "<div class='col-md-4 col-sm-4'><div class='xt-feature'><a href='/products/" + companyValue.id + "'><div class='product-img'><img src='" + companyValue.slug.image_prod_first.normal + "' alt='' class='img-responsive'><span class='product-tag xt-uppercase'>%" + companyValue.get_sale_percent + "</span></div></a><div class='product-info'><div class='product-title'><span class='company xt-uppercase'>" + companyValue.name + "</span><span class='name xt-semibold'>" + companyValue.title + "</span></div><div class='price-tag pull-right'><span class='old-price'>" + companyValue.company.company_name + "</span><span class='new-price xt-semibold'>" + companyValue.price + "</span></div><div class='xt-featured-caption'><div class='product-title'><span class='company xt-uppercase'>" + companyValue.name + "</span><span class='name xt-semibold'>" + companyValue.title + "</span></div><div class='price-tag pull-right'><span class='old-price'>" + companyValue.company.company_name + "</span><span class='new-price xt-semibold'>" + companyValue.price + "</span></div><div class='add-cart'><a href='' class='btn btn-fill'>Sepete Ekle</a></div></div></div></div></div>"
-                    return companyContent
-                }
-
-                function parseSingleCompanies(){
-                    $.each(companyDetail, function(key, value){
-                        companyValue = value
-                        companyFormattedHtml = formatSingleCompany(companyValue)
-                        companyDetailContainer.append(companyFormattedHtml)
-                    })
-                }
-
-                function fetchSingleCompany(fetchCompanyId) {
-                    var fetchDetailUrl = '/api/v1/company/' + fetchCompanyId + '/product/';
-                    $.ajax({
-                      url : fetchDetailUrl,
-                        method : "GET",
-                        success: function(data){
-                            companyDetail = data
-                            if(data.next){
-                                nextProductUrl = data.next
-
-                            }else{
-                                 $("#slider-xt").hide()
-                                 $("#deal-xt").hide()
-                            }
-                            parseSingleCompanies()
-                        },
-                        error: function(data){
-                            console.log("error")
-                            console.log(data)
-                        },
-                    })
-                }
-
-
                 function fetchCompanies(url){
                     var fetchUrl;
                     if (!url){
@@ -588,28 +551,7 @@
                         },
                     })
                 }
-
-                if(fetchCompanyId){
-                    function bigPrice(url){
-                        var priceDetailUrl = '/api/v1/company/' + fetchCompanyId + '/' + "product/"
-                        return $.ajax({
-                          url : priceDetailUrl,
-                            method : "GET",
-                            success: function(data){
-
-                            },
-                            error: function(data){
-                                console.log("error")
-                                console.log(data)
-                            },
-                        })
-                    }
-                    fetchSingleCompany(fetchCompanyId)
-                    fetchCompanies()
-
-                }else{
-                    fetchCompanies()
-                }
+                fetchCompanies()
             }
 
             /////////           CATEGORIES            /////////
