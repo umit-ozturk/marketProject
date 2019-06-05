@@ -6,8 +6,6 @@ from products.models import Product
 from versatileimagefield.serializers import VersatileImageFieldSerializer
 
 
-# -- For Category endpoint --> /api/category/
-
 class CategoryModelSerializer(serializers.ModelSerializer):
     children = serializers.ListSerializer(read_only=True, child=RecursiveField())
     image_prod = VersatileImageFieldSerializer(sizes='image_prod_first')
@@ -24,8 +22,6 @@ class CategoryModelSerializer(serializers.ModelSerializer):
             'children',
         ]
 
-# -- For Category endpoint --> /api/category/1/product
-
 
 class ProductByCategoryModelSerializer(serializers.ModelSerializer):
     company = CompanyDisplaySerializer()
@@ -41,8 +37,6 @@ class ProductByCategoryModelSerializer(serializers.ModelSerializer):
             'title',
             'company'
         ]
-
-# -- For Product endpoint --> /api/product/
 
 
 class ParentCategoryModelSerializer(serializers.ModelSerializer):

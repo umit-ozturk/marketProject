@@ -663,7 +663,7 @@
                 }
 
                 function formatSingleCategory(categoryValue){
-                    categoryContent = "<div class='col-md-4 col-sm-4'><div class='xt-feature'><a href='/products/" + categoryValue.id + "'><div class='product-img'><img src='" + categoryValue.slug.image_prod_first.normal + "' alt='' class='img-responsive'><span class='product-tag xt-uppercase'>" + categoryValue.company.company_name + "</span></div></a><div class='product-info'><div class='product-title'><span class='category xt-uppercase'>" + categoryValue.name + "</span><span class='name xt-semibold'>" + categoryValue.title + "</span></div><div class='price-tag pull-right'><span class='old-price'>" + categoryValue.company.company_name + "</span><span class='new-price xt-semibold'>" + categoryValue.price + "</span></div><div class='xt-featured-caption'><div class='product-title'><span class='category xt-uppercase'>" + categoryValue.name + "</span><span class='name xt-semibold'>" + categoryValue.title + "</span></div><div class='price-tag pull-right'><span class='old-price'>" + categoryValue.company.company_name + "</span><span class='new-price xt-semibold'>" + categoryValue.price + "</span></div><div class='add-cart'><a href='' class='btn btn-fill'>Sepete Ekle</a></div></div></div></div></div>"
+                    categoryContent = "<div class='col-md-4 col-sm-4'><div class='xt-feature'><a href='/products/" + categoryValue.id + "'></a><div class='product-info'><div class='product-title'><span class='category xt-uppercase'>" + categoryValue.name + "</span><span class='name xt-semibold'>" + categoryValue.title + "</span></div><div class='price-tag pull-right'><span class='old-price'>" + categoryValue.company.company_name + "</span><span class='new-price xt-semibold'>" + categoryValue.price + "</span></div><div class='xt-featured-caption'><div class='product-title'><span class='category xt-uppercase'>" + categoryValue.name + "</span><span class='name xt-semibold'>" + categoryValue.title + "</span></div><div class='price-tag pull-right'><span class='old-price'>" + categoryValue.company.company_name + "</span><span class='new-price xt-semibold'>" + categoryValue.price + "</span></div><div class='add-cart'><a href='' class='btn btn-fill'>Sepete Ekle</a></div></div></div></div></div>"
                     
                     
                     return categoryContent
@@ -679,10 +679,6 @@
                     })
            
                 }
-
-
-
-
 
                 function fetchCategories(url){
                     var fetchUrl;

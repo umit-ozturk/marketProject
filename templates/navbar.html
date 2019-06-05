@@ -19,7 +19,7 @@
                                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                     <span aria-hidden="true" class="icon"></span>
                                   </button>
-                                  <a class="navbar-brand" href="/"><img src="{% static 'images/flogo.png' %}" alt="" class="img-responsive"></a>
+                                  <a class="navbar-brand" href="/"><img src="{% static 'images/flogo.png' %}" alt="" style="max-height: 70px; max-width: 70px;" class="img-responsive"></a>
                                 </div>
                                 <div class="col-md-6 search">
                                     {% include 'products/search_form.html' %}
@@ -29,7 +29,7 @@
                                     {% include 'products/search_form.html' %}
                                     </div>
                                  </div>
-                                <div class="collapse navbar-collapse" id="js-navbar-menu">
+                                <div class="collapse navbar-collapse" id="js-navbar-menu" style="margin-top: 5px;">
                                     <ul class="nav navbar-nav navbar-right ep-mobile-menu" id="navbar-nav">
                                         <li> <span style="font-size: 12px; font-weight: 700; font-style: italic;"> Merhaba</span>,
                                             <a href="/profile/{{user}}/">
@@ -51,12 +51,12 @@
                                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                     <span aria-hidden="true" class="icon"></span>
                                   </button>
-                                  <a class="navbar-brand" href="/"><img src="{% static 'images/flogo.png' %}" alt="" class="img-responsive"></a>
+                                  <a class="navbar-brand" href="/"><img src="{% static 'images/flogo.png' %}" style="max-height: 70px; max-width: 70px;" alt="" class="img-responsive"></a>
                                 </div>
                                 <div class="col-md-6">
                                     {% include 'products/search_form.html' %}
                                 </div>
-                                <div class="collapse navbar-collapse" id="js-navbar-menu" style="float:right">
+                                <div class="collapse navbar-collapse" id="js-navbar-menu" style="margin-top: 5px; float:right">
                                     <ul class="nav navbar-nav navbar-right ep-mobile-menu" id="navbar-nav">
                                         <li><a href="/register"> Üye Ol </a></li>
                                         <li><a href="/login"> Gİrİş Yap </a></li>
@@ -99,19 +99,15 @@
                                       <a href="" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
                                        <i class="fa flaticon-supermarket-cart"></i>
                                       </a>
-                                        <ul class="dropdown-menu xt-cart-items">
+                                        <ul class="dropdown-menu xt-cart-items" style="min-width: 250px;">
                                             {% for item in carts %}
                                                 <li>
                                                     <a href="/carts/cart/detail/">
-                                                        <img src="/media/{{ item.product.slug.image_prod_first }}" alt="Ürün Resmi">
+                                                        <img src="/media/{{ item.product.image_prod_first }}" alt="Ürün Resmi">
                                                         <h3>
                                                             {{ item.product.name |truncatechars:22 }}
                                                             
-                                                        </h3>   
-                                                            
-                                                          
-                                                          
-                                                          
+                                                        </h3>
                                                         <span class="cart-price">{{ item.product.price }} TL <span style="font-size:12px;">( {{ item.quantity }} Adet )</span></span>                 
                                                     </a>
                                             {% endfor %}

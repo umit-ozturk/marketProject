@@ -1,12 +1,11 @@
-from django.db.models import Q
 from django.views.generic import (
             DetailView,
             ListView
             )
-from .models import Product
+from django.db.models import Max
+from products.models import Product
 from companies.views import global_companies_detail
 from cart.views import global_cart_detail
-from django.db.models import Max
 
 
 class ProductDetailView(DetailView):
@@ -24,7 +23,7 @@ class ProductListView(ListView):
     def get_context_data(self, *args, **kwargs):
         context = super(ProductListView, self).get_context_data(*args, **kwargs)
         context['carts'] = global_cart_detail(self.request)
-        context['companies'] = global_companies_detail(*args)
+        context['companies'] = global_companies_detail()
         return context
 
     @staticmethod
