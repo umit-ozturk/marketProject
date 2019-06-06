@@ -18,7 +18,7 @@ MarketProject is a basic price comparison e-commerce site.
 Clone the repository and create a virtual environment.
 
     $ git clone https://github.com/umit-ozturk/marketProject.git
-	$ cd MovieDeep
+	$ cd marketProject
 	$ virtualenv -p python3 env
 	$ source env/bin/activate
     $ pip install -r requirements.txt

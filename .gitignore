@@ -23,7 +23,6 @@ celerybeat-schedule.db
 *.ipr
 *.iws
 
-static/
 uploads/
 media/
 
