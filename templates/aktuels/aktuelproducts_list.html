@@ -1,21 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
+        <div class="row">
+            <div class="col-md-3">
 
-    {% for object in object_list %}
-        <div class='col-md-3'>
-            <div role='tabpanel' class='tab-pane active xt-product-tab'>
-                <div class='tab-content xt-pro-small-image'>
-                    <div role='tabpanel' id='xt-pro-1' class='tab-pane fade active in'>
-                        <a class='grouped_elements' data-fancybox='gallery' href="/media/{{object.image_aktuel_prod}}/">
-                            <img src="/media/{{object.image_aktuel_prod}}/" alt='' class='img-responsive'>
-                        </a>
+            </div>
+            <div class="col-md-9">
+                <section class="xt-feature-product">
+                    <div class="container">
+                        <div class="row section-separator">
+                            <div class='xt-product-slide'>
+                                {% for object in object_list %}
+                                    <div class='col-md-3'>
+                                        <div role='tabpanel' class='tab-pane active xt-product-tab'>
+                                            <div class='tab-content xt-pro-small-image'>
+                                                <div role='tabpanel' id='xt-pro-1' class='tab-pane fade active in'>
+                                                    <a class='grouped_elements' data-fancybox='gallery' href="/media/{{object.image_aktuel_prod}}/">
+                                                        <img src="/media/{{object.image_aktuel_prod}}/" alt='' class='img-responsive'>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </section>
             </div>
         </div>
-    {% endfor %}
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 {% endblock content %}
 
 
