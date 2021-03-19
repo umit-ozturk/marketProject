@@ -12,7 +12,7 @@ django-js-asset==1.2.2
 django-mptt==0.10.0
 django-suit==0.2.26
 django-versatileimagefield==1.10
-djangorestframework==3.9.2
+djangorestframework==3.11.2
 djangorestframework-recursive==0.1.2
 et-xmlfile==1.0.1
 idna==2.8
